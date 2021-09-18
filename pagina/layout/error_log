@@ -1,0 +1,165 @@
+[04-Jul-2021 03:58:10 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[04-Jul-2021 04:00:23 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[04-Jul-2021 04:09:32 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[04-Jul-2021 09:01:58 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 31
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[04-Jul-2021 02:29:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 31
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[04-Jul-2021 18:09:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 31
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[05-Jul-2021 04:36:39 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[05-Jul-2021 22:05:52 UTC] PHP Notice:  Undefined index: cid in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 58
+[05-Jul-2021 22:05:52 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 75
+[05-Jul-2021 22:06:13 UTC] PHP Notice:  Undefined index: cid in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 58
+[05-Jul-2021 22:06:13 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 75
+[05-Jul-2021 22:09:02 UTC] PHP Notice:  Undefined index: cid in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 58
+[05-Jul-2021 22:09:02 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 75
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 31
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[08-Jul-2021 00:27:11 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[08-Jul-2021 08:49:23 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 30
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[11-Jul-2021 18:35:01 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[21-Jul-2021 04:18:03 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[21-Jul-2021 04:32:49 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 30
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[21-Jul-2021 03:09:46 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 30
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[21-Jul-2021 05:23:37 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[23-Jul-2021 22:45:30 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 14
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 30
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[23-Jul-2021 22:45:31 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[25-Jul-2021 05:51:28 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[25-Jul-2021 22:27:52 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[25-Jul-2021 22:27:52 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[25-Jul-2021 22:27:52 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 16
+[25-Jul-2021 22:27:52 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[25-Jul-2021 22:27:52 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[25-Jul-2021 22:27:52 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[25-Jul-2021 22:27:52 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 20
+[25-J[26-Jul-2021 22:17:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 16
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 20
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 21
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 22
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 33
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[26-Jul-2021 22:17:10 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 16
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 20
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 21
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 22
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 33
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[01-Aug-2021 02:35:35 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218
+[02-Aug-2021 16:39:49 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 22
+[02-Aug-2021 17:07:46 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 22
+[02-Aug-2021 17:32:26 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[03-Aug-2021 01:32:31 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[02-Aug-2021 17:32:42 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[02-Aug-2021 17:32:56 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[02-Aug-2021 17:32:57 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[02-Aug-2021 17:33:01 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[02-Aug-2021 18:10:48 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[02-Aug-2021 18:11:09 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[03-Aug-2021 02:11:46 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[02-Aug-2021 18:11:48 UTC] PHP Notice:  Undefined index: grupo_empresa in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[05-Aug-2021 21:40:32 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/layout/logout.php on line 23
+[05-Aug-2021 14:41:52 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 25
+[05-Aug-2021 14:41:52 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 28
+[05-Aug-2021 14:42:09 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 28
+[05-Aug-2021 14:43:21 UTC] PHP Warning:  Use of undefined constant php - assumed 'php' (this will throw an Error in a future version of PHP) in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 28
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 16
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 20
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 21
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 22
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 34
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 7
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 12
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[05-Aug-2021 17:56:03 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/inicio.php on line 218

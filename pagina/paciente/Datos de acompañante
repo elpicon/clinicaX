@@ -1,0 +1,81 @@
+<div class="row marco-acomp">
+                       <div class="col-md-12 ">
+                        <div class="form-group">
+                          <label for="" >Datos de Acompañante</label>
+                        </div>
+                    </div>
+                       <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                         <label for="date" >Tipo DI Acompañante</label>
+                          <select id="tipodocumento">
+                              <option value="CC">C.C</option>
+                              <option value="TI">T.I</option>
+                              <option value="CE">C.E</option>
+                              <option value="PASAPORTE">Pasaporte</option>
+                          </select>
+                      </div>
+                    </div>
+                    
+                      
+                       <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                         <label for="date" >Usuario/DI </label>
+                          <input type="text" class="form-control pull-right" id="numerodeacompanante" name="numerodeacompanante"  placeholder="numerodeacompanante" required>
+                      </div>
+                    </div>
+                          
+                     
+                    
+                    <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                          <label for="primerapellido" >Apellido </label>
+                          <input type="text" class="form-control pull-right" placeholder="Apellido" id="primerapellido" name="primerapellido" required >
+                      </div>
+                    </div>
+                                  </div>
+           
+
+<div class="row marco-acomp">
+                   
+                       <div class="col-md-3 btn-print">
+                          <div class="form-group">
+                            <label for="segudoapellido" >Nombre </label>
+                            <input type="text" class="form-control pull-right" id="segudoapellido" placeholder="Nombre" name="segudoapellido" required >
+                          </div>
+                     </div>
+                    
+                     <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                          <label for="fechantoacom" >Fecha/Nacimiento</label>
+                          <input type="date" class="form-control pull-right" id="fechantoacom" name="fechantoacom"  placeholder="Fecha de nacimiento" required>
+                      </div>
+                    </div>   
+                    
+                       <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                         <label for="parentezco" >Parentezco</label>
+                          <input type="text" class="form-control pull-right" id="parentezco" name="parentezco" placeholder="Parentezco" required >
+                      </div>
+                    </div>    
+                      <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                         <label for="direcciondelacompanante" >Direccion</label>
+                          <input type="text" class="form-control pull-right" id="direcciondelacompanante" name="direcciondelacompanante" placeholder="Direccion" required >
+                      </div>
+                    </div>  
+                    
+                     <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                         <label for="barriodelacompanante" >Barrio</label>
+                          <input type="text" class="form-control pull-right" id="barriodelacompanante" name="barriodelacompanante" placeholder="Barrio" required >
+                      </div>
+                    </div>  
+                    
+                    <div class="col-md-3 btn-print">
+                      <div class="form-group">
+                         <label for="numerodecontactodelacompanante" >Telefono </label>
+                          <input type="text" class="form-control pull-right"  placeholder="Telefono" id="numerodecontactodelacompanante" name="numerodecontactodelacompanante" required >
+                      </div>
+                    </div>  
+        
+    </div>

@@ -1,0 +1,12 @@
+[20-Jul-2021 21:48:19 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[20-Jul-2021 21:48:19 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[20-Jul-2021 21:48:19 UTC] PHP Warning:  include(): Failed opening 'dbcon.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[21-Jul-2021 05:48:19 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 23
+[20-Jul-2021 22:34:37 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[20-Jul-2021 22:34:37 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[20-Jul-2021 22:34:37 UTC] PHP Warning:  include(): Failed opening 'dbcon.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[21-Jul-2021 06:34:37 Asia/Manila] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 19
+[21-Jul-2021 01:51:47 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[21-Jul-2021 01:51:47 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[21-Jul-2021 01:51:47 UTC] PHP Warning:  include(): Failed opening 'dbcon.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 2
+[21-Jul-2021 09:51:47 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/recepcionista/logout.php on line 23

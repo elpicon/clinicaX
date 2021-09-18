@@ -1,0 +1,57 @@
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_horario_medico in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 406
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 436
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 449
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: cuenta in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 455
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: ruc_nit in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 461
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: razon_social in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 467
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_horario_medico in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 406
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 436
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 449
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: cuenta in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 455
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: ruc_nit in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 461
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: razon_social in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 467
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_horario_medico in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 406
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 436
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 449
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: cuenta in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 455
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: ruc_nit in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 461
+[05-Aug-2021 00:21:00 UTC] PHP Notice:  Undefined index: razon_social in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 467
+[05-Aug-2021 00:36:18 UTC] PHP Notice:  Undefined index: cid in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 222
+[05-Aug-2021 00:36:49 UTC] PHP Notice:  Undefined index: cid in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 222
+[05-Aug-2021 00:37:10 UTC] PHP Notice:  Undefined index: cid in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 222
+[05-Aug-2021 00:37:13 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/horario_medico/logout.php on line 2
+[05-Aug-2021 00:37:13 UTC] PHP Warning:  include(dbcon.php): failed to open stream: No such file or directory in /home/beatiful/public_html/app/clinica/pagina/horario_medico/logout.php on line 2
+[05-Aug-2021 00:37:13 UTC] PHP Warning:  include(): Failed opening 'dbcon.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/beatiful/public_html/app/clinica/pagina/horario_medico/logout.php on line 2
+[05-Aug-2021 08:37:13 Asia/Manila] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/beatiful/public_html/app/clinica/pagina/horario_medico/logout.php on line 23
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 10
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 15
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 16
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 17
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 18
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 19
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 20
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 21
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 22
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Trying to access array offset on value of type null in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 23
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/session.php on line 34
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/layout/sidebar.php on line 2
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: id in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 238
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: id_horario_medico in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 406
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 436
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 449
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: cuenta in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 455
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: ruc_nit in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 461
+[06-Aug-2021 04:13:30 UTC] PHP Notice:  Undefined index: razon_social in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 467
+[06-Aug-2021 13:43:28 UTC] PHP Notice:  Undefined index: id_horario_medico in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 406
+[06-Aug-2021 13:43:28 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 436
+[06-Aug-2021 13:43:28 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 449
+[06-Aug-2021 13:43:28 UTC] PHP Notice:  Undefined index: cuenta in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 455
+[06-Aug-2021 13:43:28 UTC] PHP Notice:  Undefined index: ruc_nit in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 461
+[06-Aug-2021 13:43:28 UTC] PHP Notice:  Undefined index: razon_social in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 467
+[07-Aug-2021 23:08:44 UTC] PHP Notice:  Undefined index: id_horario_medico in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 406
+[07-Aug-2021 23:08:44 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 436
+[07-Aug-2021 23:08:44 UTC] PHP Notice:  Undefined index: id_empresas in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 449
+[07-Aug-2021 23:08:44 UTC] PHP Notice:  Undefined index: cuenta in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 455
+[07-Aug-2021 23:08:44 UTC] PHP Notice:  Undefined index: ruc_nit in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 461
+[07-Aug-2021 23:08:44 UTC] PHP Notice:  Undefined index: razon_social in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 467
+[07-Aug-2021 23:08:47 UTC] PHP Notice:  Undefined index: cid in /home/beatiful/public_html/app/clinica/pagina/horario_medico/horario_medico.php on line 222
