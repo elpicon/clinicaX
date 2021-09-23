@@ -3,7 +3,7 @@
 
  header('Content-Type: text/html; charset=UTF-8'); 
 ?>
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
@@ -128,25 +128,28 @@ ul {
                  
                        <div class="col-md-4 btn-print">
                       <div class="form-group">
-                           <label for="eps_ars" >EPS / ERP</label>
-                          <select name="eps" required>
+                           <label for="eps_ars" >Aseguradora</label>
+                          <select name="eps" id="eps" required>
                                 <option value="">Seleccione</option>
-                               //ANTECEDENTES DEL PACIENTE 
+                              <!--ANTECEDENTES DEL PACIENTE -->
 <?php
     
       
       $x = 0;
 
    
-          $query = mysqli_query( $con, "SELECT * FROM EPS WHERE true " )or die( mysqli_error() );
+          $query = mysqli_query( $con, "SELECT * FROM aseguradoras WHERE true " )or die( mysqli_error() );
           $i = 0;
 
-          while ( $row = mysqli_fetch_array( $query ) ) {
+          while ( $row2 = mysqli_fetch_array( $query ) ) {
              
-              $eps = $row[ 'nombre_eps' ];
+              $eps = $row2[ 'nombre' ];
                $i++;
-            echo "     <option value='$i'>".$eps."</option>";
-             
+              if(!strcmp($row2[ 'codigo' ],$row[ 'codigoeps' ])){
+                  echo " <option selected value='".$row2[ 'codigo' ]."'>".$eps."</option>";
+              }else{
+            echo " <option value='".$row2[ 'codigo' ]."'>".$eps."</option>";
+             }
           }
          
          
@@ -470,15 +473,195 @@ function _convert($content) {
                       </div>
                     </div> 
                    
-                    
-                      <div class="col-md-8 btn-print">
+                     <input  type="hidden" class="form-control" id="numerodecontrato"  hidden name="numerodecontrato"  >
+                     
+                      <div class="col-md-12 btn-print">
                       <div class="form-group">
-                     <label for="numerodecontrato" >Numero de Contrato</label>
-                    <input type="text" class="form-control" id="numerodecontrato" name="numerodecontrato" placeholder="Contrato"  required>
+                   
+                   
+                     
+                     <div class="containerT">
+                       <label for="numerodecontrato" >Numero de Contrato</label>
+                      <br />
+                      <div class="tag-container">
+                          <input list='lista_contrato' id='in_contrato'  value=''  class='form-control' >
+                            <datalist id='lista_contrato'  >
+                            </datalist>
+                         </div>
+                       </div> 
                       </div>
                     </div>
                    
-                   
+
+         
+<script>
+const in_contrato = document.getElementById('in_contrato');
+const lista_contrato = document.getElementById('lista_contrato');
+var E;
+const in_paciente = document.getElementById('in_paciente');
+const listapaciente = document.getElementById('listapaciente');
+const tagContainer = document.querySelector('.tag-container');
+const input = document.querySelector('.tag-container input');
+    
+ 
+const contratoHandler = function(e) {
+  var sresult;
+     
+
+    var entidad=document.getElementById("eps").value;
+    //alert(entidad);
+  datoin = e.target.value;
+  var dataString = 'codigo='+datoin+'&entidad='+entidad;
+  //console.log(dataString);
+  $.ajax({
+            type: "POST",
+            url: "getContrato.php?"+dataString,
+            data: "",
+            success: function(res2) {
+                 //$('.result').html(res);
+                  console.log("Z ".res2);
+                 lista_contrato.innerHTML = res2;
+              
+            }
+        });
+}   
+    
+in_contrato.addEventListener('input', contratoHandler);
+in_contrato.addEventListener('propertychange', contratoHandler);
+        
+
+let tags = [];
+
+function createTag(label) {
+  const div = document.createElement('div');
+  div.setAttribute('class', 'tag');
+  const span = document.createElement('span');
+  span.innerHTML = label;
+  const closeIcon = document.createElement('i');
+  closeIcon.innerHTML = 'close';
+  closeIcon.setAttribute('class', 'material-icons');
+  closeIcon.setAttribute('data-item', label);
+  div.appendChild(span);
+  div.appendChild(closeIcon);
+  return div;
+}
+
+function clearTags() {
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.parentElement.removeChild(tag);
+  });
+}
+
+function addTags() {
+  clearTags();
+  tags.slice().reverse().forEach(tag => {
+    tagContainer.prepend(createTag(tag));
+  });
+}
+
+	$('.tag-container input').change(function(){
+        
+        var value = $('#in_contrato').val();
+                    var codigoSplit=value.split(" ");
+                    var  codigoS= codigoSplit[0];//1
+                    $('#in_contrato').val(codigoS);
+                    
+        
+		E.target.value.split(',').forEach(tag => {
+        var rep=0;
+            
+        for (var i = 0; i < tags.length; i++) {
+          if(tags[i].trim()===tag.trim()){
+            //tags[i] = precioDescuento
+              rep=1;
+          }
+         }
+         if(rep!==1){tags.push(tag);}
+        console.log(tags.toString());
+        $('#numerodecontrato').val(tags.toString());
+      });
+      
+      addTags();
+      input.value = '';
+		});    
+    
+input.addEventListener('keyup', (e) => {
+    E=e;
+    
+    if (e.key === 'Enter') {
+      e.target.value.split(',').forEach(tag => {
+        tags.push(tag);  
+      });
+      
+      addTags();
+      input.value = '';
+    }
+});
+document.addEventListener('click', (e) => {
+  console.log(e.target.tagName);
+    
+  
+    
+  if (e.target.tagName === 'I') {
+    const tagLabel = e.target.getAttribute('data-item');
+    const index = tags.indexOf(tagLabel);
+    tags = [...tags.slice(0, index), ...tags.slice(index+1)];
+    addTags();    
+  }
+})
+
+input.focus();
+</script>           
+<style>
+@import url('https://kodhus.com/kodhus-ui/kodhus-0.1.0.min.css');
+body {
+  background: #eee;
+}
+.containerT {
+  width: 100%;
+  margin: 30px auto;
+}
+.tag-container {
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding: 6px;
+  overflow-x: scroll;
+}
+.tag-container .tag {
+  height: 30px;
+  margin: 5px;
+  padding: 5px 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  color: #333;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 1px 1px #fff;
+  cursor: default;
+}
+.tag i {
+  font-size: 16px;
+  color: #666;
+  margin-left: 5px;
+}
+.tag-container input {
+  padding: 5px;
+  font-size: 16px;
+  border: 0;
+  outline: none;
+  font-family: 'Rubik';
+  color: #333;
+  flex: 1;
+}
+
+             </style>         
+                     
+        
                     
               
                     

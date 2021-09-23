@@ -1,6 +1,7 @@
 <?php
-include('../../dist/includes/dbcon.php');
 session_start();
+include('../../dist/includes/dbcon.php');
+
 
 
 //$horario = array();
@@ -9,10 +10,9 @@ session_start();
 
 
 $fechasel="";
-$id_usuario=$_SESSION['id'];
-$tipo_usuario=$_REQUEST['tipo_usuario'];
-$fechasel=$_REQUEST['fechasel'];
-$id_medico=$_REQUEST['id_medico'];   
+$tipo_usuario=$_POST['tipo_usuario'];
+$fechasel=$_POST['fechasel'];
+$id_medico=$_POST['id_medico'];   
 //echo $id_medico." ".$fechasel;
      $id_paciente;
    
@@ -101,7 +101,7 @@ while ($row2 = mysqli_fetch_assoc($result2)) {
                             <a class='btn btn-sm myButton2 ' style='background-color:transparent'><div style='text-align:left;'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
                             <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/>
                             </svg></div></a>
-                            <a class='btn btn-sm myButton3  btn-print' role='button' style='background-color:transparent'  href='../cita/eliminar_cita.php?id_cita=".$id_cita[$i]."&idpag=agregar&observaciones=".$observaciones[$i]."__Cancelado por: ".$tipo_usuario.":".$id_usuario."' onClick=\"return confirm('$confirma')\"><div style='text-align:left;'><i class='fa fa-trash'></i></div>  </a>
+                            <a class='btn btn-sm myButton3  btn-print' role='button' style='background-color:transparent'  href='../cita/eliminar_cita.php?id_cita=".$id_cita[$i]."&idpag=agregar&observaciones=".$observaciones[$i]."__Cancelado por: ".$tipo_usuario.":' onClick=\"return confirm('$confirma')\"><div style='text-align:left;'><i class='fa fa-trash'></i></div>  </a>
                             </td>
                         </tr>";
                         }else{
@@ -113,7 +113,7 @@ while ($row2 = mysqli_fetch_assoc($result2)) {
                             <td><a class='btn btn-sm myButton2 ' style='background-color:transparent'><div style='text-align:left;'><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
                             <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z'/>
                             </svg></div></a>
-                             <a class='btn btn-sm myButton3  btn-print' role='button' style='background-color:transparent'  href='../cita/eliminar_cita.php?id_cita=".$id_cita[$i]."&idpag=agregar&observaciones=".$observaciones[$i]."__Cancelado por: ".$tipo_usuario.":".$id_usuario."' onClick=\"return confirm('".$confirma."')\"><div style='text-align:left;'><i class='fa fa-trash'></i></div>  </a>
+                             <a class='btn btn-sm myButton3  btn-print' role='button' style='background-color:transparent'  href='../cita/eliminar_cita.php?id_cita=".$id_cita[$i]."&idpag=agregar&observaciones=".$observaciones[$i]."__Cancelado por: ".$tipo_usuario.":' onClick=\"return confirm('".$confirma."')\"><div style='text-align:left;'><i class='fa fa-trash'></i></div>  </a>
                              </td>
                         </tr>"; 
                       

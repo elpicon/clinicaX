@@ -60,72 +60,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="pagina/configuracion/images/logorias.png " id="icon" alt="User Icon" />
+      <img style="width:30%" src="pagina/configuracion/images/logoriasp.png " id="icon" alt="User Icon" />
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
+  <form action="login.php" method="post">
+      <input type="text" class="form-control" placeholder="Usuario"  name="username" value="admin" required="required" />
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      
+      <input type="submit" class="fadeIn fourth" name="login" value="Log In">
     </form>
 
     <!-- Remind Passowrd -->
     <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
+      <a class="underlineHover" href="#">Recordar Password</a>
     </div>
 
   </div>
 </div>
   
-  
-  
-   <div class="row">
-       <div class="col-lg-2">
-    
-       </div>
-       <div class="col-lg-4">
-           <img style="width:10%;" src="pagina/configuracion/images/logorias.png ?>" alt="..." class="img-circle profile_img">
-       </div> 
-          
-       <div class="col-lg-6">
-           <center>
-             <h2 style="color:white;">RIAS.</h2>
-          </center>
-       </div>
-       
-   </div> 
+ 
+   
     
     
     
- <div class=" w3l-login-form">
-        <h2>Login </h2>
-    <form action="login.php" method="post">
 
-            <div class=" w3l-form-group">
-                <label>Usuario:</label>
-                <div class="group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" placeholder="Usuario"  name="username" value="admin" required="required" />
-                </div>
-            </div>
-            <div class=" w3l-form-group">
-                <label>Password:</label>
-                <div class="group">
-                    <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" placeholder="Password" name="password" value="admin" required="required" />
-                </div>
-            </div>
-            <div class="forgot">
-                
-                <p><input type="checkbox">Recordar password</p>
-            </div>
-            
-            
-            <button class="myButton" type="submit" name="login">Login</button>
-        </form>
-        
-    </div>-->
     <footer>
 
     </footer>
@@ -248,6 +207,37 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
+    
+    input[type=password] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
+
+input[type=password]:focus {
+  background-color: #fff;
+  border-bottom: 2px solid #5fbae9;
+}
+
+input[type=password]:placeholder {
+  color: #cccccc;
+}
+    
 input[type=text] {
   background-color: #f6f6f6;
   border: none;

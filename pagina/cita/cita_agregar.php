@@ -1,6 +1,10 @@
-<?php include '../layout/dbcon.php';
- include '../layout/session.php';?>
-  
+<?php 
+
+include '../layout/dbcon.php';
+include '../layout/session.php';
+
+?>
+
 
 <?php 
  @session_start();
@@ -21,6 +25,7 @@ date_default_timezone_set('America/Lima');
    
     <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>  
@@ -72,7 +77,7 @@ date_default_timezone_set('America/Lima');
                              <div class="row">
                            <?php
                          //  appnoautocomplete=""
-                              if(!strcmp($tipo,'paciente')){
+                            /*  if(!strcmp($tipo,'paciente')){
                                   echo "<div  class='col-sm-4 col-md-4 col-xs-4'> 
                             <label for='paciente'>Paciente</label>  
                                    <input readonly list='listapaciente' id='in_paciente' autocomplete='off' value='".$nombre." ".$apellido."' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' ></input>
@@ -96,13 +101,10 @@ date_default_timezone_set('America/Lima');
                             </div>
                            ";
                               }
-                              }
+                              }*/
                            ?>
                            
-                          <div class="col-sm-8 col-md-8 col-xs-8">
-                            <br>
-                             <label for="" id="lbl_nombrepaciente" class=""></label>
-                          </div>
+                          
                                 <div class="col-sm-12 col-md-8 col-xs-12">  
                                    
                  <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
@@ -143,7 +145,24 @@ date_default_timezone_set('America/Lima');
       </div>
     </div>
     </div>
-             
+       
+        <div class="col-lg-6 col-sm-6">
+                            <label for='paciente'>Paciente</label>  
+                                   <input list='listapaciente' id='in_paciente' autocomplete='off' value='' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' >
+                                  <datalist id='listapaciente' disable >
+                                  </datalist>
+                            <div class='invalid-feedback'>  
+                                        Porfavor Ingrese Paciente.  
+                            </div> 
+                  </div> 
+                  <div class="col-sm-6 col-md-6 col-xs-6">
+                            <br>
+                             <label for="" id="lbl_nombrepaciente" class=""></label>
+                          </div>
+                  
+                   
+              
+                        
              
         <div class="col-lg-12 col-sm-12">
             <br>
@@ -158,15 +177,12 @@ date_default_timezone_set('America/Lima');
                     $queryS=mysqli_query($con,"select * from servicios_grupos where habilitacion_citas='1'")or die(mysqli_error());
                         $i=0;
                         while($rowS=mysqli_fetch_array($queryS)){
-                                                        
-
-                            echo "<option value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
-                            
-                            $i++;
+                           echo "<option value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
+                           $i++;
                         }
                     ?>
                 </select>
-                </div>
+            </div>
                 
                 
                 
@@ -503,14 +519,15 @@ function horarioSeleccionado(horario){
        console.log("Paciente "+codigoS);
     cod_paciente_sel=codigoS;
     registraCita();
-  var dataString = 'datopaciente='+datoin;
+  var dataString = 'codigo='+codigoS;
     $.ajax({
             type: "POST",
-            url: "getPacientes.php",
+            url: "getPacientesAll.php",
             data: dataString,
             success: function(res2) {
+                console.log("nn "+res2);
                  //$('.result').html(res);
-                 listapaciente.innerHTML = res2;
+                 //listapaciente.innerHTML = res2;
             }
         });
     });
@@ -563,7 +580,7 @@ $('#sel_medico').change(function(){
    $('#datepicker').change(function(){
   var fechasel = $("#datepicker").val();
   const tabla_horarios = document.getElementById('tabla_horarios');      
-  dataString = 'fechasel='+fechasel+'&id_medico='+med_cod+'&tipo_usuario='+'<?php echo $tipo_usuario;?>';
+  dataString = 'fechasel='+fechasel+'&id_medico='+med_cod+'&id='+'&tipo_usuario='+'<?php echo $tipo_usuario;?>';
   console.log("Tabla "+dataString);
    if($('input:radio[name=chequeo]:checked').val()){
        DesplegaMedicos();
@@ -573,19 +590,7 @@ $('#sel_medico').change(function(){
   
      });
 
-    
-function getRangos(){
-      $.ajax({
-            type: "POST",
-            url: "getRangos.php",
-            data: dataString,
-            success: function(res2) {
-                 //$('.result').html(res);
-                 tabla_horarios.innerHTML = res2;
-                 // console.log(res2);
-            }
-        });
-  }
+
     
   function getCita(){
       $.ajax({

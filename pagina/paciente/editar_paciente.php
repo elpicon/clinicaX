@@ -143,7 +143,7 @@ ul {
                         <div class="col-md-4 ">
                        <label for="date" >IMAGEN ANTIGUA</label>
                         <br>
-                         <IMG style="width:150px;height:117px;border: 1px solid; color: red;" class="img-container" src="../usuario/subir_us/<?php echo $cid."/".$row['imagen'];?>" style="height:90PX"/>
+                         <IMG autocomplete="off" style="width:150px;height:117px;border: 1px solid; color: red;" class="img-container" src="../usuario/subir_us/<?php echo $cid."/".$row['imagen'];?>?random="<?php echo date('Y-m-d H:m:s');?> style="height:90PX"/>
                       </div>
                      </div>
                     </div>
@@ -243,44 +243,37 @@ ul {
                      <input type="text" class="form-control pull-right" id="grupo_empresa" name="grupo_empresa"  readonly='readonly'   value="<?php echo $id_grupo_empresa; ?>" >
                       </div>
                     </div>
-                   
-                  
-                      
-                       
                  
                        <div class="col-md-4 btn-print">
                       <div class="form-group">
-                           <label for="eps_ars" >EPS / ERP</label>
-                          <select name="eps" required>
-                                <option value="">Seleccione</option>
-                               //ANTECEDENTES DEL PACIENTE 
+                        <label for="eps_ars" >Aseguradora</label>
+                        <select name="eps" required>
+                        <option value="">Seleccione</option>
+                              <!--ANTECEDENTES DEL PACIENTE -->
 <?php
     
-      
       $x = 0;
 
    
-          $query = mysqli_query( $con, "SELECT * FROM EPS WHERE true " )or die( mysqli_error() );
+          $query = mysqli_query( $con, "SELECT * FROM aseguradoras WHERE true " )or die( mysqli_error() );
           $i = 0;
 
           while ( $row2 = mysqli_fetch_array( $query ) ) {
              
-              $eps = $row2[ 'nombre_eps' ];
+              $eps = $row2[ 'nombre' ];
                $i++;
-              if(!strcmp($row[ 'codigoeps' ],$row2[ 'id' ])){
-                  echo " <option selected value='".$row[ 'codigoeps' ]."'>".$eps."</option>";
+              if(!strcmp($row2[ 'codigo' ],$row[ 'codigoeps' ])){
+                  echo " <option selected value='".$row2[ 'codigo' ]."'>".$eps."</option>";
               }else{
-            echo " <option value='".$row[ 'codigoeps' ]."'>".$eps."</option>";
+            echo " <option value='".$row2[ 'codigo' ]."'>".$eps."</option>";
              }
           }
          
          
       ?>
-      
-                              
-                            </select>
-                      </div>
-                    </div>
+            </select>
+            </div>
+            </div>
            </div>   
                   
                    <div class="row">

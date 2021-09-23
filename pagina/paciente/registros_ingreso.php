@@ -111,14 +111,19 @@ ul {
                     
           ?>
           
+          
+          
+          
+          
+          
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content alert alert alert-white">
+      <div class="modal-header alert alert-info">
         <!<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Registrar Ingreso</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body ">
       
        <input type="hidden" class="form-control" id="tipo" name="tipo" value="paciente" required>
          
@@ -303,8 +308,362 @@ ul {
           
         </tr>   
     </table>          
-        
-          <script>
+     <br>
+     <br>
+<div class="warpper">
+    <input class="radio" id="one" name="group" type="radio" onclick="procedimiento()" checked/>
+  <input class="radio" id="two" name="group" type="radio" onclick="medicamento()"/>
+  <input class="radio" id="three" name="group" type="radio">
+  <div class="tabs">
+  <label class="tab" id="one-tab" for="one">Procedimientos</label>
+  <label class="tab" id="two-tab" for="two">Medicamentos</label>
+  <!-- <label class="tab" id="three-tab" for="three"></label>-->
+    </div>
+  <div class="panels">
+  <div class="panel" id="one-panel">
+    <div class="panel-title">Cargar Procedimiento</div>
+    
+          <div class="row text-left">
+          
+              <div class='col-lg-6 col-sm-6 form-group' > 
+               <label>Indicio de Proceder </label>
+                <input list="list_cups" id="input_cups" value="" class="form-control" autocomplete='off'>
+                    <datalist id="list_cups" >
+                    </datalist>
+              </div>
+                <div class='col-lg-6 col-sm-6 form-group' >
+               <label>Unidades </label> 
+                <input required class="form-control" list="unidadesCups" type="number" min="1" max="100" id="unidadesCups" value="1" class="form-control" autocomplete='off'>
+              </div>
+                <div class='col-lg-12 col-sm-12 form-group' > 
+               <label size="30" type="text" id="nombre_procedimiento" name="nombre_procedimiento" readonly> </label>
+              </div>
+            </div>
+      
+  </div>
+  <div class="panel" id="two-panel">
+ <div class="panel-title">Cargar Medicamentos</div>
+    
+          <div class="row text-left">
+         
+              <div class='col-lg-3 col-sm-3 form-group' > 
+               <label>Medicamento  </label>
+                <input required list="list_medic" id="input_medic" value="" class="form-control" autocomplete='off'>
+                    <datalist id="list_medic" >
+                    </datalist>
+              
+              </div>
+              
+            
+              
+               
+              <div class='col-lg-2 col-sm-2 form-group' >
+               <label>Unidades </label> 
+                <input required class="form-control" list="unidades" type="number" min="1" max="100" id="unidades" value="1" class="form-control" autocomplete='off'>
+              </div>
+              
+              <div class='col-lg-4 col-sm-4 form-group' >
+               <label>Posologia </label> 
+                <input required class="form-control" list="posologia" type="text" id="posologia" value="" placeholder="Describa la medicacion" class="form-control" >
+              </div>
+              
+              <div class='col-lg-8 col-sm-8 form-group' > 
+               <label size="30" type="text" id="nombre_medicamento" name="nombre_medicamento" readonly> </label>
+              </div>
+              <div class='col-lg-4 col-sm-4 form-group' > 
+               <label size="30" type="text" id="nombre_via_adm" name="nombre_via_adm" readonly> </label>
+              </div>
+              
+   
+        </div>
+  </div>
+  <div class="panel" id="three-panel">
+      
+       
+  </div>
+   <div class=" text-right">
+  <button type="button"  class="btn  myButton2 " onclick="agregarPM()"><i class='bx bx-book-add'></i></button>
+  </div>
+  </div>
+ 
+</div>
+     <br>
+       <br> 
+  <div class="tablax" id="tablax" name="tablax">
+  
+  </div> 
+  <div class="tablax2" id="tablax2" name="tablax2">
+     
+  </div> 
+
+      
+  <div class="tablax" id="tablax" name="tablax">
+  
+  </div> 
+  <div class="tablax2" id="tablax2" name="tablax2">
+     
+  </div> 
+          
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>  
+</div> 
+
+<script> 
+  var head2="<div class='datagrid'>"+
+          "<table border='2px'> "+
+          "<thead><tr><th>Codigo</th><th>Procedimiento </th><th>Unidad</th><th>Accion</th></tr></thead>"+
+          "<tbody>";
+var foot2="</tbody>"+
+        "</table>"+
+        "</div>";
+var formula="";
+var codigocie;
+
+const input_cups = document.getElementById('input_cups');
+const list_cups = document.getElementById('list_cups');
+const tablax2 = document.getElementById('tablax2');    
+$('#input_cups').change(function(){
+    var value = $('#input_cups').val();
+   var dato= document.getElementById("input_cups").value;
+// alert(dato);
+   var datoSplit= dato.split(" ");
+   var cup=datoSplit[0]+"";
+   dato= dato.replace(cup, '')
+    datoCupGlobal=dato;
+    cupGlobal=cup;
+    $('#input_cups').val(cup);
+    document.querySelector('#nombre_procedimiento').innerText = dato;
+//document.getElementById("nombre_procedimiento").value=dato;
+    });
+    
+    
+function eventoCups(comando,datoc){
+         console.log("comando="+comando+datoc);
+        $.ajax({
+            type: "POST",
+            url: "ztempPP.php",
+            data: "comando="+comando+datoc,
+            success: function(respuesta) {
+                      if(respuesta.trim()=='existe'){
+                          alertify.error("Algo no esta bien :(");
+                             }else{
+                              crearTablaCups(respuesta);
+                             } 
+               
+           
+               console.log(respuesta);
+                
+            }
+        });
+}    
+    
+    
+        var filasG=[];
+    function crearTablaCups(respuesta){
+        bufferGlobal="";
+       var indexControl=respuesta.split("??_$");
+            var filasSplit= indexControl[0].split("#_#");
+                filasG=filasSplit;
+                                  for(var i=0;i<filasSplit.length;i++){
+                                   var colSplit=filasSplit[i].split("#$");
+                                bufferGlobal=bufferGlobal+ "<tr>"+
+                                              "<td> "+colSplit[0]+"</td>"+
+                                              "<td> "+colSplit[1]+"</td>"+
+                                              "<td> "+colSplit[2]+"</td>"+
+                                              "<td><button class='btn btn-primary btn-print myButton3'  onClick=\"eliminarFilaCups(\'"+colSplit[0].trim()+"\')\"><i class='glyphicon glyphicon-remove' ></i></button> </td>"+
+                                          "</tr>" ;
+                                  }
+           // alert(indexControl[1]);
+        if(indexControl[1]!=0){
+            tablax2.innerHTML = head2+bufferGlobal+foot2;
+        }else{
+             tablax2.innerHTML = "";
+        }                           
+    }
+    
+    function eliminarFilaCups(fila){
+
+      $.ajax({
+            type: "POST",
+            url: "ztempPP.php",
+            data: "comando=eliminar&cups="+fila,
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTablaCups(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+}
+    
+function limpiarTCups() {
+    
+   $.ajax({
+            type: "POST",
+            url: "ztempPP.php",
+            data: "comando=limpiar",
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTablaCups(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+} 
+    
+const inHandlerCups = function(e) {
+var sresult;
+  descripcion = e.target.value;
+  var dataString = 'cups='+descripcion;
+  $.ajax({
+            type: "POST",
+            url: "getCUPS.php",
+            data: dataString,
+            success: function(respuesta) {
+                 //$('.result').html(res);
+            
+                 list_cups.innerHTML = respuesta;
+            }
+        });
+}
+input_cups.addEventListener('input', inHandlerCups);
+input_cups.addEventListener('propertychange', inHandlerCups); 
+
+    
+    </script>           
+<style>
+    
+#menu ul li {
+    background-color:#2e518b;
+}
+
+#menu ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+#menu ul a {
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-weight:400;
+  font-size:15px;
+  padding:10px;
+  font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+#menu ul li {
+  position:relative;
+  float:left;
+  margin:0;
+  padding:0;
+}
+
+#menu ul li:hover {
+  background:#5b78a7;
+}
+
+#menu ul ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  padding:0;
+}
+
+#menu ul ul li {
+  float:none;
+  width:150px
+}
+
+#menu ul ul a {
+  line-height:120%;
+  padding:10px 15px;
+}
+
+#menu ul li:hover > ul {
+  display:block;
+}
+    
+    
+    @import url('https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap');
+body{
+  background:#444444;
+  font-family: 'Arimo', sans-serif;
+}
+h2{
+  color:#000;
+  text-align:center;
+  font-size:2em;
+}
+.warpper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab{
+  cursor: pointer;
+  padding:10px 20px;
+  margin:0px 2px;
+  background:#907DA9;
+  display:inline-block;
+  color:#fff;
+  border-radius:3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+.panels{
+  background:#fffffff6;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height:200px;
+  width:100%;
+  max-width:500px;
+  border-radius:3px;
+  overflow:hidden;
+  padding:20px;  
+}
+.panel{
+  display:none;
+  animation: fadein .8s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+.panel-title{
+  font-size:1.5em;
+  font-weight:bold
+}
+.radio{
+  display:none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
+  display:block
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
+  background:#fffffff6;
+  color:#666;
+  border-top: 3px solid #666;
+}</style>          
+
+<script>
               
               
 
@@ -444,17 +803,234 @@ ul {
                         });
               }
           </script>
-     
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      
-      </div>
-    </div>
-  </div>
-</div>  
-</div>           
+<script>   
+//MEDICAMENTOS   
+var MedProc=0;
+var atcGlobal;
+var datoGlobal;
+var expedienteCGlobal;
+var consecutivoCGlobal;
+var productoGlobal;
+var principioAGlobal;
+var unidadGlobal;
+var cupGlobal;
+var datoCupGlobal;
+var posologiaGlobal;
+var formaFGlobal;
+var vAdminGlobal;
+var descATCGlobal;
+var bufferGlobal="";
+var  contAdd=0;
+var arrayData=[];
+var head="<div class='datagrid'>"+
+          "<table border='2px'> "+
+          "<thead><tr><th>Codigo</th><th>Medicamento</th><th  style='width:10%'>V/Adm</th><th style='width:10%'>U</th><th>Posologia</th><th style='width:10%'>Accion</th></tr></thead>"+
+          "<tbody>";
+var foot="</tbody>"+
+        "</table>"+
+        "</div>";
+   
+ const tablax = document.getElementById('tablax');       
 
-          
+ function limpiarT() {
+    
+   $.ajax({
+            type: "POST",
+            url: "ztempPM.php",
+            data: "comando=limpiar",
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTabla(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+}   
+function procedimiento(){
+    MedProc=0;
+    console.log(MedProc);
+} 
+function medicamento(){
+    MedProc=1;
+      console.log(MedProc);
+}
+      
+function agregarPM(){
+$formafarmaceutica="";
+   if(MedProc==1){
+       var globalData="&expedientecum="+expedienteCGlobal+"&principioactivo="+principioAGlobal+"&consecutivocum="+consecutivoCGlobal+"&producto="+productoGlobal+"&unidad="+$('#unidades').val()+"&atc="+atcGlobal+"&descripcionatc="+descATCGlobal+"&viaadministracion="+vAdminGlobal+"&formafarmaceutica="+formaFGlobal+"&posologia="+$('#posologia').val();
+       eventoCum("insertar",globalData);
+        
+        }
+    
+    //PERTENECE A PROCEDIMIENTOS
+    
+       if(MedProc==0){
+            console.log( cupGlobal+" -- "+datoCupGlobal ) ;
+           eventoCups("insertar","&cups="+cupGlobal+"&descripcion="+datoCupGlobal+"&unidad="+$('#unidadesCups').val());
+        }
+    }
+
+function eventoCum(comando,datoc){
+         console.log("comando="+comando+datoc);
+        $.ajax({
+            type: "POST",
+            url: "ztempPM.php",
+            data: "comando="+comando+datoc,
+            success: function(respuesta) {
+                      if(respuesta.trim()=='existe'){
+                          alertify.error("Algo no esta bien :(");
+                             }else{
+                              crearTabla(respuesta);
+                             } 
+               
+           console.log(head+bufferGlobal+foot);
+           
+                
+                
+            }
+        });
+}
+        
+function eliminarFila(fila){
+
+      $.ajax({
+            type: "POST",
+            url: "ztempPM.php",
+            data: "comando=eliminar&expedientecum="+fila,
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTabla(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+}
+    var filasG=[];
+    function crearTabla(respuesta){
+        bufferGlobal="";
+      var  indexControl=respuesta.split("??_$");
+            var filasSplit= indexControl[0].split("#_#");
+                filasG=filasSplit;
+                                  for(var i=0;i<filasSplit.length;i++){
+                                   var colSplit=filasSplit[i].split("#$");
+                                bufferGlobal=bufferGlobal+ "<tr>"+
+                                              "<td> "+colSplit[4]+"</td>"+
+                                              "<td> "+colSplit[3]+"</td>"+
+                                              "<td> "+colSplit[6]+"</td>"+
+                                              "<td> "+colSplit[9]+" U </td>"+
+                                              "<td> "+colSplit[8]+" </td>"+
+                                              "<td><button class='btn btn-primary btn-print myButton3'  onClick=\"eliminarFila(\'"+colSplit[0].trim()+"\')\"><i class='glyphicon glyphicon-remove' ></i></button> </td>"+
+                                          "</tr>" ;
+                                  }
+           // alert(indexControl[1]);
+        if(indexControl[1]!=0){
+            tablax.innerHTML = head+bufferGlobal+foot;
+        }else{
+             tablax.innerHTML = "";
+        }                           
+    }
+    
+   
+    
+const input_medic = document.getElementById('input_medic');
+const list_medic = document.getElementById('list_medic');
+
+$('#unidades').change(function(){
+
+     document.querySelector('#nombre_medicamento').innerText = atcGlobal+" -- "+datoGlobal+" -- "+($('#unidades').val())+" U"  ;
+
+});
+    
+$('#input_medic').change(function(){
+   var value = $('#input_medic').val();
+   var dato= document.getElementById("input_medic").value;
+   var datoSplit= dato.split(" ");
+   var cum=datoSplit[0]+"";
+   dato= dato.replace(cum, '');
+    $('#input_medic').val(cum);
+    
+   var val=$('#input_medic').val();
+   var formula = $('#list_medic').find('option[name="'+val+'"]').data('cum');
+    // console.log(formula);   
+    var formulaSplit=formula.split("#$");
+    var atc= formulaSplit[0];//1
+   
+     $('#input_medic').val(atc);
+    atcGlobal=atc;
+    dato=dato;
+    vAdminGlobal=formulaSplit[3];//
+    datoGlobal=dato;
+    formaFGlobal=formulaSplit[4];//2
+    expedienteCGlobal=formulaSplit[1];//2
+    consecutivoCGlobal=formulaSplit[2];//3
+    productoGlobal=formulaSplit[5];
+    unidadGlobal=formulaSplit[6];
+    principioAGlobal=formulaSplit[8];
+    descATCGlobal=formulaSplit[7];
+   // posologiaGlobal=formulaSplit[7];
+    
+    document.querySelector('#nombre_medicamento').innerText = atc[0]+" "+dato ;
+    document.querySelector('#nombre_via_adm').innerText=vAdminGlobal;
+      
+//document.getElementById("nombre_procedimiento").value=dato;
+    });
+    
+const inHandlerCum = function(e) {
+var sresult;
+  descripcion = e.target.value;
+  var dataString = 'cum='+descripcion;
+  $.ajax({
+            type: "POST",
+            url: "getMedic.php",
+            data: dataString,
+            success: function(respuesta) {
+                 //$('.result').html(res);
+                    // var T1 = respuesta.match(/\[(.*)\]/).pop();
+                
+                console.log(respuesta);
+
+                 list_medic.innerHTML = respuesta;
+               
+            }
+        });
+    }
+
+input_medic.addEventListener('input', inHandlerCum);
+input_medic.addEventListener('propertychange', inHandlerCum); 
+    
+    
+    function kmpSearch(pattern, text) {
+    if (pattern.length == 0)
+        return 0;  // Coincidencia inmediata
+
+    // Calcula la tabla más larga de sufijo-prefijo
+    var lsp = [0];  // Caso base
+    for (var i = 1; i < pattern.length; i++) {
+        var j = lsp[i - 1];  // Comienza asumiendo que estamos extendiendo el LSP previo
+        while (j > 0 && pattern.charAt(i) != pattern.charAt(j))
+            j = lsp[j - 1];
+        if (pattern.charAt(i) == pattern.charAt(j))
+            j++;
+        lsp.push(j);
+    }
+
+    // camina a través de la cadena de texto
+    var j = 0;  // Número de caracteres combinados en el patrón
+    for (var i = 0; i < text.length; i++) {
+        while (j > 0 && text.charAt(i) != pattern.charAt(j))
+            j = lsp[j - 1];  // Retrocede en el patrón
+        if (text.charAt(i) == pattern.charAt(j)) {
+            j++;  // Siguiente char emparejado, incrementa la posición
+            if (j == pattern.length)
+                return i - (j - 1);
+        }
+    }
+    return -1;  // No encontrado
+}
+</script>                
       
 
 

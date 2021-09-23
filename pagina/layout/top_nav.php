@@ -15,7 +15,7 @@
               <ul class="nav navbar-nav navbar-right">
                          <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="collapse" aria-expanded="false">
-                    <img src="../usuario/subir_us/<?php echo $imagen; ?>" alt=""><?php echo $nombre; ?>
+                    <img  src="../usuario/subir_us/<?php echo $imagen; ?>" alt=""><?php echo $nombre; ?>
 
                     <span class=" fa fa-angle-down"></span>
                   </a>

@@ -557,7 +557,7 @@ echo $num;
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-                   <a href="https://beatifullshop.co/app/clinica">DOCTORPRJ IPS</a>
+                   <a href="https://beatifullshop.co/app/clinica">RIAS</a>
           </div>
           <div class="clearfix"></div>
         </footer>

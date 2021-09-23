@@ -84,6 +84,7 @@ include '../layout/header.php';
 
       ?>
 
+        <a class="btn btn-dark btn-print fa fa-chevron-left" aria-hidden="true" href="paciente.php"    style="height:25%; width:15%; font-size: 12px " role="button"></a>
 <div class="row">
 
  <div class="col-lg-6 ">
@@ -208,7 +209,7 @@ include '../layout/header.php';
                 <input required list="list_medic" id="input_medic" value="" class="form-control" autocomplete='off'>
                     <datalist id="list_medic" >
                     </datalist>
-              
+              </input>
               </div>
               
             
@@ -245,15 +246,138 @@ include '../layout/header.php';
  
 </div>
 
-      <br>
-       <br>
+      </br>
+       </br>
   <div class="tablax" id="tablax" name="tablax">
   
   </div> 
   <div class="tablax2" id="tablax2" name="tablax2">
      
   </div> 
-  
+<style>
+    
+#menu ul li {
+    background-color:#2e518b;
+}
+
+#menu ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+#menu ul a {
+  display:block;
+  color:#fff;
+  text-decoration:none;
+  font-weight:400;
+  font-size:15px;
+  padding:10px;
+  font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+#menu ul li {
+  position:relative;
+  float:left;
+  margin:0;
+  padding:0;
+}
+
+#menu ul li:hover {
+  background:#5b78a7;
+}
+
+#menu ul ul {
+  display:none;
+  position:absolute;
+  top:100%;
+  left:0;
+  padding:0;
+}
+
+#menu ul ul li {
+  float:none;
+  width:150px
+}
+
+#menu ul ul a {
+  line-height:120%;
+  padding:10px 15px;
+}
+
+#menu ul li:hover > ul {
+  display:block;
+}
+    
+    
+    @import url('https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap');
+body{
+  background:#444444;
+  font-family: 'Arimo', sans-serif;
+}
+h2{
+  color:#000;
+  text-align:center;
+  font-size:2em;
+}
+.warpper{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab{
+  cursor: pointer;
+  padding:10px 20px;
+  margin:0px 2px;
+  background:#907DA9;
+  display:inline-block;
+  color:#fff;
+  border-radius:3px 3px 0px 0px;
+  box-shadow: 0 0.5rem 0.8rem #00000080;
+}
+.panels{
+  background:#fffffff6;
+  box-shadow: 0 2rem 2rem #00000080;
+  min-height:200px;
+  width:100%;
+  max-width:500px;
+  border-radius:3px;
+  overflow:hidden;
+  padding:20px;  
+}
+.panel{
+  display:none;
+  animation: fadein .8s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+.panel-title{
+  font-size:1.5em;
+  font-weight:bold
+}
+.radio{
+  display:none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel{
+  display:block
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab{
+  background:#fffffff6;
+  color:#666;
+  border-top: 3px solid #666;
+}</style>   
     
     
 
@@ -269,10 +393,411 @@ include '../layout/header.php';
 
 </div>
 
+<script> 
+  var head2="<div class='datagrid'>"+
+          "<table border='2px'> "+
+          "<thead><tr><th>Codigo</th><th>Procedimiento </th><th>Unidad</th><th>Accion</th></tr></thead>"+
+          "<tbody>";
+var foot2="</tbody>"+
+        "</table>"+
+        "</div>";
+var formula="";
+var codigocie;
 
+const input_cups = document.getElementById('input_cups');
+const list_cups = document.getElementById('list_cups');
+const tablax2 = document.getElementById('tablax2');    
+$('#input_cups').change(function(){
+    var value = $('#input_cups').val();
+   var dato= document.getElementById("input_cups").value;
+// alert(dato);
+   var datoSplit= dato.split(" ");
+   var cup=datoSplit[0]+"";
+   dato= dato.replace(cup, '')
+    datoCupGlobal=dato;
+    cupGlobal=cup;
+    $('#input_cups').val(cup);
+    document.querySelector('#nombre_procedimiento').innerText = dato;
+//document.getElementById("nombre_procedimiento").value=dato;
+    });
+    
+    
+function eventoCups(comando,datoc){
+         console.log("comando="+comando+datoc);
+        $.ajax({
+            type: "POST",
+            url: "ztempPP.php",
+            data: "comando="+comando+datoc,
+            success: function(respuesta) {
+                      if(respuesta.trim()=='existe'){
+                          alertify.error("Algo no esta bien :(");
+                             }else{
+                              crearTablaCups(respuesta);
+                             } 
+               
+           
+               console.log(respuesta);
+                
+            }
+        });
+}    
+    
+    
+        var filasG=[];
+    function crearTablaCups(respuesta){
+        bufferGlobal="";
+       var indexControl=respuesta.split("??_$");
+            var filasSplit= indexControl[0].split("#_#");
+                filasG=filasSplit;
+                                  for(var i=0;i<filasSplit.length;i++){
+                                   var colSplit=filasSplit[i].split("#$");
+                                bufferGlobal=bufferGlobal+ "<tr>"+
+                                              "<td> "+colSplit[0]+"</td>"+
+                                              "<td> "+colSplit[1]+"</td>"+
+                                              "<td> "+colSplit[2]+"</td>"+
+                                              "<td><button class='btn btn-primary btn-print myButton3'  onClick=\"eliminarFilaCups(\'"+colSplit[0].trim()+"\')\"><i class='glyphicon glyphicon-remove' ></i></button> </td>"+
+                                          "</tr>" ;
+                                  }
+           // alert(indexControl[1]);
+        if(indexControl[1]!=0){
+            tablax2.innerHTML = head2+bufferGlobal+foot2;
+        }else{
+             tablax2.innerHTML = "";
+        }                           
+    }
+    
+    function eliminarFilaCups(fila){
 
+      $.ajax({
+            type: "POST",
+            url: "ztempPP.php",
+            data: "comando=eliminar&cups="+fila,
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTablaCups(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+}
+    
+function limpiarTCups() {
+    
+   $.ajax({
+            type: "POST",
+            url: "ztempPP.php",
+            data: "comando=limpiar",
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTablaCups(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+} 
+    
+const inHandlerCups = function(e) {
+var sresult;
+  descripcion = e.target.value;
+  var dataString = 'cups='+descripcion;
+  $.ajax({
+            type: "POST",
+            url: "getCUPS.php",
+            data: dataString,
+            success: function(respuesta) {
+                 //$('.result').html(res);
+            
+                 list_cups.innerHTML = respuesta;
+            }
+        });
+}
+input_cups.addEventListener('input', inHandlerCups);
+input_cups.addEventListener('propertychange', inHandlerCups); 
+
+    
+    </script>   
+    
+ <script>   
+//MEDICAMENTOS   
+var MedProc=0;
+var atcGlobal;
+var datoGlobal;
+var expedienteCGlobal;
+var consecutivoCGlobal;
+var productoGlobal;
+var principioAGlobal;
+var unidadGlobal;
+var cupGlobal;
+var datoCupGlobal;
+var posologiaGlobal;
+var formaFGlobal;
+var vAdminGlobal;
+var descATCGlobal;
+var bufferGlobal="";
+var  contAdd=0;
+var arrayData=[];
+var head="<div class='datagrid'>"+
+          "<table border='2px'> "+
+          "<thead><tr><th>Codigo</th><th>Medicamento</th><th  style='width:10%'>V/Adm</th><th style='width:10%'>U</th><th>Posologia</th><th style='width:10%'>Accion</th></tr></thead>"+
+          "<tbody>";
+var foot="</tbody>"+
+        "</table>"+
+        "</div>";
+   
+ const tablax = document.getElementById('tablax');       
+
+ function limpiarT() {
+    
+   $.ajax({
+            type: "POST",
+            url: "ztempPM.php",
+            data: "comando=limpiar",
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTabla(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+}   
+function procedimiento(){
+    MedProc=0;
+    console.log(MedProc);
+} 
+function medicamento(){
+    MedProc=1;
+      console.log(MedProc);
+}
+      
+function agregarPM(){
+$formafarmaceutica="";
+   if(MedProc==1){
+       var globalData="&expedientecum="+expedienteCGlobal+"&principioactivo="+principioAGlobal+"&consecutivocum="+consecutivoCGlobal+"&producto="+productoGlobal+"&unidad="+$('#unidades').val()+"&atc="+atcGlobal+"&descripcionatc="+descATCGlobal+"&viaadministracion="+vAdminGlobal+"&formafarmaceutica="+formaFGlobal+"&posologia="+$('#posologia').val();
+       eventoCum("insertar",globalData);
+        
+        }
+    
+    //PERTENECE A PROCEDIMIENTOS
+    
+       if(MedProc==0){
+            console.log( cupGlobal+" -- "+datoCupGlobal ) ;
+           eventoCups("insertar","&cups="+cupGlobal+"&descripcion="+datoCupGlobal+"&unidad="+$('#unidadesCups').val());
+        }
+    }
+
+function eventoCum(comando,datoc){
+         console.log("comando="+comando+datoc);
+        $.ajax({
+            type: "POST",
+            url: "ztempPM.php",
+            data: "comando="+comando+datoc,
+            success: function(respuesta) {
+                      if(respuesta.trim()=='existe'){
+                          alertify.error("Algo no esta bien :(");
+                             }else{
+                              crearTabla(respuesta);
+                             } 
+               
+           console.log(head+bufferGlobal+foot);
+           
+                
+                
+            }
+        });
+}
+        
+function eliminarFila(fila){
+
+      $.ajax({
+            type: "POST",
+            url: "ztempPM.php",
+            data: "comando=eliminar&expedientecum="+fila,
+            success: function(respuesta) {
+              if(respuesta.trim()!="existe"){
+                  crearTabla(respuesta);
+              }  else{
+                 alertify.error("No se pudo Borrar.");
+              }
+            }
+      });
+}
+    var filasG=[];
+    function crearTabla(respuesta){
+        bufferGlobal="";
+      var  indexControl=respuesta.split("??_$");
+            var filasSplit= indexControl[0].split("#_#");
+                filasG=filasSplit;
+                                  for(var i=0;i<filasSplit.length;i++){
+                                   var colSplit=filasSplit[i].split("#$");
+                                bufferGlobal=bufferGlobal+ "<tr>"+
+                                              "<td> "+colSplit[4]+"</td>"+
+                                              "<td> "+colSplit[3]+"</td>"+
+                                              "<td> "+colSplit[6]+"</td>"+
+                                              "<td> "+colSplit[9]+" U </td>"+
+                                              "<td> "+colSplit[8]+" </td>"+
+                                              "<td><button class='btn btn-primary btn-print myButton3'  onClick=\"eliminarFila(\'"+colSplit[0].trim()+"\')\"><i class='glyphicon glyphicon-remove' ></i></button> </td>"+
+                                          "</tr>" ;
+                                  }
+           // alert(indexControl[1]);
+        if(indexControl[1]!=0){
+            tablax.innerHTML = head+bufferGlobal+foot;
+        }else{
+             tablax.innerHTML = "";
+        }                           
+    }
+    
+   
+    
+const input_medic = document.getElementById('input_medic');
+const list_medic = document.getElementById('list_medic');
+
+$('#unidades').change(function(){
+
+     document.querySelector('#nombre_medicamento').innerText = atcGlobal+" -- "+datoGlobal+" -- "+($('#unidades').val())+" U"  ;
+
+});
+    
+$('#input_medic').change(function(){
+   var value = $('#input_medic').val();
+   var dato= document.getElementById("input_medic").value;
+   var datoSplit= dato.split(" ");
+   var cum=datoSplit[0]+"";
+   dato= dato.replace(cum, '');
+    $('#input_medic').val(cum);
+    
+   var val=$('#input_medic').val();
+   var formula = $('#list_medic').find('option[name="'+val+'"]').data('cum');
+    // console.log(formula);   
+    var formulaSplit=formula.split("#$");
+    var atc= formulaSplit[0];//1
+   
+     $('#input_medic').val(atc);
+    atcGlobal=atc;
+    dato=dato;
+    vAdminGlobal=formulaSplit[3];//
+    datoGlobal=dato;
+    formaFGlobal=formulaSplit[4];//2
+    expedienteCGlobal=formulaSplit[1];//2
+    consecutivoCGlobal=formulaSplit[2];//3
+    productoGlobal=formulaSplit[5];
+    unidadGlobal=formulaSplit[6];
+    principioAGlobal=formulaSplit[8];
+    descATCGlobal=formulaSplit[7];
+   // posologiaGlobal=formulaSplit[7];
+    
+    document.querySelector('#nombre_medicamento').innerText = atc[0]+" "+dato ;
+    document.querySelector('#nombre_via_adm').innerText=vAdminGlobal;
+      
+//document.getElementById("nombre_procedimiento").value=dato;
+    });
+    
+const inHandlerCum = function(e) {
+var sresult;
+  descripcion = e.target.value;
+  var dataString = 'cum='+descripcion;
+  $.ajax({
+            type: "POST",
+            url: "getMedic.php",
+            data: dataString,
+            success: function(respuesta) {
+                 //$('.result').html(res);
+                    // var T1 = respuesta.match(/\[(.*)\]/).pop();
+                
+                console.log(respuesta);
+
+                 list_medic.innerHTML = respuesta;
+               
+            }
+        });
+    }
+
+input_medic.addEventListener('input', inHandlerCum);
+input_medic.addEventListener('propertychange', inHandlerCum); 
+    
+    
+    function kmpSearch(pattern, text) {
+    if (pattern.length == 0)
+        return 0;  // Coincidencia inmediata
+
+    // Calcula la tabla más larga de sufijo-prefijo
+    var lsp = [0];  // Caso base
+    for (var i = 1; i < pattern.length; i++) {
+        var j = lsp[i - 1];  // Comienza asumiendo que estamos extendiendo el LSP previo
+        while (j > 0 && pattern.charAt(i) != pattern.charAt(j))
+            j = lsp[j - 1];
+        if (pattern.charAt(i) == pattern.charAt(j))
+            j++;
+        lsp.push(j);
+    }
+
+    // camina a través de la cadena de texto
+    var j = 0;  // Número de caracteres combinados en el patrón
+    for (var i = 0; i < text.length; i++) {
+        while (j > 0 && text.charAt(i) != pattern.charAt(j))
+            j = lsp[j - 1];  // Retrocede en el patrón
+        if (text.charAt(i) == pattern.charAt(j)) {
+            j++;  // Siguiente char emparejado, incrementa la posición
+            if (j == pattern.length)
+                return i - (j - 1);
+        }
+    }
+    return -1;  // No encontrado
+}
+</script> 
+
+<style>
+    #home-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+         
+}
+    #antecedentes-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+    #datospaciente-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+   #atenciontriage-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+    #orden_salida-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+    #vigilancia_nutricional-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+    #antecedentesf-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+    #examenfisico-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    } 
+    
+    #rsistema-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+     #diagnostico-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+     #resumenservicio-tab{
+   border:3px solid #888899;
+   border-radius:22px;
+    }
+    s</style>
 <div class="row">
-
+    
 <div class='col-lg-12  text-white menux'>
       <ul class="nav nav-tabs " id="myTab" role="tablist">
      
@@ -313,10 +838,14 @@ include '../layout/header.php';
   </li>
   
 </ul>
+
 </div>
 
 
-<div class='col-md-3 col-lg-3'> 
+
+
+
+    <div class='col-md-3 col-lg-3'> 
 <ul class="nav nav-tabs  justify-content-left">
         <h3 class="text-black">Datos Personales</h3>
     <?php
@@ -580,10 +1109,16 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
 </ul>
 </div>
 
+<style>
+    .subt{
+        background: #BEE5D7;
+    }    
+</style>
 
 <div class='col-md-9 col-lg-9 offset-md-1'>
-  <div class="tab-content">
-    <div class="tab-pane active" id="datosconsulta" role="tabpanel" aria-labelledby="home-tab">
+    
+<div class="tab-content">
+  <div class="tab-pane active" id="datosconsulta" role="tabpanel" aria-labelledby="home-tab">
    <div class="row ">
     <div class="col-lg-7 form-group " >
         <br>
@@ -675,9 +1210,10 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
     </div>
     
   </div>
- 
-    
-     <div class="tab-pane" id="antecedentes" role="tabpanel" aria-labelledby="settings-tab">
+  
+  
+  
+  <div class="tab-pane" id="antecedentes" role="tabpanel" aria-labelledby="settings-tab">
         <br>
 <div class="form-group row">
   <div class="col-xs-6">
@@ -708,8 +1244,8 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
 <div class="form-group row">
   <div class="col-xs-6">
   <label class=" subt" for="antc_alergicos">Alergicos</label>
-  <input type="radio" name="chk_alergicos" value="1"  value="1" onclick="mostrarArea2()" ><span>SI</span>
-  <input type="radio" name="chk_alergicos" value="0" id="chk_abdomen" checked onclick="ocultarArea2()" value="0" onclick=""><span>NO</span>
+  <input type="radio" name="chk_alergicos" value="1"  value="1" onclick="mostrarArea2()" ></input>SI</input></td>
+  <input type="radio" name="chk_alergicos" value="0" id="chk_abdomen" checked onclick="ocultarArea2()" value="0" onclick="">NO</input></td>
       
          
   <textarea class="form-control" rows="5" id="antc_alergicos"></textarea>
@@ -746,10 +1282,39 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
   </div>
 </div> 
   </div>
+  
+  <script>
+        function vervars(){
+             var finalidadconsulta=  $("#finalidadconsulta").val();
+            alert(finalidadconsulta);
+             }
+    
+        
+       var finalidadconsulta=  $("#finalidadconsulta").val();
+       var causaexternaconsulta=$("#causaexternaconsulta").val();
+       var estadoconciencia=$("#estadoconciencia").val();
+       var motivoconsulta=$("#motivoconsulta").val();
+       var enfermedadactual =$("#enfermedadactual").val();
+       var paraclinicos =$("#paraclinicos").val();
 
-   
-   <div class="tab-pane" id="datospaciente" role="tabpanel" aria-labelledby="settings-tab">
-        <br>
+       var antc_ginecologicos=$("#antc_ginecologicos").val();
+       var antc_quirurgicos=$("#antc_quirurgicos").val();
+       var antc_traumaticos=$("#antc_traumaticos").val();
+       var antc_transfusionales=$("#antc_transfusionales").val();
+       var antc_alergicos=$("#antc_alergicos").val();
+       var antc_hospitalizaciones=$("#antc_hospitalizaciones").val();
+       var antc_patologicos =$("#antc_patologicos").val();
+       var antc_toxicologicos=$("#antc_toxicologicos").val();
+        var antc_familiares=$("#antc_familiares").val();
+        var antc_farmacologicos=$("#antc_farmacologicos").val();
+        var fecha_ingreso=$("#fecha_ingreso").val();
+       var id_paciente var nombreyapellidopaciente var acopanante var direccion var tipodeatencion var aseguradora var reginmen var telefono var remitidoSN var motivoingreso var observaciongeneral var excluyetrieage var fechatriage var motivotriage var pesokg var cinturacm var munecacm var perimetrocefalico var frecuenciacardiacafetal var frecuenciacardiaca var presionarterialsistole var presionarterialdiastole var frecuenciarespiratoria var temperatura var saturaciondeoxigeno var pacientesinsignosvitales var sintomasrespiratorios var pulso var antecedentesrelevantes var conductatomada var prioridad var profesionalsugerido var tipodediagnosticoprincipal var diagnosticoprincipal var diagnosticosecundario1 var diagnosticosecundario2 var destinopaciente var condicionsalida var discapacitado var fugado var programasan var micronutrientes var ordencomplementosnutricionales var educacionnutricional var actividadfisica var gestacionsemanas var prematuro var lactanciamaterna var diaslactanciamaterna var af_enfermedadmental var af_convulsiones var af_alcoholismo var af_tabaquismo var af_drogadiccion var af_trastornometabolismolipidos var af_hiperlipidemias var af_infartoamenores50 var ac_seno var ac_utero var ac_ovario var ac_cevix var ac_prostata var ac_estomago var ac_piel var ac_pulmonar var ac_colorectal var otros_ac var teleconsulta var abdomen var genitourinario var osteoarticular var sistemaervioso var piel var musculoesqueletico var neurologiaesferamental var cardiopulmonar var s_respiratorio var s_neuropsiquiatrico var organosdelossentidos var s_cardiovascular var s_cardiopulmonar var s_circulatorio var s_hematicopoyeticolinfatico var s_endocrinologico var s_gastrointestinal var s_renal var s_pielyfaneras var s_osteomuscular var diagnosticomedico var analisis var profesionalresponsable var fecha_salida
+
+   </script>
+  
+   <!--URGENCIAS-->
+  <div class="tab-pane" id="datospaciente" role="tabpanel" aria-labelledby="settings-tab">
+        </br>
     <div class='row'>
         
      <div class='col-lg-6 col-sm-6 form-group' > 
@@ -763,7 +1328,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
           
         ?>
      <div class='col-lg-6 col-sm-6 ' > 
-    <span class="subt">Sexo : </span><span id="txt_sexo"><label ><?php if(!strcmp($genero,"M")){echo "&nbsp;Masculino&nbsp;";}if(!strcmp($genero,"F")){echo "&nbsp;Femenino&nbsp;";}?></label></span><label class="subt"> Nivel : </label><span id="txt_sexo"><label><?php echo "&nbsp;".$nivel."&nbsp;"; ?></label></span><br>
+    <span class="subt">Sexo : </span><span id="txt_sexo"><label ><?php if(!strcmp($genero,"M")){echo "&nbsp;Masculino&nbsp;";}if(!strcmp($genero,"F")){echo "&nbsp;Femenino&nbsp;";}?></label></span><label class="subt"> Nivel : </label><span id="txt_sexo"><label><?php echo "&nbsp;".$nivel."&nbsp;"; ?></label></span></br>
     <span class="subt">Edad : </span><span id="txt_sexo"><label><?php echo $intvl->y . " Años, " . $intvl->m." Meses y ".$intvl->d." Dias";  ?></label></span>     
     </div> 
         
@@ -842,7 +1407,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
   
     
    <div class='col-lg-6 col-sm-6 form-group' > 
-    <span>Remitidos : </span> <input type="checkbox" id="remitido_Si"><span> SI</span> <input type="checkbox" id="remitido_NO"><span>NO</span>
+    <span>Remitidos : </span> <input type="checkbox" id="remitido_Si"></input><span> SI</span> <input type="checkbox" id="remitido_NO">NO</input>
     </div>
     
      <div class="col-lg-12">
@@ -869,16 +1434,16 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
             </div>
 </div>
  </div> 
-
-   <div class="tab-pane" id="atenciontriage" role="tabpanel" aria-labelledby="settings-tab">
+ <div class="tab-pane" id="atenciontriage" role="tabpanel" aria-labelledby="settings-tab">
         <br>
-        <div class='row'>
+    <div class='row'>
     <div class='col-lg-6 col-sm-6 form-group' > 
     <span>Fecha del Triage *:</span>
         <input  type="date" id="facha_triage" name="fecha_trieage" class="form-control"> 
-    </div>
+    </div> 
+    
    </div>
-     <div class="row ">
+       <div class="row ">
          <br>
    <div class="col-lg-4 form-group">
    <label  class=" text-left">Motivo de Ingreso :*</label>
@@ -892,9 +1457,10 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
    <label  class=" text-left">Motivo de Trieage :*</label>
     <textarea class="form-control text-alert form-control" rows="5" id="comentestadoc"></textarea>
     </div>
-    </div> 
-      
-        <div class="row ">
+    
+    </div>  
+   
+      <div class="row ">
        
          <div class="col-xs-12 "> 
           <div class="alert alert-primary" role="alert">
@@ -973,7 +1539,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
     <span class="form-check-label" for="defaultCheck1">
         Paciente sin Signos Vitales.
     </span>
-     <input type="checkbox" name="chk_vivo" value="1" id="cv" value="1"  onclick="ocultar('desc_respiratorio');">
+     <input type="checkbox" name="chk_vivo" value="1" id="cv" value="1"  onclick="ocultar('desc_respiratorio')">
    </div>
    </div>
  
@@ -982,8 +1548,8 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
        <span class="form-check-label" for="defaultCheck1">
             <label>Paciente con sintomas respiratorios.</label>
        </span>
-           <input type="radio" name="chk_sint_resp" value="1" id="cv" value="1" checked onclick="ocultar('desc_respiratorio')"><span>SI</span>
-           <input type="radio" name="chk_sint_resp" value="0" id="cv" value="0" onclick="mostrar('desc_respiratorio')"><span>NO</span>
+           <input type="radio" name="chk_sint_resp" value="1" id="cv" value="1" checked onclick="ocultar('desc_respiratorio')">SI</input>
+           <input type="radio" name="chk_sint_resp" value="0" id="cv" value="0" onclick="mostrar('desc_respiratorio')">NO</input>
        </div>  
  
   <div class="col-lg-12">
@@ -995,17 +1561,16 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
   </div>
 
   </div>
-    </div>  
-     <div class="col-lg-6 form-group">
+    </div>
+      <div class="col-lg-6 form-group">
    <label  class=" text-left">Antecedentes Relevantes :</label>
     <textarea class="form-control text-alert form-control" rows="5" id="antecedentes_reelevantes"></textarea>
     </div>
      <div class="col-lg-6 form-group">
    <label  class=" text-left">Conducta Tomada :</label>
     <textarea style="width:100%" class="form-control text-alert form-control" rows="5" id="conducta_tomada"></textarea>
-    </div>     
-     
-      <div class="col-lg-12 form-group alert alert-secondary ">
+    </div>
+    <div class="col-lg-12 form-group alert alert-secondary ">
           <div class="alert alert-primary  col-lg-12">
              <span><label class=" text-left">Prioridad *</label></span>
           </div>
@@ -1017,10 +1582,8 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
            <div class="col-lg-4"><input type="radio" name="chk_prioridad" value="6" id="cv"  ><label class="bg-blue "> V-No Urgente </label></div>
         </div>
         
-</div> 
- 
-          //err
-          <div class='col-lg-12 col-sm-12 form-group'> 
+</div>   
+<div class='col-lg-12 col-sm-12 form-group'> 
 <label  class=" text-left ">Profecional Sugerido :</label>
 
             <select list="list_id" id="id_paciente" value="" class="form-control">
@@ -1028,7 +1591,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
                 $nombre_medico="";
                 $id_medico="";
                 $buffer="";
-                $query = mysqli_query( $con, "SELECT * FROM horario_medico " )or die( mysqli_error() );
+                $query = mysqli_query( $con, "SELECT * FROM horario_medico WHERE id_grupo_servicio='5' " )or die( mysqli_error() );
                   $i = 0;
         
                   while ( $row = mysqli_fetch_array( $query ) ) {
@@ -1059,44 +1622,10 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
                
         ?>
             </select>
-        </div>         
-          
-           
-    </div> 
- 
+        </div>
   
-  <script>
-        function vervars(){
-             var finalidadconsulta=  $("#finalidadconsulta").val();
-            alert(finalidadconsulta);
-             }
     
-        
-       var finalidadconsulta=  $("#finalidadconsulta").val();
-       var causaexternaconsulta=$("#causaexternaconsulta").val();
-       var estadoconciencia=$("#estadoconciencia").val();
-       var motivoconsulta=$("#motivoconsulta").val();
-       var enfermedadactual =$("#enfermedadactual").val();
-       var paraclinicos =$("#paraclinicos").val();
-
-       var antc_ginecologicos=$("#antc_ginecologicos").val();
-       var antc_quirurgicos=$("#antc_quirurgicos").val();
-       var antc_traumaticos=$("#antc_traumaticos").val();
-       var antc_transfusionales=$("#antc_transfusionales").val();
-       var antc_alergicos=$("#antc_alergicos").val();
-       var antc_hospitalizaciones=$("#antc_hospitalizaciones").val();
-       var antc_patologicos =$("#antc_patologicos").val();
-       var antc_toxicologicos=$("#antc_toxicologicos").val();
-        var antc_familiares=$("#antc_familiares").val();
-        var antc_farmacologicos=$("#antc_farmacologicos").val();
-        var fecha_ingreso=$("#fecha_ingreso").val();
-       var id_paciente var nombreyapellidopaciente var acopanante var direccion var tipodeatencion var aseguradora var reginmen var telefono var remitidoSN var motivoingreso var observaciongeneral var excluyetrieage var fechatriage var motivotriage var pesokg var cinturacm var munecacm var perimetrocefalico var frecuenciacardiacafetal var frecuenciacardiaca var presionarterialsistole var presionarterialdiastole var frecuenciarespiratoria var temperatura var saturaciondeoxigeno var pacientesinsignosvitales var sintomasrespiratorios var pulso var antecedentesrelevantes var conductatomada var prioridad var profesionalsugerido var tipodediagnosticoprincipal var diagnosticoprincipal var diagnosticosecundario1 var diagnosticosecundario2 var destinopaciente var condicionsalida var discapacitado var fugado var programasan var micronutrientes var ordencomplementosnutricionales var educacionnutricional var actividadfisica var gestacionsemanas var prematuro var lactanciamaterna var diaslactanciamaterna var af_enfermedadmental var af_convulsiones var af_alcoholismo var af_tabaquismo var af_drogadiccion var af_trastornometabolismolipidos var af_hiperlipidemias var af_infartoamenores50 var ac_seno var ac_utero var ac_ovario var ac_cevix var ac_prostata var ac_estomago var ac_piel var ac_pulmonar var ac_colorectal var otros_ac var teleconsulta var abdomen var genitourinario var osteoarticular var sistemaervioso var piel var musculoesqueletico var neurologiaesferamental var cardiopulmonar var s_respiratorio var s_neuropsiquiatrico var organosdelossentidos var s_cardiovascular var s_cardiopulmonar var s_circulatorio var s_hematicopoyeticolinfatico var s_endocrinologico var s_gastrointestinal var s_renal var s_pielyfaneras var s_osteomuscular var diagnosticomedico var analisis var profesionalresponsable var fecha_salida
-
-   </script>
-  
-   <!--URGENCIAS-->
-  
- 
+ </div> 
 
  <div class="tab-pane" id="orden_salida" role="tabpanel" aria-labelledby="settings-tab">
         <br>
@@ -1174,7 +1703,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
                 </datalist>
         </div>
     <div class='col-lg-6 col-sm-6 form-group'> 
-        <input size="30" type="text" id="diagprincipal4"  name="diagprincipal4" readonly> 
+        <input size="30" type="text" id="diagprincipal4"  name="diagprincipal4" readonly> </input>
     </div>
 </div>
 
@@ -1279,7 +1808,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
 </div>
 </div>
 </div>
-</div>  
+  
 
 <script>
 
@@ -1373,7 +1902,7 @@ in_cie106.addEventListener('propertychange', inputHandler6);
 
 </script>
     
- 
+ </div>
  <div class="tab-pane" id="vigilancia_nutricional" role="tabpanel" aria-labelledby="settings-tab">
         <br>
         <br>
@@ -1445,7 +1974,7 @@ in_cie106.addEventListener('propertychange', inputHandler6);
             <span><label class=" text-left ">Gestacion  :</label></span>
          </div>
          <div class="col-lg-6 form-group text-right">
-            <input type="number" max="50" min="0" id="dis_gestacion" value="0" >
+            <input type="number" max="50" min="0" id="dis_gestacion" value="0" ></input>
          </div>
          <div class="col-lg-2 form-group ">
             <span class=" text-left ">Semanas</span>
@@ -1454,24 +1983,24 @@ in_cie106.addEventListener('propertychange', inputHandler6);
             <span><label class=" text-left ">Prematuro :</label></span>
          </div>
          <div class="col-lg-6 form-group ">
-            <input class="" type="radio" name="chk_prematuro"  value="1"> <span>SI</span>
-            <input class="" type="radio" name="chk_prematuro" checked  value="0"><span>SI</span>
+            <input class="" type="radio" name="chk_prematuro"  value="1"> SI</input>
+            <input class="" type="radio" name="chk_prematuro" checked  value="0"> NO</input>
          </div>
          
          <div class="col-lg-6 form-group ">
             <span><label class=" text-left ">Lactancia Materna :</label></span>
          </div>
          <div class="col-lg-6 form-group ">
-            <input class="" type="radio" name="lactancia_materna"  value="0"> <span>Exclusiva</span>
-            <input class="" type="radio" name="lactancia_materna" checked  value="0"> <span>Complementaria</span>
+            <input class="" type="radio" name="lactancia_materna"  value="0"> Exclusiva</input>
+            <input class="" type="radio" name="lactancia_materna" checked  value="0"> Complementaria</input>
          </div>
          
          
-         <div class="col-lg-4 form-group ">
+             <div class="col-lg-4 form-group ">
             <span><label class=" text-left ">Dias  :</label></span>
          </div>
          <div class="col-lg-6 form-group text-right">
-            <input type="number" max="50" min="0" id="dis_lactancia" value="0">
+            <input type="number" max="50" min="0" id="dis_lactancia" value="0"></input>
          </div>
         
        
@@ -1784,51 +2313,51 @@ $("#antc_alergicos").prop( "disabled", false );
       </tr>  
         <tr class="bg-muted">
         <td align="right">Abdomen</td>
-        <td><input type="radio" name="chk_abdomen" value="1"  value="1" checked onclick="ocultar('desc_abdomen')"></td>
-        <td><input type="radio" name="chk_abdomen" value="0" id="chk_abdomen" value="0" onclick="mostrar('desc_abdomen')"></td>
+        <td><input type="radio" name="chk_abdomen" value="1"  value="1" checked onclick="ocultar('desc_abdomen')"></input></input></td>
+        <td><input type="radio" name="chk_abdomen" value="0" id="chk_abdomen" value="0" onclick="mostrar('desc_abdomen')"></input></td>
         <td><input type='text' class='' id='desc_abdomen' name='desc_abdomen' style="width:90%" placeholder='Explique Aqui....'  required>
      </td>
       </tr>  
        <tr>
         <td align="right">Genitourinario</td>
-        <td><input type="radio" name="chk_genitourinario" value="1" id="chk_genitourinario" checked onclick="ocultar('desc_genitourinario')"></td>
-        <td><input type="radio" name="chk_genitourinario" value="0" id="chk_genitourinario" onclick="mostrar('desc_genitourinario')" ></td>
+        <td><input type="radio" name="chk_genitourinario" value="1" id="chk_genitourinario" checked onclick="ocultar('desc_genitourinario')"></input></td>
+        <td><input type="radio" name="chk_genitourinario" value="0" id="chk_genitourinario" onclick="mostrar('desc_genitourinario')" ></input></td>
         <td><input type='text' class='' id='desc_genitourinario' name='desc_genitourinario' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>      
       <tr class="bg-muted">
         <td align="right">Osteoarticular</td>
-        <td><input type="radio" name="chk_osteoarticular" value="1" checked onclick="ocultar('desc_osteoarticular')"></td>
-        <td><input type="radio" name="chk_osteoarticular" value="0" onclick="mostrar('desc_osteoarticular')" ></td>
+        <td><input type="radio" name="chk_osteoarticular" value="1" checked onclick="ocultar('desc_osteoarticular')"></input></td>
+        <td><input type="radio" name="chk_osteoarticular" value="0" onclick="mostrar('desc_osteoarticular')" ></input></td>
         <td><input type='text' class='' id='desc_osteoarticular' name='desc_osteoarticular' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr >
         <td align="right">Sistema Nervioso</td>
-        <td><input type="radio" name="chk_snervioso" value="1" checked onclick="ocultar('desc_snervioso')"></td>
-        <td><input type="radio" name="chk_snervioso" value="0" onclick="mostrar('desc_snervioso')"></td>
+        <td><input type="radio" name="chk_snervioso" value="1" checked onclick="ocultar('desc_snervioso')"></input></td>
+        <td><input type="radio" name="chk_snervioso" value="0" onclick="mostrar('desc_snervioso')"></input></td>
         <td><input type='text' class='' id='desc_snervioso' name='desc_snervioso' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr class="bg-muted">
         <td align="right">Piel</td>
-        <td><input type="radio" name="chk_piel" value="1" checked onclick="ocultar('desc_piel')"></td>
-        <td><input type="radio" name="chk_piel" value="0" onclick="mostrar('desc_piel')"></td>
+        <td><input type="radio" name="chk_piel" value="1" checked onclick="ocultar('desc_piel')"></input></td>
+        <td><input type="radio" name="chk_piel" value="0" onclick="mostrar('desc_piel')"></input></td>
         <td><input type='text' class='' id='desc_piel' name='desc_piel' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr >
         <td align="right">Músculo - Esqueletico</td>
-        <td><input type="radio" name="chk_musculo_esqueleto" value="1" checked onclick="ocultar('desc_musculo_esqueleto')"></td>
-        <td><input type="radio" name="chk_musculo_esqueleto" value="0" onclick="mostrar('desc_musculo_esqueleto')"></td>
+        <td><input type="radio" name="chk_musculo_esqueleto" value="1" checked onclick="ocultar('desc_musculo_esqueleto')"></input></td>
+        <td><input type="radio" name="chk_musculo_esqueleto" value="0" onclick="mostrar('desc_musculo_esqueleto')"></input></td>
         <td><input type='text' class='' id='desc_musculo_esqueleto' name='desc_musculo_esqueleto' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr class="bg-muted">
         <td align="right">Neurologia - Esfera Mental</td>
-       <td><input type="radio" name="chk_neurologia" value="1" checked onclick="ocultar('desc_neurologia')"></td>
-       <td><input type="radio" name="chk_neurologia" value="0" onclick="mostrar('desc_neurologia')"></td>
+       <td><input type="radio" name="chk_neurologia" value="1" checked onclick="ocultar('desc_neurologia')"></input></td>
+       <td><input type="radio" name="chk_neurologia" value="0" onclick="mostrar('desc_neurologia')"></input></td>
         <td><input type='text' class='' id='desc_neurologia' name='desc_neurologia' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr>
         <td align="right">Cardio Pulmonar</td>
-        <td><input type="radio" name="chk_cardiopulmonar" value="1" checked onclick="ocultar('desc_cardiopulmonar')"></td>
-        <td><input type="radio" name="chk_cardiopulmonar" value="0" onclick="mostrar('desc_cardiopulmonar')"></td>
+        <td><input type="radio" name="chk_cardiopulmonar" value="1" checked onclick="ocultar('desc_cardiopulmonar')"></input></td>
+        <td><input type="radio" name="chk_cardiopulmonar" value="0" onclick="mostrar('desc_cardiopulmonar')"></input></td>
         <td><input type='text' class='' id='desc_cardiopulmonar' name='desc_cardiopulmonar' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
@@ -1860,93 +2389,93 @@ $("#antc_alergicos").prop( "disabled", false );
       </tr>  
         <tr class="bg-muted">
         <td align="right">Respiratorio</td>
-        <td><input type="radio" name="chk_respiratorio" value="1" id="cv" value="1" checked onclick="ocultar('desc_respiratorio')"></td>
-        <td><input type="radio" name="chk_respiratorio" value="0" id="cv" value="0" onclick="mostrar('desc_respiratorio')"></td>
+        <td><input type="radio" name="chk_respiratorio" value="1" id="cv" value="1" checked onclick="ocultar('desc_respiratorio')"></input></input></td>
+        <td><input type="radio" name="chk_respiratorio" value="0" id="cv" value="0" onclick="mostrar('desc_respiratorio')"></input></td>
         <td><input type='text' class='' id='desc_respiratorio' name='desc_respiratorio' style="width:90%" placeholder='Explique Aqui....'  required></td>
     
       </tr>  
        <tr>
         <td align="right">NeuroPsiquiatrico</td>
-        <td><input type="radio" name="chk_neuro" value="1" checked onclick="ocultar('desc_neuro')"></td>
-        <td><input type="radio" name="chk_neuro" value="0" onclick="mostrar('desc_neuro')" ></td>
+        <td><input type="radio" name="chk_neuro" value="1" checked onclick="ocultar('desc_neuro')"></input></td>
+        <td><input type="radio" name="chk_neuro" value="0" onclick="mostrar('desc_neuro')" ></input></td>
         <td><input type='text' class='' id='desc_neuro' name='desc_neuro' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>      
       <tr class="bg-muted">
         <td align="right">Organos de los Sentidos</td>
-        <td><input type="radio" name="chk_sentidos" value="1" checked onclick="ocultar('desc_sentidos')"></td>
-        <td><input type="radio" name="chk_sentidos" value="0" onclick="mostrar('desc_sentidos')" ></td>
+        <td><input type="radio" name="chk_sentidos" value="1" checked onclick="ocultar('desc_sentidos')"></input></td>
+        <td><input type="radio" name="chk_sentidos" value="0" onclick="mostrar('desc_sentidos')" ></input></td>
         <td><input type='text' class='' id='desc_sentidos' name='desc_sentidos' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr >
         <td align="right">Cardiovascular</td>
-        <td><input type="radio" name="chk_cardiovascular" value="1" checked onclick="ocultar('desc_cardiovascular')"></td>
-        <td><input type="radio" name="chk_cardiovascular" value="0" onclick="mostrar('desc_cardiovascular')"></td>
+        <td><input type="radio" name="chk_cardiovascular" value="1" checked onclick="ocultar('desc_cardiovascular')"></input></td>
+        <td><input type="radio" name="chk_cardiovascular" value="0" onclick="mostrar('desc_cardiovascular')"></input></td>
         <td><input type='text' class='' id='desc_cardiovascular' name='desc_cardiovascular' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr class="bg-muted">
         <td align="right">CardioPulmonar</td>
-        <td><input type="radio" name="chk_cardiopulmonar2" value="1" checked onclick="ocultar('desc_cardiopulmonar2')"></td>
-        <td><input type="radio" name="chk_cardiopulmonar2" value="0" onclick="mostrar('desc_cardiopulmonar2')"></td>
+        <td><input type="radio" name="chk_cardiopulmonar2" value="1" checked onclick="ocultar('desc_cardiopulmonar2')"></input></td>
+        <td><input type="radio" name="chk_cardiopulmonar2" value="0" onclick="mostrar('desc_cardiopulmonar2')"></input></td>
         <td><input type='text' class='' id='desc_cardiopulmonar2' name='desc_cardio' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr >
         <td align="right">Neurologico</td>
-        <td><input type="radio" name="chk_neurologico" value="1" checked onclick="ocultar('desc_neurologico')"></td>
-        <td><input type="radio" name="chk_neurologico" value="0" onclick="mostrar('desc_neurologico')"></td>
+        <td><input type="radio" name="chk_neurologico" value="1" checked onclick="ocultar('desc_neurologico')"></input></td>
+        <td><input type="radio" name="chk_neurologico" value="0" onclick="mostrar('desc_neurologico')"></input></td>
         <td><input type='text' class='' id='desc_neurologico' name='desc_neurologico' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr class="bg-muted">
         <td align="right">Circulatorio</td>
-       <td><input type="radio" name="chk_circulatorio" value="1" checked onclick="ocultar('desc_circulatorio')"></td>
-       <td><input type="radio" name="chk_circulatorio" value="0" onclick="mostrar('desc_circulatorio')"></td>
+       <td><input type="radio" name="chk_circulatorio" value="1" checked onclick="ocultar('desc_circulatorio')"></input></td>
+       <td><input type="radio" name="chk_circulatorio" value="0" onclick="mostrar('desc_circulatorio')"></input></td>
         <td><input type='text' class='' id='desc_circulatorio' name='desc_circulatorio' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       <tr>
         <td align="right">Hematopoyetico y Linfatico</td>
-        <td><input type="radio" name="chk_linfatico" value="1" checked onclick="ocultar('desc_linfatico')"></td>
-        <td><input type="radio" name="chk_linfatico" value="0" onclick="mostrar('desc_linfatico')"></td>
+        <td><input type="radio" name="chk_linfatico" value="1" checked onclick="ocultar('desc_linfatico')"></input></td>
+        <td><input type="radio" name="chk_linfatico" value="0" onclick="mostrar('desc_linfatico')"></input></td>
         <td><input type='text' class='' id='desc_linfatico' name='desc_linfatico' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
       <tr>
         <td align="right">Endocrinológico</td>
-        <td><input type="radio" name="chk_endocrino" value="1" checked onclick="ocultar('desc_endocrino')"></td>
-        <td><input type="radio" name="chk_endocrino" value="0" onclick="mostrar('desc_endocrino')"></td>
+        <td><input type="radio" name="chk_endocrino" value="1" checked onclick="ocultar('desc_endocrino')"></input></td>
+        <td><input type="radio" name="chk_endocrino" value="0" onclick="mostrar('desc_endocrino')"></input></td>
         <td><input type='text' class='' id='desc_endocrino' name='desc_endocrino' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
        <tr>
         <td align="right">GastroIntestinal</td>
-        <td><input type="radio" name="chk_gastro" value="1" checked onclick="ocultar('desc_gastro')"></td>
-        <td><input type="radio" name="chk_gastro" value="0" onclick="mostrar('desc_gastro')"></td>
+        <td><input type="radio" name="chk_gastro" value="1" checked onclick="ocultar('desc_gastro')"></input></td>
+        <td><input type="radio" name="chk_gastro" value="0" onclick="mostrar('desc_gastro')"></input></td>
         <td><input type='text' class='' id='desc_gastro' name='desc_gastro' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
        <tr>
         <td align="right">Renal</td>
-        <td><input type="radio" name="chk_renal" value="1" checked onclick="ocultar('desc_renal')"></td>
-        <td><input type="radio" name="chk_renal" value="0" onclick="mostrar('desc_renal')"></td>
+        <td><input type="radio" name="chk_renal" value="1" checked onclick="ocultar('desc_renal')"></input></td>
+        <td><input type="radio" name="chk_renal" value="0" onclick="mostrar('desc_renal')"></input></td>
         <td><input type='text' class='' id='desc_renal' name='desc_renal' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
       <tr>
         <td align="right">GenitoUrinario</td>
-        <td><input type="radio" name="chk_urinario" value="1" checked onclick="ocultar('desc_urinario')"></td>
-        <td><input type="radio" name="chk_urinario" value="0" onclick="mostrar('desc_urinario')"></td>
+        <td><input type="radio" name="chk_urinario" value="1" checked onclick="ocultar('desc_urinario')"></input></td>
+        <td><input type="radio" name="chk_urinario" value="0" onclick="mostrar('desc_urinario')"></input></td>
         <td><input type='text' class='' id='desc_urinario' name='desc_urinario' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
       <tr>
         <td align="right">Piel y Faneras</td>
-        <td><input type="radio" name="chk_piel2" value="1" checked onclick="ocultar('desc_piel2')"></td>
-        <td><input type="radio" name="chk_piel2" value="0" onclick="mostrar('desc_piel2')"></td>
+        <td><input type="radio" name="chk_piel2" value="1" checked onclick="ocultar('desc_piel2')"></input></td>
+        <td><input type="radio" name="chk_piel2" value="0" onclick="mostrar('desc_piel2')"></input></td>
         <td><input type='text' class='' id='desc_piel2' name='desc_piel2' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
       <tr>
         <td align="right">OsteoMuscular</td>
-        <td><input type="radio" name="chk_muscular" value="1" checked onclick="ocultar('desc_muscular')"></td>
-        <td><input type="radio" name="chk_muscular" value="0" onclick="mostrar('desc_muscular')"></td>
+        <td><input type="radio" name="chk_muscular" value="1" checked onclick="ocultar('desc_muscular')"></input></td>
+        <td><input type="radio" name="chk_muscular" value="0" onclick="mostrar('desc_muscular')"></input></td>
         <td><input type='text' class='' id='desc_muscular' name='desc_muscular' style="width:90%" placeholder='Explique Aqui....'  required>
       </tr>
       
@@ -1970,7 +2499,7 @@ $("#antc_alergicos").prop( "disabled", false );
                 </datalist>
         </div>
     <div class='col-lg-6 col-sm-6'> 
-        <input size="30" type="text" id="diagprincipal" name="diagprincipal" readonly> 
+        <input size="30" type="text" id="diagprincipal" name="diagprincipal" readonly> </input>
     </div>
 </div>
 
@@ -1989,7 +2518,7 @@ $("#antc_alergicos").prop( "disabled", false );
         </div>
 
         <div class='col-lg-6 col-sm-6'> 
-                <input size="30" type="text" id="diagprincipal2" name="diagprincipal2" readonly> 
+                <input size="30" type="text" id="diagprincipal2" name="diagprincipal2" readonly> </input>
         </div>
 <br>
 </div>
@@ -2011,7 +2540,7 @@ $("#antc_alergicos").prop( "disabled", false );
     </div>
     
     <div class='col-lg-6 col-sm-6'> 
-    <input size="30" type="text" id="diagprincipal3" name="diagprincipal3" readonly> 
+    <input size="30" type="text" id="diagprincipal3" name="diagprincipal3" readonly> </input>
     </div>
     <br>
     </div>
@@ -2144,7 +2673,7 @@ in_cie103.addEventListener('propertychange', inputHandler3);
 </datalist>
 </div>
 <div class='col-lg-6 col-sm-6'> 
-<input size="30" type="text" id="profesional_r" name="profesional_r"> 
+<input size="30" type="text" id="profesional_r" name="profesional_r"> </input>
 </div>
 </div>
     
@@ -2158,18 +2687,22 @@ in_cie103.addEventListener('propertychange', inputHandler3);
 </datalist>
 </div>
 <div class='col-lg-6 col-sm-6'> 
-<input size="30" type="text" id="registrado_por" name="registrado_por"> 
+<input size="30" type="text" id="registrado_por" name="registrado_por"> </input>
 </div>
 </div>   
   </div>
-    
-    
-    
-  </div>
+  
+ <!-- <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+      
+  </div>-->
 </div>
+         
 
+     </div>  
+      
+      
+    </div>
 
-</div>   
 <footer>
   <div class="pull-right"> <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a> </div>
   <div class="clearfix"></div>
@@ -2183,136 +2716,6 @@ in_cie103.addEventListener('propertychange', inputHandler3);
 
 
 <?php include '../layout/datatable_script.php';?>
-
-<style>
-    .subt{
-        background: #BEE5D7;
-    }    
-</style>
-<style>
-    
-#menu ul li {
-    background-color:#2e518b;
-}
-
-#menu ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-}
-
-#menu ul a {
-  display:block;
-  color:#fff;
-  text-decoration:none;
-  font-weight:400;
-  font-size:15px;
-  padding:10px;
-  font-family:"HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform:uppercase;
-  letter-spacing:1px;
-}
-
-#menu ul li {
-  position:relative;
-  float:left;
-  margin:0;
-  padding:0;
-}
-
-#menu ul li:hover {
-  background:#5b78a7;
-}
-
-#menu ul ul {
-  display:none;
-  position:absolute;
-  top:100%;
-  left:0;
-  padding:0;
-}
-
-#menu ul ul li {
-  float:none;
-  width:150px
-}
-
-#menu ul ul a {
-  line-height:120%;
-  padding:10px 15px;
-}
-
-#menu ul li:hover > ul {
-  display:block;
-}
-    
-    
-    @import url('https://fonts.googleapis.com/css?family=Arimo:400,700&display=swap');
-body{
-  background:#444444;
-  font-family: 'Arimo', sans-serif;
-}
-h2{
-  color:#000;
-  text-align:center;
-  font-size:2em;
-}
-.warpper{
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
-.tab{
-  cursor: pointer;
-  padding:10px 20px;
-  margin:0px 2px;
-  background:#907DA9;
-  display:inline-block;
-  color:#fff;
-  border-radius:3px 3px 0px 0px;
-  box-shadow: 0 0.5rem 0.8rem #00000080;
-}
-.panels{
-  background:#fffffff6;
-  box-shadow: 0 2rem 2rem #00000080;
-  min-height:200px;
-  width:100%;
-  max-width:500px;
-  border-radius:3px;
-  overflow:hidden;
-  padding:20px;  
-}
-.panel{
-  display:none;
-  animation: fadein .8s;
-}
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-.panel-title{
-  font-size:1.5em;
-  font-weight:bold
-}
-.radio{
-  display:none;
-}
-#one:checked ~ .panels #one-panel,
-#two:checked ~ .panels #two-panel,
-#three:checked ~ .panels #three-panel{
-  display:block
-}
-#one:checked ~ .tabs #one-tab,
-#two:checked ~ .tabs #two-tab,
-#three:checked ~ .tabs #three-tab{
-  background:#fffffff6;
-  color:#666;
-  border-top: 3px solid #666;
-}</style> 
 <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
@@ -2386,361 +2789,6 @@ document.getElementById(nombre+"").style.display = 'block';
 
 </script>
 
-<script> 
-  var head2="<div class='datagrid'>"+
-          "<table border='2px'> "+
-          "<thead><tr><th>Codigo</th><th>Procedimiento </th><th>Unidad</th><th>Accion</th></tr></thead>"+
-          "<tbody>";
-var foot2="</tbody>"+
-        "</table>"+
-        "</div>";
-var formula="";
-var codigocie;
-
-const input_cups = document.getElementById('input_cups');
-const list_cups = document.getElementById('list_cups');
-const tablax2 = document.getElementById('tablax2');    
-$('#input_cups').change(function(){
-    var value = $('#input_cups').val();
-   var dato= document.getElementById("input_cups").value;
-// alert(dato);
-   var datoSplit= dato.split(" ");
-   var cup=datoSplit[0]+"";
-   dato= dato.replace(cup, '')
-    datoCupGlobal=dato;
-    cupGlobal=cup;
-    $('#input_cups').val(cup);
-    document.querySelector('#nombre_procedimiento').innerText = dato;
-//document.getElementById("nombre_procedimiento").value=dato;
-    });
-    
-    
-function eventoCups(comando,datoc){
-         console.log("comando="+comando+datoc);
-        $.ajax({
-            type: "POST",
-            url: "ztempPP.php",
-            data: "comando="+comando+datoc,
-            success: function(respuesta) {
-                      if(respuesta.trim()=='existe'){
-                          alertify.error("Algo no esta bien :(");
-                             }else{
-                              crearTablaCups(respuesta);
-                             } 
-               
-           
-               console.log(respuesta);
-                
-            }
-        });
-}    
-    
-    
-        var filasG=[];
-    function crearTablaCups(respuesta){
-        bufferGlobal="";
-       var indexControl=respuesta.split("??_$");
-            var filasSplit= indexControl[0].split("#_#");
-                filasG=filasSplit;
-                                  for(var i=0;i<filasSplit.length;i++){
-                                   var colSplit=filasSplit[i].split("#$");
-                                bufferGlobal=bufferGlobal+ "<tr>"+
-                                              "<td> "+colSplit[0]+"</td>"+
-                                              "<td> "+colSplit[1]+"</td>"+
-                                              "<td> "+colSplit[2]+"</td>"+
-                                              "<td><button class='btn btn-primary btn-print myButton3'  onClick=\"eliminarFilaCups(\'"+colSplit[0].trim()+"\')\"><i class='glyphicon glyphicon-remove' ></i></button> </td>"+
-                                          "</tr>" ;
-                                  }
-           // alert(indexControl[1]);
-        if(indexControl[1]!=0){
-            tablax2.innerHTML = head2+bufferGlobal+foot2;
-        }else{
-             tablax2.innerHTML = "";
-        }                           
-    }
-    
-    function eliminarFilaCups(fila){
-
-      $.ajax({
-            type: "POST",
-            url: "ztempPP.php",
-            data: "comando=eliminar&cups="+fila,
-            success: function(respuesta) {
-              if(respuesta.trim()!="existe"){
-                  crearTablaCups(respuesta);
-              }  else{
-                 alertify.error("No se pudo Borrar.");
-              }
-            }
-      });
-}
-    
-function limpiarTCups() {
-    
-   $.ajax({
-            type: "POST",
-            url: "ztempPP.php",
-            data: "comando=limpiar",
-            success: function(respuesta) {
-              if(respuesta.trim()!="existe"){
-                  crearTablaCups(respuesta);
-              }  else{
-                 alertify.error("No se pudo Borrar.");
-              }
-            }
-      });
-} 
-    
-const inHandlerCups = function(e) {
-var sresult;
-  descripcion = e.target.value;
-  var dataString = 'cups='+descripcion;
-  $.ajax({
-            type: "POST",
-            url: "getCUPS.php",
-            data: dataString,
-            success: function(respuesta) {
-                 //$('.result').html(res);
-            
-                 list_cups.innerHTML = respuesta;
-            }
-        });
-}
-input_cups.addEventListener('input', inHandlerCups);
-input_cups.addEventListener('propertychange', inHandlerCups); 
-
-    
-    </script>   
- //X   
-<script>   
-//MEDICAMENTOS   
-var MedProc=0;
-var atcGlobal;
-var datoGlobal;
-var expedienteCGlobal;
-var consecutivoCGlobal;
-var productoGlobal;
-var principioAGlobal;
-var unidadGlobal;
-var cupGlobal;
-var datoCupGlobal;
-var posologiaGlobal;
-var formaFGlobal;
-var vAdminGlobal;
-var descATCGlobal;
-var bufferGlobal="";
-var  contAdd=0;
-var arrayData=[];
-var head="<div class='datagrid'>"+
-          "<table border='2px'> "+
-          "<thead><tr><th>Codigo</th><th>Medicamento</th><th  style='width:10%'>V/Adm</th><th style='width:10%'>U</th><th>Posologia</th><th style='width:10%'>Accion</th></tr></thead>"+
-          "<tbody>";
-var foot="</tbody>"+
-        "</table>"+
-        "</div>";
-   
- const tablax = document.getElementById('tablax');       
-
- function limpiarT() {
-    
-   $.ajax({
-            type: "POST",
-            url: "ztempPM.php",
-            data: "comando=limpiar",
-            success: function(respuesta) {
-              if(respuesta.trim()!="existe"){
-                  crearTabla(respuesta);
-              }  else{
-                 alertify.error("No se pudo Borrar.");
-              }
-            }
-      });
-}   
-function procedimiento(){
-    MedProc=0;
-    console.log(MedProc);
-} 
-function medicamento(){
-    MedProc=1;
-      console.log(MedProc);
-}
-      
-function agregarPM(){
-$formafarmaceutica="";
-   if(MedProc==1){
-       var globalData="&expedientecum="+expedienteCGlobal+"&principioactivo="+principioAGlobal+"&consecutivocum="+consecutivoCGlobal+"&producto="+productoGlobal+"&unidad="+$('#unidades').val()+"&atc="+atcGlobal+"&descripcionatc="+descATCGlobal+"&viaadministracion="+vAdminGlobal+"&formafarmaceutica="+formaFGlobal+"&posologia="+$('#posologia').val();
-       eventoCum("insertar",globalData);
-        
-        }
-    
-    //PERTENECE A PROCEDIMIENTOS
-    
-       if(MedProc==0){
-            console.log( cupGlobal+" -- "+datoCupGlobal ) ;
-           eventoCups("insertar","&cups="+cupGlobal+"&descripcion="+datoCupGlobal+"&unidad="+$('#unidadesCups').val());
-        }
-    }
-
-function eventoCum(comando,datoc){
-         console.log("comando="+comando+datoc);
-        $.ajax({
-            type: "POST",
-            url: "ztempPM.php",
-            data: "comando="+comando+datoc,
-            success: function(respuesta) {
-                      if(respuesta.trim()=='existe'){
-                          alertify.error("Algo no esta bien :(");
-                             }else{
-                              crearTabla(respuesta);
-                             } 
-               
-           console.log(head+bufferGlobal+foot);
-           
-                
-                
-            }
-        });
-}
-        
-function eliminarFila(fila){
-
-      $.ajax({
-            type: "POST",
-            url: "ztempPM.php",
-            data: "comando=eliminar&expedientecum="+fila,
-            success: function(respuesta) {
-              if(respuesta.trim()!="existe"){
-                  crearTabla(respuesta);
-              }  else{
-                 alertify.error("No se pudo Borrar.");
-              }
-            }
-      });
-}
-    var filasG=[];
-    function crearTabla(respuesta){
-        bufferGlobal="";
-      var  indexControl=respuesta.split("??_$");
-            var filasSplit= indexControl[0].split("#_#");
-                filasG=filasSplit;
-                                  for(var i=0;i<filasSplit.length;i++){
-                                   var colSplit=filasSplit[i].split("#$");
-                                bufferGlobal=bufferGlobal+ "<tr>"+
-                                              "<td> "+colSplit[4]+"</td>"+
-                                              "<td> "+colSplit[3]+"</td>"+
-                                              "<td> "+colSplit[6]+"</td>"+
-                                              "<td> "+colSplit[9]+" U </td>"+
-                                              "<td> "+colSplit[8]+" </td>"+
-                                              "<td><button class='btn btn-primary btn-print myButton3'  onClick=\"eliminarFila(\'"+colSplit[0].trim()+"\')\"><i class='glyphicon glyphicon-remove' ></i></button> </td>"+
-                                          "</tr>" ;
-                                  }
-           // alert(indexControl[1]);
-        if(indexControl[1]!=0){
-            tablax.innerHTML = head+bufferGlobal+foot;
-        }else{
-             tablax.innerHTML = "";
-        }                           
-    }
-    
-   
-    
-const input_medic = document.getElementById('input_medic');
-const list_medic = document.getElementById('list_medic');
-
-$('#unidades').change(function(){
-
-     document.querySelector('#nombre_medicamento').innerText = atcGlobal+" -- "+datoGlobal+" -- "+($('#unidades').val())+" U"  ;
-
-});
-    
-$('#input_medic').change(function(){
-   var value = $('#input_medic').val();
-   var dato= document.getElementById("input_medic").value;
-   var datoSplit= dato.split(" ");
-   var cum=datoSplit[0]+"";
-   dato= dato.replace(cum, '');
-    $('#input_medic').val(cum);
-    
-   var val=$('#input_medic').val();
-   var formula = $('#list_medic').find('option[name="'+val+'"]').data('cum');
-    // console.log(formula);   
-    var formulaSplit=formula.split("#$");
-    var atc= formulaSplit[0];//1
-   
-     $('#input_medic').val(atc);
-    atcGlobal=atc;
-    dato=dato;
-    vAdminGlobal=formulaSplit[3];//
-    datoGlobal=dato;
-    formaFGlobal=formulaSplit[4];//2
-    expedienteCGlobal=formulaSplit[1];//2
-    consecutivoCGlobal=formulaSplit[2];//3
-    productoGlobal=formulaSplit[5];
-    unidadGlobal=formulaSplit[6];
-    principioAGlobal=formulaSplit[8];
-    descATCGlobal=formulaSplit[7];
-   // posologiaGlobal=formulaSplit[7];
-    
-    document.querySelector('#nombre_medicamento').innerText = atc[0]+" "+dato ;
-    document.querySelector('#nombre_via_adm').innerText=vAdminGlobal;
-      
-//document.getElementById("nombre_procedimiento").value=dato;
-    });
-    
-const inHandlerCum = function(e) {
-var sresult;
-  descripcion = e.target.value;
-  var dataString = 'cum='+descripcion;
-  $.ajax({
-            type: "POST",
-            url: "getMedic.php",
-            data: dataString,
-            success: function(respuesta) {
-                 //$('.result').html(res);
-                    // var T1 = respuesta.match(/\[(.*)\]/).pop();
-                
-                console.log(respuesta);
-
-                 list_medic.innerHTML = respuesta;
-               
-            }
-        });
-    }
-
-input_medic.addEventListener('input', inHandlerCum);
-input_medic.addEventListener('propertychange', inHandlerCum); 
-    
-    
-    function kmpSearch(pattern, text) {
-    if (pattern.length == 0)
-        return 0;  // Coincidencia inmediata
-
-    // Calcula la tabla más larga de sufijo-prefijo
-    var lsp = [0];  // Caso base
-    for (var i = 1; i < pattern.length; i++) {
-        var j = lsp[i - 1];  // Comienza asumiendo que estamos extendiendo el LSP previo
-        while (j > 0 && pattern.charAt(i) != pattern.charAt(j))
-            j = lsp[j - 1];
-        if (pattern.charAt(i) == pattern.charAt(j))
-            j++;
-        lsp.push(j);
-    }
-
-    // camina a través de la cadena de texto
-    var j = 0;  // Número de caracteres combinados en el patrón
-    for (var i = 0; i < text.length; i++) {
-        while (j > 0 && text.charAt(i) != pattern.charAt(j))
-            j = lsp[j - 1];  // Retrocede en el patrón
-        if (text.charAt(i) == pattern.charAt(j)) {
-            j++;  // Siguiente char emparejado, incrementa la posición
-            if (j == pattern.length)
-                return i - (j - 1);
-        }
-    }
-    return -1;  // No encontrado
-}
-</script> 
-
 <style>
 .datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00496B; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagrid table tbody .alt td { background: #E1EEF4; color: #00496B; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { border-top: 1px solid #006699;background: #E1EEF4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #006699; color: #FFFFFF; background: none; background-color:#00557F;}       
         
@@ -2758,55 +2806,7 @@ ul {
   text-align: right;
 }
        </style>
-
-<style>
-    #home-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-         
-}
-    #antecedentes-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-    #datospaciente-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-   #atenciontriage-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-    #orden_salida-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-    #vigilancia_nutricional-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-    #antecedentesf-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-    #examenfisico-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    } 
-    
-    #rsistema-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-     #diagnostico-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-     #resumenservicio-tab{
-   border:3px solid #888899;
-   border-radius:22px;
-    }
-    </style>       
+       
        
        
        <style>

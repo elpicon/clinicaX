@@ -9,7 +9,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="../configuracion/images/<?php echo $imagen_empresa; ?>" alt="..." class="img-circle profile_img">	
+                <img style="width:100%;" src="../configuracion/images/<?php echo $imagen_empresa; ?>" alt="..." class="img-circle profile_img">	
               </div>
               <div class="profile_info">
                 <span><?php echo $empresa; ?></span>
