@@ -1,5 +1,7 @@
 
-<?php include '../layout/header.php';
+<?php 
+session_start();
+include '../layout/header.php';
 
                               
 function _convert($content) {
@@ -247,7 +249,7 @@ ul {
                        <div class="col-md-4 btn-print">
                       <div class="form-group">
                         <label for="eps_ars" >Aseguradora</label>
-                        <select name="eps" required>
+                        <select name="eps" id="eps" required>
                         <option value="">Seleccione</option>
                               <!--ANTECEDENTES DEL PACIENTE -->
 <?php
@@ -685,13 +687,148 @@ ul {
                       </div>
                     </div> 
                     
-                      <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                     <label for="numerodecontrato" >Numero de Contrato</label>
-                    <input type="text" class="form-control" id="numerodecontrato" value="<?php echo $row['numerodecontrato']; ?>" name="numerodecontrato" placeholder="Contrato"  required>
-                      </div>
-                    </div>
                    
+                    
+                    <br>
+                       
+                     <input  type="hidden" class="form-control" id="numerodecontrato"  hidden name="numerodecontrato"  >
+                     
+                      <div class="col-md-12 ">
+                      <div class="form-group">
+                   
+                   
+                     
+                     <div class="containerT">
+                       <label for="numerodecontrato" >Numero de Contrato</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Para Borrar Presione sobre 'Close'.</span>
+                      <br />
+                      <div class="tag-container">
+                          <input list='lista_contrato' id='in_contrato'  value=''  class='form-control' >
+                            <datalist id='lista_contrato'  >
+                            </datalist>
+                         </div>
+                       </div> 
+                      </div>
+                    </div> 
+                       <br>
+                    
+<script>
+const in_contrato = document.getElementById('in_contrato');
+const lista_contrato = document.getElementById('lista_contrato');
+var E;
+const tagContainer = document.querySelector('.tag-container');
+const input = document.querySelector('.tag-container input');
+    
+ 
+const contratoHandler = function(e) {
+  var sresult;
+     
+
+    var entidad=document.getElementById("eps").value;
+    //alert(entidad);
+  datoin = e.target.value;
+  var dataString = 'codigo='+datoin+'&entidad='+entidad;
+  //console.log(dataString);
+  $.ajax({
+            type: "POST",
+            url: "getContrato.php",
+            data: dataString,
+            success: function(res2) {
+                 //$('.result').html(res);
+                  console.log("Z ".res2);
+                 lista_contrato.innerHTML = res2;
+              
+            }
+        });
+}   
+    
+in_contrato.addEventListener('input', contratoHandler);
+in_contrato.addEventListener('propertychange', contratoHandler);
+        
+
+let tags = [];
+
+function createTag(label) {
+  const div = document.createElement('div');
+  div.setAttribute('class', 'tag');
+  const span = document.createElement('span');
+  span.innerHTML = label;
+  const closeIcon = document.createElement('i');
+  closeIcon.innerHTML = 'close';
+  closeIcon.setAttribute('class', 'material-icons');
+  closeIcon.setAttribute('data-item', label);
+  div.appendChild(span);
+  div.appendChild(closeIcon);
+  return div;
+}
+
+function clearTags() {
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.parentElement.removeChild(tag);
+  });
+}
+
+function addTags() {
+  clearTags();
+  tags.slice().reverse().forEach(tag => {
+    tagContainer.prepend(createTag(tag));
+  });
+}
+
+	$('.tag-container input').change(function(){
+        
+        var value = $('#in_contrato').val();
+                    var codigoSplit=value.split(" ");
+                    var  codigoS= codigoSplit[0];//1
+        if(codigoSplit[1].trim()!==undefined){
+            console.log("tamaño cs "+codigoSplit[1]);
+            $('#in_contrato').val(codigoS);
+        }
+        
+		E.target.value.split(',').forEach(tag => {
+        var rep=0;
+            
+        for (var i = 0; i < tags.length; i++) {
+          if(tags[i].trim()===tag.trim()){
+            //tags[i] = precioDescuento
+              rep=1;
+          }
+         }
+         if(rep!==1){tags.push(tag);}
+        console.log(tags.toString());
+        $('#numerodecontrato').val(tags.toString());
+      });
+      
+      addTags();
+      input.value = '';
+		});    
+    
+input.addEventListener('keyup', (e) => {
+    E=e;
+    
+    if (e.key === 'Enter') {
+      e.target.value.split(',').forEach(tag => {
+        tags.push(tag);  
+      });
+      
+      addTags();
+      input.value = '';
+    }
+});
+document.addEventListener('click', (e) => {
+  console.log(e.target.tagName);
+    
+  
+    
+  if (e.target.tagName === 'I') {
+    const tagLabel = e.target.getAttribute('data-item');
+    const index = tags.indexOf(tagLabel);
+    tags = [...tags.slice(0, index), ...tags.slice(index+1)];
+    addTags();    
+  }
+})
+
+input.focus();
+</script> 
         
                <div class="col-md-3 btn-print">
                       <div class="form-group">

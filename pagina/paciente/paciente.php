@@ -1,5 +1,7 @@
 
-<?php include '../layout/header.php';
+<?php
+session_start();
+include '../layout/header.php';
 
  header('Content-Type: text/html; charset=UTF-8'); 
 ?>
@@ -14,8 +16,8 @@
    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+   
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
@@ -29,8 +31,8 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-<style>
+       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+       <style>
 label{
 
 color: black;
@@ -44,32 +46,55 @@ ul {
 #buscar{
   text-align: right;
 }
-      </style>
+       </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
+      <div class="row">
+        <div class="col-md-8 col-sm-8 col-xs-8">
+            <div class = "x-panel">
+
+            </div>
+
+        </div><!--end of modal-dialog-->
+ </div>
+ 
+
+                 <div class="panel-heading">
 
 
+        </div>
+ 
+ <!--end of modal-->
 
 
                   <div class="box-header">
                   <h3 class="box-title"> </h3>
 
                 </div><!-- /.box-header -->
-                <a class = "btn btn-success btn-print myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
+                 <a class = "btn btn-success btn-print myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
                 <!--<a class="btn btn-warning btn-print myButtonx" href="paciente_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>-->
                       <button type="button" class="btn btn-warning btn-print myButtonx" data-toggle="modal" data-target="#myModal">
                       Registrar
                     </button>
 
-                    </div>
-                    <?php include '../layout/datatable_script.php';?>
-                    <footer>
-          <div class="pull-right">
-                <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+                
+
+
+
+
+
+
+
+
+
+                <div class="box-body">
+                
+         
+
+ 
+
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -492,8 +517,8 @@ const contratoHandler = function(e) {
   //console.log(dataString);
   $.ajax({
             type: "POST",
-            url: "getContrato.php?"+dataString,
-            data: "",
+            url: "getContrato.php",
+            data: dataString,
             success: function(res2) {
                  //$('.result').html(res);
                   console.log("Z ".res2);
@@ -588,10 +613,7 @@ document.addEventListener('click', (e) => {
 })
 
 input.focus();
-</script>     
-
-
-
+</script>           
 <style>
 @import url('https://kodhus.com/kodhus-ui/kodhus-0.1.0.min.css');
 body {
@@ -797,7 +819,10 @@ password.addEventListener('input', inHandlerPasswor2);
 password.addEventListener('propertychange', inHandlerPasswor2); 
     </script>
 
+              <div class="modal-footer">
 
+
+              </div>
         </form>
 
       </div>

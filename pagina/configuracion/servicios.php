@@ -92,7 +92,7 @@ ul {
     </div>
   
        
-    </br>
+    <br>
    <div  style="width:100%" class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -147,6 +147,10 @@ ul {
    <div class="col-sm">
       <a  class="btn btn-info btn-print " aria-hidden="true" href=""  data-toggle="modal" data-target="#modal2" role="button">Asignacion Servicios Medicos</a>
     </div>
+    <br>
+    <div class="col-sm">
+      <a  class="btn btn-primary btn-print " aria-hidden="true" href="http://localhost/clinica/pagina/horario_medico/agenda/agenda.php?cid=NA"  data- role="button"><img src="">Horarios Medicos - Parametros Asignados</a>
+    </div>
 
 
 
@@ -195,20 +199,23 @@ ul {
                   <option value="11">ATENCION INMEDIATA</option> 
                 </select>
         </div>
-         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
-         </div>
+        
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group" id="div_ciclos">
+                <br>
+          </div>
           
          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
            <br>
             <label>Servicio : </label>
                   <div class="form-check " id="resMedico">
                   </div>
-    
       </div>
          
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
-          
-          </div>
+         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 form-group">
+         
+         </div>
+         
+         
           
           </div>
           </div>
@@ -313,6 +320,30 @@ in_medico.addEventListener('propertychange', inputHandler);
     const result2 = document.getElementById('resMedico');
          	    $('#grupo_servMedico').change(function(){
         		
+                if($('#grupo_servMedico').val()=='9'){
+                     result2.innerHTML = "";
+             div_ciclos.innerHTML   = " <label>Ciclos : </label> <select id='ciclos' class='form-control'"+ "style='width:80%' onchange='if (this.selectedIndex) doSomething(this.value);'>"+
+                     "<option value=''>Seleccionar</option>"+
+                     "<option value='PM001'>PRIMERA INFANCIA</option>"+ 
+                     "<option value='PM002'>INFANCIA</option>"+ 
+                     "<option value='PM003'>ADOLESCENCIA</option>"+ 
+                     "<option value='PM004'>JOVEN</option>"+ 
+                     "<option value='PM005'>ADULTO</option>"+ 
+                     "<option value='PM006'>VEJEZ</option> "+
+                     "<option value='PM007'>PAI</option> "+
+                     "<option value='PM008'>ATENCION PRECONCEPCIONAL</option> "+
+                     "<option value='PM009'>CONTROL PRENATAL</option> "+
+                     "<option value='PM010'>ATENCION DEL PARTO</option>"+ 
+                     "<option value='PM011'>ATENCION POSPARTO</option>"+ 
+                     "<option value='PM012'>RECIEN NACIDO</option> "+
+                     "<option value='PM013'>DEMANDA INDUCIDA</option>"+ 
+                     "<option value='PM014'>SALUD PUBLICA</option> "+
+                   
+                "</select>";
+                        
+                }else{
+                    
+                div_ciclos.innerHTML   = "";
         			console.log($('#grupo_servMedico').val());
         		
         			var dataString = 'grupoServicio='+$('#grupo_servMedico').val();
@@ -328,14 +359,16 @@ in_medico.addEventListener('propertychange', inputHandler);
                               
                         }
                          });
+                    
+                }
         			
         		});  
       
       function obtenerServiciosHMedico(codigoM){
              $.ajax({
                                     type: "POST",
-                                    url: "getHabilitacionMedico.php",
-                                    data: "medico="+codigoM+"&grupo="+$('#grupo_servMedico').val(),
+                                    url: "getHabilitacionMedico.php?"+"medico="+codigoM+"&grupo="+$('#grupo_servMedico').val(),
+                                    data: "",
                                     success: function(res3) {
                                      //$('.result').html(res);
                                         res3=res3.trim();
@@ -350,6 +383,30 @@ in_medico.addEventListener('propertychange', inputHandler);
                                 }
                                 });
       }
+      
+         function doSomething(dato){
+                console.log("consultara serv pyp "+dato); 
+        
+        			var dataString = 'grupoServicio='+$('#ciclos').val();
+                     console.log("consultara serv pyp");  
+                        
+        			 $.ajax({
+                        type: "POST",
+                        url: "getServiciosPYP.php",
+                        data: dataString,
+                        success: function(res) {
+                            	console.log(res);
+                             
+                             result2.innerHTML = res;
+                           obtenerServiciosHMedico(codigoM);
+                             
+                            //$('#myModal').modal('toggle')
+                              
+                        }
+                         });
+        			
+        		
+            }
   </script> 
    
     <script>

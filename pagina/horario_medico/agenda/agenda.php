@@ -54,7 +54,7 @@ date_default_timezone_set('America/Lima');
   
   <header>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar navbar-expand-lg navbar-white text-light bg-dark">
     <div class="container-fluid">
       <button
         class="navbar-toggler"
@@ -91,7 +91,15 @@ date_default_timezone_set('America/Lima');
 <div class="container bgall">
    <div class="row">
     <div class="col-sm">
-      <a class="btn btn-secondary btn-print" aria-hidden="true"  href="../horario_medico.php?cid=<?php echo $_REQUEST['cid'];?>"    role="button"><img src="chevron-left.svg"> Atras</a>
+     <?php 
+        if(!strcmp($_REQUEST['cid'], "NA")){
+            echo "<a class='btn btn-secondary btn-print' aria-hidden='true'  href='../../configuracion/servicios.php'    role='button'><img src='chevron-left.svg'> Atras</a>";
+                
+        }else{
+             echo "<a class='btn btn-secondary btn-print' aria-hidden='true'  href='../horario_medico.php?cid=". $_REQUEST['cid']."'    role='button'><img src='chevron-left.svg'> Atras</a>";
+        }
+      ?>
+      
     </div>
     <div class="col-sm">
       <!-- aqui otra columna-->
@@ -129,7 +137,9 @@ date_default_timezone_set('America/Lima');
     </tr>
   </thead>
   <tbody>
-    
+
+
+ 
   <input hidden id="id_medico_in" value="<?php echo $_REQUEST['cid'];  ?>">
     
      <tr>  <input type="hidden"  id="id_empresa" value="<?php echo $id_sede;  ?>" /><input type="hidden"  id="tipo" value="<?php echo $tipo;  ?>" />

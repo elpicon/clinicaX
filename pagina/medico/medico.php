@@ -7,7 +7,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="css/medico.css" type="text/css">
+     <link rel="stylesheet" href="css/medico.css" type="text/css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -16,7 +16,7 @@
     <div class="container body">
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
-       
+
         <!-- top navigation -->
        <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
        <style>
@@ -37,9 +37,12 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-<!--end of modal-->
+  
+ 
+ <!--end of modal-->
 
 
+              
                   <div class="box-header">
                   <h3 class="htitle" > Listado de Médicos</h3>
 
@@ -51,9 +54,9 @@ ul {
                 <br>
                 <br>
 
+
                 <div class="box-body">
                 
-
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
                         <tr class="encabezado">
@@ -113,7 +116,7 @@ ul {
 
                   </table>
                   
-        
+                </div><!-- /.box-body -->
 
             </div><!-- /.col -->
 
@@ -134,7 +137,7 @@ ul {
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-              <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
+                         <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -142,9 +145,10 @@ ul {
       </div>
     </div>
 
+  <?php include '../layout/datatable_script.php';?>
 
-   
-        <style>
+
+         <style>
 
 
 
@@ -280,8 +284,6 @@ ul {
               );
               } );
     </script>
-
-
 
 
     <!-- /gauge.js -->

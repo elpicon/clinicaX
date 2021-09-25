@@ -246,12 +246,12 @@ td {
 
 <div class="col-md-12  ">
 <div class="col-md-12 ">
-      <a class="btn myButton3" aria-hidden="true"  href="../medico/medico.php"    role="button"><img src="chevron-left.svg"></img> Atras</a>
+      <a class="btn myButton3" aria-hidden="true"  href="../medico/medico.php"    role="button"><img src="chevron-left.svg"> Atras</a>
     </div>
 </div>
           
  <div class="col-md-12  ">   
-     </br>
+     <br>
     <div class="col-md-3  ">
           <a class = "myButtonx " href = "agenda/agenda.php?cid=<?php echo $_REQUEST['cid'];?>" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i>Agendar <a/>
     </div>

@@ -1,15 +1,16 @@
 <?php
-include('../../dist/includes/dbcon.php');
 session_start();
+include('../../dist/includes/dbcon.php');
+
 $codigo="";
 $buffer="";
-if(isset($_REQUEST['codigo'])&&isset($_REQUEST['entidad'])){
-    $codigo=$_REQUEST['codigo'];
-    $entidad=$_REQUEST['entidad'];
+if(isset($_POST['codigo'])&&isset($_POST['entidad'])){
+    $codigo=$_POST['codigo'];
+    $entidad=$_POST['entidad'];
 $numero=false;
 
     //echo "Numero <br>";
-   $query = mysqli_query( $con, "SELECT * FROM contratos WHERE codigo like '%".$codigo."%' AND entidad=".$entidad )or die( mysqli_error() );
+   $query = mysqli_query( $con, "SELECT * FROM contratos WHERE codigo like '%".$codigo."%' AND entidad='".$entidad."'" )or die( mysqli_error() );
 
   $x=0;
 while ($row = mysqli_fetch_assoc($query)) {

@@ -17,10 +17,11 @@ function _convert($content) {
 }
 if(isset($_POST['grupoServicio'])){
     $grupoServicio=$_POST['grupoServicio'];
+    
 }
 $buffer;
 $x=0;
- $query = mysqli_query( $con, "SELECT * FROM servicios_h WHERE GRUPO_DE_SERVICIO='$grupoServicio' AND HABILITADO='SI'" )or die( mysqli_error() );
+ $query = mysqli_query( $con, "SELECT * FROM cupspyp WHERE grupo='$grupoServicio' AND contratado='SI' " )or die( mysqli_error() );
  
 $html="<div class='form-group'>";
    $row;
@@ -28,13 +29,14 @@ $html="<div class='form-group'>";
                         $row_cnt = mysqli_num_rows($query);
              while ( $row = mysqli_fetch_array( $query ) ) {
                  
-             
+            
                         $html=$html."
-                         <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-                         <input class='form-check-input' type='checkbox' value='".$row['CODIGO_DE_SERVICIO']."' name='chequeoSM' id='sm".$row['CODIGO_DE_SERVICIO']."'>".$row['NOMBRE_DE_SERVICIO']."</input>
-                         </div>";
+                 <div class='col-lg-12 col-md-12 col-ssm-12 col-xs-12'>
+                 <input class='form-check-input' type='checkbox' value='".$row['cups']."' name='chequeoSM' id='sm".$row['cups']."'>".$row['nombrecups']."</input>
+                 </div>";
                    
-                    
+                
+                     
                         $x++;
                     }
                     $jsvars=$html."</div></br>" ;
