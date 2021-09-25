@@ -4,8 +4,8 @@ include('../../dist/includes/dbcon.php');
 
 $codigo="";
 $buffer="";
-if(isset($_REQUEST['codigo'])){
-    $codigo=$_REQUEST['codigo'];
+if(isset($_POST['codigo'])){
+    $codigo=$_POST['codigo'];
 $numero=false;
 
     //echo "Numero <br>";
