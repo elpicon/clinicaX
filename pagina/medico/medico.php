@@ -7,6 +7,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="css/medico.css" type="text/css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -15,7 +16,7 @@
     <div class="container body">
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
-
+       
         <!-- top navigation -->
        <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
        <style>
@@ -36,30 +37,16 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
+<!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle" > Listado de Médicos</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="btn btn-warning myButtonx" href="medico_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>
+
+                <a class = "btn btn-success  btn-plantilla" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i>Imprimir</a>
+                <a class="btn btn-warning " href="medico_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">Registrar</a>
 
 
                 
@@ -74,31 +61,8 @@ ul {
 
                 <div class="box-body">
                 
-         
 
- 
-                        
-            
-
-          
-      
-
-
-
-
-
-
-      
  <!--end of modal-->
-
-
-
-
-
-
-
-
-
 
 
                   <div class="box-header">
@@ -189,7 +153,7 @@ ul {
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-                         <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
+              <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -275,30 +239,7 @@ ul {
 }
 
 
-.myButton2 {
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	border-radius:4px;
-	border:1px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:0px 0px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
-}
-.myButton2:hover {
-	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-	background-color:#72b352;
-}
-.myButton2:active {
-	position:relative;
-	top:1px;
-}
+
 
 .myButton3 {
 	box-shadow: 0px 10px 14px -3px #735527;

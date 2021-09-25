@@ -7,30 +7,30 @@ $id = $_SESSION[ 'id' ];
 <style>
     
     
-    span { color: #000; }
-    h3 { color: #000; }
+    span { color: white; }
+    h3 { color: white; }
     .side-menu a{
         
-          background: linear-gradient(#3fa1a6, #42775B);   
+          background: linear-gradient(#002142, #002142);   
         }
      .left_col{
-         background: #65937C;
+        background: #002142;
         }
     
     
     .child_menu a{
       
-        background: linear-gradient(#215456, #42775B);
+        background: linear-gradient(#002142, #002142);
         }
      .side-menu li{
-        background: linear-gradient(#3fa1a6, #42775B);   
+        background: linear-gradient(#002142, #002142);   
         }
-     .nav_title{
-         background: linear-gradient(#3fa1a6, #42775B);     
+    .nav_title{
+        background: linear-gradient(#002142, #002142);     
         }
     
-     .menus a:active{
-   background-color:#A2B2BF;
+    .menus a:active{
+  background-color:#002142;
 }
     
     .menus:hover{
@@ -39,7 +39,6 @@ $id = $_SESSION[ 'id' ];
     </style>
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 <div class="menu_section">
-<h3>Menu</h3>
 <ul class="nav side-menu">
 <li><a href = "../layout/inicio.php"><i class="fa fa-dashboard"></i> inicio <span class="fa fa-chevron-right"></span></a></li>
 

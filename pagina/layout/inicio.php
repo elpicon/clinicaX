@@ -286,35 +286,6 @@ echo $num;
                       ?>
 
 
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-   
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
                                <?php
                         if ($tipo=="administrador"  or $tipo=="medico") {
                     
@@ -347,18 +318,6 @@ echo $num;
           <?php
                       }
                       ?>
-
-
-
-
-
-
-
-
-
-
-       
-
 
 
                  <?php
@@ -394,16 +353,7 @@ echo $num;
                       }
                       ?>
 
-
-
-
-
-
-
-
-
-
-                   <?php
+<?php
                         if ($tipo=="administrador" ) {
                     
                       ?>
@@ -436,11 +386,7 @@ echo $num;
                       }
                       ?>
 
-
-
-
-        
-                               <div class="col-lg-3 col-xs-6">
+<div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-primary">
             <div class="inner">
@@ -463,37 +409,8 @@ echo $num;
         </div>
 
 
-
-
-
-
-
-
-
-
-
                   </div><!--row-->
                   
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
    
             </div><!-- /.col (right) -->
@@ -543,6 +460,9 @@ echo $num;
 
           </div><!-- /.row -->
 
+
+
+          
 
 
 

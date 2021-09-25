@@ -29,8 +29,8 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+<style>
 label{
 
 color: black;
@@ -44,53 +44,24 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+      </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-8">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
 
 
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
                   <h3 class="box-title"> </h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
+                <a class = "btn btn-success btn-print myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
                 <!--<a class="btn btn-warning btn-print myButtonx" href="paciente_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>-->
                       <button type="button" class="btn btn-warning btn-print myButtonx" data-toggle="modal" data-target="#myModal">
                       Registrar
                     </button>
-
-                
-
-
-
-
-
-
-
-
-
-                <div class="box-body">
-                
-         
-
- 
+                    </div>
 
 
 <!-- Modal -->
@@ -817,10 +788,7 @@ password.addEventListener('input', inHandlerPasswor2);
 password.addEventListener('propertychange', inHandlerPasswor2); 
     </script>
 
-              <div class="modal-footer">
 
-
-              </div>
         </form>
 
       </div>
