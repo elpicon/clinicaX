@@ -39,219 +39,219 @@ $id = $_SESSION[ 'id' ];
     </style>
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
 <div class="menu_section">
-<ul class="nav side-menu">
-<li><a href = "../layout/inicio.php"><i class="fa fa-dashboard"></i> inicio <span class="fa fa-chevron-right"></span></a></li>
+    <ul class="nav side-menu">
+    <li><a href = "../layout/inicio.php"><i class="fa fa-dashboard"></i> inicio <span class="fa fa-chevron-right"></span></a></li>
 
-<?php
-if ( $tipo == "administrador"
-    or $tipo == "recepcionista"
-    or $tipo == "medico" ) {
-
-    ?>
-<li><a><i class="fa fa-users"></i> Pacientes<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../paciente/paciente.php"><span>Lista de pacientes</span></a></li>
-    <li><a href="../paciente/pago_paciente_todos.php">Pagos</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
-
-<?php
-if ( $tipo == "administrador" ) {
-
-    ?>
-<li><a><i class="fa fa-user-md"></i> Medico<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../medico/medico.php">Medico</a></li>
-    <li><a href="../medico/asignar_servicios.php">Asignacion de Servicios</a></li>
-    <li><a href="../medico/medico_historial.php">Historial  Medico</a></li>
-    
-  </ul>
-</li>
-<?php
-}
-?>
-
-<?php
-if ( $tipo == "administrador" || $tipo == "contratacion"  ) {
-
-    ?>
-<li><a><i class="fa fa-shield"></i> Aseguradora<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../aseguradora/aseguradora.php">Listado Aseguradoras</a></li>
-    <li><a href="../aseguradora/contratos.php">Listado Contratos</a></li>
-    
-  </ul>
-</li>
-<?php
-}
-?>
-
-
-
-<?php
-
-
-if ( $tipo == "administrador"
-    or $tipo == "recepcionista"
-    or $tipo == "medico" ) {
-
-    ?>
-<li><a><i class="fa fa-tasks"></i> Programar<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../programar/horario_medico.php">Programar</a></li>
-    <li><a href="../programar/vacaciones.php">Vacaciones</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
-<?php
-if ( $tipo == "administrador"
-    or $tipo == "recepcionista" ) {
-
-    ?>
-<li><a><i class="fa fa-money"></i> Actividades financieras<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../actividades_financieras/pagos.php">Pagos</a></li>
-    <li><a href="../actividades_financieras/pago_agregar.php">Agregar pago</a></li>
-    <li><a href="../procedimiento_pago/procedimiento_pago.php">Procedimiento de pago</a></li>
-    <li><a href="../gastos/gastos.php">Gastos</a></li>
-    <li><a href="../gastos/gastos_agregar.php">Agregar gastos</a></li>
-    <li><a href="../gastos/gastos_categoria.php">Categoria gastos</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
-
-<?php
-if ( $tipo == "administrador"
-    or $tipo == "recepcionista"
-    or $tipo == "medico" ) {
-
-    ?>
-<li><a><i class="fa fa-calendar-plus-o"></i> Citas<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../cita/cita.php">Lista de citas</a></li>
-    <li><a href="../cita/cita_agregar.php">Agregar</a></li>
-    <li><a href="../cita/cita_hoy.php">Hoy</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
-<?php
-if ( $tipo == "administrador"
-    or $tipo == "farmaceutico" ) {
-
-    ?>
-<li><a><i class="fa fa-plus-square"></i> Medicinas<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../medicina/medicina.php">Lista de medicina</a></li>
-    <li><a href="../medicina/medicina_agregar.php">Agragar medidicna</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
-<?php
-if ( $tipo == "administrador"
-    or $tipo == "farmaceutico" ) {
-
-    ?>
-<li><a><i class="fa fa-medkit"></i> Farmacia<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../farmacia/pagos.php">Lista de ventas</a></li>
-    <li><a href="../farmacia/pago_agregar.php">Agragar farmacia</a></li>
-    <li><a href="../gastos_farmacia/gastos_farmacia.php">Gastos</a></li>
-    <li><a href="../gastos_farmacia/categoria.php">Gastos categoria</a></li>
-    <li><a href="../farmacia/reportes_pagos.php">Pagos</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
-<?php
-if ( $tipo == "administrador"
-    or $tipo == "medico" ) {
-
-    ?>
-<li><a href = "../preescripcion/preescripcion.php"><i class="fa fa-archive"></i> Preescripcion<span class="fa fa-chevron-right"></span></a>
-  <?php
-  }
-  ?>
-  <?php
-  if ( $tipo == "paciente" ) {
-
-      ?>
-<li><a href = "../cita/cita_paciente.php"><i class="fa fa-archive"></i> cita paciente<span class="fa fa-chevron-right"></span></a>
-<li><a href = "../preescripcion/preescripcion_paciente.php"><i class="fa fa-archive"></i> preescripcion paciente<span class="fa fa-chevron-right"></span></a>
-<li><a href = "../actividades_financieras/pagos_paciente.php"><i class="fa fa-archive"></i> Pagos atencion<span class="fa fa-chevron-right"></span></a>
-<li><a href = "../farmacia/pagos_farmacia_paciente.php"><i class="fa fa-archive"></i> Pagos farmacia<span class="fa fa-chevron-right"></span></a>
-  <?php
-  }
-  ?>
-  <?php
-
-  ?>
-  <?php
-
-
-  ?>
-  <?php
-  if ( $tipo == "administrador"  ) {
-
-      ?>
-<li><a><i class="fa fa-user"></i> Recursos humanos<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../medico/medico.php">Medico</a></li>
-    <li><a href="../farmaceutico/farmaceutico.php">farmaceutico</a></li>
-    <li><a href="../recepcionista/recepcionista.php">recepcionista</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
-<?php
-
-?>
-<li><a><i class="fa fa-gear"></i> Configuracion<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
     <?php
-    if ( $tipo == "administrador" || $tipo == "contratacion" ) {
+    if ( $tipo == "administrador"
+        or $tipo == "recepcionista"
+        or $tipo == "medico" ) {
 
         ?>
-    <li><a href="../configuracion/configuracion.php">Empresa</a></li>
+    <li><a><i class="fa fa-users"></i> Pacientes<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../paciente/paciente.php"><span>Lista de pacientes</span></a></li>
+        <li><a href="../paciente/pago_paciente_todos.php">Pagos</a></li>
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
+
+    <?php
+    if ( $tipo == "administrador" ) {
+
+        ?>
+    <li><a><i class="fa fa-user-md"></i> Medico<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../medico/medico.php">Medico</a></li>
+        <li><a href="../medico/asignar_servicios.php">Asignacion de Servicios</a></li>
+        <li><a href="../medico/medico_historial.php">Historial  Medico</a></li>
+        
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
+
+    <?php
+    if ( $tipo == "administrador" || $tipo == "contratacion"  ) {
+
+        ?>
+    <li><a><i class="fa fa-shield"></i> Aseguradora<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../aseguradora/aseguradora.php">Listado Aseguradoras</a></li>
+        <li><a href="../aseguradora/contratos.php">Listado Contratos</a></li>
+        
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
+
+
+
+    <?php
+
+
+    if ( $tipo == "administrador"
+        or $tipo == "recepcionista"
+        or $tipo == "medico" ) {
+
+        ?>
+    <li><a><i class="fa fa-tasks"></i> Programar<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../programar/horario_medico.php">Programar</a></li>
+        <li><a href="../programar/vacaciones.php">Vacaciones</a></li>
+      </ul>
+    </li>
     <?php
     }
     ?>
     <?php
-    if ( $tipo == "administrador" || $tipo == "contratacion" ) {
+    if ( $tipo == "administrador"
+        or $tipo == "recepcionista" ) {
 
         ?>
-    <li><a href="../configuracion/servicios.php">Servicios</a></li>
+    <li><a><i class="fa fa-money"></i> Actividades financieras<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../actividades_financieras/pagos.php">Pagos</a></li>
+        <li><a href="../actividades_financieras/pago_agregar.php">Agregar pago</a></li>
+        <li><a href="../procedimiento_pago/procedimiento_pago.php">Procedimiento de pago</a></li>
+        <li><a href="../gastos/gastos.php">Gastos</a></li>
+        <li><a href="../gastos/gastos_agregar.php">Agregar gastos</a></li>
+        <li><a href="../gastos/gastos_categoria.php">Categoria gastos</a></li>
+      </ul>
+    </li>
     <?php
     }
     ?>
-    <li><a href="../otros/editar_password.php">Editar password</a></li>
-  </ul>
-</li>
-<?php
-if ( $tipo == "administrador" ) {
+
+    <?php
+    if ( $tipo == "administrador"
+        or $tipo == "recepcionista"
+        or $tipo == "medico" ) {
+
+        ?>
+    <li><a><i class="fa fa-calendar-plus-o"></i> Citas<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../cita/cita.php">Lista de citas</a></li>
+        <li><a href="../cita/cita_agregar.php">Agregar</a></li>
+        <li><a href="../cita/cita_hoy.php">Hoy</a></li>
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
+    <?php
+    if ( $tipo == "administrador"
+        or $tipo == "farmaceutico" ) {
+
+        ?>
+    <li><a><i class="fa fa-plus-square"></i> Medicinas<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../medicina/medicina.php">Lista de medicina</a></li>
+        <li><a href="../medicina/medicina_agregar.php">Agragar medidicna</a></li>
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
+    <?php
+    if ( $tipo == "administrador"
+        or $tipo == "farmaceutico" ) {
+
+        ?>
+    <li><a><i class="fa fa-medkit"></i> Farmacia<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../farmacia/pagos.php">Lista de ventas</a></li>
+        <li><a href="../farmacia/pago_agregar.php">Agragar farmacia</a></li>
+        <li><a href="../gastos_farmacia/gastos_farmacia.php">Gastos</a></li>
+        <li><a href="../gastos_farmacia/categoria.php">Gastos categoria</a></li>
+        <li><a href="../farmacia/reportes_pagos.php">Pagos</a></li>
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
+    <?php
+    if ( $tipo == "administrador"
+        or $tipo == "medico" ) {
+
+        ?>
+    <li><a href = "../preescripcion/preescripcion.php"><i class="fa fa-archive"></i> Preescripcion<span class="fa fa-chevron-right"></span></a>
+      <?php
+      }
+      ?>
+      <?php
+      if ( $tipo == "paciente" ) {
+
+          ?>
+    <li><a href = "../cita/cita_paciente.php"><i class="fa fa-archive"></i> cita paciente<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "../preescripcion/preescripcion_paciente.php"><i class="fa fa-archive"></i> preescripcion paciente<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "../actividades_financieras/pagos_paciente.php"><i class="fa fa-archive"></i> Pagos atencion<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "../farmacia/pagos_farmacia_paciente.php"><i class="fa fa-archive"></i> Pagos farmacia<span class="fa fa-chevron-right"></span></a>
+      <?php
+      }
+      ?>
+      <?php
+
+      ?>
+      <?php
+
+
+      ?>
+      <?php
+      if ( $tipo == "administrador"  ) {
+
+          ?>
+    <li><a><i class="fa fa-user"></i> Recursos humanos<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../medico/medico.php">Medico</a></li>
+        <li><a href="../farmaceutico/farmaceutico.php">farmaceutico</a></li>
+        <li><a href="../recepcionista/recepcionista.php">recepcionista</a></li>
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
+    <?php
 
     ?>
-<li><a><i class="fa fa-database"></i> Base de datos<span class="fa fa-chevron-down"></span></a>
-  <ul class="nav child_menu">
-    <li><a href="../otros/vaciar_bd.php" onClick="return confirm('¿Está seguro de que quieres vaciar la base de datos ??');">Vaciar base de datos</a></li>
-    <li><a href="../otros/respaldo_add.php">Respaldo</a></li>
-  </ul>
-</li>
-<?php
-}
-?>
+    <li><a><i class="fa fa-gear"></i> Configuracion<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <?php
+        if ( $tipo == "administrador" || $tipo == "contratacion" ) {
+
+            ?>
+        <li><a href="../configuracion/configuracion.php">Empresa</a></li>
+        <?php
+        }
+        ?>
+        <?php
+        if ( $tipo == "administrador" || $tipo == "contratacion" ) {
+
+            ?>
+        <li><a href="../configuracion/servicios.php">Servicios</a></li>
+        <?php
+        }
+        ?>
+        <li><a href="../otros/editar_password.php">Editar password</a></li>
+      </ul>
+    </li>
+    <?php
+    if ( $tipo == "administrador" ) {
+
+        ?>
+    <li><a><i class="fa fa-database"></i> Base de datos<span class="fa fa-chevron-down"></span></a>
+      <ul class="nav child_menu">
+        <li><a href="../otros/vaciar_bd.php" onClick="return confirm('¿Está seguro de que quieres vaciar la base de datos ??');">Vaciar base de datos</a></li>
+        <li><a href="../otros/respaldo_add.php">Respaldo</a></li>
+      </ul>
+    </li>
+    <?php
+    }
+    ?>
 </div>
 <!--- <div class="menu_section">
                 <h3>Live On</h3>

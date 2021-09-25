@@ -1,8 +1,35 @@
 .btn-plantilla{
-    background: red;
+    background: #2db8eb;
+    color: white;
 }
 
+.btn-plantilla2{
+    background: #fc8d44;
+    color: white;
+    margin-left: 10px;
+}
+
+
 .htitle{
-    color: #00557F ;
+    color: #2d3235 ;
     margin-top: 70px;
+}
+
+.encabezado{
+    background: #002142;
+    color: white;
+}
+
+.btn-horario{
+    background: #3c8dbc;
+    color: white;
+}
+
+.btn-vaca{
+    background: #fc8d44;
+    color: white;
+}
+
+.acciones{
+    width: 300px;
 }

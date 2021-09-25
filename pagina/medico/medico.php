@@ -45,94 +45,75 @@ ul {
 
                 </div><!-- /.box-header -->
 
-                <a class = "btn btn-success  btn-plantilla" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i>Imprimir</a>
-                <a class="btn btn-warning " href="medico_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">Registrar</a>
+                <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+                <a class="btn  btn-plantilla" href="medico_agregar.php"  role="button"> <i class="glyphicon glyphicon-plus"></i> Registrar</a>
 
-
-                
-
-
-
-
-
-
-
-
+                <br>
+                <br>
 
                 <div class="box-body">
                 
 
- <!--end of modal-->
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA MEDICOS</h3>
-                </div><!-- /.box-header -->
-              
-
-
-                <div class="box-body">
-                <div class="datagrid">
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
-                    <th>#</th>
-                        <th>Foto</th>
-                        <th>Nombre y apellidos</th>
-                        <th>Telefono</th>
-                        <th>Usuario</th>
-                       
-                             <th>Correo</th>
-     
-
- <th class="btn-print"> Accion </th>
-                      </tr>
+                                <th>#</th>
+                                <th>Foto</th>
+                                <th>Nombre completo</th>
+                                <th>Teléfono</th>
+                                <th>Usuario</th>
+                                <th>Correo</th>
+                              <th class="acciones"> Acciones </th>
+                        </tr>
                     </thead>
-                    <tbody>
-<?php
-   // $branch=$_SESSION['branch'];
-    $query=mysqli_query($con,"select * from usuario where tipo='medico' ")or die(mysqli_error());
-    $i=0;
-    while($row=mysqli_fetch_array($query)){
-    $cid=$row['id'];
-    $i++;
-?>
-                      <tr >
-
-<td ><?php echo $i;?></td>
- <td><IMG src="../usuario/subir_us/<?php echo $row['imagen'];?>" style="height:50PX" /></td>
-              <td><?php echo $row['nombre'].'  '.$row['apellido'];?></td>
-<td><?php echo $row['telefono'];?></td>
-<td><?php echo $row['usuario'];?></td>
-  
-    <td><?php echo $row['correo'];?></td>                                      
-
-                          <td>
-                                 <?php
-                   
-                    
+                    <tbody style="background: white;">
+                      <?php
+                        // $branch=$_SESSION['branch'];
+                          $query=mysqli_query($con,"select * from usuario where tipo='medico' ")or die(mysqli_error());
+                          $i=0;
+                          while($row=mysqli_fetch_array($query)){
+                          $cid=$row['id'];
+                          $i++;
                       ?>
-  <a class="small-box-footer btn-print"  href="<?php  echo "eliminar_medico.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar medico??');"><i class="glyphicon glyphicon-remove" ></i></a>
+                                            <tr style="background: white;">
 
-<a class="btn btn-success btn-print" href="../horario_medico/<?php  echo "horario_medico.php?cid=$cid";?>"  role="button">Horario</a>
-<a class="btn btn-primary btn-print" href="../vacaciones/<?php  echo "vacaciones.php?cid=$cid";?>"  role="button">Vacaciones</a>
-<a class="btn btn-danger btn-print" href="<?php  echo "editar_medico.php?cid=$cid";?>"  role="button">Editar</a>
-             <?php
-            //          }
-                      ?>
+                      <td ><?php echo $i;?></td>
+                      <td><IMG src="../usuario/subir_us/<?php echo $row['imagen'];?>" style="height:50PX" /></td>
+                                    <td><?php echo $row['nombre'].'  '.$row['apellido'];?></td>
+                      <td><?php echo $row['telefono'];?></td>
+                      <td><?php echo $row['usuario'];?></td>
+                        
+                          <td><?php echo $row['correo'];?></td>                                      
 
-            </td>
-                      </tr>
+                                                <td>
+                                                      <?php
+                                        
+                                          
+                                            ?>
+                        
 
- <!--end of modal-->
+                      <a class="btn btn-horario btn-print" href="../horario_medico/<?php  echo "horario_medico.php?cid=$cid";?>"  role="button">Horario</a>
+                      <a class="btn btn-vaca btn-print" href="../vacaciones/<?php  echo "vacaciones.php?cid=$cid";?>"  role="button">Vacaciones</a>
+                      <a class="btn btn-plantilla btn-print" href="<?php  echo "editar_medico.php?cid=$cid";?>"  role="button"><i class="	glyphicon glyphicon-pencil"></i></a>
 
-<?php }?>
+                      <a class="small-box-footer btn btn-danger btn-print"  href="<?php  echo "eliminar_medico.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar medico??');"><i class="glyphicon glyphicon-trash	
+" ></i></a>
+                                  <?php
+                                  //          }
+                                            ?>
+
+                                  </td>
+                                            </tr>
+
+                      <!--end of modal-->
+
+                      <?php }?>
                     </tbody>
 
                   </table>
-                    </div>
-                </div><!-- /.box-body -->
+                  
+        
 
             </div><!-- /.col -->
 
@@ -161,9 +142,8 @@ ul {
       </div>
     </div>
 
-  <?php include '../layout/datatable_script.php';?>
 
-
+   
         <style>
 
 
@@ -193,7 +173,7 @@ ul {
 }
 
 
-.datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#ffffff; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00496B; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagrid table tbody .alt td { background: #E1EEF4; color: #00496B; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { border-top: 1px solid #006699;background: #E1EEF4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #006699; color: #FFFFFF; background: none; background-color:#00557F;}
+.datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden;  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#ffffff; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00496B; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagrid table tbody .alt td { background: #E1EEF4; color: #00496B; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { background: #E1EEF4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #006699; color: #FFFFFF; background: none; background-color:#00557F;}
 
  .datagridx {
         font: normal 12px/150% Arial,
