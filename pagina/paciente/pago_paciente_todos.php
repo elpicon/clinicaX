@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/paciente.css" type="text/css">
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
-                                         <?php 
+<?php 
 //    if ($usuario=="si") {
       # code...
     
@@ -57,8 +56,7 @@ ul {
 
 ?>
 
-                           <?php
-                         
+                          <?php
              //         if ($guardar=="si") {
                     
                       ?>
@@ -100,21 +98,13 @@ ul {
 
                    <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
-
-                
+                        <tr class="encabezado">
                
             <th>ID</th>
-   
-                       
-         
-                           
-
     <th>Fecha</th>
       <th>Total</th>
 
- <th class="btn-print"> Accion </th>
-                           
+ <th class="btn-print"> Factura </th>
 
 
 
@@ -231,8 +221,8 @@ $id_pedido=$row['id_pedido'];
                 $('#example2').dataTable( {
                  "language": {
                    "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
 
@@ -249,8 +239,7 @@ $id_pedido=$row['id_pedido'];
 
               );
               } );
-    </script>
-                                         <?php 
+    </script><?php 
  // }    
 ?>
 

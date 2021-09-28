@@ -12,20 +12,20 @@ include '../layout/header.php';
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="css/paciente.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
-   <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
-   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   
-   
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-   <link href="../layout/build/css/custom.min.css" rel="stylesheet">
+  <link href="../layout/build/css/custom.min.css" rel="stylesheet">
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -49,7 +49,7 @@ include '../layout/header.php';
                 }
                       </style>
 
-           <!-- page content -->
+          <!-- page content -->
             <div class="right_col" role="main">
     
                   <div class="box-header">
@@ -217,6 +217,7 @@ include '../layout/header.php';
                   
                    <div class="row">
                        <div class="col-md-3 btn-print">
+                         <br>
                       <div class="form-group">
                           <label for="primerapellido" >Primer Apellido</label>
                           <input type="text" class="form-control pull-right" id="primerapellido" name="primerapellido" required >
@@ -225,23 +226,26 @@ include '../layout/header.php';
                         
                    
                        <div class="col-md-3 btn-print">
+                       <br>
                       <div class="form-group">
                          <label for="segundoapellido" >Segundo Apellido</label>
                           <input type="text" class="form-control pull-right" id="segundoapellido" name="segundoapellido"  >
                       </div>
                     </div>
                             
-                       <div class="col-md-3 btn-print">
+                      <div class="col-md-3 btn-print">
+                      <br>
                       <div class="form-group">
                           <label for="primernombre" >Primer Nombre</label>
                           <input type="text" class="form-control pull-right" id="primernombre" name="primernombre" required >
                       </div>
                     </div>
                         
-                   
-                       <div class="col-md-3 btn-print">
+                  
+                    <div class="col-md-3 btn-print">
+                      <br>
                       <div class="form-group">
-                         <label for="segundonombre" >Segundo Nombre</label>
+                        <label for="segundonombre" >Segundo Nombre</label>
                           <input type="text" class="form-control pull-right" id="segundonombre" name="segundonombre"  >
                       </div>
                     </div>
@@ -249,13 +253,15 @@ include '../layout/header.php';
                     </div>
 
 
- <div class="row">
- 
+                  <div class="row">
+
   
-                       <div class="col-md-3 btn-print">
+                    <div class="col-md-3 btn-print">
+                    <br>
                       <div class="form-group">
-                         <label for="tipodedocumento " >Tipo DI</label>
-                          <select id="tipodedocumento" name="tipodedocumento">
+                        <label for="tipodedocumento " >Tipo ID</label>
+                          <select id="tipodedocumento" name="tipodedocumento" class="form-control">
+                          <option value="">Seleccione</option>
                               <option value="RC">RC</option>
                               <option value="TI">TI</option>
                               <option value="CC">CC</option>
@@ -267,66 +273,67 @@ include '../layout/header.php';
                       </div>
                     </div>
                   
-                       <div class="col-md-3 btn-print">
+                    <div class="col-md-3 btn-print">
+                      <br>
                       <div class="form-group">
-                         <label for="date" >Usuario/DI</label>
+                        <label for="date" >Usuario/ID</label>
                           <input type="text" class="form-control pull-right" id="numerodedocumento" name="numerodedocumento"  placeholder="ID" required>
                       </div>
                     </div>
                           
                       <div class="col-md-6 btn-print">
+                      <br>
                       <div class="form-group">
-                         <label for="date" >IDBDUA</label>
+                        <label for="date" >IDBDUA</label>
                           <input type="text" class="form-control pull-right" id="idbdua" name="idbdua"  placeholder="idbdua" required>
                       </div>
                     </div>
-  
-                    
+        </div>
+                <div class="row">   
                     <div class="col-md-7 btn-print">
+                    <br>
                           <div class="form-group">
                            <label for="date" >Departamento</label>
-                          <select id="departamento" name="departamento" required>
-                                <option value="">Seleccione</option>
+                          <select id="departamento" name="departamento" required class="form-control" > 
+                                <option value="" class="form-control">Seleccione</option>
                                //ANTECEDENTES DEL PACIENTE 
-<?php
-                              
-function _convert($content) {
-    if(!mb_check_encoding($content, 'UTF-8')
-        OR !($content === mb_convert_encoding(mb_convert_encoding($content, 'UTF-32', 'UTF-8' ), 'UTF-8', 'UTF-32'))) {
+                            <?php
+                                                          
+                            function _convert($content) {
+                                if(!mb_check_encoding($content, 'UTF-8')
+                                    OR !($content === mb_convert_encoding(mb_convert_encoding($content, 'UTF-32', 'UTF-8' ), 'UTF-8', 'UTF-32'))) {
 
-        $content = mb_convert_encoding($content, 'UTF-8');
+                                    $content = mb_convert_encoding($content, 'UTF-8');
 
-        if (mb_check_encoding($content, 'UTF-8')) {
-            // log('Converted to UTF-8');
-        } else {
-            // log('Could not converted to UTF-8');
-        }
-    }
-    return $content;
-}
-      $x = 0;
-          $query = mysqli_query( $con, "SELECT * FROM departamentos WHERE true " )or die( mysqli_error() );
-          $i = 0;
+                                    if (mb_check_encoding($content, 'UTF-8')) {
+                                        // log('Converted to UTF-8');
+                                    } else {
+                                        // log('Could not converted to UTF-8');
+                                    }
+                                }
+                                return $content;
+                            }
+                                  $x = 0;
+                                      $query = mysqli_query( $con, "SELECT * FROM departamentos WHERE true " )or die( mysqli_error() );
+                                      $i = 0;
 
-          while ( $row = mysqli_fetch_array( $query ) ) {
-              $departamentos = $row[ 'departamento' ];
-              $id_departamento = $row[ 'id_departamento' ];
-                $departamentos = _convert($departamentos);
-               $i++;
-            echo "     <option value='$id_departamento'>".$departamentos."</option>";
-             
-          }
-      ?>
+                                      while ( $row = mysqli_fetch_array( $query ) ) {
+                                          $departamentos = $row[ 'departamento' ];
+                                          $id_departamento = $row[ 'id_departamento' ];
+                                            $departamentos = _convert($departamentos);
+                                          $i++;
+                                        echo "     <option value='$id_departamento' >".$departamentos."</option>";
+                                        
+                                      }
+                                  ?>
       
                             </select>
                           </div>
                     </div>
-                   <div class="col-md-5 btn-print" id="municipios">
-                     
+                    <br>
+                   <div class="col-md-5 municipio " id="municipios" style="padding-top: 0px">
+                  
                     </div>
-                            
-                   
-                      
                   </div>   
                           
                 
@@ -358,6 +365,7 @@ function _convert($content) {
         <div class="row">
                   
                        <div class="col-md-5 btn-print">
+                       <br>
                       <div class="form-group">
                           <label for="sangre" >Fecha de Nacimiento</label>
                           <input type="date" class="form-control pull-right" id="fnacimiento" name="fecha_nacimiento"  placeholder="Fecha de nacimiento" required>
@@ -368,9 +376,10 @@ function _convert($content) {
 
 
                        <div class="col-md-4 btn-print">
+                       <br>
                       <div class="form-group">
                          <label for="tipodesangre" >Tipo de Sangre</label>
-                          <select name="tipodesangre" required>
+                          <select name="tipodesangre" required class="form-control">
                              <option value="">Seleccione</option>
                             <option>O+</option>
                             <option>O-</option>
@@ -388,9 +397,11 @@ function _convert($content) {
   
                    
                        <div class="col-md-3 btn-print">
+
+                       <br>
                       <div class="form-group">
                           <label for="genero" >Genero</label>
-                          <select name="genero">
+                          <select name="genero" class="form-control">
                              <option value="">Seleccione</option>
                             <option>M</option>
                             <option>F</option>
@@ -408,9 +419,14 @@ function _convert($content) {
 
 
        <style>
-         .marco-grupo1 { background-color: #DFFFB6; }
+         .marco-grupo1 {     
+background-color: #bcd8e2;
+    padding-top: 15px; 
+    padding-bottom: 15px;
+
+}
        </style>
-            <br>     <br>
+            <br>    
  <div class="row marco-grupo1">
 
                    
@@ -418,7 +434,7 @@ function _convert($content) {
                     <div class="col-md-2 btn-print">
                       <div class="form-group">
                           <label for="nivel" >Nivel</label>
-                          <select name="nivel">
+                          <select name="nivel" class="form-control">
                              <option value="">Seleccione</option>
                              
                              
@@ -482,11 +498,11 @@ function _convert($content) {
                       </div>
                     </div>
                     
-                     <div class="col-md-4 btn-print">
+                    <div class="col-md-4 btn-print">
                       <div class="form-group">
                           <label for="grupopoblacional" >Grupo Poblacional</label>
-                          <select name="grupopoblacional">
-                             <option value="">Seleccione</option>
+                          <select name="grupopoblacional" class="form-control">
+                            <option value="">Seleccione</option>
                             <option value="1">Habitante de la calle</option>
                             <option value="2">ICBF</option>
                             <option value="18">Indígenas</option>
@@ -500,25 +516,25 @@ function _convert($content) {
                             </select>
                       </div>
                     </div>
-                   
+                  
                   <div class="col-md-3 btn-print">
                       <div class="form-group">
-                          <label for="regimen" >Regimen</label>
-                          <select name="regimen">
-                             <option value="">Seleccione</option>
+                          <label for="regimen" >Régimen</label>
+                          <select name="regimen" class="form-control">
+                            <option value="">Seleccione</option>
                             <option value="contributivo">Contributivo</option>
                             <option value="subcidiado">Subcidiado</option>
                             <option value="excepcionyespecial">Excepción y Especial</option>
-                             <option value="PVS">PVS</option>
-                             <option value="INPEC">INPEC</option>
+                            <option value="PVS">PVS</option>
+                            <option value="INPEC">INPEC</option>
                             </select>
                       </div>
                     </div>
-                       <div class="col-md-3 btn-print">
-                      <div class="form-group">
+                      <div class="col-md-3 btn-print">
+                        <div class="form-group">
                           <label for="tipodecontrato" >Tipo de Contrato</label>
-                          <select name="tipodecontrato">
-                             <option value="">Seleccione</option>
+                          <select name="tipodecontrato" class="form-control">
+                            <option value="">Seleccione</option>
                             <option>ARS</option>
                             <option>ARL</option>
                             <option>EPS</option>
@@ -526,28 +542,22 @@ function _convert($content) {
                             </select>
                       </div>
                     </div> 
-                   
-                     <input  type="hidden" class="form-control" id="numerodecontrato"  hidden name="numerodecontrato"  >
-                     
+                  
+                    <input  type="hidden" class="form-control" id="numerodecontrato"  hidden name="numerodecontrato"  >
+                    
                       <div class="col-md-12 btn-print">
                       <div class="form-group">
-                   
-                   
-                     
-                     <div class="containerT">
-                       <label for="numerodecontrato" >Numero de Contrato</label>
+                      <div class="containerT">
+                          <label for="numerodecontrato" >Numero de Contrato</label>
                       <br />
                       <div class="tag-container">
                           <input list='lista_contrato' id='in_contrato'  value=''  class='form-control' >
                             <datalist id='lista_contrato'  >
                             </datalist>
-                         </div>
-                       </div> 
+                        </div>
+                      </div> 
                       </div>
                     </div>
-                   
-
-         
 <script>
 const in_contrato = document.getElementById('in_contrato');
 const lista_contrato = document.getElementById('lista_contrato');
@@ -673,7 +683,7 @@ body {
 }
 .containerT {
   width: 100%;
-  margin: 30px auto;
+  margin: 15px auto;
 }
 .tag-container {
   border: 2px solid #ccc;
@@ -722,8 +732,8 @@ body {
                     
                <div class="col-md-3 btn-print">
                       <div class="form-group">
-                          <label for="estadodelafiliado" >Estado de Afiliacion</label>
-                          <select name="estadodelafiliado">
+                          <label for="estadodelafiliado" >Estado de Afiliación</label>
+                          <select name="estadodelafiliado" class="form-control">
                              <option value="">Seleccione</option>
                             <option>Activo</option>
                             <option>Inactivo</option>
@@ -732,11 +742,11 @@ body {
                             </select>
                       </div>
                     </div>    
-                     <div class="col-md-3 btn-print">
+                    <div class="col-md-3 btn-print">
                       <div class="form-group">
                           <label for="zona" >Zona</label>
-                          <select name="zona">
-                             <option value="">Seleccione</option>
+                          <select name="zona" class="form-control">
+                            <option value="">Seleccione</option>
                             <option>Urbana</option>
                             <option>Rural</option>
                             </select>
@@ -744,19 +754,21 @@ body {
                     </div>     
                   </div>
                     
-               
+              
             <div class="row">
-                     <div class="col-md-6 btn-print">
+                    <div class="col-md-6 btn-print">
+                    <br>
                       <div class="form-group">
-                      <label for="telefono" >Telefono o Celular</label>
+                      <label for="telefono" >Teléfono o Celular</label>
             <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono"  required>
                       </div>
                     </div>
                           
-               <div class="col-md-6 btn-print">
+              <div class="col-md-6 btn-print">
+              <br>
                       <div class="form-group">
-                          <label for="sangre" >fehcasgss</label>
-                          <input type="date" class="form-control pull-right" id="fehcasgss" name="fehcasgss"  placeholder="Fecha de nacimiento" required>
+                          <label for="sangre" >Fehcasgss</label>
+                          <input type="date" class="form-control pull-right" id="Fehcasgss" name="fehcasgss"  placeholder="Fecha de nacimiento" required>
                       </div>
                     </div>       
                     
@@ -764,14 +776,16 @@ body {
                     
                 <div class="row">  
                       
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-4 btn-print">
+                      <br>
                       <div class="form-group">
-                       <label for="direccion" >Direccion</label>
+                       <label for="direccion" >Dirección</label>
                          <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion"  required>
                       </div>
                     </div>
                     
                     <div class="col-md-4 btn-print">
+                    <br>
                       <div class="form-group">
                        <label for="barrio" >Barrio</label>
                          <input type="text" class="form-control" id="barrio" name="barrio" placeholder="barrio"  required>
@@ -780,6 +794,7 @@ body {
                     
                     
                     <div class="col-md-4 btn-print">
+                    <br>
                       <div class="form-group">
                        <label for="correoelectronico" >Correo</label>
                         <input type="text" class="form-control" id="correoelectronico" name="correoelectronico" placeholder="correoelectronico"  required>
@@ -787,8 +802,19 @@ body {
                     </div>
            </div>
 
+
+
 <div class="row">
+
+                    <div class="col-md-4 btn-print">
+                      <br>
+                        <div class="form-group">
+                          <label for="ocupacion" >Ocupación</label>
+                            <input type="text" class="form-control" id="ocupación" name="ocupacion" placeholder="Ocupacion"  required>
+                         </div>
+                    </div>    
                    <div class="col-md-4 btn-print">
+                   <br>
                       <div class="form-group">
                           <label for="contrasena" >Contraseña</label>
                           <input type="password" class="form-control pull-right" id="password" name="contrasena" placeholder="Contraseña " required>
@@ -796,32 +822,17 @@ body {
                     </div>
                            
                         <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                       <label for="date" >Repita contraseña</label>
-                        <input type="password" class="form-control pull-right" id="password2" name="contrasenaconfirma" placeholder="Repite Password " required>
-                      </div>
+                        <br>
+                            <div class="form-group">
+                            <label for="date" >Repita contraseña</label>
+                              <input type="password" class="form-control pull-right" id="password2" name="contrasenaconfirma" placeholder="Repita Contraseña " required>
+                            </div>
                       </div>
           
                       
-                    <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                      <label for="ocupacion" >Ocupacion</label>
-                        <input type="text" class="form-control" id="ocupacion" name="ocupacion" placeholder="Ocupacion"  required>
-                         </div>
-                      </div>    
-                      </div>
-                      
-                        
-              
-
-     
-
                     
+                      </div>
 
-             
-               <br>
-               <br>  
-    <button type="submit" class="btn btn-primary" id="btn_enviar">Guardar cambios</button>
               
 <script>
         const password2 = document.getElementById('password2');
@@ -871,15 +882,12 @@ password.addEventListener('input', inHandlerPasswor2);
 password.addEventListener('propertychange', inHandlerPasswor2); 
     </script>
 
-              <div class="modal-footer">
-
-
-              </div>
         </form>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-modal-save" id="btn_enviar">Guardar cambios</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       
       </div>
     </div>
@@ -913,15 +921,16 @@ password.addEventListener('propertychange', inHandlerPasswor2);
                 $('#example2').dataTable( {
                  "language": {
                    "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
 
   "searching": true,
                 }

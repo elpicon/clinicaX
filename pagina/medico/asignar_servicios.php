@@ -41,7 +41,6 @@ ul {
 
                   <div class="box-header">
                   <h3 class="htitle" >Asignación de Servicios</h3>
-                  <h3 class="htitle" >Asignación de Servicios</h3>
                 </div><!-- /.box-header -->
                 <a class = "btn btn-plantilla2 btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
 
@@ -137,14 +136,17 @@ ul {
                 $('#example2').dataTable( {
                  "language": {
                    "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
 
 
   "searching": true,

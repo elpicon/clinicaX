@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/vacaciones.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -54,15 +55,10 @@ ul {
 ?>
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
-                    <?php
+        <div class="box-header">
+                  <h3 class="htitle" >Vacaciones</h3>
+                  </div><!-- /.box-header -->
+           <?php
                     $id_usuario=$_SESSION['id'];
                             $fecha = date('Y-m-d');
                 

@@ -1,7 +1,5 @@
 
 <?php include '../layout/header.php';
-
-                             
 function _convert($content) {
     if(!mb_check_encoding($content, 'UTF-8')
         OR !($content === mb_convert_encoding(mb_convert_encoding($content, 'UTF-32', 'UTF-8' ), 'UTF-8', 'UTF-32'))) {
@@ -27,6 +25,7 @@ function _convert($content) {
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="css/aseguradora.css" type="text/css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
@@ -75,41 +74,16 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
 
 
-        </div>
- 
  <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
-
+                  <h3 class="htitle">Listado Aseguradoras</h3>
                 </div><!-- /.box-header -->
-                 <a class = "myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="myButtonx text-center"   style="height:24%; width:15%; font-size: 12px " role="button" data-toggle="modal" data-target="#myModal">Rregistrar</a>
-
-
-                <!-- Button trigger modal -->
-
-<!-- Modal -->
-
-
-
-
-
-
+                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+                <a class="btn-plantilla btn"    role="button" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i>  Registrar</a>
 
 
 
@@ -555,20 +529,7 @@ ul {
 
 
 
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> ASEGURADORAS</h3>
-                </div><!-- /.box-header -->
-              
-
-
                 <div class="box-body">
-                <div class="datagrid">
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
                         <tr class=" btn-success">
@@ -580,7 +541,7 @@ ul {
                         <th>Tipo Entidad</th>
                         <th>Direccion</th>
                         <th>Telefono</th>
- <th class="btn-print"> Accion </th>
+                      <th class="btn-print"> Accion </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -669,7 +630,6 @@ ul {
                     </tbody>
 
                   </table>
-                    </div>
                 </div><!-- /.box-body -->
 
             </div><!-- /.col -->

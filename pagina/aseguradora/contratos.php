@@ -29,6 +29,7 @@ function _convert($content) {
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/aseguradora.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -76,30 +77,18 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
 
 
-        </div>
  
  <!--end of modal-->
             <input hidden id="tipoU" value="<?php echo $tipo; ?>" >
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle">Contratos</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="myButtonx text-center"   style="height:24%; width:15%; font-size: 12px " role="button" data-toggle="modal" data-target="#myModal">Rregistrar</a>
+                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i>Imprimir</a>
+                <a class="btn btn-plantilla"   role="button" data-toggle="modal" data-target="#myModal">Registrar</a>
 
 
                 <!-- Button trigger modal -->
@@ -1095,35 +1084,20 @@ if($('#ct_medicamentos').prop('checked')){
             
           </script>
  <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA CONRATOS</h3>
-                </div><!-- /.box-header -->
               
 
 
                 <div class="box-body">
-                <div class="datagrid">
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
                         <tr class=" btn-success">
 
                      <th>#</th>
-                        <th >Codigo</th>
+                        <th >Código</th>
                         <th>Entidad</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
- <th class="btn-print"> Accion </th>
+                        <th class="btn-print">Editar </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -1162,7 +1136,6 @@ if($('#ct_medicamentos').prop('checked')){
                     </tbody>
 
                   </table>
-                    </div>
                 </div><!-- /.box-body -->
 
             </div><!-- /.col -->
@@ -1213,14 +1186,16 @@ if($('#ct_medicamentos').prop('checked')){
                 $('#example2').dataTable( {
                  "language": {
                    "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
 
 
   "searching": true,

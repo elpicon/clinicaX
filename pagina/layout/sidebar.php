@@ -38,9 +38,7 @@ $id = $_SESSION[ 'id' ];
         overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-    width: 12px;
-}
+
     .menus a:active{
   background-color:#002142;
 }

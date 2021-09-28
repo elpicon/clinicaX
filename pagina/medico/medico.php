@@ -262,14 +262,17 @@ ul {
                 $('#example2').dataTable( {
                  "language": {
                    "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
 
 
   "searching": true,
