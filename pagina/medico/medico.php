@@ -45,8 +45,7 @@ ul {
               
                   <div class="box-header">
                   <h3 class="htitle" > Listado de Médicos</h3>
-
-                </div><!-- /.box-header -->
+                  </div><!-- /.box-header -->
 
                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
                 <a class="btn  btn-plantilla" href="medico_agregar.php"  role="button"> <i class="glyphicon glyphicon-plus"></i> Registrar</a>
@@ -98,7 +97,7 @@ ul {
 
                       <a class="btn btn-horario btn-print" href="../horario_medico/<?php  echo "horario_medico.php?cid=$cid";?>"  role="button">Horario</a>
                       <a class="btn btn-vaca btn-print" href="../vacaciones/<?php  echo "vacaciones.php?cid=$cid";?>"  role="button">Vacaciones</a>
-                      <a class="btn btn-plantilla btn-print" href="<?php  echo "editar_medico.php?cid=$cid";?>"  role="button"><i class="	glyphicon glyphicon-pencil"></i></a>
+                      <a class="btn btn-plantilla " href="<?php  echo "editar_medico.php?cid=$cid";?>"  role="button"><i class="	glyphicon glyphicon-pencil"></i></a>
 
                       <a class="small-box-footer btn btn-danger btn-print"  href="<?php  echo "eliminar_medico.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar medico??');"><i class="glyphicon glyphicon-trash	
 " ></i></a>
@@ -132,20 +131,15 @@ ul {
         </div>
       </div>
         </div>
+
+        <?php include '../layout/datatable_script.php';?>
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-                         <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
         <!-- /footer content -->
       </div>
     </div>
 
-  <?php include '../layout/datatable_script.php';?>
 
 
          <style>

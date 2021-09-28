@@ -29,6 +29,18 @@ $id = $_SESSION[ 'id' ];
         background: linear-gradient(#002142, #002142);     
         }
     
+.scrollp {
+  width: 10px;
+  height: 110px;
+  overflow-y: auto;
+  position: relative;
+  max-width: 100%;
+        overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
     .menus a:active{
   background-color:#002142;
 }
@@ -37,10 +49,10 @@ $id = $_SESSION[ 'id' ];
         background: gray;
     } 
     </style>
-<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu ">
 <div class="menu_section">
     <ul class="nav side-menu">
-    <li><a href = "../layout/inicio.php"><i class="fa fa-dashboard"></i> inicio <span class="fa fa-chevron-right"></span></a></li>
+    <li><a href = "../layout/inicio.php"><i class="fa fa-dashboard"></i> Inicio <span class="fa fa-chevron-right"></span></a></li>
 
     <?php
     if ( $tipo == "administrador"
@@ -62,11 +74,11 @@ $id = $_SESSION[ 'id' ];
     if ( $tipo == "administrador" ) {
 
         ?>
-    <li><a><i class="fa fa-user-md"></i> Medico<span class="fa fa-chevron-down"></span></a>
+    <li><a><i class="fa fa-user-md"></i> Médico<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../medico/medico.php">Medico</a></li>
-        <li><a href="../medico/asignar_servicios.php">Asignacion de Servicios</a></li>
-        <li><a href="../medico/medico_historial.php">Historial  Medico</a></li>
+        <li><a href="../medico/medico.php">Médico</a></li>
+        <li><a href="../medico/asignar_servicios.php">Asignación de Servicios</a></li>
+        <li><a href="../medico/medico_historial.php">Historial  Médico</a></li>
         
       </ul>
     </li>
@@ -151,7 +163,7 @@ $id = $_SESSION[ 'id' ];
     <li><a><i class="fa fa-plus-square"></i> Medicinas<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <li><a href="../medicina/medicina.php">Lista de medicina</a></li>
-        <li><a href="../medicina/medicina_agregar.php">Agragar medidicna</a></li>
+        <li><a href="../medicina/medicina_agregar.php">Agregar medicina</a></li>
       </ul>
     </li>
     <?php
@@ -165,7 +177,7 @@ $id = $_SESSION[ 'id' ];
     <li><a><i class="fa fa-medkit"></i> Farmacia<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <li><a href="../farmacia/pagos.php">Lista de ventas</a></li>
-        <li><a href="../farmacia/pago_agregar.php">Agragar farmacia</a></li>
+        <li><a href="../farmacia/pago_agregar.php">Agraear farmacia</a></li>
         <li><a href="../gastos_farmacia/gastos_farmacia.php">Gastos</a></li>
         <li><a href="../gastos_farmacia/categoria.php">Gastos categoria</a></li>
         <li><a href="../farmacia/reportes_pagos.php">Pagos</a></li>
@@ -179,7 +191,7 @@ $id = $_SESSION[ 'id' ];
         or $tipo == "medico" ) {
 
         ?>
-    <li><a href = "../preescripcion/preescripcion.php"><i class="fa fa-archive"></i> Preescripcion<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "../preescripcion/preescripcion.php"><i class="fa fa-archive"></i> Preescripción<span class="fa fa-chevron-right"></span></a>
       <?php
       }
       ?>
@@ -187,9 +199,9 @@ $id = $_SESSION[ 'id' ];
       if ( $tipo == "paciente" ) {
 
           ?>
-    <li><a href = "../cita/cita_paciente.php"><i class="fa fa-archive"></i> cita paciente<span class="fa fa-chevron-right"></span></a>
-    <li><a href = "../preescripcion/preescripcion_paciente.php"><i class="fa fa-archive"></i> preescripcion paciente<span class="fa fa-chevron-right"></span></a>
-    <li><a href = "../actividades_financieras/pagos_paciente.php"><i class="fa fa-archive"></i> Pagos atencion<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "../cita/cita_paciente.php"><i class="fa fa-archive"></i> Cita paciente<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "../preescripcion/preescripcion_paciente.php"><i class="fa fa-archive"></i>Preescripción paciente<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "../actividades_financieras/pagos_paciente.php"><i class="fa fa-archive"></i> Pagos atención<span class="fa fa-chevron-right"></span></a>
     <li><a href = "../farmacia/pagos_farmacia_paciente.php"><i class="fa fa-archive"></i> Pagos farmacia<span class="fa fa-chevron-right"></span></a>
       <?php
       }
@@ -207,9 +219,9 @@ $id = $_SESSION[ 'id' ];
           ?>
     <li><a><i class="fa fa-user"></i> Recursos humanos<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../medico/medico.php">Medico</a></li>
-        <li><a href="../farmaceutico/farmaceutico.php">farmaceutico</a></li>
-        <li><a href="../recepcionista/recepcionista.php">recepcionista</a></li>
+        <li><a href="../medico/medico.php">Médico</a></li>
+        <li><a href="../farmaceutico/farmaceutico.php"> Farmaceutico</a></li>
+        <li><a href="../recepcionista/recepcionista.php">Recepcionista</a></li>
       </ul>
     </li>
     <?php
@@ -218,7 +230,7 @@ $id = $_SESSION[ 'id' ];
     <?php
 
     ?>
-    <li><a><i class="fa fa-gear"></i> Configuracion<span class="fa fa-chevron-down"></span></a>
+    <li><a><i class="fa fa-gear"></i> Configuración<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <?php
         if ( $tipo == "administrador" || $tipo == "contratacion" ) {
@@ -252,6 +264,12 @@ $id = $_SESSION[ 'id' ];
     <?php
     }
     ?>
+
+            <li>
+            <a data-toggle="tooltip" data-placement="top" href = "logout.php" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a></li>
+
 </div>
 <!--- <div class="menu_section">
                 <h3>Live On</h3>

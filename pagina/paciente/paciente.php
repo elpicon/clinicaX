@@ -10,6 +10,7 @@ include '../layout/header.php';
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/paciente.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -28,111 +29,162 @@ include '../layout/header.php';
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <?php include '../layout/main_sidebar.php';?>
+              <?php include '../layout/main_sidebar.php';?>
 
-        <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
-label{
+              <!-- top navigation -->
+            <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+                <style>
+                label{
 
-color: black;
-}
-li {
-  color: white;
-}
-ul {
-  color: white;
-}
-#buscar{
-  text-align: right;
-}
-       </style>
+                color: black;
+                }
+                li {
+                  color: white;
+                }
+                ul {
+                  color: white;
+                }
+                #buscar{
+                  text-align: right;
+                }
+                      </style>
 
-        <!-- page content -->
-        <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-8">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
-
-
+           <!-- page content -->
+            <div class="right_col" role="main">
+    
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle" > Listado de Pacientes</h3>
+                  </div><!-- /.box-header -->
 
-                </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <!--<a class="btn btn-warning btn-print myButtonx" href="paciente_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>-->
-                      <button type="button" class="btn btn-warning btn-print myButtonx" data-toggle="modal" data-target="#myModal">
-                      Registrar
-                    </button>
-
-                
-
-
-
-
-
-
-
-
+                          <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
+                          <!--<a class="btn btn-warning btn-print myButtonx" href="paciente_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>-->
+                                <button type="button" class="btn btn-plantilla" data-toggle="modal" data-target="#myModal"> <i class="glyphicon glyphicon-plus"></i> 
+                                Registrar
+                              </button>
+                <br>
+                <br>
 
                 <div class="box-body">
+                  <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                        <tr  class="encabezado">
+
+                    <th>#</th>
+                        <th>Foto</th>
+                        <th>Nombre completo</th>
+                        <th>Teléfono</th>
+                        <th style="width:6%;">Usuario</th>
+                        <th style="width:7%;">Correo</th>
+                        <th class="btn-print" style="width:20%;"> Acciones </th>
+                      </tr>
+                    </thead>
+                    <tbody style="background: white;">
+                        <?php
+                          // $branch=$_SESSION['branch'];
+                            $query=mysqli_query($con,"select * from u_pacientes where 1 ")or die(mysqli_error());
+                            $i=0;
+                            while($row=mysqli_fetch_array($query)){
+                            $cid=$row['numerodedocumento'];
+                            $i++;
+                                
+                        ?>
+                                      <tr  style="background: white;">
+
+                    <td ><?php echo $i;?></td>
+                    <td><IMG src="../usuario/subir_us/<?php echo $cid."/".$row['imagen'];?>" style="height:40px;width:40px;" /></td>
+                                  <td><?php echo $row['primernombre'].'  '.$row['primerapellido'];?></td>
+                    <td><?php echo $row['celular'];?></td>
+                    <td><?php echo $row['numerodedocumento'];?></td>
+                        
+                        <td><?php echo $row['correoelectronico'];?></td>                                      
+
+                                              <td>
+                                                    <?php
+                                      
+                    
+                      ?>
+                      <a class="btn btn-plantilla"  title="Editar" href="<?php  echo "editar_paciente.php?cid=$cid";?>"  role="button" ><i class='glyphicon glyphicon-pencil'></i></a>
+                    <?php
+                     if ($tipo!="recepcionista" ) {
+                       ?>
+                       <a class="btn btn-ver" title="Ver registro de ingresos" href="<?php  echo "registros_ingreso.php?cid=$cid";?>"  role="button"><i class='glyphicon glyphicon-eye-open' ></i></a>
+                         <?php
+                     }
+                         ?>
+                    <a class="btn btn-cama" title="Pagos" href="<?php  echo "pago_paciente.php?cid=$cid";?>"  role="button"><i class='bx bx-money' ></i></a>
+
+                    <a class="btn-delete  btn " title="Eliminar" href="<?php  echo "eliminar_paciente.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar usuario??');"><i class="glyphicon glyphicon-trash" ></i></a>
+    
+
+                                      <?php
+                                      //          }
+                                                ?>
+
+                                      </td>
+                                                </tr>
+
+                          <!--end of modal-->
+
+                          <?php }?>
+                    </tbody>
+
+                  </table>
                 
-         
+              </div>
 
- 
+                      </div>
+                      
+                              <?php include '../layout/datatable_script.php';?>
 
+
+                  </div><!-- /.col -->
+
+  </div>
+
+
+      
+  </body>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog" role="document" style="
+    width: 800px;">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Creacion del Usuario</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="titleModal" aria-hidden="true">X</span></button>
+        <h4 class="modal-title titleModal" id="myModalLabel">Creación del Usuario</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="
+    padding: 25px;>
        <form class="form-horizontal" method="post" action="paciente_add.php" enctype='multipart/form-data'>
 
        <input type="hidden" class="form-control" id="tipo" name="tipo" value="paciente" required>
 
 
 
-<div class="row" >
+              <div class="row" >
                   
-                       <div class="col-md-12 btn-print">
+                    <div class="col-md-12 btn-print">
+                        <div class="form-group">
+                        <label for="grupo_empresa" >Grupo Empresarial</label>
+                      <input type="text" class="form-control pull-right" id="grupo_empresa" name="grupo_empresa"  readonly='readonly'   value="<?php echo $id_grupo_empresa; ?>" >
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 btn-print">
+                    <br>
                       <div class="form-group">
-                       <label for="grupo_empresa" >Grupo Empresarial</label>
-                     <input type="text" class="form-control pull-right" id="grupo_empresa" name="grupo_empresa"  readonly='readonly'   value="<?php echo $id_grupo_empresa; ?>" >
+                        <label for="date" >Foto</label>
+                        <input type="file" class="form-control" id="imagen" name="imagen" required >
                       </div>
                     </div>
-                   
-                  
-                       <div class="col-md-6 btn-print">
+                    <div class="col-md-4 btn-print">
+                    <br>
                       <div class="form-group">
-                       <label for="date" >Foto</label>
-            <input type="file" class="form-control" id="imagen" name="imagen" required >
-                      </div>
-                    </div>
-                       
-                 
-                       <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                           <label for="eps_ars" >Aseguradora</label>
-                          <select name="eps" id="eps" required>
-                                <option value="">Seleccione</option>
+                    
+                        <label for="eps_ars" >Aseguradora</label>
+                        <select name="eps" id="eps" required class="form-control"> 
+                        <option value="">Seleccione</option>
                               <!--ANTECEDENTES DEL PACIENTE -->
 <?php
     
@@ -835,113 +887,14 @@ password.addEventListener('propertychange', inHandlerPasswor2);
 </div>  
             
 
-          
-      
-
-
-
-
-
-
       
  <!--end of modal-->
 
 
 
 
+             
 
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA PACIENTES</h3>
-                </div><!-- /.box-header -->
-              
-
-
-                <div class="box-body">
-                <div class="datagrid">
-                  <table id="example2" class="table table-bordered table-striped">
-                    <thead>
-                        <tr class=" btn-success">
-
-                    <th>#</th>
-                        <th>Foto</th>
-                        <th>Nombre y apellidos</th>
-                        <th>Telefono</th>
-                        <th style="width:6%;">Usuario</th>
-                        <th style="width:7%;">Correo</th>
-                        <th class="btn-print" style="width:15%;"> Accion </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-        <?php
-           // $branch=$_SESSION['branch'];
-            $query=mysqli_query($con,"select * from u_pacientes where 1 ")or die(mysqli_error());
-            $i=0;
-            while($row=mysqli_fetch_array($query)){
-            $cid=$row['numerodedocumento'];
-            $i++;
-                
-        ?>
-                      <tr  >
-
-<td ><?php echo $i;?></td>
- <td><IMG src="../usuario/subir_us/<?php echo $cid."/".$row['imagen'];?>" style="height:40px;width:40px;" /></td>
-              <td><?php echo $row['primernombre'].'  '.$row['primerapellido'];?></td>
-<td><?php echo $row['celular'];?></td>
-<td><?php echo $row['numerodedocumento'];?></td>
-    
-    <td><?php echo $row['correoelectronico'];?></td>                                      
-
-                          <td>
-                                 <?php
-                   
-                    
-                      ?>
-                      <a class="btn btn-danger myButtonx" href="<?php  echo "editar_paciente.php?cid=$cid";?>"  role="button" ><i class='bx bx-edit-alt'></i></a>
-                    <?php
-                     if ($tipo!="recepcionista" ) {
-                       ?>
-                       <a class="btn btn-success  myButton2" href="<?php  echo "registros_ingreso.php?cid=$cid";?>"  role="button"><i class='bx bx-list-ul' ></i></a>
-                         <?php
-                     }
-                         ?>
-  <a class="btn btn-primary  myButtonx" href="<?php  echo "pago_paciente.php?cid=$cid";?>"  role="button"><i class='bx bx-money' ></i></a>
-
-  <a class="small-box-footer  myButton3"  href="<?php  echo "eliminar_paciente.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar usuario??');"><i class="glyphicon glyphicon-remove" ></i></a>
-    
-
-             <?php
-            //          }
-                      ?>
-
-            </td>
-                      </tr>
-
- <!--end of modal-->
-
-<?php }?>
-                    </tbody>
-
-                  </table>
-                </div><!-- /.box-body -->
-            </div>
-            </div><!-- /.col -->
-
-
-          </div><!-- /.row -->
-
-
-
-
-                </div><!-- /.box-body -->
-
-            </div>
-     
         <!-- /page content -->
 
         <!-- footer content -->
@@ -952,8 +905,6 @@ password.addEventListener('propertychange', inHandlerPasswor2);
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
-    
-  <?php include '../layout/datatable_script.php';?>
 
 
 
@@ -1119,5 +1070,5 @@ password.addEventListener('propertychange', inHandlerPasswor2);
 
 
     <!-- /gauge.js -->
-  </body>
+ 
 </html>

@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/programar.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <?php 
@@ -22,11 +23,11 @@
 ?>
     <div class="container body">
       <div class="main_container">
-        <?php include '../layout/main_sidebar.php';?>
+      <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -40,18 +41,11 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+      </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
                     <?php
                     $id_usuario=$_SESSION['id'];
                             $fecha = date('Y-m-d');
@@ -60,23 +54,17 @@ ul {
                 //  if ($guardar=="si") {
                     
                       ?>
+ <div class="box-header">
+                  <h3 class="htitle" > Programar</h3>
+
+                </div><!-- /.box-header -->
+
+                
+<a class = "btn  btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+
+<a class = "btn btn-plantilla " href = "#" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i> Agendar</a>
 
 
-<a class = "myButtonx " href = "#" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i> Agendar</a>
-  
-
-
-
-
-
-
-
-
-
-
-<br>
-
- <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
 
 <br>
 <form class = "btn btn-white btn-print">
@@ -122,6 +110,7 @@ ul {
              $ff=explode(" ", $row['fecha_fin']);
              $fi=explode(" ", $row['fecha_inicio']);
             $id_horario_medico=$row['id_horario_medico'];
+          
 ?>
                     <tr >
                       <td><?php echo $fi[0]." a ".$ff[0]; ?></td>
@@ -129,17 +118,9 @@ ul {
                       <td><?php echo $hf[1]; ?></td>
                       <td><?php echo $row['cita_duracion']; ?></td>
                     <td class="btn-print">
-                                   <?php
-                    //  if ($eliminar=="si") {
-                    
-                      ?>
+                                  
    <a class="small-box-footer btn-print"  href="<?php  echo "../programar/eliminar_horario_medico.php?id_horario_medico=$id_horario_medico";?>" onClick="return confirm('¿Está seguro de que quieres eliminar horario medico??');"><i class="glyphicon glyphicon-remove"></i></a>
 
-             
-
-            <?php
-                  //    }
-                      ?>
 
             </td>
                       </tr>

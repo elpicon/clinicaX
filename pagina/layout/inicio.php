@@ -474,13 +474,7 @@ echo $num;
         </div>
         <!-- /page content -->
 
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-                   <a href="https://beatifullshop.co/app/clinica">RIAS</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+    
         <!-- /footer content -->
       </div>
     </div>
