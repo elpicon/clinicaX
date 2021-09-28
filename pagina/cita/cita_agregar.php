@@ -177,14 +177,13 @@ date_default_timezone_set('America/Lima');
                     $queryS=mysqli_query($con,"select * from servicios_grupos where habilitacion_citas='1'")or die(mysqli_error());
                         $i=0;
                         while($rowS=mysqli_fetch_array($queryS)){
-                           echo "<option value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
+                           echo "<option style='display: none;' value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
                            $i++;
                         }
                     ?>
                 </select>
             </div>
-                
-                
+              
                 
 
 
@@ -217,17 +216,34 @@ date_default_timezone_set('America/Lima');
                 
               
             </div>
+                <br>
+            
+            <div class="row">
+                
+              
+            
+            <div class="col-lg-12 form-group " id="div_ciclos">
+             
+             
+            </div>    
+                
+            </div>
+            
+            
             <label class="box-header with-border" id="nombre_servicio"></label>
              <br>
               <label>Con el Profesional :</label>
            <div class="form-group">
-            <select class="form-control select2 " name="id_medico" id="sel_medico" required>
+            <select class="form-control select2 " name="id_medico" id="sel_medico"  required>
                
               </select>
             </div>
         <script>
+            const ciclos = document.getElementById('ciclos');
+            
         var bsModal = $.fn.modal.noConflict();
         const result2 = document.getElementById('res');
+        const div_ciclos = document.getElementById('div_ciclos');
         const sel_medico = document.getElementById('sel_medico'); 
         const nombre_servicio = document.getElementById('nombre_servicio');
                    
@@ -251,7 +267,7 @@ date_default_timezone_set('America/Lima');
                              
                              sel_medico.innerHTML = res2;
                            //obtenerServiciosHMedico(codigoM);
-                              
+                        
                            
                               
                         }
@@ -264,7 +280,29 @@ date_default_timezone_set('America/Lima');
         		
         			console.log($('#grupo_serv').val());
         		
-        			var dataString = 'grupoServicio='+$('#grupo_serv').val();
+                    if($('#grupo_serv').val()=='9'){
+                   div_ciclos.innerHTML   = " <label>Ciclos : </label> <select id='ciclos' class='form-control'"+ "style='width:80%' onchange='if (this.selectedIndex) doSomething(this.value);'>"+
+                     "<option value=''>Seleccionar</option>"+
+                     "<option value='PM001'>PRIMERA INFANCIA</option>"+ 
+                     "<option value='PM002'>INFANCIA</option>"+ 
+                     "<option value='PM003'>ADOLESCENCIA</option>"+ 
+                     "<option value='PM004'>JOVEN</option>"+ 
+                     "<option value='PM005'>ADULTO</option>"+ 
+                     "<option value='PM006'>VEJEZ</option> "+
+                     "<option value='PM007'>PAI</option> "+
+                     "<option value='PM008'>ATENCION PRECONCEPCIONAL</option> "+
+                     "<option value='PM009'>CONTROL PRENATAL</option> "+
+                     "<option value='PM010'>ATENCION DEL PARTO</option>"+ 
+                     "<option value='PM011'>ATENCION POSPARTO</option>"+ 
+                     "<option value='PM012'>RECIEN NACIDO</option> "+
+                     "<option value='PM013'>DEMANDA INDUCIDA</option>"+ 
+                     "<option value='PM014'>SALUD PUBLICA</option> "+
+                   
+                "</select>";
+                        
+                    }else{
+                        div_ciclos.innerHTML   = "";
+                        var dataString = 'grupoServicio='+$('#grupo_serv').val();
         			 $.ajax({
                         type: "POST",
                         url: "getserviciosh.php",
@@ -279,8 +317,37 @@ date_default_timezone_set('America/Lima');
                               
                         }
                          });
+                    }
+                    
+        			
         			
         		});  
+            
+            
+            
+            function doSomething(dato){
+                console.log("consultara serv pyp "+dato); 
+        
+        			var dataString = 'grupoServicio='+$('#ciclos').val();
+                     console.log("consultara serv pyp");  
+                        
+        			 $.ajax({
+                        type: "POST",
+                        url: "getServiciosPYP.php",
+                        data: dataString,
+                        success: function(res) {
+                            	console.log(res);
+                             
+                             result2.innerHTML = res;
+                           //obtenerServiciosHMedico(codigoM);
+                             
+                            $('#myModal').modal('toggle')
+                              
+                        }
+                         });
+        			
+        		
+            }
             </script>
                 <br>
                 
@@ -525,9 +592,37 @@ function horarioSeleccionado(horario){
             url: "getPacientesAll.php",
             data: dataString,
             success: function(res2) {
-                console.log("nn "+res2);
+                         $("#grupo_serv option[value='3']").hide();// consulta externa ver
+                         $("#grupo_serv option[value='7']").hide();// apoyo diagnostico ver
+                         $("#grupo_serv option[value='8']").hide();// otros servicios ver
+                         $("#grupo_serv option[value='9']").hide();// consulta externa ver
+                
+                 var respSplit=res2.trim().split("#$#");
+                 var alcances=respSplit[3];
+                 var alcanceSplit=alcances.split(',');
+                 console.log("nn "+alcances);
                  //$('.result').html(res);
                  //listapaciente.innerHTML = res2;
+                for(var i=0;i<alcanceSplit.length;i++){
+                    if(alcanceSplit[i]=='1'){
+                         $("#grupo_serv option[value='3']").show();// consulta externa ver
+                         $("#grupo_serv option[value='7']").show();// apoyo diagnostico ver
+                         $("#grupo_serv option[value='8']").show();// otros servicios ver
+                    }
+                    
+                    if(alcanceSplit[i]=='2'){
+                         $("#grupo_serv option[value='9']").show();// consulta externa ver
+                    }
+                    if(alcanceSplit[i]=='3'){
+                         $("#grupo_serv option[value='3']").show();// consulta externa ver
+                         $("#grupo_serv option[value='7']").show();// apoyo diagnostico ver
+                         $("#grupo_serv option[value='8']").show();// otros servicios ver
+                         $("#grupo_serv option[value='9']").show();// consulta externa ver
+                    }
+                    
+                    
+                     
+                   }
             }
         });
     });
