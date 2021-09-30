@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/otros.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -42,15 +43,8 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
 
-        </div><!--end of modal-dialog-->
-
- </div>
   <?php
 $cid=$_SESSION['id'];
 
@@ -73,21 +67,9 @@ $cid=$_SESSION['id'];
  <!--end of modal-->
 
 
-
-
-
-
-
-
-
-
-
                   <div class="box-header">
-                  <h3 class="box-title"> MODIFICAR PASSWORD</h3>
+                  <h3 class="htitle"> Cambiar Contraseña</h3>
                 </div><!-- /.box-header -->
-              
-   
-
                 <div class="box-body">
                 
 
@@ -111,7 +93,7 @@ $cid=$_SESSION['id'];
                     </div>
                        <div class="col-md-4 btn-print">
                       <div class="form-group">
-                          <input type="password" class="form-control pull-right" id="date" name="password" placeholder="password " required>
+                          <input type="password" class="form-control pull-right" id="date" name="password" placeholder="*********" required>
                       </div>
                     </div>
                            <div class="col-md-4 btn-print">
@@ -128,7 +110,7 @@ $cid=$_SESSION['id'];
                     </div>
                        <div class="col-md-4 btn-print">
                       <div class="form-group">
-<input type="password" class="form-control pull-right" id="password2" name="password2" placeholder="password " required>
+<input type="password" class="form-control pull-right" id="password2" name="password2" placeholder="********* " required>
                       </div>
                     </div>
                            <div class="col-md-4 btn-print">
@@ -136,14 +118,8 @@ $cid=$_SESSION['id'];
                     </div>
                     </div>     
           
-    <button type="submit" class="btn btn-primary">GUARDAR</button>          
-  
-                   
-            <br><br><br><hr>
-              <div class="modal-footer">
+    <button type="submit" class="btn btn-plantilla">Guardar</button>          
 
-
-              </div>
         </form>
             
  <!--end of modal-->
@@ -169,12 +145,7 @@ $cid=$_SESSION['id'];
         <!-- /page content -->
 
         <!-- footer content -->
-       <footer>
-          <div class="pull-right">
-       <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+
         <!-- /footer content -->
       </div>
     </div>
@@ -211,7 +182,12 @@ $cid=$_SESSION['id'];
  // }    
 ?>
 
-
+<footer>
+          <div class="pull-right">
+                <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
 
     <!-- /gauge.js -->
   </body>

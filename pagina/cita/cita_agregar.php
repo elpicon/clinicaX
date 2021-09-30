@@ -5,64 +5,25 @@ include '../layout/session.php';
 
 ?>
 
+<?php include '../layout/header.php';?>
 
 <?php 
  @session_start();
 date_default_timezone_set('America/Lima');
 ?>
-<!DOCTYPE html>
 
-
-  <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Citas</title>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-   
-    <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
-    <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>  
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-    
-    
-  <meta charset="utf-8" />  
-
-    
-    
-    
-
-</head>
  
     
-<body>
+<body class="nav-md">
       
-  <div class="container bgall" id="app">
-      <div class="col-lg-6 form-group">
-              <a class="btn btn-secondary btn-print" aria-hidden="true" href="../cita/cita.php"   role="button"><img src="chevron-left.svg"> Atras</a>
-  </div>
-  <br>
-<!-- Image and text -->
-<nav class="navbar navbar-light bg-light ">
-  <a class="navbar-brand justify-content-right" href="#">
-    <img src="../usuario/subir_us/<?php echo $imagen;?>" width="30" height="30" class="d-inline-block align-top" alt="">
+  <div class="container body">
+
+  <div class="main_container">
     
-    <?php echo strtoupper($nombre);?>
-  </a>
-</nav>
+  <?php include '../layout/main_sidebar.php';?>
 
-
-
-
-        
+        <!-- top navigation -->
+            <?php include '../layout/top_nav.php';?>  
         <div class="modal fade" id="Employee">  
             <div class="modal-dialog">  
                 <div class="modal-content" id="aviso1">  
@@ -122,30 +83,30 @@ date_default_timezone_set('America/Lima');
                             </div>  
                         </div>  
                         <div class="modal-footer" id="btn_add">  
-                           <button type='button' class='btn btn-danger rounded-0' data-dismiss='modal'>Cancel</button>
+                          <button type='button' class='btn btn-danger rounded-0' data-dismiss='modal'>Cancel</button>
 
                         </div>  
                     </form>  
                 </div>  
             </div>  
         </div>  
-   
-    <br>
-    
+        
+        
+  <div class="right_col" role="main">
 
     <div class="row">
     <div class="col-lg-4 col-sm-8">
-         <div class="row">
-             
+        <div class="row">
+    
         <div class="col-lg-12 col-sm-12">
-      <div class="list-group-item list-group-item-action d-flex">
+          <div class="list-group-item list-group-item-action d-flex">
 
-      <div class="p-2 flex-grow-1">
-    <input id="datepicker"  value="<?php  echo date("Y-m-d");     ?>" />
-      </div>
-    </div>
-    </div>
-       
+            <div class="p-2 flex-grow-1">
+            <input id="datepicker"  value="<?php  echo date("Y-m-d");     ?>" />
+            </div>
+          </div>
+          </div>
+      
         <div class="col-lg-6 col-sm-6">
                             <label for='paciente'>Paciente</label>  
                                    <input list='listapaciente' id='in_paciente' autocomplete='off' value='' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' >
@@ -235,7 +196,7 @@ date_default_timezone_set('America/Lima');
               <label>Con el Profesional :</label>
            <div class="form-group">
             <select class="form-control select2 " name="id_medico" id="sel_medico"  required>
-               
+              
               </select>
             </div>
         <script>
@@ -274,8 +235,6 @@ date_default_timezone_set('America/Lima');
                          });
           }             
                    
-                   
-                   
          	    $('#grupo_serv').change(function(){
         		
         			console.log($('#grupo_serv').val());
@@ -308,23 +267,15 @@ date_default_timezone_set('America/Lima');
                         url: "getserviciosh.php",
                         data: dataString,
                         success: function(res) {
-                            //	console.log(res);
-                             
+                            //	console.log(res);                           
                              result2.innerHTML = res;
-                           //obtenerServiciosHMedico(codigoM);
-                             
+                           //obtenerServiciosHMedico(codigoM);                            
                             $('#myModal').modal('toggle')
                               
                         }
                          });
                     }
-                    
-        			
-        			
         		});  
-            
-            
-            
             function doSomething(dato){
                 console.log("consultara serv pyp "+dato); 
         
@@ -345,8 +296,6 @@ date_default_timezone_set('America/Lima');
                               
                         }
                          });
-        			
-        		
             }
             </script>
                 <br>
@@ -358,18 +307,11 @@ date_default_timezone_set('America/Lima');
     </div>
   </div>
   
-  <div class="col-lg-8 col-sm-10">
-    
-     
-
+      <div class="col-lg-8 col-sm-10">
     
                 <div class="box-header with-border">
                   <h3 class="box-title">REGISTRAR  NUEVA CITA</h3>
                 </div><!-- /.box-header -->
-            
-            
-                  
-         
           <br>
           <div class="datagrid"><table>
                     <thead>
@@ -398,44 +340,16 @@ date_default_timezone_set('America/Lima');
                         
                             </tbody>
                             </table></div>
-                                                
-         <!--   <tfoot>
-                <tr>
-                    <td colspan="4">
-                        <div id="paging">
-                            <ul><li>
-                                    <a href="#"><span>Previous</span></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="active"><span>1</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span>2</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"><span>3</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><span>4</span></a>
-                                </li>
-                                <li>
-                                    <a href="#"><span>5</span></a>
-                                </li>
-                                <li><a href="#"><span>Next</span></a>
-                                </li></ul></div>
-                                </tr>
-                                </tfoot>-->
-
        
-  </div>
-                
+    </div>
+          </div>  
             
-     
+          </div>
   </div>
+
 </div>
-   
+
+<?php include '../layout/datatable_script.php';?>
 
     <!-- Bootstrap -->
    

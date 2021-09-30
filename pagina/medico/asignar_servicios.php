@@ -82,13 +82,13 @@ ul {
                                       
                                         <td><?php echo $row['correo'];?></td>                                      
 
-                                                              <td>
+                                                              <td style="text-align: center;">
                                                                     <?php
                                                       
                                                         
                                                           ?>
 
-                                    <a class="btn btn-primary btn-print" href="../medico/<?php  echo "historial_cita.php?cid=$cid";?>"  role="button">Detalles</a>
+                                    <a class="btn btn-plantilla" href="../medico/<?php  echo "historial_cita.php?cid=$cid";?>"  role="button"><i class='glyphicon glyphicon-eye-open' ></i></a>
 
                               <?php
                               //          }
@@ -109,10 +109,6 @@ ul {
             
 
           </div><!-- /.row -->
-
-
-
-
                 </div><!-- /.box-body -->
 
             </div>

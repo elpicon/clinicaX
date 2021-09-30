@@ -83,9 +83,7 @@ ul {
                   <h3 class="htitle">Listado Aseguradoras</h3>
                 </div><!-- /.box-header -->
                  <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
-                <a class="btn-plantilla btn"    role="button" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i>  Registrar</a>
-
-
+                <a class="btn-plantilla btn"  role="button" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-plus"></i>  Registrar</a>
 
                 <div class="box-body">
                 
@@ -532,38 +530,37 @@ ul {
                 <div class="box-body">
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
-                     <th>#</th>
-                        <th >Codigo</th>
+                        <th>#</th>
+                        <th >Código</th>
                         <th>Aseguradora</th>
                         <th>Nit</th>
                         <th>Tipo Entidad</th>
-                        <th>Direccion</th>
-                        <th>Telefono</th>
-                      <th class="btn-print"> Accion </th>
+                        <th>Dirección</th>
+                        <th>Teléfono</th>
+                        <th style="width: 75px">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
-<?php
-      $query=mysqli_query($con,"select * from aseguradoras where 1 ")or die(mysqli_error());
-    $i=0;
-    while($row=mysqli_fetch_array($query)){      
-        
-    $codigo=$row['codigo'];
-    $estado=$row['estado'];
-    $transacciones=$row['transacciones'];
-    $i++;
-        
-        if(!strcmp($estado,"activo")){
-            echo "<tr style='background:#CBF7D7;'";
-        }else{
-            echo "<tr style='background:#E8EACD;'";
-        }
-?>
-                     
-                      
- <tr>
+                            <?php
+                                  $query=mysqli_query($con,"select * from aseguradoras where 1 ")or die(mysqli_error());
+                                $i=0;
+                                while($row=mysqli_fetch_array($query)){      
+                                    
+                                $codigo=$row['codigo'];
+                                $estado=$row['estado'];
+                                $transacciones=$row['transacciones'];
+                                $i++;
+                                    
+                                    if(!strcmp($estado,"activo")){
+                                        echo "<tr ";
+                                    }else{
+                                        echo "<tr";
+                                    }
+                            ?>
+
+                              <tr style="background: white;">
 
 <td ><?php echo $i;?></td>
 <td><?php echo $row['codigo'];?></td>
@@ -575,15 +572,16 @@ ul {
                                   
 
 <td>
-  <a class="myButton"  href="<?php  
+<a class="btn-plantilla btn" href="<?php  echo "editar_medico.php?cid=$codigo";?>"  role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+  <a class="btn btn-delete"  href="<?php  
         if(!strcmp($transacciones,"1")){
             if(!strcmp($estado,"activo")){
                   echo "eliminar_aseguradora.php?codigo=".$codigo."&comando=desactivar";
                 }else{
                 if(!strcmp($estado,"inactivo")){
                   echo "eliminar_aseguradora.php?codigo=".$codigo."&comando=activar";
-                 }
-               }
+                }
+              }
             
             
         }else{
@@ -596,7 +594,7 @@ ul {
             }
         }
        //<i class='bx bx-block'></i>  <i class='bx bx-check' ></i> glyphicon glyphicon-remove
-                                               
+
     ?>" onClick="return confirm('¿Está seguro de que quieres eliminar medico??');"><i class="<?php  
          if(!strcmp($transacciones,"1")){
             if(!strcmp($estado,"activo")){
@@ -610,7 +608,7 @@ ul {
             
         }else{
             if(!strcmp($estado,"activo")){
-                  echo "glyphicon glyphicon-remove";
+                  echo "glyphicon glyphicon-trash";
                 }else{
                 if(!strcmp($estado,"inactivo")){
                   echo "bx bx-check";
@@ -618,8 +616,8 @@ ul {
                }
         }
       ?>" ></i></a>
-<a class="myButtonx" href="<?php  echo "editar_medico.php?cid=$codigo";?>"  role="button"><i class='bx bx-edit-alt'></i></a>
-             <?php
+
+            <?php
         //}
 ?></td>
                       </tr>
@@ -675,7 +673,9 @@ ul {
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
 
 
   "searching": true,

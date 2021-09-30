@@ -7,19 +7,18 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
-     <link rel="stylesheet" href="css/medico.css" type="text/css">
+    <link rel="stylesheet" href="css/medico.css" type="text/css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-   
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -40,9 +39,6 @@ ul {
   
  
  <!--end of modal-->
-
-
-              
                   <div class="box-header">
                   <h3 class="htitle" > Listado de Médicos</h3>
                   </div><!-- /.box-header -->
@@ -90,17 +86,12 @@ ul {
 
                                                 <td>
                                                       <?php
-                                        
-                                          
                                             ?>
-                        
-
                       <a class="btn btn-horario btn-print" href="../horario_medico/<?php  echo "horario_medico.php?cid=$cid";?>"  role="button">Horario</a>
                       <a class="btn btn-vaca btn-print" href="../vacaciones/<?php  echo "vacaciones.php?cid=$cid";?>"  role="button">Vacaciones</a>
                       <a class="btn btn-plantilla " href="<?php  echo "editar_medico.php?cid=$cid";?>"  role="button"><i class="	glyphicon glyphicon-pencil"></i></a>
 
-                      <a class="small-box-footer btn btn-danger btn-print"  href="<?php  echo "eliminar_medico.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar medico??');"><i class="glyphicon glyphicon-trash	
-" ></i></a>
+                      <a class="small-box-footer btn btn-danger btn-print"  href="<?php  echo "eliminar_medico.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar medico??');"><i class="glyphicon glyphicon-trash" ></i></a>
                                   <?php
                                   //          }
                                             ?>
@@ -121,10 +112,6 @@ ul {
 
 
           </div><!-- /.row -->
-
-
-
-
                 </div><!-- /.box-body -->
 
             </div>
@@ -139,12 +126,7 @@ ul {
         <!-- /footer content -->
       </div>
     </div>
-
-
-
          <style>
-
-
 
 .myButtonx {
 	box-shadow: 0px 10px 14px -7px #276873;

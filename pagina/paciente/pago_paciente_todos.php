@@ -22,39 +22,28 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
-label{
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
+        label{
 
-color: black;
-}
-li {
-  color: white;
-}
-ul {
-  color: white;
-}
-#buscar{
-  text-align: right;
-}
-       </style>
+        color: black;
+        }
+        li {
+          color: white;
+        }
+        ul {
+          color: white;
+        }
+        #buscar{
+          text-align: right;
+        }
+              </style>
 
-        <!-- page content -->
-        <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
+                <!-- page content -->
+                <div class="right_col" role="main">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
-
- </div>
-  <?php
-
-
-
-?>
+          <?php
+        ?>
 
                           <?php
              //         if ($guardar=="si") {
@@ -65,49 +54,18 @@ ul {
                //       }
                       ?>
 
-                  <!-- Date range -->
-               
-
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
                   <div class="box-header">
-                  <h3 class="box-title"> PAGOS</h3>
+                  <h3 class="htitle">Pagos</h3>
                 </div><!-- /.box-header -->
-            
-      <br>           
-       
 
-
-
-
-
-
-                <div class="box-body">
-                
-
-                   <table id="example2" class="table table-bordered table-striped">
+                <div class="box-body" style="width:900px; margin-left: 95px;" >
+                  <table id="example2" class="table table-bordered table-striped tablaPagos">
                     <thead>
                         <tr class="encabezado">
-               
-            <th>ID</th>
-    <th>Fecha</th>
-      <th>Total</th>
-
- <th class="btn-print"> Factura </th>
-
-
-
+                          <th>ID</th>
+                          <th>Fecha</th>
+                          <th>Total</th>
+                          <th style="width: 80px;"> Factura </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -123,52 +81,33 @@ $auto="";
 
 $id_pedido=$row['id_pedido'];
 
-     $sum=0;
-   $igv=0;   
-   $sub=0;   
-   $sub_igv=0;
+      $sum=0;
+      $igv=0;   
+      $sub=0;   
+      $sub_igv=0;
 
     $query1=mysqli_query($con,"select * from detalles_pedido d inner join procedimiento_pago p on d.id_producto = p.id_procedimiento_pago 
  where  id_pedido='$id_pedido' ")or die(mysqli_error());
 
     
     while($row1=mysqli_fetch_array($query1)){
-               $sub=$sub+$row1['precio_venta']*$row1['cantidad'];
+                $sub=$sub+$row1['precio_venta']*$row1['cantidad'];
 
     }
 ?>
-                      <tr >
-
-
-
-
-
-    
-
-     <td><?php echo $row['id_pedido'];?></td>              
-         <td><?php echo $row['fecha'];?></td>     
-  
-              <td><?php echo $sub;?></td> 
+                      <tr style="background: white;">
+                        <td><?php echo $row['id_pedido'];?></td>              
+                        <td><?php echo $row['fecha'];?></td>     
+                        <td><?php echo $sub;?></td> 
                                         <td>
-                                 <?php
-                   
-
-
-
-
-                    
+                                  <?php
                       ?>
 
-<a class="btn btn-danger btn-print" href="<?php  echo "../boletas_ventas/generar_boleta.php?id_pedido=$id_pedido";?>"  target="_blank"  role="button">Factura</a>
+<a class="btn btn-plantilla" href="<?php  echo "../boletas_ventas/generar_boleta.php?id_pedido=$id_pedido";?>"  target="_blank"  role="button">Factura</a>
 
       <?php
                       
                       ?>
-
-
-
-
-
 
             </td>  
                       </tr>
@@ -177,21 +116,11 @@ $id_pedido=$row['id_pedido'];
 
 <?php }?>
                     </tbody>
-
                   </table>
-
-            
-
-
                 </div><!-- /.box-body -->
 
             </div><!-- /.col -->
-
-
           </div><!-- /.row -->
-
-
-
 
                 </div><!-- /.box-body -->
 
@@ -202,9 +131,9 @@ $id_pedido=$row['id_pedido'];
         <!-- /page content -->
 
         <!-- footer content -->
-         <footer>
+          <footer>
           <div class="pull-right">
-                   <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
+                    <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -213,14 +142,11 @@ $id_pedido=$row['id_pedido'];
     </div>
 
   <?php include '../layout/datatable_script.php';?>
-
-
-
         <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
+                  "language": {
+                  "paginate": {
                       "previous": "Anterior",
                       "next": "Siguiente"
                     },
@@ -232,8 +158,6 @@ $id_pedido=$row['id_pedido'];
                   "info": false,
                   "lengthChange": false,
                   "searching": false,
-
-
   "searching": true,
                 }
 
@@ -242,9 +166,5 @@ $id_pedido=$row['id_pedido'];
     </script><?php 
  // }    
 ?>
-
-
-
-    <!-- /gauge.js -->
   </body>
 </html>

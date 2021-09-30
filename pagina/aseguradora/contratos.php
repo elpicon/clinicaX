@@ -1087,17 +1087,17 @@ if($('#ct_medicamentos').prop('checked')){
               
 
 
-                <div class="box-body">
+                <div class="box-body" style="width:900px; margin-left: 80px;">
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
                      <th>#</th>
                         <th >Código</th>
                         <th>Entidad</th>
                         <th>Fecha Inicio</th>
                         <th>Fecha Fin</th>
-                        <th class="btn-print">Editar </th>
+                        <th style="width: 75px">Editar </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -1108,12 +1108,10 @@ if($('#ct_medicamentos').prop('checked')){
         
  
     $i++;
-        
-       
 ?>
                      
                       
- <tr>
+ <tr style="background: white;">
 
 <td ><?php echo $i;?></td>
 <td><?php echo $row['codigo'];?></td>
@@ -1124,7 +1122,7 @@ if($('#ct_medicamentos').prop('checked')){
 
 <td>
   
-<a class="myButtonx" data-toggle="modal" data-target="#myModal"  onclick="mostrarDatosSel(<?php echo "'".$row['codigo']."'"; ?>);"  role="button"><i class='bx bx-edit-alt'></i></a>
+<a class="btn-plantilla btn" data-toggle="modal" data-target="#myModal"  onclick="mostrarDatosSel(<?php echo "'".$row['codigo']."'"; ?>);"  role="button"><i class="glyphicon glyphicon-pencil"></i></a>
              <?php
         //}
 ?></td>

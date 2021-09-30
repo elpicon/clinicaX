@@ -1,4 +1,3 @@
-
 <?php include '../layout/header.php';
 
 
@@ -9,8 +8,9 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/programar.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <?php 
@@ -24,8 +24,8 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -39,7 +39,7 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+      </style>
   <?php
 
 
@@ -47,14 +47,9 @@ ul {
 ?>
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
+                <div class="box-header">
+                  <h3 class="htitle" >Vacaciones</h3>
+                </div><!-- /.box-header -->
                     <?php
                     $id_usuario=$_SESSION['id'];
                             $fecha = date('Y-m-d');
@@ -63,10 +58,10 @@ ul {
                 //  if ($guardar=="si") {
                     
                       ?>
+<a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
 
-
- <button type="button" class="btn btn-primary btn-lg btn-print" data-toggle="modal" data-target="#miModal">
-  AGREGAR
+ <button type="button" class="btn btn-plantilla" data-toggle="modal" data-target="#miModal"> <i class ="glyphicon glyphicon-plus"></i>
+  Agregar
 </button>
      <?php
                  //     }
@@ -141,17 +136,6 @@ ul {
                       ?>
 
 
-
-
-
-
-
-
-
-
-<br>
-
- <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
 
 <br>
 <form class = "btn btn-white btn-print">

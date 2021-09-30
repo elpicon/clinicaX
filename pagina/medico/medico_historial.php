@@ -44,10 +44,6 @@ ul {
 
                 </div><!-- /.box-header -->
                  <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-             
-
-
-
 
                 <div class="box-body">
                 
@@ -61,18 +57,15 @@ ul {
                 
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
-                    <th>#</th>
+                        <th>#</th>
                         <th>Foto</th>
                         <th>Nombre y apellidos</th>
                         <th>Telefono</th>
                         <th>Usuario</th>
-                       
-                             <th>Correo</th>
-     
-
- <th class="btn-print"> Accion </th>
+                        <th>Correo</th>
+                        <th class="btn-print">Detalle</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -94,18 +87,15 @@ ul {
   
     <td><?php echo $row['correo'];?></td>                                      
 
-                          <td>
-                                 <?php
-                   
-                    
+                          <td style="text-align: center;" >
+ <?php
                       ?>
 
-<a class="btn btn-primary btn-print" href="../medico/<?php  echo "historial_cita.php?cid=$cid";?>"  role="button">Detalles</a>
+<a class="btn btn-plantilla" href="../medico/<?php  echo "historial_cita.php?cid=$cid";?>"  role="button"><i class='glyphicon glyphicon-eye-open' ></i></a>
 
-             <?php
+<?php
             //          }
                       ?>
-
             </td>
                       </tr>
 

@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/medico.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+    folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
-  <body class="nav-md">
-                                         <?php 
+  <body class="nav-md"><?php 
 //    if ($usuario=="si") {
       # code...
     
@@ -42,15 +42,7 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
-
- </div>
   <?php
      if(isset($_REQUEST['cid']))
             {
@@ -64,8 +56,7 @@ ul {
 
 ?>
 
-                           <?php
-                         
+            <?php
              //         if ($guardar=="si") {
                     
                       ?>
@@ -75,53 +66,24 @@ ul {
                       ?>
 
                   <!-- Date range -->
-               
-
-      
  <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
                   <div class="box-header">
-               
+                    <h3 class="htitle" >Historial Cita</h3>
                 </div><!-- /.box-header -->
               
-              <a class="btn btn-warning btn-print" href="medico_historial.php"    style="height:25%; width:15%; font-size: 12px " role="button">Regresar</a>
-
-
-
+              <a class="btn-regresar" href="medico_historial.php" role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
                 <div class="box-body">
                 
 
-                   <table id="example2" class="table table-bordered table-striped">
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
-
-                
-               
-            <th>Paciente</th>
-             
-                       
-         
-                           
-
-    <th>Fecha</th>
-      <th>Observaciones</th>
-           <th>Estado</th>
- <th class="btn-print"> Accion </th>
-                           
-
-
-
-                      </tr>
+                        <tr class="encabezado">
+                          <th>Paciente</th>
+                          <th>Fecha</th>
+                          <th>Observaciones</th>
+                          <th>Estado</th>
+                          <th>Eliminar</th>
+                        </tr>
                     </thead>
                     <tbody>
 <?php
@@ -139,42 +101,19 @@ $id_cita=$row['id_cita'];
 
     $i++;
 ?>
-                      <tr >
-
-
-
-
-
-    
-
-                 
-         <td><?php echo $row['paciente'];?></td>     
-           <td><?php echo $row['fecha'];?></td>    
-            <td><?php echo $row['observaciones'];?></td>  
-              <td><?php echo $row['estado_cita'];?></td> 
-                                        <td>
-                                 <?php
-                   
-
-
-
-
-                    
+                      <tr style="background: white;" >
+                  <td><?php echo $row['paciente'];?></td>     
+                  <td><?php echo $row['fecha'];?></td>    
+                  <td><?php echo $row['observaciones'];?></td>  
+                  <td><?php echo $row['estado_cita'];?></td> 
+                  <td style="text-align: center;" >
+                                <?php
                       ?>
-
-
-<a class="btn btn-primary btn-print" href="<?php  echo "../medico/eliminar_historial_cita.php?id_cita=$id_cita&cid=$cid";?>"  onClick="return confirm('¿Está seguro de que quieres eliminar??');"  role="button">Eliminar</a>
-      <?php
-                      
-                      ?>
-
-
-
-
-
-
-            </td>  
-                      </tr>
+                  <a class="btn btn-danger" href="<?php  echo "../medico/eliminar_historial_cita.php?id_cita=$id_cita&cid=$cid";?>"  onClick="return confirm('¿Está seguro de que quieres eliminar??');"  role="button"><i class="glyphicon glyphicon-trash" ></i></a>
+                <?php
+                                ?>  
+                  </td>  
+          </tr>
 
  <!--end of modal-->
 
@@ -182,20 +121,11 @@ $id_cita=$row['id_cita'];
                     </tbody>
 
                   </table>
-
-            
-
-
                 </div><!-- /.box-body -->
 
             </div><!-- /.col -->
 
-
           </div><!-- /.row -->
-
-
-
-
                 </div><!-- /.box-body -->
 
             </div>
@@ -205,9 +135,9 @@ $id_cita=$row['id_cita'];
         <!-- /page content -->
 
         <!-- footer content -->
-         <footer>
+        <footer>
           <div class="pull-right">
-                     <a href="https://beatifullshop.co/app/clinica/">DOCTORPRJ IPS</a>
+                    <a href="https://beatifullshop.co/app/clinica/">DOCTORPRJ IPS</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -222,8 +152,8 @@ $id_cita=$row['id_cita'];
         <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
+                  "language": {
+                    "paginate": {
                       "previous": "anterior",
                       "next": "posterior"
                     },
