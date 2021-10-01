@@ -144,6 +144,9 @@ ul {
       </style>
 
         <div class="right_col" role="main">
+        <div class="box-header">
+                <h3 class="htitle">Agregar Pago</h3>
+                </div><!-- /.box-header -->
           <div class="row">
             <!-- left column -->
             <div class="col-md-4">
@@ -187,7 +190,7 @@ ul {
                               </tbody>
                             </table>
 
-                            <h3> Total: <?php echo $granTotal; ?></h3>
+                            <h3 class="htitle"> Total: <?php echo $granTotal; ?></h3>
                           </div>
                         </div> <!-- /.row -->
                       </div><!-- /.box-body -->
@@ -205,7 +208,7 @@ ul {
               <!-- Horizontal Form -->
               <div class="box box-info">
                         <div class="box-header with-border">
-                          <h3 class="box-title">POS</h3>
+                          <h3 class="htitle">POS</h3>
                         </div><!-- /.box-header -->
                 <!-- form start -->
                 
@@ -220,7 +223,7 @@ ul {
                             <input name="total" type="hidden" value="<?php echo $granTotal;?>">
                       <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
                       <input name="tipo_venta" type="hidden" value="Contado">
-                    <h3>Seleccione cliente</h3>
+                    <h3 class="htitle">Seleccione cliente</h3>
                     <div class="input-group input-group-sm">
                         <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
                         <span class="input-group-btn">

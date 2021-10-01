@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="css/procedimiento.css" type="text/css">
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <div class="container body">
@@ -36,92 +35,32 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
  <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle">Procedimiento Pago</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="btn btn-warning btn-print" href="procedimiento_pago_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>
-
-
-                
-
-
-
-
-
-
+                 <a class="btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+                <a class="btn btn-plantilla" href="procedimiento_pago_agregar.php"  role="button"> <i class="glyphicon glyphicon-plus"></i> Registrar</a>
 
 
 
                 <div class="box-body">
-                
-         
-
- 
-                        
-            
-
-          
-      
-
-
-
-
-
-
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA PROCEDIMIENTOS DE PAGO</h3>
-                </div><!-- /.box-header -->
-              
 
 
                 <div class="box-body">
                 
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
-      
-             
-                        <th>nombre</th>
-                     <th>descripcion</th>
-             
-                          <th>precio venta</th>
-
-
- <th class="btn-print"> Accion </th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio venta</th>
+                        <th> Acciones </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -172,9 +111,6 @@ ul {
 
           </div><!-- /.row -->
 
-
-
-
                 </div><!-- /.box-body -->
 
             </div>
@@ -203,14 +139,18 @@ ul {
                 $('#example2').dataTable( {
                  "language": {
                    "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
+
 
 
   "searching": true,

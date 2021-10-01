@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/medicina.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <div class="container body">
@@ -17,8 +18,8 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -32,97 +33,38 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+      </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle">Lista de Medicinas</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="btn btn-warning btn-print" href="medicina_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>
-
-
-                
-
-
-
-
-
-
-
-
+                <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+                <a class="btn btn-plantilla" href="medicina_agregar.php"  role="button"><i class="glyphicon glyphicon-plus"></i> Registrar</a>
 
                 <div class="box-body">
-                
-         
-
- 
-                        
-            
-
-          
-      
-
-
-
-
-
-
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA MEDICINAS</h3>
-                </div><!-- /.box-header -->
-              
 
 
                 <div class="box-body">
                 
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
-                    <th>#</th>
-                     <th>imagen</th>
-                        <th>nombre</th>
-                     <th>descripcion</th>
-                        <th>unidad</th>
-                        <th>precio compra</th>
-                          <th>precio venta</th>
-         <th>Stock</th>
-
- <th class="btn-print"> Accion </th>
+                            <th>#</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th>Unidad</th>
+                            <th>Precio compra</th>
+                            <th>Precio venta</th>
+                            <th>Stock</th>
+                              <th class="btn-print">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -134,36 +76,33 @@ ul {
     $id_pro=$row['id_pro'];
     $i++;
 ?>
-                      <tr >
+                  <tr >
+                        <td><?php echo $i;?></td>
+                        <td><IMG src="subir_producto/<?php echo $row['imagen'];?>" style="height:50PX" /></td>
+                                      <td><?php echo $row['nombre_pro'];?></td>
+                        <td><?php echo $row['descripcion'];?></td>
 
-<td ><?php echo $i;?></td>
- <td><IMG src="subir_producto/<?php echo $row['imagen'];?>" style="height:50PX" /></td>
-              <td><?php echo $row['nombre_pro'];?></td>
-<td><?php echo $row['descripcion'];?></td>
+                        <td><?php echo $row['unidad'];?></td>
+                          <td><?php echo $row['precio_compra'];?></td>
+                        <td><?php echo $row['precio_venta'];?></td>
+                          <td><?php echo $row['stock'];?></td>
+                                                  <td>
+                                                        <?php
+                                              ?>
+                          <a class="small-box-footer btn-print"  href="<?php  echo "eliminar_medicina.php?id_pro=$id_pro";?>" onClick="return confirm('¿Está seguro de que quieres eliminar producti??');"><i class="glyphicon glyphicon-remove" ></i></a>
+                            
+                        <a class="btn btn-danger btn-print" href="<?php  echo "editar_medicina.php?id_pro=$id_pro";?>"  role="button">Editar</a>
+                        <a class="btn btn-primary btn-print" href="<?php  echo "agregar_stock.php?id_pro=$id_pro";?>"  role="button">Agregar stock</a>
+                                    <?php
+                                    //          }
+                                              ?>
 
- <td><?php echo $row['unidad'];?></td>
-  <td><?php echo $row['precio_compra'];?></td>
- <td><?php echo $row['precio_venta'];?></td>
-  <td><?php echo $row['stock'];?></td>
-                          <td>
-                                 <?php
-                   
-                    
-                      ?>
-  <a class="small-box-footer btn-print"  href="<?php  echo "eliminar_medicina.php?id_pro=$id_pro";?>" onClick="return confirm('¿Está seguro de que quieres eliminar producti??');"><i class="glyphicon glyphicon-remove" ></i></a>
-    
-<a class="btn btn-danger btn-print" href="<?php  echo "editar_medicina.php?id_pro=$id_pro";?>"  role="button">Editar</a>
-<a class="btn btn-primary btn-print" href="<?php  echo "agregar_stock.php?id_pro=$id_pro";?>"  role="button">Agregar stock</a>
-             <?php
-            //          }
-                      ?>
+                                    </td>
+                                              </tr>
 
-            </td>
-                      </tr>
+                        <!--end of modal-->
 
- <!--end of modal-->
-
-<?php }?>
+                        <?php }?>
                     </tbody>
 
                   </table>
@@ -173,9 +112,6 @@ ul {
 
 
           </div><!-- /.row -->
-
-
-
 
                 </div><!-- /.box-body -->
 
@@ -188,7 +124,7 @@ ul {
         <!-- footer content -->
     <footer>
           <div class="pull-right">
-                         <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
+                        <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -198,13 +134,11 @@ ul {
 
   <?php include '../layout/datatable_script.php';?>
 
-
-
         <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
+                  "language": {
+                  "paginate": {
                       "previous": "anterior",
                       "next": "posterior"
                     },
@@ -212,10 +146,10 @@ ul {
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-
-
-  "searching": true,
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
+                  "searching": true,
                 }
 
               );

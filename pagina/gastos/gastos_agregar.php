@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/gastos.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -36,52 +37,19 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
 
 
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> REGISTRAR GASTOS </h3>
+                  <h3 class="htitle">Registrar Gastos</h3>
 
                 </div><!-- /.box-header -->
-                <a class="btn btn-warning btn-print" href="gastos.php"    style="height:25%; width:15%; font-size: 12px " role="button">Regresar</a>
+                <a class="btn btn-regresar" href="gastos.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
+
+
+                <div class="base">
                 
-
-
-
-
-
-
-
-
-
-                <div class="box-body">
-                
-         
-
- 
-                        
-            
-
-          
-      
-
-
-
 
         <form class="form-horizontal" method="post" action="gastos_add.php" enctype='multipart/form-data'>
 
@@ -156,16 +124,7 @@ ul {
 
              
                  
-    <button type="submit" class="btn btn-primary">Guardar cambios</button>
-              
-
-
-
-
-
-
-
-
+    <button type="submit" class="btn btn-plantilla">Guardar cambios</button>
 
 
               <div class="modal-footer">

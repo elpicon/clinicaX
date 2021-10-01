@@ -12,7 +12,14 @@ include '../layout/session.php';
 date_default_timezone_set('America/Lima');
 ?>
 
- 
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/cita.css" type="text/css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
     
 <body class="nav-md">
       
@@ -93,6 +100,9 @@ date_default_timezone_set('America/Lima');
         
         
   <div class="right_col" role="main">
+  <div class="box-header with-border">
+                  <h3 class="htitle">Registrar Cita</h3>
+                </div><!-- /.box-header -->
 
     <div class="row">
     <div class="col-lg-4 col-sm-8">
@@ -309,9 +319,7 @@ date_default_timezone_set('America/Lima');
   
       <div class="col-lg-8 col-sm-10">
     
-                <div class="box-header with-border">
-                  <h3 class="box-title">REGISTRAR  NUEVA CITA</h3>
-                </div><!-- /.box-header -->
+ 
           <br>
           <div class="datagrid"><table>
                     <thead>

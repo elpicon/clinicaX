@@ -13,7 +13,7 @@ $id = $_SESSION[ 'id' ];
         
           background: linear-gradient(#002142, #002142);   
         }
-     .left_col{
+      .left_col{
         background: #002142;
         }
     
@@ -22,7 +22,7 @@ $id = $_SESSION[ 'id' ];
       
         background: linear-gradient(#002142, #002142);
         }
-     .side-menu li{
+      .side-menu li{
         background: linear-gradient(#002142, #002142);   
         }
     .nav_title{
@@ -30,12 +30,18 @@ $id = $_SESSION[ 'id' ];
         }
     
 .scrollp {
-  width: 10px;
-  height: 110px;
-  overflow-y: auto;
-  position: relative;
-  max-width: 100%;
+        width: 10px;
+        height: 110px;
+        overflow-y: auto;
+        position: relative;
+        max-width: 100%;
         overflow-x: hidden;
+        
+        
+}
+
+.scrollp::-webkit-scrollbar {
+    -webkit-appearance: none;
 }
 
 

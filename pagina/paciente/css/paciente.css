@@ -49,3 +49,26 @@ select{
     border: 1px solid #ccc;
 
 }
+
+.base{
+    background-color: white;
+    padding: 50px;
+    margin: 30px;
+    margin-top: 0;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.marco-grupo1 {     
+    background-color: #bcd8e2;
+        padding-top: 15px; 
+        padding-bottom: 15px;
+    
+    }
+
+.btn-regresar{
+    font-size: 14px;
+    color: #002142;
+    margin-left: 10px;
+}

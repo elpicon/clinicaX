@@ -1,0 +1,53 @@
+.btn-plantilla{
+    background: #2db8eb;
+    color: white;
+}
+
+.btn-plantilla2{
+    background: #fc8d44;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-plantilla3{
+    background: #2db8eb;
+    color: white;
+    margin-left: 10px;
+}
+
+
+.htitle{
+    color: #2d3235 ;
+    margin-top: 70px;
+}
+
+.encabezado{
+    background: #002142;
+    color: white;
+}
+
+.btn-horario{
+    background: #3c8dbc;
+    color: white;
+}
+
+.btn-vaca{
+    background: #fc8d44;
+    color: white;
+}
+
+.acciones{
+    width: 300px;
+}
+
+.btn-regresar{
+    font-size: 14px;
+    color: #002142;
+    margin-left: 10px;
+}
+
+.base{
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 40px;
+}

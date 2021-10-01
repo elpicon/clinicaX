@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/gastos.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -36,91 +37,33 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle">Lista de Gastos</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="btn btn-warning btn-print" href="gastos_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>
-
-
-                
-
-
-
-
-
-
-
+                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i>Imprimir</a>
+                <a class="btn btn-plantilla" href="gastos_agregar.php"  role="button"><i class="glyphicon glyphicon-plus"></i> Registrar</a>
 
 
                 <div class="box-body">
                 
-         
-
- 
-                        
-            
-
-          
-      
-
-
-
-
-
-
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA GASTOS</h3>
-                </div><!-- /.box-header -->
-              
 
 
                 <div class="box-body">
                 
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
                     <th>#</th>
-               
-                        <th>Nota</th>
+                    <th>Nota</th>
                     <th>Categoria gastos</th>
                     <th>Cantidad</th>
-     <th>Fecha </th>
-
- <th class="btn-print"> Accion </th>
+                    <th>Fecha </th>
+                    <th > Acciones </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -208,10 +151,11 @@ ul {
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 
-
-  "searching": true,
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
+                  "searching": true,
                 }
 
               );

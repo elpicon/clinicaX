@@ -1,4 +1,5 @@
 <?php include '../layout/dbcon.php';?>
+<?php include '../layout/header.php';?>
 
 <?php 
  @session_start();
@@ -26,14 +27,7 @@ $simbolo_moneda="";
 
     $id_sesion=$_SESSION['id']; 
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="../actividades_financieras/css/styles.css">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
       <script>
 $(document).ready(function() {
     $('#key').on('keyup', function() {
@@ -71,29 +65,7 @@ $(document).ready(function() {
 
 </script>        
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pagos </title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/font-awesome.css">
-   
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/blue.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style type="text/css">
       #myInput {
   background-image: url('../actividades_financieras/css/buscador.png'); /* Add a search icon to input */
@@ -129,15 +101,14 @@ $(document).ready(function() {
 }
 
     </style>
-  </head>
-  <body class="hold-transition login-page">
-           <?php    
+  
+  <body class="nav-md">
+            <?php    
 if(!isset($_SESSION["carrito_farmacia"])) $_SESSION["carrito_farmacia"] = [];
 $granTotal = 0;
 $impuTotal = 0;
 ?>
-  <div class="col-xs-12">
-    <h4>Pagos</h4>
+  
     <?php
       if(isset($_GET["status"])){
         if($_GET["status"] === "1"){
@@ -179,27 +150,33 @@ $impuTotal = 0;
         }
       }
     ?>
-    <br>
 
 
-  <br>
-  <section class="content">
+  
+  <div class="container body">
+  <div class="main_container">
+        <?php include '../layout/main_sidebar.php';?>
+
+        <!-- top navigation -->
+            <?php include '../layout/top_nav.php';?> 
+
+      
+
+      <div class="right_col" role="main">
           <div class="row">
             <!-- left column -->
             <div class="col-md-4">
               <!-- general form elements -->
               <div class="box box-primary">
-                <div class="box-header with-border">
-           
-                </div><!-- /.box-header -->
+            
                 <!-- form start -->
                  <form role="form" id="frmAcceder" name="frmAcceder">
                   <div class="box-body">
                   <div class="row">
                     <div class="col-xs-12">
                    <br><br>
-    <table class="table table-bordered">
-      <thead>
+        <table class="table table-bordered">
+        <thead>
         <tr>
 
  
@@ -322,32 +299,6 @@ $impuTotal = 0;
                     </div>
                     </div>
 
-
-
-
-
-
-
-        
-
-
-             
-
-
-
-
-
-
-
-        
-
- 
-
-
-
-               
-
-
      <input name="cliente" id="cliente" type="hidden"  required>
 <br>
       <button type="submit" class="btn btn-success">Terminar venta</button>
@@ -360,31 +311,26 @@ $impuTotal = 0;
   # code...
 
 ?>
-
-
                   <div class="row">
                         
 
                    <div class="box-body">
                 
-         
-
- 
                         
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
+                  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
 
-<ul id="myUL">
-  <?php
+                  <ul id="myUL">
+                    <?php
 
-    $query=mysqli_query($con,"select * 
-from producto where  stock>0 and estado='a' ")or die(mysqli_error());
-    $i=1;
-    while($row=mysqli_fetch_array($query)){
-    $id_pro=$row['id_pro'];
+                      $query=mysqli_query($con,"select * 
+                  from producto where  stock>0 and estado='a' ")or die(mysqli_error());
+                      $i=1;
+                      while($row=mysqli_fetch_array($query)){
+                      $id_pro=$row['id_pro'];
 
-         $stock=$row['stock'];
- 
-?>
+                          $stock=$row['stock'];
+                  
+                  ?>
 
              <div class="col-lg-4 col-xs-6">
                         <!-- small box -->
@@ -425,9 +371,7 @@ from producto where  stock>0 and estado='a' ")or die(mysqli_error());
  
                       </div>
                     </div>
-                           <div class="col-md-1 btn-print">
-                
-                    </div>
+
                     </div>
 
 
@@ -494,29 +438,6 @@ from producto where  stock>0 and estado='a' ")or die(mysqli_error());
  ?>
 </ul>
 
-          
-      
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-             
-
                   
                           </div>
                         
@@ -525,30 +446,10 @@ from producto where  stock>0 and estado='a' ")or die(mysqli_error());
                       </div><!-- ./col -->
 
 
-
-
-
-
-
-
-       
-
-                   
-
                                         <?php
                       
                      
                       ?>
-
-   
-
-
-          
-
-
-
-
-
 
 
 
@@ -565,8 +466,12 @@ from producto where  stock>0 and estado='a' ")or die(mysqli_error());
               <!-- general form elements disabled -->
                           </div><!--/.col (right) -->
           </div>   <!-- /.row -->
-        </section><!-- /.content -->
+</div>
+</div>
+</div><!-- /.content -->
       </div><!-- /.content-wrapper -->
+      
+      <?php include '../layout/datatable_script.php';?>
 <script>
 function myFunction() {
   // Declare variables

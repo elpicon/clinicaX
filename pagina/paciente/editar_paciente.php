@@ -1,5 +1,4 @@
-
-<?php 
+  <?php 
 session_start();
 include '../layout/header.php';
 
@@ -25,11 +24,12 @@ function _convert($content) {
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/paciente.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
-                                         <?php 
+                                    <?php 
 //    if ($usuario=="si") {
       # code...
     
@@ -38,9 +38,8 @@ function _convert($content) {
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
 
-        <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+        <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -58,32 +57,22 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
+        <div class="box-header">
+                  <h3 class="htitle ">Editar Paciente</h3>
+                </div><!-- /.box-header -->
+          <div class="base">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
-
- </div>
-  <?php
-     if(isset($_REQUEST['cid']))
-            {
-              $cid=$_REQUEST['cid'];
-            }
-            else
-            {
-            $cid=$_POST['cid'];
-          }
-
-
-?>
-
-                           <?php
-                         
-             //         if ($guardar=="si") {
-                    
+                <?php
+                  if(isset($_REQUEST['cid']))
+                          {
+                            $cid=$_REQUEST['cid'];
+                          }
+                          else
+                          {
+                          $cid=$_POST['cid'];
+                        }
+              ?>
+              <?php
                       ?>
 
                   <?php
@@ -91,46 +80,30 @@ ul {
                       ?>
 
                   <!-- Date range -->
-               
 
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> MODIFICAR PACIENTE</h3>
-                </div><!-- /.box-header -->
+                  
               
-                <a class="btn btn-dark btn-print fa fa-chevron-left" aria-hidden="true" href="paciente.php"    style="height:25%; width:15%; font-size: 12px " role="button"></a>
+                <a class="btn btn-regresar" aria-hidden="true" href="paciente.php" role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
                 
                 <div class="box-body">
                 
           
-<?php
-   // $branch=$_SESSION['branch'];
-     $query = mysqli_query( $con, "SELECT * FROM `u_pacientes` WHERE `numerodedocumento`='$cid';" )or die( mysqli_error() );
-    
-    $i=1;
-    while($row=mysqli_fetch_array($query)){
-        $cid=$row['numerodedocumento'];    
-        
-?>
-      
-                   
-     <div class="row">
-                     <div class="col-md-4 ">
+                  <?php
+                    // $branch=$_SESSION['branch'];
+                      $query = mysqli_query( $con, "SELECT * FROM `u_pacientes` WHERE `numerodedocumento`='$cid';" )or die( mysqli_error() );
                       
-                       <label for="date" >Foto Nueva</label>
-                       
+                      $i=1;
+                      while($row=mysqli_fetch_array($query)){
+                          $cid=$row['numerodedocumento'];    
+                          
+                  ?>
+      
+                  
+            <div class="row">
+                    <div class="col-md-4 ">
+                      
+                      <label for="date" >Foto Nueva</label>
+                      
                         <img type="file" style="width:120px;height:120px;border: 1px solid; color: green;" class="form-control" id="img" name="imagen" required >
                        
                         <canvas hidden style="width:120px;height:120px;border: 1px solid; color: black;" id="c"></canvas>
@@ -172,32 +145,32 @@ ul {
                 }    
             </style>
                         
-    <script>
-          var imagenData ;
-       function enviarTodo(){
-          
-            var numerodedocumento= $('#numerodedocumento').val()
-            $.ajax({
-                  url: 'guardarImagen.php',
-                  data: {
-                    
-                    imagenData: imagenData,
-                    numerodedocumento: numerodedocumento
-                  },
-                  method: 'post',
-                  success: function(data) {
-                      if(data=="exitoso"){
+        <script>
+              var imagenData ;
+          function enviarTodo(){
+              
+                var numerodedocumento= $('#numerodedocumento').val()
+                $.ajax({
+                      url: 'guardarImagen.php',
+                      data: {
+                        
+                        imagenData: imagenData,
+                        numerodedocumento: numerodedocumento
+                      },
+                      method: 'post',
+                      success: function(data) {
+                          if(data=="exitoso"){
+                              
+                          document.getElementById('#formulario').submit();
+                          }else{
+                              alert("error");
+                          }
                           
-                      document.getElementById('#formulario').submit();
-                      }else{
-                          alert("error");
                       }
-                      
-                  }
 
-                });
-       } 
-        
+                    });
+          } 
+            
         
         
         
@@ -247,6 +220,7 @@ ul {
                     </div>
                  
                        <div class="col-md-4 btn-print">
+                        <br>
                       <div class="form-group">
                         <label for="eps_ars" >Aseguradora</label>
                         <select name="eps" id="eps" required>
@@ -280,6 +254,7 @@ ul {
                   
                    <div class="row">
                        <div class="col-md-3 btn-print">
+                       <br>
                       <div class="form-group">
                           <label for="primerapellido" >Primer Apellido</label>
                           <input type="text" class="form-control pull-right" id="primerapellido" value="<?php echo $row["primerapellido"]; ?>" name="primerapellido" required >
@@ -288,6 +263,7 @@ ul {
                         
                    
                        <div class="col-md-3 btn-print">
+                       <br>
                       <div class="form-group">
                          <label for="segundoapellido" >Segundo Apellido</label>
                           <input type="text" class="form-control pull-right" id="segundoapellido" name="segundoapellido" value="<?php echo $row["segundoapellido"]; ?>" >
@@ -295,6 +271,7 @@ ul {
                     </div>
                             
                        <div class="col-md-3 btn-print">
+                       <br>
                       <div class="form-group">
                           <label for="primernombre" >Primer Nombre</label>
                           <input type="text" class="form-control pull-right" id="primernombre" name="primernombre" value="<?php echo $row["primernombre"]; ?>" required >
@@ -303,6 +280,7 @@ ul {
                         
                    
                        <div class="col-md-3 btn-print">
+                       <br>
                       <div class="form-group">
                          <label for="segundonombre" >Segundo Nombre</label>
                           <input type="text" class="form-control pull-right" id="segundonombre" name="segundonombre" value="<?php echo $row["segundonombre"]; ?>" >
@@ -316,9 +294,12 @@ ul {
  
   
                        <div class="col-md-3 btn-print">
+                       <br>
                       <div class="form-group">
-                         <label for="tipodedocumento " >Tipo DI</label><br>
-                          <select id="tipodedocumento" name="tipodedocumento">
+                         <label for="tipodedocumento " >Tipo ID</label><br>
+                          <select id="tipodedocumento" name="tipodedocumento" style="
+    width: 210px;
+">
                               <option value="">Seleccione</option>
                                  
                                //TIPO ID
@@ -352,8 +333,9 @@ ul {
                     </div>
                   
                        <div class="col-md-3 btn-print">
+                       <br>
                       <div class="form-group">
-                         <label for="date" >Usuario/DI</label>
+                         <label for="date" >Usuario/ID</label>
                          <?php
                         if(!strcmp($tipo_usuario,"administrador")){
                             echo "<input type='text' class='form-control pull-right' id='numerodedocumento' value='".$row['numerodedocumento']."' name='numerodedocumento'   placeholder='ID' required>";
@@ -361,13 +343,11 @@ ul {
                              echo "<input type='text' class='form-control pull-right' id='numerodedocumento' value='".$row['numerodedocumento']."' name='numerodedocumento'  readonly placeholder='ID' >";
                         }
                         ?>
-                         
-                         
-                         
                       </div>
                     </div>
                     
-                     <div class="col-md-6 btn-print">
+                     <div class="col-md-6 btn-print"> 
+                     <br>
                       <div class="form-group">
                          <label for="idbdua" >IDBDUA</label>
                          <?php
@@ -379,12 +359,16 @@ ul {
                         ?>
                       </div>
                     </div>
-                    
-                
+                      </div>
+                    <div class="row">
                     <div class="col-md-7 btn-print">
+                      <br>
                           <div class="form-group">
                            <label for="departamento" >Departamento</label>
-                          <select id="departamento" name="departamento" required>
+                           <br>
+                          <select id="departamento" name="departamento" required style="
+    width: 300px;
+">
                                 <option value="">Seleccione</option>
                              
 <?php
@@ -410,9 +394,10 @@ ul {
                           </div>
                     </div>
                    <div class="col-md-5 btn-print" id="municipios">
+                      <br>
                     <div class="form-group">
                     <label for="municipios" >Municipios</label>
-                       <br>
+                      <br>
                         <select id="municipio" name="municipios" required>
                             <option value="">Seleccione</option>
                                 <?php
@@ -471,25 +456,23 @@ ul {
                     
         <div class="row">
                   
-                       <div class="col-md-5 btn-print">
+                        <div class="col-md-5 btn-print">
+                        <br>
                       <div class="form-group">
                           <label for="sangre" >Fecha de Nacimiento</label>
                     <input type="date" class="form-control pull-right" id="fnacimiento" value="<?php echo $fechantox;   
                          ?>" name="fecha_nacimiento"  placeholder="Fecha de nacimiento" required>
                       </div>
                     </div>
-                     
-                    
 
-
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-4 btn-print">
+                      <br>
                       <div class="form-group">
-                         <label for="tipodesangre" >Tipo de Sangre</label>
-                         <br>
+                          <label for="tipodesangre" >Tipo de Sangre</label>
+                          <br>
                           <select name="tipodesangre" required>
-                             <option value="">Seleccione</option>
-                             
-                             <?php
+                              <option value="">Seleccione</option>
+                              <?php
                               $bufer= "<option value='O+'>O+</option>
                             <option value='O-'>O-</option>
                             <option value='A+'>A+</option>
@@ -506,16 +489,14 @@ ul {
                             </select>
                       </div>
                     </div>
-                           
-                
-  
-                   
-                       <div class="col-md-3 btn-print">
+
+                      <div class="col-md-3 btn-print">
+                      <br>
                       <div class="form-group">
                           <label for="genero" >Genero</label>
                           <br>
                           <select name="genero">
-                             <option value="">Seleccione</option>
+                              <option value="">Seleccione</option>
                             <?php
                             if(!strcmp($row["genero"],"M")){echo "<option selected >M</option>";}else{echo "<option  >M</option>";}
                             if(!strcmp($row["genero"],"F")){echo "<option selected >F</option>";}else{echo "<option  >F</option>";}
@@ -525,29 +506,21 @@ ul {
                             </select>
                       </div>
                     </div>
-                          
-                          
-                      
-                           
+
                     </div>
                     
 
+                 <br>
+              <div class="row marco-grupo1">
 
-
-       <style>
-         .marco-grupo1 { background-color: #DFFFB6; }
-       </style>
-            <br>     <br>
- <div class="row marco-grupo1">
-
-                   
-                   
                     <div class="col-md-2 btn-print">
                       <div class="form-group">
                           <label for="nivel" >Nivel</label>
+                          <br>
+
                           <select name="nivel">
-                             <option value="">Seleccione</option>
-                             <?php
+                              <option value="">Seleccione</option>
+                              <?php
                               $bufer= "<option value='A1'>A1</option>
                             <option value='A2'>A2</option>
                             <option value='A3'>A3</option>
@@ -606,21 +579,20 @@ ul {
                               $bodytag = str_replace("'".$row['nivel']."'", "'".$row["nivel"]."'  selected='selected' ", $bufer);
                               echo $bodytag;
                               ?>
-                             
+                            
                             </select>
                         
                       </div>
                     </div>
                     
-                     <div class="col-md-5 btn-print">
+                    <div class="col-md-4 btn-print">
                       <div class="form-group">
                           <label for="grupopoblacional" >Grupo Poblacional</label>
-                          <select name="grupopoblacional">
-                             <option value="">Seleccione</option>
-                             
+                          <select name="grupopoblacional" style="width: 180px;">
+                            <option value="">Seleccione</option>
                         <?php
                               $bufergp= "<option value='A1'>A1</option>     
-			                <option value='1'>Habitante de la calle</option>
+			                      <option value='1'>Habitante de la calle</option>
                             <option value='2'>ICBF</option>
                             <option value='18'>Indígenas</option>
                             <option value='2'>Rrom (Gitano)</option>
@@ -630,76 +602,58 @@ ul {
                             <option value='8'>Desmovilizados</option>
                             <option value='9'>Desplazados</option>
                             <option value='22'>INPEC</option>";
-                $bodytag7 = str_replace("'".$row['grupopoblacional']."'", "'".$row["grupopoblacional"]."'  selected='selected' ", $bufergp);
-                              echo $bodytag7;
-        
-        ?>
+                                $bodytag7 = str_replace("'".$row['grupopoblacional']."'", "'".$row["grupopoblacional"]."'  selected='selected' ", $bufergp);
+                                              echo $bodytag7;
+                        
+                        ?>
                             </select>
                       </div>
                     </div>
                       
-                  <div class="col-md-5 btn-print">
+                    <div class="col-md-3 btn-print">
                       <div class="form-group">
-                          <label for="regimen" >Regimen</label>
+                          <label for="regimen" >Régimen</label>
                           <br>
                           <select name="regimen">
-                             <option value="">Seleccione</option>
+                              <option value="">Seleccione</option>
                               <?php
                               $buferreg= " <option value='contributivo'>Contributivo</option>
                             <option value='subcidiado'>Subcidiado</option>
                             <option value='excepcionyespecial'>Excepción y Especial</option>
-                             <option value='PVS'>PVS</option>
-                             <option value='INPEC'>INPEC</option>";
-                             
-                                 $bodytag8 = str_replace("'".$row['regimen']."'", "'".$row["regimen"]."'  selected='selected' ", $buferreg);
+                            <option value='PVS'>PVS</option>
+                            <option value='INPEC'>INPEC</option>";
+                          
+                                $bodytag8 = str_replace("'".$row['regimen']."'", "'".$row["regimen"]."'  selected='selected' ", $buferreg);
                               echo $bodytag8;
         ?>
-                             
-                             
                             </select>
                       </div>
                     </div>
-                      
-                   </div>
-                    
-               
-            <div class="row">
-                   
+
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                           <label for="tipodecontrato" >Tipo de Contrato</label>
                           <br>
                           <select name="tipodecontrato">
-                             <option value="">Seleccione</option>
-                             
+                              <option value="">Seleccione</option>
                               <?php
                               $bufercontr= " <option value='ARS'>ARS</option>
                             <option value='ARL'>ARL</option>
                             <option value='EPS'>EPS</option>
                             <option value='SOAT'>SOAT</option>";
-                             
-                                 $bodytag9 = str_replace("'".$row['tipodecontrato']."'", "'".$row["tipodecontrato"]."'  selected='selected' ", $bufercontr);
+                            
+                              $bodytag9 = str_replace("'".$row['tipodecontrato']."'", "'".$row["tipodecontrato"]."'  selected='selected' ", $bufercontr);
                               echo $bodytag9;
         ?>
-                             
-                            
                             </select>
                       </div>
                     </div> 
-                    
-                   
-                    
                     <br>
-                       
                      <input  type="hidden" class="form-control" id="numerodecontrato"  hidden name="numerodecontrato"  >
-                     
-                      <div class="col-md-12 ">
+                      <div class="col-md-6 ">
                       <div class="form-group">
-                   
-                   
-                     
                      <div class="containerT">
-                       <label for="numerodecontrato" >Numero de Contrato</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Para Borrar Presione sobre 'Close'.</span>
+                       <label for="numerodecontrato" >Número de Contrato</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <br />
                       <div class="tag-container">
                           <input list='lista_contrato' id='in_contrato'  value=''  class='form-control' >
@@ -830,9 +784,9 @@ document.addEventListener('click', (e) => {
 input.focus();
 </script> 
         
-               <div class="col-md-3 btn-print">
+                    <div class="col-md-3 btn-print">
                       <div class="form-group">
-                          <label for="estadodelafiliado" >Estado de Afiliacion</label>
+                          <label for="estadodelafiliado" >Estado de Afiliación</label>
                           <select name="estadodelafiliado">
                              <option value="">Seleccione</option>
                              
@@ -845,33 +799,32 @@ input.focus();
                                  $bodytag10 = str_replace("'".$row['estadodelafiliado']."'", "'".$row["estadodelafiliado"]."'  selected='selected' ", $bufereaf);
                               echo $bodytag10;
         ?>
-                            
                             </select>
                       </div>
                     </div>    
-                     
-                  </div>
-                    
-               
-            <div class="row">
-                      <div class="col-md-3 btn-print">
-                      <div class="form-group">
+                    <div class="col-md-3 btn-print">
+                        <div class="form-group">
                           <label for="zona" >Zona</label>
                           <br>
-                          <select name="zona">
-                             <option value="">Seleccione</option>
-                        <?php
-        if(!strcmp("Urbana",$row["zona"])){ echo "<option selected value='Urbana'>Urbana</option>"; }else{echo "<option  value='Urbana'>Urbana</option>";}
-         if(!strcmp("Rural",$row["zona"])){ echo "<option selected value='Rural'>Rural</option>"; }else{echo "<option  value='Rural'>Rural</option>";}
-            
-            ?>
+                            <select name="zona">
+                              <option value="">Seleccione</option>
+                              <?php
+                                if(!strcmp("Urbana",$row["zona"])){ echo "<option selected value='Urbana'>Urbana</option>"; }else{echo "<option  value='Urbana'>Urbana</option>";}
+                                if(!strcmp("Rural",$row["zona"])){ echo "<option selected value='Rural'>Rural</option>"; }else{echo "<option  value='Rural'>Rural</option>";}
+                                    
+                                    ?>
     
                             </select>
                       </div>
                     </div>   
-                     <div class="col-md-6 btn-print">
+                  </div>
+              
+            <div class="row">
+                      
+                     <div class="col-md-4 btn-print">
+                       <br>
                       <div class="form-group">
-                      <label for="telefono" >Telefono o Celular</label>
+                      <label for="telefono" >Teléfono o Celular</label>
             <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $row['celular']; ?>" placeholder="Telefono"  required>
                       </div>
                     </div>
@@ -884,61 +837,52 @@ input.focus();
                         //echo $fechantox1;
         ?>
                             
-               <div class="col-md-6 btn-print">
+                      <div class="col-md-4 btn-print">
+                        <br>
                       <div class="form-group">
                           <label for="sangre" >fehcasgss</label>
                           <input type="date" class="form-control pull-right" id="fehcasgss" value="<?php echo $fechantox1; ?>" name="fehcasgss"  placeholder="Fecha de nacimiento" required>
                       </div>
-                    </div>       
-                    
-                    </div>
-                    
-                <div class="row">  
-                      
-                       <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                       <label for="direccion" >Direccion</label>
-                         <input type="text" class="form-control" value="<?php echo $row['direccion']; ?>" id="direccion" name="direccion" placeholder="Direccion"  required>
-                      </div>
-                    </div>
-                    
+                    </div>  
+
                     <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                       <label for="barrio" >Barrio</label>
-                         <input type="text" class="form-control" id="barrio" value="<?php echo $row['barrio']; ?>" name="barrio" placeholder="barrio"  required>
-                      </div>
-                    </div>
-                    
-                    
-                    <div class="col-md-4 btn-print">
+                    <br>
                       <div class="form-group">
                        <label for="correoelectronico" >Correo</label>
                         <input type="text" class="form-control" id="correoelectronico" value="<?php echo $row['correoelectronico']; ?>" name="correoelectronico" placeholder="correoelectronico"  required>
                       </div>
                     </div>
-           </div>
-
-<div class="row">
-                 
-          
-                      
-                    <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                      <label for="ocupacion" >Ocupacion</label>
-                        <input type="text" class="form-control" id="ocupacion" name="ocupacion" value="<?php echo $row['ocupacion']; ?>" placeholder="Ocupacion"  required>
-                         </div>
-                      </div>    
-                      </div>
-                      
-                        
-              
-
-     
-
+                    </div>
                     
+                <div class="row">  
+                      
+                       <div class="col-md-4 btn-print">
+                         <br>
+                      <div class="form-group">
+                       <label for="direccion" >Dirección</label>
+                         <input type="text" class="form-control" value="<?php echo $row['direccion']; ?>" id="direccion" name="direccion" placeholder="Direccion"  required>
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-4 btn-print">
+                    <br>
+                      <div class="form-group">
+                       <label for="barrio" >Barrio</label>
+                         <input type="text" class="form-control" id="barrio" value="<?php echo $row['barrio']; ?>" name="barrio" placeholder="barrio"  required>
+                      </div>
+                    </div>
 
-             
-               <br>
+                    <div class="col-md-4 btn-print">
+                    <br>
+                        <div class="form-group">
+                            <label for="ocupacion" >Ocupación</label>
+                              <input type="text" class="form-control" id="ocupacion" name="ocupacion" value="<?php echo $row['ocupacion']; ?>" placeholder="Ocupacion"  required>
+                        </div>
+                      </div>    
+
+           </div>
+                  
+                  
                <br>  
     
               
@@ -990,12 +934,8 @@ password.addEventListener('input', inHandlerPasswor2);
 password.addEventListener('propertychange', inHandlerPasswor2); 
     </script>
 
-              <div class="modal-footer">
-
-
-              </div>
         </form>
-<button  class="btn btn-primary" onclick="enviarTodo();" >Guardar cambios</button>
+<button  class="btn btn-plantilla" onclick="enviarTodo();" >Guardar</button>
 <?php } ?>
 
                 </div><!-- /.box-body -->
@@ -1005,7 +945,7 @@ password.addEventListener('propertychange', inHandlerPasswor2);
 
           </div><!-- /.row -->
 
-
+  </div>
 
 
                 </div><!-- /.box-body -->
@@ -1050,7 +990,7 @@ password.addEventListener('propertychange', inHandlerPasswor2);
               );
               } );
     </script>
-                                         <?php 
+                                      <?php 
  // }    
 ?>
 

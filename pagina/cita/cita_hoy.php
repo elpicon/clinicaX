@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/cita.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -36,95 +37,31 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle">Lista de Citas</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="btn btn-warning btn-print" href="cita_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR CITA</a>
-
-
-                
-
-
-
-
-
-
+                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i>Imprimir</a>
+                <a class="btn btn-plantilla" href="cita_agregar.php"  role="button"> <i class="glyphicon glyphicon-plus"></i>Registrar</a>
 
 
 
                 <div class="box-body">
                 
-         
-
- 
-                        
-            
-
-          
-      
-
-
-
-
-
-
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA CITAS</h3>
-                </div><!-- /.box-header -->
-              
 
 
                 <div class="box-body">
                 
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
-
-                
-               
-                        <th>Paciente</th>
-                    <th>Medico</th>
-                       
-         
-                           
-
-    <th>Fecha</th>
-      <th>Observaciones</th>
-           <th>Estado</th>
- <th class="btn-print"> Accion </th>
+                        <tr class=" encabezado">
+                          <th>Paciente</th>
+                          <th>Médico</th><th>Fecha</th>
+                          <th>Observaciones</th>
+                          <th>Estado</th>
+                          <th> Acciones </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -146,12 +83,6 @@ $id_cita=$row['id_cita'];
 ?>
                       <tr >
 
-
-
-
-
-    
-
         <td><?php echo $row['medico'];?></td>              
          <td><?php echo $row['paciente'];?></td>     
            <td><?php echo $row['fecha'];?></td>    
@@ -161,11 +92,6 @@ $id_cita=$row['id_cita'];
                           <td>
                                  <?php
                    
-
-
-
-
-                    
                       ?>
 
 <a class="btn btn-danger btn-print" href="<?php  echo "../cita/editar_cita.php?id_cita=$id_cita";?>"    role="button">Editar</a>
@@ -173,10 +99,6 @@ $id_cita=$row['id_cita'];
       <?php
                       
                       ?>
-
-
-
-
 
 
             </td>
@@ -194,9 +116,6 @@ $id_cita=$row['id_cita'];
 
 
           </div><!-- /.row -->
-
-
-
 
                 </div><!-- /.box-body -->
 
@@ -233,10 +152,10 @@ $id_cita=$row['id_cita'];
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-
-
-  "searching": true,
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
+                  "searching": true,
                 }
 
               );

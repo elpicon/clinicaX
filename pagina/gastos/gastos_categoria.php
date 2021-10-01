@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/gastos.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -47,14 +48,7 @@ ul {
 ?>
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
                     <?php
                     $id_usuario=$_SESSION['id'];
                             $fecha = date('Y-m-d');
@@ -65,8 +59,18 @@ ul {
                       ?>
 
 
- <button type="button" class="btn btn-primary btn-lg btn-print" data-toggle="modal" data-target="#miModal">
-  AGREGAR
+
+<div class="box-header">
+                  <h3 class="htitle">Lista de Gastos</h3>
+
+                </div><!-- /.box-header -->
+
+
+                
+ <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+
+ <button type="button" class="btn btn-plantilla" data-toggle="modal" data-target="#miModal"> <i class="glyphicon glyphicon-plus"></i>
+  Agregar
 </button>
      <?php
                  //     }
@@ -129,15 +133,9 @@ ul {
 
 
 
-
-
-
-
+<br>
 <br>
 
- <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-
-<br>
 <form class = "btn btn-white btn-print">
                       Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" />
 
@@ -151,15 +149,11 @@ ul {
                 
                   <table id="example22" class="table table-bordered table-striped">
                     <thead>
-                      <tr class=" btn-success">
+                      <tr class="encabezado">
 
-
-                        
-                          
-
-                          <th> descripcion</th>
+                          <th> Descripción</th>
        
-                       <th class="btn-print"> Accion </th>
+                       <th class="btn-print"> Acciones </th>
 
                       </tr>
                     </thead>

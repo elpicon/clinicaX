@@ -8,6 +8,7 @@ date_default_timezone_set('America/Lima');
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/cita.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -37,14 +38,7 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12"> <div class = "x-panel"></div></div><!--end of modal-dialog-->
-        </div>
-                 <div class="panel-heading"></div>
- 
- 
 
- 
  <!--start of script--> 
 
  
@@ -97,78 +91,59 @@ ul {
 </div>
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle">Lista de Citas</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print myButton1 " href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-              <a class = "myButtonx " href = "cita_agregar.php" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i> Agendar</a>
-
-
-                
-
-
+                 <a class = "btn btn-plantilla2 " href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+              <a class = "btn btn-plantilla" href = "cita_agregar.php" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i> Agendar</a>
 
                 <div class="box-body">
 
 
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA CITAS</h3>
-                </div><!-- /.box-header -->
-              
+                        <table id="example2" class="dataTable no-footer table table-bordered table-striped">
+                          <thead>
+                              <tr class="encabezado">
+                                  <th>Paciente</th>
+                                  <th>Médico</th>
+                                  <th>Fecha</th>
+                                  <th>Observaciones</th>
+                                  <th>Estado</th>
+                                  <th > Acciones </th>
+                              </tr>
+                  
+                          </thead>
+                          <tbody>
+                    <?php
+
+                    $auto="";
+
+                      // $branch=$_SESSION['branch'];
+                        $query=mysqli_query($con,"select m.nombre as  medico,p.nombre as  paciente,c.fecha,c.observaciones,c.estado_cita,c.id_cita from cita c inner join usuario m on c.id_medico = m.id inner join usuario p on p.id = c.id_paciente ")or die(mysqli_error());
+                        $i=0;
+                        $alt=0;
+                        while($row=mysqli_fetch_array($query)){
+
+                    $id_cita=$row['id_cita'];
 
 
-                <div class="box-body">
-                
-                
-                <div class="datagrid"> 
-                  <table id="example2" class="">
-                    <thead>
-            <tr class=" ">
-                <th>Paciente</th>
-                <th>Medico</th>
-                <th>Fecha</th>
-                <th>Observaciones</th>
-                <th>Estado</th>
-                <th class="btn-print"> Accion </th>
-            </tr>
-            
-                    </thead>
-                    <tbody>
-<?php
-
-$auto="";
-
-   // $branch=$_SESSION['branch'];
-    $query=mysqli_query($con,"select m.nombre as  medico,p.nombre as  paciente,c.fecha,c.observaciones,c.estado_cita,c.id_cita from cita c inner join usuario m on c.id_medico = m.id inner join usuario p on p.id = c.id_paciente ")or die(mysqli_error());
-    $i=0;
-     $alt=0;
-    while($row=mysqli_fetch_array($query)){
-
-$id_cita=$row['id_cita'];
+                        $i++;
+                    ?>
 
 
-    $i++;
-?>
-                     
+                        
+                    <?php
+                    if(!strcmp($row['estado_cita'],'cancelado')){
+                    echo "<tr style='background: white;' >";
 
+                    }else{
+                          if($alt==1){
+                                        echo "<tr class='alt '>";
+                            }else{
+                                  echo "<tr>";
+                            }
+                    }
 
-
-
-
-    
-<?php
-if(!strcmp($row['estado_cita'],'cancelado')){
- echo "<tr class=' fondotabla'>";
-
-}else{
-      if($alt==1){
-                    echo "<tr class='alt '>";
-        }else{
-              echo "<tr>";
-        }
-}
-
-?>
+                    ?>
         <td><?php echo $row['medico'];?></td>              
          <td><?php echo $row['paciente'];?></td>     
            <td><?php echo $row['fecha'];?></td>    
@@ -176,42 +151,27 @@ if(!strcmp($row['estado_cita'],'cancelado')){
               <td><?php echo $row['estado_cita'];?></td>                                      
 
                           <td>
-                                 <?php
-                   
+                                <?php
+                      if(!strcmp($row['estado_cita'],'cancelado')){
 
+                      }else{
+                        echo "<a class='btn btn-danger btn-print myButton2' href='../cita/editar_cita.php?id_cita=".$id_cita." role='button'><li class='glyphicon glyphicon-edit'></li></a>
+                      <a class='btn btn-primary btn-print myButton3' href='../cita/eliminar_cita.php?id_cita=".$id_cita."&observaciones=".$row['observaciones']." Cancelado por: ".$tipo.":".$session_id."'  onClick=\"return confirm('¿Está seguro de que quieres eliminar??');\"  role='button'><li class='glyphicon glyphicon-trash'></li></a>";
+                        
+                      }
+                                          
+                          ?>
 
+                                  </td>
+                                            </tr>
+                      <?php 
 
-if(!strcmp($row['estado_cita'],'cancelado')){
-
-}else{
-   echo "<a class='btn btn-danger btn-print myButton2' href='../cita/editar_cita.php?id_cita=".$id_cita." role='button'><li class='glyphicon glyphicon-edit'></li></a>
-<a class='btn btn-primary btn-print myButton3' href='../cita/eliminar_cita.php?id_cita=".$id_cita."&observaciones=".$row['observaciones']." Cancelado por: ".$tipo.":".$session_id."'  onClick=\"return confirm('¿Está seguro de que quieres eliminar??');\"  role='button'><li class='glyphicon glyphicon-trash'></li></a>";
-  
-}
-                    
-    ?>
-
-
-
-
-
-
-
-            </td>
-                      </tr>
-
- <!--end of modal-->
-
-<?php 
-
- $alt++;
-              if($alt==2){$alt=0;}
+                      $alt++;
+                                    if($alt==2){$alt=0;}
 }?>
                     </tbody>
 
                   </table>
-                  </div>
-                </div><!-- /.box-body -->
 
             </div><!-- /.col -->
 
@@ -257,7 +217,9 @@ if(!strcmp($row['estado_cita'],'cancelado')){
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                  "info": false,
+                                      "lengthChange": false,
+                                      "searching": false,
 
 
   "searching": true,

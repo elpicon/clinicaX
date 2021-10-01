@@ -1120,9 +1120,10 @@ if($('#ct_medicamentos').prop('checked')){
 <td><?php echo $row['fechafin'];?></td>  
                                   
 
-<td>
+<td style="text-align: center;">
   
-<a class="btn-plantilla btn" data-toggle="modal" data-target="#myModal"  onclick="mostrarDatosSel(<?php echo "'".$row['codigo']."'"; ?>);"  role="button"><i class="glyphicon glyphicon-pencil"></i></a>
+<a class="btn-plantilla btn" data-toggle="modal" data-target="#myModal"  
+onclick="mostrarDatosSel(<?php echo "'".$row['codigo']."'"; ?>);"  role="button"><i class="glyphicon glyphicon-pencil"></i></a>
              <?php
         //}
 ?></td>

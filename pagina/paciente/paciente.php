@@ -61,8 +61,7 @@ include '../layout/header.php';
                                 <button type="button" class="btn btn-plantilla" data-toggle="modal" data-target="#myModal"> <i class="glyphicon glyphicon-plus"></i> 
                                 Registrar
                               </button>
-                <br>
-                <br>
+              
 
                 <div class="box-body">
                   <table id="example2" class="table table-bordered table-striped">
@@ -416,16 +415,6 @@ include '../layout/header.php';
                     </div>
                     
 
-
-
-       <style>
-         .marco-grupo1 {     
-background-color: #bcd8e2;
-    padding-top: 15px; 
-    padding-bottom: 15px;
-
-}
-       </style>
             <br>    
  <div class="row marco-grupo1">
 
