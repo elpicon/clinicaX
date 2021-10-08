@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/medico.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <div class="container body">
@@ -17,8 +18,8 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -32,35 +33,20 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+      </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
-
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> REGISTRAR MEDICO </h3>
+                  <h3 class="htitle">Registrar Médico</h3>
 
                 </div><!-- /.box-header -->
             <input class="" hidden="true" type="text" value="<?php echo $id_grupo_empresa;  ?>"/>
-               <input class="" hidden="true" type="text" value="<?php echo $id_sede;  ?>"/>
-                <a class="btn btn-warning btn-print" href="medico.php"    style="height:25%; width:15%; font-size: 12px " role="button">Regresar</a>
+            <input class="" hidden="true" type="text" value="<?php echo $id_sede;  ?>"/>
+                <a class="btn btn-regresar2" href="medico.php"  role="button"> <i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
                 
 
 
@@ -255,7 +241,7 @@ ul {
 
              
                  
-    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <button type="submit" class="btn btn-plantilla">Guardar cambios</button>
               
 
 

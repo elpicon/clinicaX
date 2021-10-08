@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="css/gastos.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <div class="container body">
@@ -18,8 +18,8 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -33,7 +33,7 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+      </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
@@ -42,7 +42,7 @@ ul {
 
 
                   <div class="box-header">
-                  <h3 class="htitle">Registrar Gastos</h3>
+                  <h3 class="htitle">Regisstrar Gastos</h3>
 
                 </div><!-- /.box-header -->
                 <a class="btn btn-regresar" href="gastos.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
@@ -53,7 +53,7 @@ ul {
 
         <form class="form-horizontal" method="post" action="gastos_add.php" enctype='multipart/form-data'>
 
-                   <div class="row">
+                  <div class="row">
                       <div class="col-md-3 btn-print">
                         <div class="form-group">
                           <label for="date" >Cantidad</label>
@@ -85,16 +85,16 @@ ul {
                             
                     </div>
 
-                   <div class="row">
+                  <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Categoria</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-9 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
-             <select class="form-control select2" name="id_categoria" id="id_categoria" required>
+            <select class="form-control select2" name="id_categoria" id="id_categoria" required>
                   <option value="0">SELECCIONE CATEGORIA</option>           
                             <?php
 
@@ -116,9 +116,6 @@ ul {
 
         </form>
 
- 
-
-
 
                 </div><!-- /.box-body -->
 
@@ -127,8 +124,6 @@ ul {
 
 
           </div><!-- /.row -->
-
-
 
 
                 </div><!-- /.box-body -->
@@ -154,12 +149,11 @@ ul {
   <?php include '../layout/datatable_script.php';?>
 
 
-
         <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
+              "language": {
+                  "paginate": {
                       "previous": "anterior",
                       "next": "posterior"
                     },
@@ -173,17 +167,12 @@ ul {
                   "searching": false,
 
 
-  "searching": true,
+                  "searching": true,
                 }
 
               );
               } );
     </script>
-
-
-
-
-
 
     <!-- /gauge.js -->
   </body>

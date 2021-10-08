@@ -12,68 +12,57 @@ include '../layout/header.php';
         <title>Collapsible sidebar using Bootstrap 3</title>
 
         <!-- Bootstrap CSS CDN -->
-     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
-       <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="css/paciente.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-       
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
-
-   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-   <link href="../layout/build/css/custom.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <link href="../layout/build/css/custom.min.css" rel="stylesheet">
     
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
- <!--ALERTIFY--> 
-  <link rel="stylesheet" type="text/css" href="css/alertify.css">
-	<link rel="stylesheet" type="text/css" href="css/themes/default.css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<!--ALERTIFY--> 
+    <link rel="stylesheet" type="text/css" href="css/alertify.css">
+	  <link rel="stylesheet" type="text/css" href="css/themes/default.css">
 
-	<script src="jquery-3.2.1.min.js"></script>
-	<script src="js/alertify.js"></script>
+	  <script src="jquery-3.2.1.min.js"></script>
+	  <script src="js/alertify.js"></script>
       <link href="../layout/build/css/custom.min.css" rel="stylesheet">
-<body class="nav-md">
-   
-   <?php
+    <body class="nav-md">
+  
+  <?php
 //    if ($usuario=="si") {
 # code...
 
 ?>
 <div class="container body ">
   <div class="main_container">
-      
-       
 
-  
-      
     <?php include '../layout/main_sidebar.php';?>
     
     <!-- top navigation -->
     <?php include '../layout/top_nav.php';?>
     <!-- /top navigation -->
-    
-   
+
     <!-- page content -->
     <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class = "x-panel"> </div>
-        </div>
-        <!--end of modal-dialog--> 
-        
-      </div>
+    <div class="box-header">
+      <h3 class="htitle" > Historial Paciente </h3>
+    </div><!-- /.box-header -->
       <?php
       if ( isset( $_REQUEST[ 'cid' ] ) ) {
           $cid = $_REQUEST[ 'cid' ];
@@ -81,21 +70,15 @@ include '../layout/header.php';
           $cid = $_POST[ 'cid' ];
       }
 
-
       ?>
 
-<div class="row">
-
- <div class="col-lg-6 ">
- 
- 
-       
-       
+  <div class="row">
+    <div class="col-lg-6 ">
         <div class="dropdown">
-            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-success" data-target="#" href="/page.html">
+            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-plantilla3" data-target="#" href="/page.html">
                 Servicios <span class="caret"></span>
             </a>
-    		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+    	  <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
               <li><a href="#">Urgencia</a></li>
               <li><a href="#">Consulta Especializada</a></li>
               <li><a href="#">Prevencion y Promoción</a></li>
@@ -132,23 +115,20 @@ include '../layout/header.php';
             </ul>
         </div>
 
-
-     
 <br>
 
- 
 
 </div>
 
 
 <div class="col-lg-6 ">
-   
-   <div class="text-right">
-       <a type="button" class="btn btn-primary float-right"  onclick="limpiarT();limpiarTCups();" data-toggle="modal" data-target="#exampleModal">
+
+  <div class="text-right">
+      <a type="button" class="btn btn-plantilla2 float-right"  onclick="limpiarT();limpiarTCups();" data-toggle="modal" data-target="#exampleModal">
   Plan de Manejo
 </a>
 
-   </div>
+  </div>
     
 </div>
 
@@ -273,8 +253,9 @@ include '../layout/header.php';
 
 <div class="row">
 
-<div class='col-lg-12  text-white menux'>
-      <ul class="nav nav-tabs " id="myTab" role="tablist">
+<div class='col-lg-12  text-white menux colMenu' style="
+    width: 1060px;">
+      <ul class="nav nav-tabs navBorde " id="myTab" role="tablist">
      
    <li class="nav-item  " id="xx" >
       <a class="nav-link active bg-success " id="home-tab" data-toggle="tab" href="#datosconsulta" role="tab" aria-controls="home" aria-selected="true"><span class="text-dark ">Datos Consulta</span></a>
@@ -314,11 +295,12 @@ include '../layout/header.php';
   
 </ul>
 </div>
+</div>
 
-
-<div class='col-md-3 col-lg-3'> 
+<div class="row">
+<div class='col-md-6 col-lg-6 colDatos'> 
 <ul class="nav nav-tabs  justify-content-left">
-        <h3 class="text-black">Datos Personales</h3>
+        <h2 class="htitle2">Datos Personales</h2>
     <?php
 
     $query = mysqli_query( $con, "SELECT * FROM `u_pacientes` WHERE `numerodedocumento`='$cid';" )or die( mysqli_error() );
@@ -389,99 +371,84 @@ $diff = $date1->diff($date2);
     
       echo "
   <div class='row horizontal-scroll-contenedor'> 
-   <div class='col-lg-12 col-sm-12'> 
-    <table class='table   ' style='width:20%';>
- <thead>
-      <tr>
-        <th style='width:15%';></th>
-        <th style='width:15%';></th>
-      </tr>
-    </thead>
+   <div class='col-lg-6 col-sm-6'> 
+      <table class='table   ' style='width:20%';>
+        <thead>
+            <tr>
+              <th style='width:15%';></th>
+              <th style='width:15%';></th>
+            </tr>
+          </thead>
   
-   <tbody>
-    <tr class='btn-info' >
-      <th scope='row'>Nombre</th>
-      <td style='background:#aaa9aa;color:#fff;' >$nombre</td>
-    </tr>
-     <tr class='btn-info' >
-      <th scope='row'>Apellido</th>
-      <td style='background:#aaa9aa;'color:#fff;'>$apellido</td>
-    </tr>
-     <tr class='btn-info' >
-      <th scope='row'>Documento</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$documento</td>
-    </tr >
-       <tr class='btn-info' >
-     <th scope='row'><small>F/Nacimiento</small></th>
-      <td  style='background:#aaa9aa;color:#fff;' ><font size=1>$fecha_nacimiento<font></td>
-      </tr>
-       <tr class='btn-info' >
-      <th scope='row'>Telefono</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$telefono</td>
-    </tr>
-  </tbody>
-  </table>
+        <tbody>
+          <tr class='btn-info' >
+            <th scope='row'>Nombre</th>
+            <td style='background:#aaa9aa;color:#fff;' >$nombre</td>
+          </tr>
+          <tr class='btn-info' >
+            <th scope='row'>Apellido</th>
+            <td style='background:#aaa9aa;'color:#fff;'>$apellido</td>
+          </tr>
+          <tr class='btn-info' >
+            <th scope='row'>Documento</th>
+            <td  style='background:#aaa9aa;color:#fff;'>$documento</td>
+          </tr >
+            <tr class='btn-info' >
+          <th scope='row'><small>F/Nacimiento</small></th>
+            <td  style='background:#aaa9aa;color:#fff;' ><font size=1>$fecha_nacimiento<font></td>
+            </tr>
+            <tr class='btn-info' >
+            <th scope='row'>Teléfono</th>
+            <td  style='background:#aaa9aa;color:#fff;'>$telefono</td>
+            </tr>
+            <tr class='btn-info' >
+            <th scope='row'>Edad</th>
+            <td  style='background:#aaa9aa;color:#fff;'>$diff->y</td>
+          </tr>
+        </tbody>
+      </table>
   </div>
   
-  <div class='col-lg-12 col-sm-12 horizontal-scroll-contenedor'> 
-    <table class='table' style='width:20%';>
+  <div class='col-lg-6 col-sm-6 horizontal-scroll-contenedor'> 
+  <table class='table' style='width:20%';>
  
-  <thead overflow-x: auto;>
-      <tr>
-        <th style='width:20%';></th>
-        <th style='width:20%';></th>
-      </tr>
-    </thead>
+      <thead overflow-x: auto;>
+        <tr>
+          <th style='width:20%';></th>
+          <th style='width:20%';></th>
+        </tr>
+      </thead>
         
-   <tbody>
-   
-      <tr class='btn-info' >
-      <th scope='row'>Edad</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$diff->y</td>
-    </tr>
-      <tr class='btn-info' >
-      <th scope='row'>Tipo/Sangre</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$tipo_sangre</td>
-    </tr>
-    <tr class='btn-info' >
-      <th scope='row'>Genero</th>
-      <td  style='background:#aaa9aa;color:#fff;' >$genero</td>
-    </tr>
-  </tbody>
-      </table>
+      <tbody>
+          <tr class='btn-info' >
+          <th scope='row'>Tipo/Sangre</th>
+          <td  style='background:#aaa9aa;color:#fff;'>$tipo_sangre</td>
+        </tr>
+        <tr class='btn-info' >
+          <th scope='row'>Genero</th>
+          <td  style='background:#aaa9aa;color:#fff;' >$genero</td>
+        </tr>
+        <tr class='btn-info' >
+          <th scope='row'>Celular</th>
+          <td  style='background:#aaa9aa;color:#fff;'>$celular</td>
+        </tr>
+        <tr class='btn-info ' >
+          <th scope='row'>Ocupacion</th>
+          <td  style='background:#aaa9aa;color:#fff;'>$ocupacion</td>
+        </tr>
+        <tr class='btn-info' >
+          <th scope='row'>EPS</th>
+          <td  style='background:#aaa9aa;color:#fff;'>$epsnombre</td>
+        </tr>
+        <tr class='btn-info' >
+          <th scope='row'>Ciudad</th>
+          <td  style='background:#aaa9aa;color:#fff;'>$ciudad</td>
+        </tr>
+      </tbody>
+    </table>
       </div>
-  
-  <div class='col-lg-12 col-sm-12 horizontal-scroll-contenedor'> 
-    <table class='table' style='width:20%'>
- 
-  <thead>
-      <tr>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-        
-     <tr class='btn-info' >
-      <th scope='row'>Celular</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$celular</td>
-    </tr>
-      <tr class='btn-info ' >
-      <th scope='row'>Ocupacion</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$ocupacion</td>
-    </tr>
 
-      <tr class='btn-info' >
-      <th scope='row'>EPS</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$epsnombre</td>
-    </tr>
-    <tr class='btn-info' >
-      <th scope='row'>Ciudad</th>
-      <td  style='background:#aaa9aa;color:#fff;'>$ciudad</td>
-    </tr>
-  </tbody>
-      </table>
-        </div>
-       </div>
+  </div>
     
 
 ";
@@ -570,17 +537,11 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
             $(".horizontal-scroll-contenedor").scrollLeft(10)  ;
     </script>
   
-<div class="form-group row">
-  <div class="col-xs-8">
-  <label for="comment">Motivo Consulta</label>
-  <textarea class="form-control" rows="5" id="comment"></textarea>
-  </div>
-</div>  
       
 </ul>
 </div>
-
-
+    </div>
+<div class="row">
 <div class='col-md-9 col-lg-9 offset-md-1'>
   <div class="tab-content">
     <div class="tab-pane active" id="datosconsulta" role="tabpanel" aria-labelledby="home-tab">
@@ -2152,14 +2113,14 @@ in_cie103.addEventListener('propertychange', inputHandler3);
      <div class='col-lg-12'>  
         <big>Registrado Por:</big>
         </div> <br> <br>
-<div class='col-lg-6 col-sm-6'> 
-<input list="registroprof" id="in_registradoPor" value="" class="">
-<datalist id="result" >
-</datalist>
-</div>
-<div class='col-lg-6 col-sm-6'> 
-<input size="30" type="text" id="registrado_por" name="registrado_por"> 
-</div>
+        <div class='col-lg-6 col-sm-6'> 
+        <input list="registroprof" id="in_registradoPor" value="" class="">
+        <datalist id="result" >
+        </datalist>
+        </div>
+        <div class='col-lg-6 col-sm-6'> 
+        <input size="30" type="text" id="registrado_por" name="registrado_por"> 
+        </div>
 </div>   
   </div>
     
@@ -2168,7 +2129,7 @@ in_cie103.addEventListener('propertychange', inputHandler3);
   </div>
 </div>
 
-
+</div>
 </div>   
 <footer>
   <div class="pull-right"> <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a> </div>
