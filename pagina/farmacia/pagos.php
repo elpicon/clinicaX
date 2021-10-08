@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/farmacia.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
-                                         <?php 
+                    <?php 
 //    if ($usuario=="si") {
       # code...
     
@@ -42,15 +43,7 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
-
- </div>
   <?php
 
 
@@ -58,7 +51,6 @@ ul {
 ?>
 
                            <?php
-                         
              //         if ($guardar=="si") {
                     
                       ?>
@@ -68,52 +60,26 @@ ul {
                       ?>
 
                   <!-- Date range -->
-               
-
-      
  <!--end of modal-->
 
 
-
-
-
-
-
-
-
-
-
                   <div class="box-header">
-                  <h3 class="box-title"> AGREGAR PAGOS</h3>
+                  <h3 class="htitle">Lista de Ventas</h3>
                 </div><!-- /.box-header -->
-                 <a class="btn btn-primary btn-print" href="../farmacia/<?php  echo "pago_agregar.php";?>"    style="height:25%; width:15%; font-size: 12px " role="button">Agregar</a>   
+                <a class="btn btn-plantilla3" href="../farmacia/<?php  echo "pago_agregar.php";?>"     role="button"><i class="glyphicon glyphicon-plus"></i> Agregar</a>   
       <br>           
 
-
-
-
-
-
                 <div class="box-body">
-                
-
-                   <table id="example2" class="table table-bordered table-striped">
+                      <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
-
-                
-               
-   
-   
-                       
-         
-           <th>Paciente</th>
-           <th>Medico</th>               
+                        <tr class="encabezado">
+                    <th>Paciente</th>
+                    <th>Medico</th>               
 
     <th>Fecha</th>
       <th>Total</th>
 
- <th class="btn-print"> Accion </th>
+ <th class="btn-print"> Acciones </th>
                            
 
 
@@ -147,7 +113,7 @@ $id_pedido=$row['id_pedido'];
 
     }
 ?>
-                      <tr >
+                      <tr style="background: white;" >
 
 
 

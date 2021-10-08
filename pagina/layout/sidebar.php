@@ -39,16 +39,13 @@ $id = $_SESSION[ 'id' ];
         
         
 }
-
 .scrollp::-webkit-scrollbar {
     -webkit-appearance: none;
 }
-
-
-    .menus a:active{
+.menus a:active{
   background-color:#002142;
 }
-    
+
     .menus:hover{
         background: gray;
     } 
@@ -56,7 +53,7 @@ $id = $_SESSION[ 'id' ];
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu ">
 <div class="menu_section">
     <ul class="nav side-menu">
-    <li><a href = "../layout/inicio.php"><i class="fa fa-dashboard"></i> Inicio <span class="fa fa-chevron-right"></span></a></li>
+    <li><a href = "http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/layout/inicio.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
 
     <?php
     if ( $tipo == "administrador"
@@ -66,8 +63,8 @@ $id = $_SESSION[ 'id' ];
         ?>
     <li><a><i class="fa fa-users"></i> Pacientes<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../paciente/paciente.php"><span>Lista de pacientes</span></a></li>
-        <li><a href="../paciente/pago_paciente_todos.php">Pagos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/paciente/paciente.php"><span>Lista de pacientes</span></a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/paciente/pago_paciente_todos.php">Pagos</a></li>
       </ul>
     </li>
     <?php
@@ -80,9 +77,9 @@ $id = $_SESSION[ 'id' ];
         ?>
     <li><a><i class="fa fa-user-md"></i> Médico<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../medico/medico.php">Médico</a></li>
-        <li><a href="../medico/asignar_servicios.php">Asignación de Servicios</a></li>
-        <li><a href="../medico/medico_historial.php">Historial  Médico</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/medico/medico.php">Médico</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/medico/asignar_servicios.php">Asignación de Servicios</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/medico/medico_historial.php">Historial  Médico</a></li>
         
       </ul>
     </li>
@@ -94,11 +91,12 @@ $id = $_SESSION[ 'id' ];
     if ( $tipo == "administrador" || $tipo == "contratacion"  ) {
 
         ?>
-    <li><a><i class="fa fa-shield"></i> Aseguradora<span class="fa fa-chevron-down"></span></a>
+    <li><a><i class="fa fa-shield"></i>Portafolio<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../aseguradora/aseguradora.php">Listado Aseguradoras</a></li>
-        <li><a href="../aseguradora/contratos.php">Listado Contratos</a></li>
-        
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/aseguradora/aseguradora.php">Listado Aseguradoras</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/aseguradora/contratos.php">Listado Contratos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/programar/horario_medico.php">Horario Médico</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/programar/vacaciones.php">Vacaciones</a></li>
       </ul>
     </li>
     <?php
@@ -106,24 +104,6 @@ $id = $_SESSION[ 'id' ];
     ?>
 
 
-
-    <?php
-
-
-    if ( $tipo == "administrador"
-        or $tipo == "recepcionista"
-        or $tipo == "medico" ) {
-
-        ?>
-    <li><a><i class="fa fa-tasks"></i> Programar<span class="fa fa-chevron-down"></span></a>
-      <ul class="nav child_menu">
-        <li><a href="../programar/horario_medico.php">Programar</a></li>
-        <li><a href="../programar/vacaciones.php">Vacaciones</a></li>
-      </ul>
-    </li>
-    <?php
-    }
-    ?>
     <?php
     if ( $tipo == "administrador"
         or $tipo == "recepcionista" ) {
@@ -131,12 +111,12 @@ $id = $_SESSION[ 'id' ];
         ?>
     <li><a><i class="fa fa-money"></i> Actividades financieras<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../actividades_financieras/pagos.php">Pagos</a></li>
-        <li><a href="../actividades_financieras/pago_agregar.php">Agregar pago</a></li>
-        <li><a href="../procedimiento_pago/procedimiento_pago.php">Procedimiento de pago</a></li>
-        <li><a href="../gastos/gastos.php">Gastos</a></li>
-        <li><a href="../gastos/gastos_agregar.php">Agregar gastos</a></li>
-        <li><a href="../gastos/gastos_categoria.php">Categoria gastos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/actividades_financieras/pagos.php">Pagos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/actividades_financieras/pago_agregar.php">Agregar pago</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/procedimiento_pago/procedimiento_pago.php">Procedimiento de pago</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/gastos/gastos.php">Gastos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/gastos/gastos_agregar.php">Agregar gastos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/gastos/gastos_categoria.php">Categoria gastos</a></li>
       </ul>
     </li>
     <?php
@@ -151,9 +131,9 @@ $id = $_SESSION[ 'id' ];
         ?>
     <li><a><i class="fa fa-calendar-plus-o"></i> Citas<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../cita/cita.php">Lista de citas</a></li>
-        <li><a href="../cita/cita_agregar.php">Agregar</a></li>
-        <li><a href="../cita/cita_hoy.php">Hoy</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/cita/cita.php">Lista de citas</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/cita/cita_agregar.php">Agregar</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/cita/cita_hoy.php">Hoy</a></li>
       </ul>
     </li>
     <?php
@@ -166,8 +146,8 @@ $id = $_SESSION[ 'id' ];
         ?>
     <li><a><i class="fa fa-plus-square"></i> Medicinas<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../medicina/medicina.php">Lista de medicina</a></li>
-        <li><a href="../medicina/medicina_agregar.php">Agregar medicina</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/medicina/medicina.php">Lista de medicina</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/medicina/medicina_agregar.php">Agregar medicina</a></li>
       </ul>
     </li>
     <?php
@@ -180,11 +160,11 @@ $id = $_SESSION[ 'id' ];
         ?>
     <li><a><i class="fa fa-medkit"></i> Farmacia<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../farmacia/pagos.php">Lista de ventas</a></li>
-        <li><a href="../farmacia/pago_agregar.php">Agraear farmacia</a></li>
-        <li><a href="../gastos_farmacia/gastos_farmacia.php">Gastos</a></li>
-        <li><a href="../gastos_farmacia/categoria.php">Gastos categoria</a></li>
-        <li><a href="../farmacia/reportes_pagos.php">Pagos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/farmacia/pagos.php">Lista de ventas</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/farmacia/pago_agregar.php">Agraear farmacia</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/gastos_farmacia/gastos_farmacia.php">Gastos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/gastos_farmacia/categoria.php">Gastos categoria</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/farmacia/reportes_pagos.php">Pagos</a></li>
       </ul>
     </li>
     <?php
@@ -195,7 +175,7 @@ $id = $_SESSION[ 'id' ];
         or $tipo == "medico" ) {
 
         ?>
-    <li><a href = "../preescripcion/preescripcion.php"><i class="fa fa-archive"></i> Preescripción<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/preescripcion/preescripcion.php"><i class="fa fa-archive"></i> Preescripción</a>
       <?php
       }
       ?>
@@ -203,10 +183,10 @@ $id = $_SESSION[ 'id' ];
       if ( $tipo == "paciente" ) {
 
           ?>
-    <li><a href = "../cita/cita_paciente.php"><i class="fa fa-archive"></i> Cita paciente<span class="fa fa-chevron-right"></span></a>
-    <li><a href = "../preescripcion/preescripcion_paciente.php"><i class="fa fa-archive"></i>Preescripción paciente<span class="fa fa-chevron-right"></span></a>
-    <li><a href = "../actividades_financieras/pagos_paciente.php"><i class="fa fa-archive"></i> Pagos atención<span class="fa fa-chevron-right"></span></a>
-    <li><a href = "../farmacia/pagos_farmacia_paciente.php"><i class="fa fa-archive"></i> Pagos farmacia<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/cita/cita_paciente.php"><i class="fa fa-archive"></i> Cita paciente<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/preescripcion/preescripcion_paciente.php"><i class="fa fa-archive"></i>Preescripción paciente<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/actividades_financieras/pagos_paciente.php"><i class="fa fa-archive"></i> Pagos atención<span class="fa fa-chevron-right"></span></a>
+    <li><a href = "http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/farmacia/pagos_farmacia_paciente.php"><i class="fa fa-archive"></i> Pagos farmacia<span class="fa fa-chevron-right"></span></a>
       <?php
       }
       ?>
@@ -223,9 +203,9 @@ $id = $_SESSION[ 'id' ];
           ?>
     <li><a><i class="fa fa-user"></i> Recursos humanos<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../medico/medico.php">Médico</a></li>
-        <li><a href="../farmaceutico/farmaceutico.php"> Farmaceutico</a></li>
-        <li><a href="../recepcionista/recepcionista.php">Recepcionista</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/medico/medico.php">Médico</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/farmaceutico/farmaceutico.php"> Farmaceutico</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/recepcionista/recepcionista.php">Recepcionista</a></li>
       </ul>
     </li>
     <?php
@@ -240,7 +220,7 @@ $id = $_SESSION[ 'id' ];
         if ( $tipo == "administrador" || $tipo == "contratacion" ) {
 
             ?>
-        <li><a href="../configuracion/configuracion.php">Empresa</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/configuracion/configuracion.php">Empresa</a></li>
         <?php
         }
         ?>
@@ -248,11 +228,11 @@ $id = $_SESSION[ 'id' ];
         if ( $tipo == "administrador" || $tipo == "contratacion" ) {
 
             ?>
-        <li><a href="../configuracion/servicios.php">Servicios</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/configuracion/servicios.php">Servicios</a></li>
         <?php
         }
         ?>
-        <li><a href="../otros/editar_password.php">Editar password</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/otros/editar_password.php">Editar contraseña</a></li>
       </ul>
     </li>
     <?php
@@ -261,8 +241,8 @@ $id = $_SESSION[ 'id' ];
         ?>
     <li><a><i class="fa fa-database"></i> Base de datos<span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
-        <li><a href="../otros/vaciar_bd.php" onClick="return confirm('¿Está seguro de que quieres vaciar la base de datos ??');">Vaciar base de datos</a></li>
-        <li><a href="../otros/respaldo_add.php">Respaldo</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/otros/vaciar_bd.php" onClick="return confirm('¿Está seguro de que quieres vaciar la base de datos ??');">Vaciar base de datos</a></li>
+        <li><a href="http://<?php echo  $_SERVER["HTTP_HOST"] ?>/clinicaX/pagina/otros/respaldo_add.php">Respaldo</a></li>
       </ul>
     </li>
     <?php

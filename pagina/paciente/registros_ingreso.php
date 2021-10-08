@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/paciente.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -40,9 +41,9 @@
 
         <!-- top navigation -->
        <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       
-       
-       
+      
+      
+      
        <style>
 label{
 
@@ -54,6 +55,10 @@ li {
 ul {
   color: white;
 }
+
+span{
+  color: black;
+}
 #buscar{
   text-align: right;
 }
@@ -61,28 +66,13 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-8 col-sm-8 col-xs-8">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
-
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <h3 class="htitle">Registro de Ingreso</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print myButton2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
+                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
                 <!--<a class="btn btn-warning btn-print myButtonx" href="paciente_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>-->
                      <!-- <button type="button" class="btn btn-warning btn-print myButtonx" data-toggle="modal" data-target="#myModal">
                       Registrar Ingreso
@@ -110,107 +100,86 @@ ul {
                     
                     
           ?>
-          
-          
-          
-          
-          
-          
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog " role="document">
-    <div class="modal-content alert alert alert-white">
-      <div class="modal-header alert alert-info">
-        <!<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Registrar Ingreso</h4>
+  <div class="modal-dialog " role="document"  style="width:750px">
+    <div class="modal-content" >
+    <div class="modal-header">
+        
+        <label class="modal-title" id="myModalLabel">Editar Ingreso</label>
       </div>
       <div class="modal-body ">
       
-       <input type="hidden" class="form-control" id="tipo" name="tipo" value="paciente" required>
-         
-                  
-                           
-    <table >
+        <input type="hidden" class="form-control" id="tipo" name="tipo" value="paciente" required>
+
+    <table>
       <tr>
-        <th style="width:15%;"></th>
-        <th style="width:30%;"></th>
-         <th style="width:16%;"></th>
-        <th style="width:80%;"></th>
+          <th style="width:15%;"></th>
+          <th style="width:30%;"></th>
+          <th style="width:16%;"></th>
+          <th style="width:80%;"></th>
       </tr>
       <tr>
-       <td colspan="4"><div id="datos_paciente1"></div>  </td> 
+        <td colspan="4"><div id="datos_paciente1"></div> </td> 
       </tr>
       <tr>
         <td colspan="2"><br>
-        
-        
         <?php 
-            
-            
-           
+
             if($selected==1){
-                 $nivel = "";
+          $nivel = "";
           $nombre = "";
-           $tipo_sangre = "";
+          $tipo_sangre = "";
           $genero = "";
-           $documento = "";
-           $fecha_nacimiento = "";
-           $celular = "";
-           $telefono ="";
+          $documento = "";
+          $fecha_nacimiento = "";
+          $celular = "";
+          $telefono ="";
           $numerocontrato = "";
-           $ocupacion = "";
+          $ocupacion = "";
           $eps = "";
           $ciudad = "";
-     
-  
-           
+
             $nivel = $row[ 'nivel' ];
-           $tipo_sangre = $row[ 'tipodesangre' ];
+          $tipo_sangre = $row[ 'tipodesangre' ];
           $genero = $row[ 'genero' ];
-           $fecha_nacimiento = $row[ 'fechanto' ];
-           $celular = $row[ 'celular' ];
-           $telefono = $row[ 'celular' ];
-           $ocupacion = $row[ 'ocupacion' ];
+          $fecha_nacimiento = $row[ 'fechanto' ];
+          $celular = $row[ 'celular' ];
+          $telefono = $row[ 'celular' ];
+          $ocupacion = $row[ 'ocupacion' ];
           $eps = $row[ 'codigoeps' ];
           $ciudad = $row[ 'municipio' ];
             
         
                 $nombrecompleto=$row["primernombre"]." ".$row["segundonombre"]." ".$row["primerapellido"]." ".$row["segundoapellido"];
-                 $nombrecompleto=str_replace("  ", " ", $nombrecompleto);
+                $nombrecompleto=str_replace("  ", " ", $nombrecompleto);
                 echo " <label class='text-center' id='lbl_nombrepaciente' for='' >".$nombrecompleto."</label>";}else{
                 echo "<label class='text-center' id='lbl_nombrepaciente' for='' ></label>";
                 }
             
-            ?>
-       
-        
+            ?>        
         </td>
+        <td><br><label for="" style="margin-left: 23px;" >Código:</label></td>
+        <td colspan="2"><br>
         
-         <td colspan="2"><br>
-        
-        <?php 
-            
-            
-           
-            if($selected==1){
+        <?php  if($selected==1){
                 
                 $query = mysqli_query( $con, " SELECT MAX(id_cita) AS id_cita, id_paciente, horario FROM cita WHERE `id_paciente`='".$cid."' AND estado_cita='reservado';" )or die( mysqli_error() );
                 $row2 = mysqli_fetch_assoc($query);
                     
-                
-                echo " <label class='text-center' id='lbl_nombrepaciente' for='' >Cita Asignada Codigo :</label><input readonly id='in_codcita'></input>";}else{
+                echo " <input readonly id='in_codcita' class='form-control'></input>";}else{
                 echo "<label class='text-center' id='lbl_nombrepaciente' for='' ></label>
                         ";
             }
             
             ?>
-       
-        
+
         </td>
         </tr>
       <tr>
         <td><br><label for="" >Paciente:</label></td>
         <td ><br>
-           <?php if($selected==1){echo "<input  readonly autocomplete='off' value='".$cid."' list='list_paciente' id='paciente' type='text' class='form-control'>";}else{
+          <?php if($selected==1){echo "<input  readonly autocomplete='off' value='".$cid."' list='list_paciente' id='paciente' type='text' class='form-control'>";}else{
               echo "<input autocomplete='off' list='list_paciente' id='paciente' type='text' class='form-control'>
                         <datalist id='list_paciente' >
 
@@ -220,8 +189,8 @@ ul {
             ?>
           
         </td>
-       
-         <td><br><label for="" >&nbsp;Tipo Ingreso:</label></td>
+      
+        <td><br><label for="" class="labelForms">&nbsp;Tipo Ingreso:</label></td>
         <td ><br>
             <select class="form-control">
                 <option value="HOSPITALIZACION">HOSPITALIZACION</option>
@@ -234,26 +203,26 @@ ul {
       </tr>
       <tr>
         <td><br><label for="" >&nbsp;Fecha Ingreso:</label></td>
-        <td >
+        <td > <br>
            <?php ini_set('date.timezone','America/Bogota'); ?>
             <input id="fechaingreso" type="date" value="<?php  echo date("Y-m-d");     ?>" />
         </td> 
-        <td ><input id="horaingreso" type="time" value="<?php  echo date("H:i:s");     ?>" /></td>                                  
+        <td > <br><input id="horaingreso" type="time" value="<?php  echo date("H:i:s");     ?>" /></td>                                  
         </tr>
         
         <tr>
-        <td><br><label for="" >&nbsp;Diereccion:</label></td>
+        <td><br><label for="" >&nbsp;Dierección:</label></td>
         <td ><br>
           <input type="text" class="form-control" id="direccion" name="tipo" value="" required>
         </td>  
         
-        <td><br><label for="" >&nbsp;Telefono:</label></td>
+        <td><br><label for=""  class="labelForms">&nbsp;Teléfono:</label></td>
         <td ><br>
           <input type="tel" class="form-control" id="telefono" name="tipo" value="" required>
         </td>   
         </tr>
          <tr>
-        <td><br><label for="" >&nbsp;Tipo Atencion:</label></td>
+        <td><br><label for="" >&nbsp;Tipo Atención:</label></td>
         <td ><br>
          <select id="tipo_atencion" name="tipo_atencion" class="form-control">
             <option value="1">Sin Contrato</option>   
@@ -262,21 +231,18 @@ ul {
          </select>
         </td>  
         
-         
-        </tr>
-        <tr>
-         <td><br><label for="" >&nbsp;Aseguradora:</label></td>
+
+        <td><br><label for=""  class="labelForms">&nbsp;Aseguradora:</label></td>
         <td ><br>
-         <input autocomplete="off" list="list_codigo" id="codigoaseg" type="text" class="form-control">
+        <input autocomplete="off" list="list_codigo" id="codigoaseg" type="text" class="form-control">
                     <datalist id="list_codigo" >
                 
                     </datalist>
-        </td>
-        <td ><br><label  id="nombreAseguradora" for="">&nbsp;&nbsp;----------------------</label></td>    
+        </td> 
         </tr>
         <tr>
         
-        <td ><br><label for="">Regimen :</label></td>
+        <td ><br><label for="">Régimen :</label></td>
    <td ><br><select type="text" id="regimen" class="form-control" >
       <option value=''>Seleccione</option>
        <?php
@@ -291,7 +257,7 @@ ul {
                   
     </select></td>
          
-       <td ><br><label for="">&nbsp;Programa :</label></td>
+       <td ><br><label for=""  class="labelForms">&nbsp;Programa:</label></td>
    <td ><br><select type="text" id="regimen" class="form-control" >
       <option value=''>Seleccione</option>
        <?php
@@ -319,7 +285,7 @@ ul {
   <label class="tab" id="two-tab" for="two">Medicamentos</label>
   <!-- <label class="tab" id="three-tab" for="three"></label>-->
     </div>
-  <div class="panels">
+  <div class="panels panelAgregar">
   <div class="panel" id="one-panel">
     <div class="panel-title">Cargar Procedimiento</div>
     
@@ -353,22 +319,19 @@ ul {
                     </datalist>
               
               </div>
-              
-            
-              
-               
+
               <div class='col-lg-2 col-sm-2 form-group' >
                <label>Unidades </label> 
                 <input required class="form-control" list="unidades" type="number" min="1" max="100" id="unidades" value="1" class="form-control" autocomplete='off'>
               </div>
               
               <div class='col-lg-4 col-sm-4 form-group' >
-               <label>Posologia </label> 
+                <label>Posologia </label> 
                 <input required class="form-control" list="posologia" type="text" id="posologia" value="" placeholder="Describa la medicacion" class="form-control" >
               </div>
               
               <div class='col-lg-8 col-sm-8 form-group' > 
-               <label size="30" type="text" id="nombre_medicamento" name="nombre_medicamento" readonly> </label>
+                <label size="30" type="text" id="nombre_medicamento" name="nombre_medicamento" readonly> </label>
               </div>
               <div class='col-lg-4 col-sm-4 form-group' > 
                <label size="30" type="text" id="nombre_via_adm" name="nombre_via_adm" readonly> </label>
@@ -405,7 +368,8 @@ ul {
   </div> 
           
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" id="guardarCambios"  class="btn btn-plantilla">Guardar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
       
       </div>
     </div>
@@ -615,7 +579,7 @@ h2{
   cursor: pointer;
   padding:10px 20px;
   margin:0px 2px;
-  background:#907DA9;
+  background:#002142;
   display:inline-block;
   color:#fff;
   border-radius:3px 3px 0px 0px;
@@ -623,13 +587,16 @@ h2{
 }
 .panels{
   background:#fffffff6;
-  box-shadow: 0 2rem 2rem #00000080;
+  border-bottom: 1px solid #002142;
+  border-left: 1px solid #002142;
+  border-right: 1px solid #002142;
+  border-top: 0;
   min-height:200px;
   width:100%;
   max-width:500px;
   border-radius:3px;
   overflow:hidden;
-  padding:20px;  
+  padding:20px;   
 }
 .panel{
   display:none;
@@ -659,35 +626,33 @@ h2{
 #two:checked ~ .tabs #two-tab,
 #three:checked ~ .tabs #three-tab{
   background:#fffffff6;
-  color:#666;
-  border-top: 3px solid #666;
+  color:#002142;
+  border-top: 3px solid #002142;
 }</style>          
 
 <script>
-              
-              
 
         const codigoaseg = document.getElementById('codigoaseg');
         const list_codigo = document.getElementById('list_codigo');
               
-           
-               $('#codigoaseg').change(function(){
-                   var value = $('#codigoaseg').val();
-                   var codigoSplit=value.split(" ");
-                   var  codigoS= codigoSplit[0];//1
-                   $('#codigoaseg').val(codigoS);
-                   
-                   var datacod = 'codigo='+codigoS;
-                 document.querySelector('#nombreAseguradora').innerText = value.replace(codigoS, '');
-                   
-               });
+          
+              $('#codigoaseg').change(function(){
+                  var value = $('#codigoaseg').val();
+                  var codigoSplit=value.split(" ");
+                  var  codigoS= codigoSplit[0];//1
+                  $('#codigoaseg').val(codigoS);
+                  
+                  var datacod = 'codigo='+codigoS;
+                document.querySelector('#nombreAseguradora').innerText = value.replace(codigoS, '');
+                  
+              });
               
               const inHandlerOrden = function(e) {
               descripcion = e.target.value;
-             if (descripcion.charAt(0) == '1') {
-                 {
-                     {}
-                 }              var dataOrden= 'codigo='+descripcion;
+            if (descripcion.charAt(0) == '1') {
+                {
+                    {}
+                }              var dataOrden= 'codigo='+descripcion;
               $.ajax({
                         type: "POST",
                         url: "getAseguradora.php",
@@ -732,19 +697,19 @@ h2{
                          if(i==1){
                              buffer=buffer+filtered[i].trim();
                          }else{
-                             buffer=buffer+" "+filtered[i];
-                         }
-                         
+                            buffer=buffer+" "+filtered[i];
+                        }
+                        
                           buffer=buffer.trim();
-                     }
-                 }
+                    }
+                }
                     console.log(""+buffer);
                     document.getElementById("lbl_nombrepaciente").innerHTML=buffer;
                    // $('#lbl_nombrepaciente').val(buffer);
                     var datacod = 'paciente='+codigoS;
                 });
               
-               const inHandlerPaciente = function(e) {
+              const inHandlerPaciente = function(e) {
                 var sresult;
                   descripcion = e.target.value;
                   var dataString = 'paciente='+descripcion;
@@ -765,7 +730,7 @@ h2{
                 paciente.addEventListener('propertychange', inHandlerPaciente); 
               
               
-             function mostrarDatosPaciente(codigoS){
+            function mostrarDatosPaciente(codigoS){
                   var dataString = 'paciente='+codigoS;
                   $.ajax({
                         type: "POST",
@@ -776,28 +741,28 @@ h2{
                             console.log(respuesta);
                         
                             
-                         var subSplit=   respuesta.split(",");
+                        var subSplit=   respuesta.split(",");
                             
-             var datosP1 ="";         
-             datosP1= datosP1+"<span class='subt'>Sexo : </span><span id='txt_sexo'><label>";
+            var datosP1 ="";         
+            datosP1= datosP1+"<span class='subt'>Sexo : </span><span id='txt_sexo'><label>";
             
             if(subSplit[0].trim()=="M"){
-                 datosP1= datosP1+ '&nbsp;Masculino&nbsp;';
+                datosP1= datosP1+ '&nbsp;Masculino&nbsp;';
             }
             if(subSplit[0].trim()=="F"){ 
                 datosP1= datosP1+ "&nbsp;Femenino&nbsp;";
             }
-           
+          
                     datosP1= datosP1+  "</label></span><label class='subt'> Nivel : </label><span"+ "id='txt_nivel'><label>&nbsp;"+subSplit[1].trim()+"&nbsp;</label></span>"+
                         "<span class='subt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edad : </span><span id='txt_edad'><label>"+subSplit[3].trim()+"  Años, "+subSplit[4].trim()+" Meses y "+subSplit[5].trim()+" Dias </label></span> "; 
 
                       $('#direccion').val(subSplit[6].trim());
                       $('#telefono').val(subSplit[7].trim());
                             
-                         console.log(datosP1);           
+                        console.log(datosP1);           
                             
-                         datos_paciente1.innerHTML = datosP1;
-               
+                        datos_paciente1.innerHTML = datosP1;
+              
                             
                         }
                         });
@@ -993,7 +958,6 @@ var sresult;
                 console.log(respuesta);
 
                  list_medic.innerHTML = respuesta;
-               
             }
         });
     }
@@ -1041,35 +1005,18 @@ input_medic.addEventListener('propertychange', inHandlerCum);
       
  <!--end of modal-->
 
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA DE CITAS</h3>
-                </div><!-- /.box-header -->
-              
-
-
                 <div class="box-body">
-                <div class="datagrid">
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
-                    <th>#</th>
-                       <th style="width:7%;">Cita</th>
+                      <th>#</th>
+                        <th style="width:7%;">Cita</th>
                         <th>Medico</th>
                         <th>Fecha</th>
                         <th>Hora</th>
-                        <th style="width:6%;">estado</th>
-                        <th class="btn-print" style="width:15%;"> Accion </th>
+                        <th style="width:6%;">Estado</th>
+                        <th class="btn-print" style="width:23%;"> Accion </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -1094,7 +1041,7 @@ input_medic.addEventListener('propertychange', inHandlerCum);
             $i++;
                 
         ?>
-                      <tr  >
+                      <tr  style="background: white;">
 
 <td ><?php echo $i;?></td>
 <td><?php echo $row3['id_cita'];?></td>
@@ -1105,54 +1052,44 @@ input_medic.addEventListener('propertychange', inHandlerCum);
     <td><?php echo $row3['estado_cita'];?></td>                                      
 
                           <td>
-                                 <?php
-                   
-                    
+                                <?php
                       ?>
-                      <a class="btn btn-danger myButtonx" onclick="registrarIngreso(<?php echo "'".$row3['id_cita']."'";?>);" role="button" ><i class='bx bx-edit-alt'></i></a>
+                      <a class="btn btn-plantilla" onclick="registrarIngreso(<?php echo "'".$row3['id_cita']."'";?>);" role="button" ><i class='glyphicon glyphicon-pencil'></i></a>
                     <?php
-                     if ($tipo!="recepcionista" ) {
-                       ?>
-                       <a class="btn btn-success  myButton2" href="<?php  echo "historial_paciente.php?cid=$cid";?>"  role="button"><i class='bx bx-history' ></i></a>
-                         <?php
-                     }
-                         ?>
-  <a class="btn btn-primary  myButtonx" href="<?php  echo "pago_paciente.php?cid=$cid";?>"  role="button"><i class='bx bx-money' ></i></a>
+                    if ($tipo!="recepcionista" ) {
+                    ?>
+                    <a class="btn btn-ver" href="<?php  echo "historial_paciente.php?cid=$cid";?>"  role="button"><i class='bx bx-history' ></i></a>
+                    <?php
+                    }
+                        ?>
+  <a class="btn btn-cama" href="<?php  echo "pago_paciente.php?cid=$cid";?>"  role="button"><i class='bx bx-money' ></i></a>
 
-  <a class="small-box-footer  myButton3"  href="<?php  echo "eliminar_paciente.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar usuario??');"><i class="glyphicon glyphicon-remove" ></i></a>
+  <a class="btn btn-delete"  href="<?php  echo "eliminar_paciente.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar usuario??');"><i class="glyphicon glyphicon-trash" ></i></a>
     
 
-             <?php
+            <?php
             //          }
                       ?>
 
             </td>
                       </tr>
-
- <!--end of modal-->
-
 <?php }?>
                     </tbody>
 
                   </table>
-                </div><!-- /.box-body -->
             </div>
             </div><!-- /.col -->
 
 
           </div><!-- /.row -->
 
-
-
-
                 </div><!-- /.box-body -->
 
             </div>
-     
         <!-- /page content -->
 
         <!-- footer content -->
-       <footer>
+      <footer>
           <div class="pull-right">
                           <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
           </div>
@@ -1169,8 +1106,8 @@ input_medic.addEventListener('propertychange', inHandlerCum);
             
         function  registrarIngreso(cita){
                 jQuery.noConflict();
-         $('#myModal').modal();
-         $('#in_codcita').val(cita);
+        $('#myModal').modal();
+        $('#in_codcita').val(cita);
 
     
             }
@@ -1191,7 +1128,9 @@ input_medic.addEventListener('propertychange', inHandlerCum);
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
 
 
   "searching": true,
@@ -1202,11 +1141,7 @@ input_medic.addEventListener('propertychange', inHandlerCum);
     </script>
     
     
-<style>
-    .subt{
-        background: #BEE5D7;
-    }    
-</style>
+
 <style>
 
 

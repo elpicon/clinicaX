@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/farmacia.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -21,21 +22,14 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
+        <div class="box-header">
+                  <h3 class="htitle">Reporte Pagos</h3>
+                </div><!-- /.box-header -->
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- <div class="container">
-           <div class="col-md-3">
-      
-           </div>
-           <div class="col-md-3">
-             <form method="post" action="../farmacia/reportes_pagos_por_fecha.php" enctype="multipart/form-data" class="form-horizontal">
-                    <button class="btn btn-lg btn-danger btn-print" id="daterange-btn"  name="buscar_fechas">BUSCAR ENTRE FECHAS</button>
+    <div class="container">
+           <div class="col-md-12 colFecha">
+             <form method="post" action="../farmacia/reportes_pagos_por_fecha.php" enctype="multipart/form-data"      class="form-horizontal">
+                    
                     <div class="col-md-12 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Fecha inicio</label>
@@ -44,7 +38,8 @@
                         </div><!-- /.input group -->
                       </div><!-- /.form group -->
                     </div>
-            <div class="col-md-12 btn-print">
+                    
+                  <div class="col-md-12 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Fecha final</label>
                         <div class="input-group col-sm-8">
@@ -52,25 +47,9 @@
                         </div><!-- /.input group -->
                       </div><!-- /.form group -->
                     </div>
-              
-
-                 
-
-
-
-
-                    <div class="col-md-12">
-                       <div class="col-md-12">
-                        
-                       
-                         </div>
-
-                    </div>
+                    <button class="btn btn-plantilla" id="daterange-btn"  name="buscar_fechas">Buscar</button>
 
           </form>
-           </div>
-           <div class="col-md-3">
-             
            </div>
        </div>
 
@@ -78,21 +57,14 @@
 
                         <div class="box-body">
                   <!-- Date range -->  <section class="content-header">
-             
+            
           </section>
 
- <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-
-
+        <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
                   <div class="box-header">
                   <h3 class="box-title"> GANANCIAS</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-
- 
-        
-         
-
 
 <?php
 $simbolo_moneda="";
@@ -107,9 +79,6 @@ $simbolo_moneda="";
      $fecha = date('Y-m-d');
 ?>
 
-
-
-      
       
 <?php
 $lucro=0;
@@ -129,9 +98,9 @@ $id_pedido=$row['id_pedido'];
     while($row1=mysqli_fetch_array($query1)){
 
             $num=$num+$row1['precio_venta']*$row1['cantidad'];
-              $lucro=$lucro+$row1['precio_venta']-$row1['precio_compra'];
-                   $precio_compra=$precio_compra+$row1['precio_compra'];
-                     $precio_venta=$precio_venta+$row1['precio_venta'];
+            $lucro=$lucro+$row1['precio_venta']-$row1['precio_compra'];
+            $precio_compra=$precio_compra+$row1['precio_compra'];
+            $precio_venta=$precio_venta+$row1['precio_venta'];
   }
 ?>
 
@@ -140,14 +109,6 @@ $id_pedido=$row['id_pedido'];
 <?php
 }
 ?>
-
-
-
-
-
-
-
-
 
 
         <div class="col-lg-3 col-xs-6">
@@ -231,11 +192,7 @@ echo 'GANANCIAS=  '.$simbolo_moneda.'  '.$lucro;
           </div>
         </div>
 
-        <footer>
 
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
       </div>
     </div>
 

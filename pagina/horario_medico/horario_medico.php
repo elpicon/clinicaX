@@ -1,4 +1,3 @@
-
 <?php include '../layout/header.php';
 include('../../dist/includes/dbcon.php');
 
@@ -9,21 +8,19 @@ include('../../dist/includes/dbcon.php');
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="css/horario.css" type="text/css">
 
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
- 
- 
- <link href="modalise.css" rel="stylesheet">
+
+<link href="modalise.css" rel="stylesheet">
     <script src="modalise.js" type="text/javascript"> </script>
-     
+    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
- 
+
         <style type="text/css">
       .demo { position: relative; }
       .demo i {
@@ -43,8 +40,8 @@ include('../../dist/includes/dbcon.php');
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -109,10 +106,7 @@ ul {
 	top:1px;
 }
 
-
-
-
- .datagridx {
+.datagridx {
         font: normal 12px/150% Arial,
         Helvetica,
         sans-serif; 
@@ -225,14 +219,7 @@ td {
 ?>
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
                     <?php
                     $id_usuario=$_SESSION['id'];
                             $fecha = date('Y-m-d');
@@ -242,25 +229,22 @@ td {
                     
                       ?>
 
-<div class="row ">
 
-<div class="col-md-12  ">
-<div class="col-md-12 ">
-      <a class="btn myButton3" aria-hidden="true"  href="../medico/medico.php"    role="button"><img src="chevron-left.svg"> Atras</a>
-    </div>
-</div>
-          
- <div class="col-md-12  ">   
-     <br>
-    <div class="col-md-3  ">
-          <a class = "myButtonx " href = "agenda/agenda.php?cid=<?php echo $_REQUEST['cid'];?>" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i>Agendar <a/>
-    </div>
-       <div class="col-lg-3">
-          <a class = "myButton1 btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-    </div>
-    </div>
-</div>
+<div class="box-header">
+                  <h3 class="htitle" >Horario Médico</h3>
+                  </div><!-- /.box-header -->
+    
+          <a class="btn-regresar" aria-hidden="true"  href="../medico/medico.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
 
+
+  <br>
+  <br>
+      
+        <a class = "btn-plantilla2 btn" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
+              <a class = "btn btn-plantilla " href = "agenda/agenda.php?cid=<?php echo $_REQUEST['cid'];?>" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i>Agendar <a/>
+
+
+              <br>
 
 
 
@@ -366,14 +350,6 @@ td {
 
 
 
-
-
-
-
-
-
-
-
 <br>
 <form class = "btn btn-white btn-print">
                       Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" />
@@ -386,26 +362,24 @@ td {
                   <div class="box-header btn btn-primary" >
                   <h3 class="box-title"> LISTA HORARIO</h3>
                 </div><!-- /.box-header -->
-                <div class="datagrid ">
+
                 
-                  <table id="example22" class="table table-bordered table-striped">
-                    <thead>
-                      <tr class=" btn-success">
+                      <table id="example22" class="table table-bordered table-striped">
+                        <thead>
+                          <tr class="encabezado">
 
+                              
+                      <th> Fecha inicio</th>
+                      <th> Fecha fin </th>
+                      <th> Día laborable </th>
+                      <th> Hora inicio </th>
+                      <th> Hora finalización </th>
+                      <th> Duración </th>
+                          <th class="btn-print">Eliminar</th>
 
-                        
-                          
-                  <th> Fecha inicio</th>
-                  <th> Fecha Fin </th>
-                  <th> Dia laborable </th>
-                  <th> Hora inicio </th>
-                  <th> Hora finalizacion </th>
-                  <th> Duracion </th>
-                       <th class="btn-print"> Accion </th>
-
-                      </tr>
-                    </thead>
-                    <tbody>
+                          </tr>
+                        </thead>
+                        <tbody>
 <?php
 
 //ULTIMO HORARIO DE MEDICO SELECCIONADO
@@ -429,12 +403,12 @@ $id_horario_medico=$row1['id'];
       <td><?php echo $row1['cita_duracion'];?></td>
       
 
-                        <td class="btn-print">
+                        <td style="text-align: center;">
                                    <?php
                     //  if ($eliminar=="si") {
                     
                       ?>
-   <a class="small-box-footer btn-print"  href="<?php  echo "../horario_medico/eliminar_horario_medico.php?id_horario_medico=$id_horario_medico&cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar horario medico??');"><i class="glyphicon glyphicon-remove"></i></a>
+   <a class="btn btn-danger"  href="<?php  echo "../horario_medico/eliminar_horario_medico.php?id_horario_medico=$id_horario_medico&cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar horario medico??');"><i class="glyphicon glyphicon-trash" ></i></a>
    <?php
                   //    }
                       ?>
@@ -497,11 +471,6 @@ function Buscar() {
 // ]]></script>
 
 
- 
-
-
-
-                </div><!-- /.box-body -->
 
             </div><!-- /.col -->
 

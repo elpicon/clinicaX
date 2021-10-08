@@ -48,53 +48,42 @@ ul {
                 <a class="btn btn-regresar" href="gastos.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
 
 
-                <div class="base">
+                <div class="base justify-content-center d-flex">
                 
 
         <form class="form-horizontal" method="post" action="gastos_add.php" enctype='multipart/form-data'>
 
-
-
-           
-
                    <div class="row">
-                    <div class="col-md-3 btn-print">
-                      <div class="form-group">
-                        <label for="date" >Cantidad</label>
-                 
-                      </div><!-- /.form group -->
-                    </div>
-                       <div class="col-md-4 btn-print">
-                      <div class="form-group">
-
-                          <input type="text" class="form-control pull-right" id="cantidad" name="cantidad" required >
+                      <div class="col-md-3 btn-print">
+                        <div class="form-group">
+                          <label for="date" >Cantidad</label>
+                  
+                        </div><!-- /.form group -->
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                      <div class="col-md-9 btn-print">
+                        <div class="form-group">
+
+                            <input type="text" class="form-control pull-right" id="cantidad" name="cantidad" required >
+                        </div>
+                      </div>
                     </div>
     
 
-     <div class="row">
-                    <div class="col-md-3 btn-print">
-                      <div class="form-group">
-                        <label for="date" >Nota</label>
-                 
-                      </div><!-- /.form group -->
-                    </div>
-                       <div class="col-md-4 btn-print">
-                      <div class="form-group">
-
-                          <input type="text" class="form-control pull-right" id="nota" name="nota" required >
+                  <div class="row">
+                      <div class="col-md-3 btn-print">
+                        <div class="form-group">
+                          <label for="date" >Nota</label>
+                  
+                        </div><!-- /.form group -->
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
-                    </div>
+                        <div class="col-md-9 btn-print">
+                        <div class="form-group">
 
-
+                            <input type="text" class="form-control pull-right" id="nota" name="nota" required >
+                        </div>
+                      </div>
+                            
+                    </div>
 
                    <div class="row">
                     <div class="col-md-3 btn-print">
@@ -103,7 +92,7 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
              <select class="form-control select2" name="id_categoria" id="id_categoria" required>
                   <option value="0">SELECCIONE CATEGORIA</option>           
@@ -117,20 +106,14 @@ ul {
                           </select>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
+                    </div>
+
+                    <br>
+          
+    <button type="submit" class="btn btn-plantilla4">Guardar</button>
                 
-                    </div>
-                    </div>
-
-             
-                 
-    <button type="submit" class="btn btn-plantilla">Guardar cambios</button>
 
 
-              <div class="modal-footer">
-
-
-              </div>
         </form>
 
  
@@ -160,7 +143,7 @@ ul {
         <!-- footer content -->
           <footer>
           <div class="pull-right">
-                                 <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
+                              s <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
           </div>
           <div class="clearfix"></div>
         </footer>

@@ -1,8 +1,8 @@
 
 <?php include '../layout/header.php';
 include('../../dist/includes/dbcon.php');
- include '../layout/session.php';
-                             
+include '../layout/session.php';
+                            
 function _convert($content) {
     if(!mb_check_encoding($content, 'UTF-8')
         OR !($content === mb_convert_encoding(mb_convert_encoding($content, 'UTF-32', 'UTF-8' ), 'UTF-8', 'UTF-32'))) {
@@ -18,13 +18,13 @@ function _convert($content) {
     return $content;
 }
 ?>
-   
-   <link rel="stylesheet" type="text/css" href="css/alertify.css">
+
+  <link rel="stylesheet" type="text/css" href="css/alertify.css">
 	<link rel="stylesheet" type="text/css" href="css/themes/default.css">
 
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/alertify.js"></script>
-   
+  
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
@@ -124,13 +124,7 @@ ul {
    // $branch=$_SESSION['branch'];
    
       ?>   
-       <table >
-  <tr>
-    <th style="width:15%;"></th>
-    <th style="width:30%;"></th>
-     <th style="width:15%;"></th>
-    <th style="width:100%;"></th>
-  </tr>
+      <table >
   <tr>
     <td><br><label for="" >Contrato #:</label></td>
     <td ><br>
@@ -318,7 +312,7 @@ ul {
   <label class="tab" id="two-tab" for="two">Cobro / Autorizacion</label>
   <!-- <label class="tab" id="three-tab" for="three"></label>-->
     </div>
-  <div class="panels">
+  <div class="panels panelAgregar">
   <div class="panel" id="one-panel">
     <div class="panel-title"></div>
     
@@ -519,7 +513,7 @@ h2{
   cursor: pointer;
   padding:10px 20px;
   margin:0px 2px;
-  background:#907DA9;
+  background:#002142;
   display:inline-block;
   color:#fff;
   border-radius:3px 3px 0px 0px;
@@ -527,7 +521,10 @@ h2{
 }
 .panels{
   background:#fffffff6;
-  box-shadow: 0 2rem 2rem #00000080;
+  border-bottom: 1px solid #002142;
+  border-left: 1px solid #002142;
+  border-right: 1px solid #002142;
+  border-top: 0;
   min-height:200px;
   width:100%;
   max-width:500px;
@@ -563,8 +560,8 @@ h2{
 #two:checked ~ .tabs #two-tab,
 #three:checked ~ .tabs #three-tab{
   background:#fffffff6;
-  color:#666;
-  border-top: 3px solid #666;
+  color:#002142;
+  border-top: 3px solid #002142;
 }</style>   
   
   
@@ -574,8 +571,9 @@ h2{
           
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="guardarCambios" onclick="guardarCambios();" class="btn btn-primary">Guardar Cambios</button>
+      <button type="button" id="guardarCambios" onclick="guardarCambios();" class="btn btn-plantilla">Guardar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        
       </div>
     </div>
   </div>
@@ -584,12 +582,8 @@ h2{
                         
 <script src="numeral.min.js"></script>            
 
-   <script>
-       
-       
-       
-       
-       
+  <script>
+
       function validaVacio(valor) {
         valor = valor.replace("&nbsp;", "");
         valor = valor == undefined ? "" : valor;
@@ -600,16 +594,16 @@ h2{
             return false;
             }
         }
-       
+      
 //const inHandlerVlc = function(e) {
         $('#valorcontrato').change(function(){
-             var number = document.getElementById('valorcontrato').value;
+            var number = document.getElementById('valorcontrato').value;
 var myNumeral = numeral (number);
 var currencyString = myNumeral.format("$0,0.00");
 console.log(currencyString);
           
 
-     document.getElementById('valorcontrato').value=currencyString; 
+    document.getElementById('valorcontrato').value=currencyString; 
             //console.log(numeroForm);
       
   });

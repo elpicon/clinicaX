@@ -149,81 +149,21 @@ ul {
                 </div><!-- /.box-header -->
           <div class="row">
             <!-- left column -->
-            <div class="col-md-4">
-              <!-- general form elements -->
-              <div class="box box-primary">
-
-                <!-- form start -->
-                    <form role="form" id="frmAcceder" name="frmAcceder">
-                      <div class="box-body">
-                        <div class="row">
-                          <div class="col-xs-12">
-                            <table class="table table-bordered">
-                              <thead>
-                                <tr>
-
-                        
-                                  <th>Descripción</th>
-                                  <th>Precio de venta</th>
-                                  <th>Cantidad</th>
-                                  <th>Total</th>
-                                  <th></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <?php foreach($_SESSION["carrito_actividad"] as $indice => $producto1){ 
-                                    $granTotal += $producto1->total;
-
-
-                                  ?>
-                                <tr>
-
-                                  <td><?php echo $producto1->nombre ?></td>
-                                  <td><?php echo $producto1->precio_venta ?></td>
-                                  <td><?php echo $producto1->cantidad ?></td>
-                                  <td><?php echo $producto1->total ?></td>
-                                  <td><a class="btn btn-danger" href="../actividades_financieras/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
-                            
-                                  </td>
-                                </tr>
-                                <?php } ?>
-                              </tbody>
-                            </table>
-
-                            <h3 class="htitle"> Total: <?php echo $granTotal; ?></h3>
-                          </div>
-                        </div> <!-- /.row -->
-                      </div><!-- /.box-body -->
-
-                      <div class="box-footer">
-                        <a type="button" href="../layout/<?php  echo "inicio.php";?>" class="btn btn-danger">Regresar</a>
-                      </div>
-                    </form>
-              </div><!-- /.box -->
-
-              
-            </div><!--/.col (left) -->
+            
             <!-- right column -->
             <div class="col-md-8">
               <!-- Horizontal Form -->
-              <div class="box box-info">
-                        <div class="box-header with-border">
-                          <h3 class="htitle">POS</h3>
-                        </div><!-- /.box-header -->
-                <!-- form start -->
                 
                 <div class="box-body">
                   <div class="box">
                     <div class="box-body no-padding">
-
-   <br>   <br> 
 
   
                 <form  class="form-inline" name="f1" action="../actividades_financieras/terminarVenta.php" method="POST">
                             <input name="total" type="hidden" value="<?php echo $granTotal;?>">
                       <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
                       <input name="tipo_venta" type="hidden" value="Contado">
-                    <h3 class="htitle">Seleccione cliente</h3>
+                    <h2 class="htitle2">Seleccione cliente</h2>
                     <div class="input-group input-group-sm">
                         <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
                         <span class="input-group-btn">
@@ -376,12 +316,67 @@ ul {
 
  ?>
                 </div><!-- /.box-body -->
+
+
+              
+                  
+              </div><!-- /.col -->
+
+              <div class="col-md-4">
+              <!-- general form elements -->
+              <div class="box box-primary">
+
+                <!-- form start -->
+                    <form role="form" id="frmAcceder" name="frmAcceder">
+                      <div class="box-body">
+                        <div class="row">
+                          <div class="col-xs-12">
+                            <table class="table table-bordered">
+                              <thead>
+                                <tr>
+
+                        
+                                  <th>Descripción</th>
+                                  <th>Precio de venta</th>
+                                  <th>Cantidad</th>
+                                  <th>Total</th>
+                                  <th></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <?php foreach($_SESSION["carrito_actividad"] as $indice => $producto1){ 
+                                    $granTotal += $producto1->total;
+
+
+                                  ?>
+                                <tr>
+
+                                  <td><?php echo $producto1->nombre ?></td>
+                                  <td><?php echo $producto1->precio_venta ?></td>
+                                  <td><?php echo $producto1->cantidad ?></td>
+                                  <td><?php echo $producto1->total ?></td>
+                                  <td><a class="btn btn-danger" href="../actividades_financieras/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
+                            
+                                  </td>
+                                </tr>
+                                <?php } ?>
+                              </tbody>
+                            </table>
+
+                            <h3 class="htitle"> Total: <?php echo $granTotal; ?></h3>
+                          </div>
+                        </div> <!-- /.row -->
+                      </div><!-- /.box-body -->
+
+                    </form>
               </div><!-- /.box -->
 
-                  
-              </div><!-- /.box -->
+              
+            </div><!--/.col (left) -->
               <!-- general form elements disabled -->
                           </div><!--/.col (right) -->
+
+                
           </div>   <!-- /.row -->
     </div><!-- /.content -->
       </div><!-- /.content-wrapper -->

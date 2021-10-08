@@ -15,15 +15,15 @@
     margin-left: 10px;
 }
 
-.btn-plantilla4{
-    background: #2db8eb;
-    color: white;
-    margin-left: 200px;
-}
 
 .htitle{
     color: #2d3235 ;
     margin-top: 70px;
+}
+
+
+.htitle{
+    color: #2d3235 ;
 }
 
 .encabezado{
@@ -49,11 +49,4 @@
     font-size: 14px;
     color: #002142;
     margin-left: 10px;
-}
-
-.base{
-    background-color: white;
-    margin-left: 280px;
-    width: 500px;
-    padding: 20px;
 }

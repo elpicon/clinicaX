@@ -1,11 +1,10 @@
- <style>
+<style>
     .left_col{
       
     }
 </style>
- 
- 
- <div class="col-md-3 left_col scrollp" style="
+
+<div class="col-md-3 left_col scrollp" style="
     height: 100%; position: fixed;" >
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
@@ -17,7 +16,7 @@
 
 
             <!-- sidebar menu -->
-            <?php include '../layout/sidebar.php';?>
+            <?php include 'sidebar.php';?>
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->

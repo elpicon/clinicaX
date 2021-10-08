@@ -10,21 +10,19 @@
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="css/paciente.css" type="text/css">
   <body class="nav-md">
-                                         <?php 
-//    if ($usuario=="si") {
-      # code...
-    
+<?php 
 ?>
     <div class="container body">
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
@@ -38,21 +36,12 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+      </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
-
- </div>
   <?php
-     if(isset($_REQUEST['cid']))
+    if(isset($_REQUEST['cid']))
             {
               $cid=$_REQUEST['cid'];
             }
@@ -66,14 +55,12 @@ $simbolo_moneda="";
     $i=1;
     while($row=mysqli_fetch_array($query)){
  //   $porcentaje_impuesto=$row['impuesto'];
-     $simbolo_moneda=$row['simbolo_moneda'];
+    $simbolo_moneda=$row['simbolo_moneda'];
 }
 ?>
 
-                           <?php
-                         
-             //         if ($guardar=="si") {
-                    
+                          <?php
+                        
                       ?>
 
                   <?php
@@ -81,33 +68,24 @@ $simbolo_moneda="";
                       ?>
 
                   <!-- Date range -->
-               
 
-      
  <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
                   <div class="box-header">
-                  <h3 class="box-title"> AGREGAR PAGO</h3>
+                  <h3 class="htitle">Agregar Pago</h3>
                 </div><!-- /.box-header -->
-                 <a class="btn btn-primary btn-print" href="../pos_medicina/<?php  echo "pos_medicina.php?cid=$cid";?>"    style="height:25%; width:15%; font-size: 12px " role="button">Agregar</a>   
-      <br>           
-              <a class="btn btn-warning btn-print" href="../paciente/paciente.php"    style="height:25%; width:15%; font-size: 12px " role="button">Regresar</a>
+
+                <a class="btn btn-regresar2" href="../paciente/paciente.php"   role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
+                <br>
+                <a class="btn btn-plantilla3" href="../pos_medicina/<?php  echo "pos_medicina.php?cid=$cid";?>"     role="button"> <i class="glyphicon glyphicon-plus"></i> Agregar</a>   
+            
+              
+<br>
 <br>
 
 
-       <div class="col-lg-3 col-xs-6">
+      <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-blue">
+          <div class="small-box boxValor">
             <div class="inner">
       
       
@@ -138,25 +116,14 @@ echo $simbolo_moneda.'  '.$num;
                 <div class="box-body">
                 
 
-                   <table id="example2" class="table table-bordered table-striped">
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
-                
-               
             <th>ID</th>
-   
-                       
-         
-                           
-
-    <th>Fecha</th>
-      <th>Total</th>
-
- <th class="btn-print"> Accion </th>
-                           
-
-
+            <th>Fecha</th>
+            <th>Total</th>
+            <th > Acciones </th>
 
                       </tr>
                     </thead>
@@ -191,20 +158,12 @@ $id_pedido=$row['id_pedido'];
 
 
 
-
-
-    
-
      <td><?php echo $row['id_pedido'];?></td>              
          <td><?php echo $row['fecha'];?></td>     
   
               <td><?php echo $sub;?></td> 
                                         <td>
                                  <?php
-                   
-
-
-
 
                     
                       ?>
@@ -223,14 +182,12 @@ $id_pedido=$row['id_pedido'];
             </td>  
                       </tr>
 
- <!--end of modal-->
+<!--end of modal-->
 
 <?php }?>
                     </tbody>
 
                   </table>
-
-            
 
 
                 </div><!-- /.box-body -->
@@ -252,9 +209,9 @@ $id_pedido=$row['id_pedido'];
         <!-- /page content -->
 
         <!-- footer content -->
-         <footer>
+        <footer>
           <div class="pull-right">
-                 <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
+                <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
           </div>
           <div class="clearfix"></div>
         </footer>

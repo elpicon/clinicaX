@@ -1,31 +1,59 @@
-
 <?php include '../layout/header.php';
 date_default_timezone_set('America/Lima');
-
 ?>
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>DOCTORPRJ IPS</title>
+
+    <!-- Bootstrap -->
+    <link href="../layout/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link href="../layout/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../layout/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../layout/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="../layout/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../layout/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="../layout/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../layout/build/css/custom.min.css" rel="stylesheet">
+                <script type="text/javascript" src="../layout/js/jquery.js"></script>
+        <script type="text/javascript" src="../layout/js/chartJS/Chart.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="localhost/www/clinicaX/pagina/layout/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="localhost/www/clinicaX/pagina/layout/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="localhost/www/clinicaX/pagina/layout/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="css/cita.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
 
-        <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+      <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+      <style>
 label{
 
 color: black;
 }
 li {
   color: white;
+
+
 }
 ul {
   color: white;
@@ -33,16 +61,16 @@ ul {
 #buscar{
   text-align: right;
 }
-       </style>
+</style>
 
 
         <!-- page content -->
         <div class="right_col" role="main">
 
- <!--start of script--> 
+<!--start of script--> 
 
- 
- <!--start of modal-->
+
+<!--start of modal-->
 <div class="modal fade" id="modalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -59,31 +87,31 @@ ul {
       <input type="hidden" id="txtID" name="txtID"/></br>
     <input type="hidden" id="txtFecha" name="txtFecha"/></br>
     
-     <div class="form-row">
-           <div class="form-group col-md-8">
-               <label>Titulo:</label>
-                   <input type="text" id="txtTitulo" class="form-control" /></br>
-           </div>
-           <div class="form-group col-md-4">
-               <label>Hora:</label>
+      <div class="form-row">
+          <div class="form-group col-md-8">
+              <label>Titulo:</label>
+                <input type="text" id="txtTitulo" class="form-control" /></br>
+          </div>
+          <div class="form-group col-md-4">
+                <label>Hora:</label>
                 <div class="input-group clockpicker" data-autoclose="trie">
                     <input type="text" id="txtHora" value="12:30" class="form-control"/></br>
                 </div>
-           </div>
-           
-     </div>
+          </div>
+        
+        </div>
           <div class="form-group ">
-                <label>Descripcion:</label>  
+                <label>Descripción:</label>  
                 <textarea type="text" id="txtDescripcion" rows="3" class="form-control"></textarea>
           </div>
           <div class="form-group">
-                 Color: <input type="color" value="#ff0000" id="txtColor" class="form-control" style="height:35px;"/>
+                Color: <input type="color" value="#ff0000" id="txtColor" class="form-control" style="height:35px;"/>
           </div>
       <div class="modal-footer">
-         <button type="button" id="btnAgregar" class="btn btn-success">Agregar</button>
-         <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
+        <button type="button" id="btnAgregar" class="btn btn-success">Agregar</button>
+        <button type="button" id="btnEliminar" class="btn btn-danger">Eliminar</button>
         <button type="button" id="btnModificar" class="btn btn-info">Modificar</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
       </div>
       </div>
     </div>
@@ -93,8 +121,8 @@ ul {
                   <div class="box-header">
                   <h3 class="htitle">Lista de Citas</h3>
 
-                </div><!-- /.box-header -->
-                 <a class = "btn btn-plantilla2 " href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+              </div><!-- /.box-header -->
+              <a class = "btn btn-plantilla2 " href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
               <a class = "btn btn-plantilla" href = "cita_agregar.php" id="myButtonx" name="myButtonx" role="button"><i class ="glyphicon glyphicon-plus"></i> Agendar</a>
 
                 <div class="box-body">
@@ -145,11 +173,10 @@ ul {
 
                     ?>
         <td><?php echo $row['medico'];?></td>              
-         <td><?php echo $row['paciente'];?></td>     
-           <td><?php echo $row['fecha'];?></td>    
-            <td><?php echo $row['observaciones'];?></td>  
-              <td><?php echo $row['estado_cita'];?></td>                                      
-
+        <td><?php echo $row['paciente'];?></td>     
+        <td><?php echo $row['fecha'];?></td>    
+        <td><?php echo $row['observaciones'];?></td>  
+        <td><?php echo $row['estado_cita'];?></td>       
                           <td>
                                 <?php
                       if(!strcmp($row['estado_cita'],'cancelado')){
@@ -158,8 +185,7 @@ ul {
                         echo "<a class='btn btn-danger btn-print myButton2' href='../cita/editar_cita.php?id_cita=".$id_cita." role='button'><li class='glyphicon glyphicon-edit'></li></a>
                       <a class='btn btn-primary btn-print myButton3' href='../cita/eliminar_cita.php?id_cita=".$id_cita."&observaciones=".$row['observaciones']." Cancelado por: ".$tipo.":".$session_id."'  onClick=\"return confirm('¿Está seguro de que quieres eliminar??');\"  role='button'><li class='glyphicon glyphicon-trash'></li></a>";
                         
-                      }
-                                          
+                      }            
                           ?>
 
                                   </td>
@@ -177,8 +203,6 @@ ul {
 
 
           </div><!-- /.row -->
-
-
 
 
                 </div><!-- /.box-body -->
@@ -208,8 +232,8 @@ ul {
         <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
+                  "language": {
+                    "paginate": {
                       "previous": "anterior",
                       "next": "posterior"
                     },

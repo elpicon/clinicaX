@@ -79,12 +79,12 @@ ul {
                 <div class="box-body ">
                     <table id="example22" class="table table-bordered table-striped">
                     <thead>
-                      <tr class=" btn-success">
-                          <th> Rango Fecha </th>
+                      <tr class="encabezado">
+                          <th> Rango fecha </th>
                           <th> Hora inicio </th>
-                          <th> Hora finalizacion </th>
-                          <th> Duracion </th>
-                          <th class="btn-print"> Accion </th>
+                          <th> Hora finalización </th>
+                          <th> Duración </th>
+                          <th class="btn-print"> Acciones </th>
                       </tr>
                     </thead>
                     <tbody>

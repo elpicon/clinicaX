@@ -1,6 +1,11 @@
 <?php include '../layout/dbcon.php';?>
 <?php include '../layout/header.php';?>
 
+<link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/farmacia.css" type="text/css">
+
 <?php 
  @session_start();
 
@@ -163,180 +168,113 @@ $impuTotal = 0;
       
 
       <div class="right_col" role="main">
+      <div class="box-header">
+                  <h3 class="htitle">Agregar Pago Farmacia</h3>
+                </div><!-- /.box-header -->
           <div class="row">
-            <!-- left column -->
-            <div class="col-md-4">
-              <!-- general form elements -->
-              <div class="box box-primary">
-            
-                <!-- form start -->
-                 <form role="form" id="frmAcceder" name="frmAcceder">
-                  <div class="box-body">
-                  <div class="row">
-                    <div class="col-xs-12">
-                   <br><br>
-        <table class="table table-bordered">
-        <thead>
-        <tr>
 
- 
-          <th>Descripción</th>
-          <th>Precio de venta</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach($_SESSION["carrito_farmacia"] as $indice => $producto){ 
-            $granTotal += $producto->total;
-
-
-          ?>
-        <tr>
-
-          <td><?php echo $producto->nombre ?></td>
-          <td><?php echo $producto->precio_venta ?></td>
-          <td><?php echo $producto->cantidad ?></td>
-          <td><?php echo $producto->total ?></td>
-          <td><a class="btn btn-danger" href="../farmacia/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
-     
-          </td>
-        </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-
-
-
-
-
-     <h3> Total: <?php echo $granTotal; ?></h3>
-
-
-                    </div>
-                  </div> 
-                  </div><!-- /.box-body -->
-
-                  <div class="box-footer">
-
-                    <a type="button" href="../layout/<?php  echo "inicio.php";?>" class="btn btn-danger">Regresar</a>
-                  </div>
-                </form>
-              </div><!-- /.box -->
-
-              
-
-              
-
-              
-            </div><!--/.col (left) -->
             <!-- right column -->
             <div class="col-md-8">
               <!-- Horizontal Form -->
               <div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title">POS</h3>
-                </div><!-- /.box-header -->
-                <!-- form start -->
                 
                   <div class="box-body">
                   <div class="box">
                 
-                <div class="box-body no-padding">
-        <div class="row">
-        <div id="content" class="col-lg-12">
-<form class="form-inline" method="post" action="#">
+                                    <div class="box-body no-padding">
+                            <div class="row">
+                            <div id="content" class="col-lg-12">
+                    <form class="form-inline" method="post" action="#">
 
-</form>
-<div id="suggestions"></div>
-        </div>
-    </div>
-   <br>   <br> 
+                    </form>
+                    <div id="suggestions"></div>
+                            </div>
+                        </div>
+                      <br>   <br> 
 
    
-      <form  class="form-inline" name="f1" action="../farmacia/terminarVenta.php" method="POST">
-      <input name="total" type="hidden" value="<?php echo $granTotal;?>">
+                          <form  class="form-inline" name="f1" action="../farmacia/terminarVenta.php" method="POST">
+                          <input name="total" type="hidden" value="<?php echo $granTotal;?>">
 
- <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
-  <input name="tipo_venta" type="hidden" value="Contado">
+                    <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
+                      <input name="tipo_venta" type="hidden" value="Contado">
 
-      <h3>Seleccione cliente</h3>
-    <div class="input-group input-group-sm">
-        <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
-        <span class="input-group-btn">
-            <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
-        </span>
-    </div>
-<br>
+                          <h2 class="htitle2">Seleccione cliente</h2>
+                        <div class="input-group input-group-sm">
+                            <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    <br>
 
-   <br>
+                      <br>
 
 
-     <div class="row">
-                    <div class="col-md-3 btn-print">
-                      <div class="form-group">
-                        <label for="date" >Medico</label>
-                 
-                      </div><!-- /.form group -->
-                    </div>
-                       <div class="col-md-4 btn-print">
-                      <div class="form-group">
-             <select class="form-control select2" name="id_medico" required>
+                        <div class="row">
+                                        <div class="col-md-3 btn-print">
+                                          <div class="form-group">
+                                            <label for="date" >Medico</label>
+                                    
+                                          </div><!-- /.form group -->
+                                        </div>
+                                          <div class="col-md-4 btn-print">
+                                          <div class="form-group">
+                                <select class="form-control select2" name="id_medico" required>
+                                                
+                                                <?php
+
+                                  $queryc=mysqli_query($con,"select * from usuario where tipo='medico'  ")or die(mysqli_error());
+                                    while($rowc=mysqli_fetch_array($queryc)){
+                                    ?>
+                                                <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
+                                                <?php }?>
+                                              </select>
+                                          </div>
+                                        </div>
+                                              <div class="col-md-4 btn-print">
+                                    
+                                        </div>
+                                        </div>
+
+                        <input name="cliente" id="cliente" type="hidden"  required>
+                    <br>
+                        <button type="submit" class="btn btn-success">Terminar venta</button>
+
+
+                      </form>
+
+                  <?php
+
+                    # code...
+
+                                ?>
+                                                  <div class="row">
+                                                        
+
+                                                  <div class="box-body">
+                              
+                                      
+                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
+
+                                <ul id="myUL">
+                                  <?php
+
+                                    $query=mysqli_query($con,"select * 
+                                from producto where  stock>0 and estado='a' ")or die(mysqli_error());
+                                    $i=1;
+                                    while($row=mysqli_fetch_array($query)){
+                                    $id_pro=$row['id_pro'];
+
+                                        $stock=$row['stock'];
+                                
+                                ?>
+
+                          <div class="col-lg-4 col-xs-6">
+                                      <!-- small box -->
                             
-                            <?php
-
-              $queryc=mysqli_query($con,"select * from usuario where tipo='medico'  ")or die(mysqli_error());
-                while($rowc=mysqli_fetch_array($queryc)){
-                ?>
-                            <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
-                            <?php }?>
-                          </select>
-                      </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
-                    </div>
-
-     <input name="cliente" id="cliente" type="hidden"  required>
-<br>
-      <button type="submit" class="btn btn-success">Terminar venta</button>
-
-
-    </form>
-
-<?php
-
-  # code...
-
-?>
-                  <div class="row">
-                        
-
-                   <div class="box-body">
-                
-                        
-                  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
-
-                  <ul id="myUL">
-                    <?php
-
-                      $query=mysqli_query($con,"select * 
-                  from producto where  stock>0 and estado='a' ")or die(mysqli_error());
-                      $i=1;
-                      while($row=mysqli_fetch_array($query)){
-                      $id_pro=$row['id_pro'];
-
-                          $stock=$row['stock'];
-                  
-                  ?>
-
-             <div class="col-lg-4 col-xs-6">
-                        <!-- small box -->
-               
-                        <div class="small-box bg-white">
-                          <div class="inner">
+                                      <div class="small-box bg-white">
+                                        <div class="inner">
 
 
 
@@ -392,9 +330,6 @@ $impuTotal = 0;
  
                       </div>
                     </div>
-                           <div class="col-md-1 btn-print">
-                
-                    </div>
                     </div>
 
       <div class="row">
@@ -437,35 +372,81 @@ $impuTotal = 0;
 }
  ?>
 </ul>
-
                   
                           </div>
                         
-                   
                         </div>
                       </div><!-- ./col -->
-
-
                                         <?php
-                      
-                     
-                      ?>
+                                ?>
+
+                            </div><!--row-->
+
+                            <?php
+
+          ?>
+                          </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+
+                            
+                        </div><!-- /.box -->
+                        <!-- general form elements disabled -->
+                                   <!-- left column -->
+            <div class="col-md-4">
+              <!-- general form elements -->
+              <div class="box box-primary">
+            
+                <!-- form start -->
+                 <form role="form" id="frmAcceder" name="frmAcceder">
+                  <div class="box-body">
+                  <div class="row">
+                    <div class="col-xs-12">
+                   <br><br>
+        <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Precio de venta</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach($_SESSION["carrito_farmacia"] as $indice => $producto){ 
+            $granTotal += $producto->total;
 
 
+          ?>
+        <tr>
 
-                  </div><!--row-->
+          <td><?php echo $producto->nombre ?></td>
+          <td><?php echo $producto->precio_venta ?></td>
+          <td><?php echo $producto->cantidad ?></td>
+          <td><?php echo $producto->total ?></td>
+          <td><a class="btn btn-danger" href="../farmacia/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
+          </td>
+        </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+    <h2 class="htitle"> Total: <?php echo $granTotal; ?></h2>
 
-                  <?php
+                    </div>
+                  </div> 
+                  </div><!-- /.box-body -->
 
- ?>
-                </div><!-- /.box-body -->
+                </form>
               </div><!-- /.box -->
 
-                  
-              </div><!-- /.box -->
-              <!-- general form elements disabled -->
+              
+            </div><!--/.col (left) -->
                           </div><!--/.col (right) -->
+                          
+                          
           </div>   <!-- /.row -->
+
+          
 </div>
 </div>
 </div><!-- /.content -->

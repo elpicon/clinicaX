@@ -151,7 +151,7 @@ ul {
                 
                   <table id="example22" class="table table-bordered table-striped">
                     <thead>
-                      <tr class=" btn-success">
+                      <tr class="encabezado">
 
 
                         
@@ -159,7 +159,7 @@ ul {
 
                           <th> Fecha</th>
        
-                       <th class="btn-print"> Accion </th>
+                       <th class="btn-print"> Acciones </th>
 
                       </tr>
                     </thead>

@@ -15,11 +15,6 @@
     margin-left: 10px;
 }
 
-.btn-plantilla4{
-    background: #2db8eb;
-    color: white;
-    margin-left: 200px;
-}
 
 .htitle{
     color: #2d3235 ;
@@ -53,7 +48,10 @@
 
 .base{
     background-color: white;
-    margin-left: 280px;
-    width: 500px;
-    padding: 20px;
+    margin-left: 20px;
+    margin-right: 40px ;
+}
+
+.container{
+    width: 100% !important;
 }

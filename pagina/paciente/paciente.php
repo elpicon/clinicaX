@@ -74,7 +74,7 @@ include '../layout/header.php';
                         <th>Teléfono</th>
                         <th style="width:6%;">Usuario</th>
                         <th style="width:7%;">Correo</th>
-                        <th class="btn-print" style="width:20%;"> Acciones </th>
+                        <th  style="width:25%;"> Acciones </th>
                       </tr>
                     </thead>
                     <tbody style="background: white;">

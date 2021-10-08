@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/medicina.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -36,53 +37,16 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
-
-
-                 <div class="panel-heading">
-
-
-        </div>
- 
- <!--end of modal-->
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> MEDICINA PRODUCTO </h3>
+                  <h3 class="htitle">Agregar Médicina</h3>
 
                 </div><!-- /.box-header -->
-                <a class="btn btn-warning btn-print" href="medicina.php"    style="height:25%; width:15%; font-size: 12px " role="button">Regresar</a>
-                
-
-
-
-
-
-
-
-
-
+                <a class="btn btn-regresar" href="medicina.php"  role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
                 <div class="box-body">
-                
-         
-
- 
-                        
-            
-
-          
-      
-
-
-
-
+<div class="base">
         <form class="form-horizontal" method="post" action="medicina_add.php" enctype='multipart/form-data'>
 
 
@@ -94,13 +58,10 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
             <input type="file" class="form-control" id="imagen" name="imagen"  >
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
                     </div>
                     </div>
 
@@ -111,34 +72,30 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="nombre_pro" name="nombre_pro" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                        
                     </div>
        
                           <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
-                        <label for="date" >Descripcion</label>
+                        <label for="date" >Descripción</label>
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
                         <textarea class="form-control" id="descripcion" name="descripcion" ></textarea>
 
                     
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                    
                     </div>
 
 
@@ -149,15 +106,13 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="unidad" name="unidad" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                    
                     </div>
            <div class="row">
                     <div class="col-md-3 btn-print">
@@ -166,15 +121,13 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="precio_compra" name="precio_compra" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                      
                     </div>
            <div class="row">
                     <div class="col-md-3 btn-print">
@@ -183,15 +136,13 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="precio_venta" name="precio_venta" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                    
                     </div>
 
                                <div class="row">
@@ -201,28 +152,23 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="stock" name="stock" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
+                    
                     </div>
-                    </div>
-
-                 
-    <button type="submit" class="btn btn-primary">Guardar cambios</button>
-
-
-              <div class="modal-footer">
+<br>
+    
+    <button type="submit" class="btn btn-plantilla4">Guardar</button>
 
 
-              </div>
         </form>
 
- 
+</div> <!-- /.base -->
+
 
 
 

@@ -35,5 +35,7 @@
     color: white;
 }
 
-
-
+.panelAgregar{
+    box-shadow: 0;
+    border: 1px solid #002142;
+}

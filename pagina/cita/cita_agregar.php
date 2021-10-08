@@ -359,23 +359,6 @@ date_default_timezone_set('America/Lima');
 
 <?php include '../layout/datatable_script.php';?>
 
-    <!-- Bootstrap -->
-   
-    <!-- FastClick -->
-    <script src="../layout/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../layout/vendors/nprogress/nprogress.js"></script>
-    <!-- iCheck -->
-    <script src="../layout/vendors/iCheck/icheck.min.js"></script>
-    <!-- Datatables -->
-    <script src="../layout/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../layout/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../layout/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../layout/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../layout/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../layout/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../layout/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../layout/vendors/pdfmake/build/vfs_fonts.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../layout/build/js/custom.min.js"></script>

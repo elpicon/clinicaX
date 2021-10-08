@@ -7,6 +7,13 @@
     background: #fc8d44;
     color: white;
     margin-left: 10px;
+    
+}
+
+.btn-plantilla3{
+    background: #2db8eb;
+    color: white;
+    margin-left: 10px;
 }
 
 
@@ -71,4 +78,23 @@ select{
     font-size: 14px;
     color: #002142;
     margin-left: 10px;
+}
+
+.btn-regresar2{
+    font-size: 14px;
+    color: #002142;
+}
+
+.boxValor{
+    background: #fc8d44;
+    color: white;
+}
+
+.panelAgregar{
+    box-shadow: 0;
+    border: 1px solid #002142;
+}
+
+.labelForms{
+    margin-left: 20px;
 }

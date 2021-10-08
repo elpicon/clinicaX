@@ -77,7 +77,7 @@ ul {
     $cid=$row['id'];
     $i++;
 ?>
-                      <tr >
+                      <tr style="background: white;">
 
 <td ><?php echo $i;?></td>
  <td><IMG src="../usuario/subir_us/<?php echo $row['imagen'];?>" style="height:50PX" /></td>

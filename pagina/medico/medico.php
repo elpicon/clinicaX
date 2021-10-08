@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/medico.css" type="text/css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
