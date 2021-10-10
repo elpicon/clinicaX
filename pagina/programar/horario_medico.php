@@ -73,9 +73,6 @@ ul {
 </form>
 
 
-                  <div class="box-header btn btn-primary" >
-                  <h3 class="box-title"> LISTA HORARIO</h3>
-                </div><!-- /.box-header -->
                 <div class="box-body ">
                     <table id="example22" class="table table-bordered table-striped">
                     <thead>

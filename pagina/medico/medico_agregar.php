@@ -57,23 +57,12 @@ ul {
 
 
 
-                <div class="box-body">
+                <div class="box-body ">
                 
-         
 
- 
-                        
-            
+        <form class="form-horizontal box-form" method="post" action="medico_add.php" enctype='multipart/form-data'>
 
-          
-      
-
-
-
-
-        <form class="form-horizontal" method="post" action="medico_add.php" enctype='multipart/form-data'>
-
-   <input type="hidden" class="form-control" id="tipo" name="tipo" value="medico" required>
+          <input type="hidden" class="form-control" id="tipo" name="tipo" value="medico" required>
 
                    <div class="row">
                     <div class="col-md-3 btn-print">
@@ -82,13 +71,10 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
-            <input type="file" class="form-control" id="imagen" name="imagen"  >
+                        <input type="file" class="form-control" id="imagen" name="imagen"  >
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
                     </div>
                     </div>
 
@@ -99,164 +85,128 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="nombre" name="nombre" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+
                     </div>
        
                           <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Apellidos</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
                           <input type="text" class="form-control pull-right" id="apellido" name="apellido" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
-                    </div>
-                    
-                    
-         
 
+                    </div>
 
- <div class="row">
+              <div class="row">
   
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Usuario</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                        <div class="col-md-9 btn-print">
                       <div class="form-group">
-                          <input type="text" class="form-control pull-right" id="usuario" name="usuario"  placeholder="usuario" required>
+                          <input type="text" class="form-control pull-right" id="usuario" name="usuario"  required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+
                     </div>
                     
-                               <div class="row">
+              <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Registro Medico</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
                           <input type="text" class="form-control pull-right" id="registromedico" name="registromedico" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+
                     </div>
 
- <div class="row">
+              <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Contraseña</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                        <div class="col-md-9 btn-print">
                       <div class="form-group">
-                          <input type="password" class="form-control pull-right" id="date" name="password" placeholder="password " required>
+                          <input type="password" class="form-control pull-right" id="date" name="password"  required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+
                     </div>
 
- <div class="row">
+                  <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Repita contraseña</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
-<input type="password" class="form-control pull-right" id="password2" name="password2" placeholder="password " required>
+                          <input type="password" class="form-control pull-right" id="password2" name="password2"  required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+
                     </div>
 
 
 
- <div class="row">
+                <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
-                        <label for="date" >Telefono</label>
-                 
+                        <label for="date" >Teléfono</label>
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
-            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono"  required>
+            <input type="text" class="form-control" id="telefono" name="telefono" required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+
                     </div>
 
-
-
-    
-                     <div class="row">
+                    <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Correo</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
-            <input type="text" class="form-control" id="correo" name="correo" placeholder="correo"  required>
+            <input type="text" class="form-control" id="correo" name="correo" required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
+
                     </div>
-                    </div>
+                    <br>
+          <div class="row" style="
+                text-align: center;">
+                <button type="submit" class="btn btn-plantilla">Guardar</button>
+          </div>
 
-             
-                 
-    <button type="submit" class="btn btn-plantilla">Guardar cambios</button>
-              
-
-
-
-
-
-
-
-
-
-
-              <div class="modal-footer">
-
-
-              </div>
         </form>
                 </div><!-- /.box-body -->
             </div><!-- /.col -->
@@ -273,7 +223,7 @@ ul {
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-                         <a href="https://ventadecodigofuente.com/">DOCTORPRJ IPS</a>
+                        <a href="https://ventadecodigofuente.com/">DOCTORPRJ IPS</a>
           </div>
           <div class="clearfix"></div>
         </footer>

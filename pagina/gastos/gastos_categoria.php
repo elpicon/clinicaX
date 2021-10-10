@@ -61,7 +61,7 @@ ul {
 
 
 <div class="box-header">
-                  <h3 class="htitle">Lista de Gastos</h3>
+                  <h3 class="htitle">Categoria de Gastos</h3>
 
                 </div><!-- /.box-header -->
 
@@ -142,50 +142,37 @@ ul {
 </form>
 
 
-                  <div class="box-header btn btn-primary" >
-                  <h3 class="box-title"> LISTA CATEGORIA GASTOS</h3>
-                </div><!-- /.box-header -->
                 <div class="box-body ">
                 
                   <table id="example22" class="table table-bordered table-striped">
                     <thead>
                       <tr class="encabezado">
-
-                          <th> Descripción</th>
-       
-                       <th class="btn-print"> Acciones </th>
-
+                        <th> Descripción</th>
+                        <th class="btn-print"> Acciones </th>
                       </tr>
                     </thead>
                     <tbody>
-<?php
+                      <?php
 
-   // $branch=$_SESSION['branch'];
-    $query=mysqli_query($con,"select * from categoria_gastos  ")or die(mysqli_error());
-    $i=1;
-    while($row=mysqli_fetch_array($query)){
+                        // $branch=$_SESSION['branch'];
+                          $query=mysqli_query($con,"select * from categoria_gastos  ")or die(mysqli_error());
+                          $i=1;
+                          while($row=mysqli_fetch_array($query)){
 
-$id_categoria=$row['id_categoria'];
+                      $id_categoria=$row['id_categoria'];
 
-?>
-                      <tr >
+                      ?>
+                                            <tr >
               <td><?php echo $row['descripcion'];?></td>
 
-      
-
                         <td class="btn-print">
-                                   <?php
-                    //  if ($eliminar=="si") {
-                    
-                      ?>
+                                  <?php
+?>
    <a class="small-box-footer btn-print"  href="<?php  echo "../gastos/eliminar_categoria.php?id_categoria=$id_categoria";?>" onClick="return confirm('¿Está seguro de que quieres eliminar Categoria gastos??');"><i class="glyphicon glyphicon-remove"></i></a>
    <?php
                   //    }
                       ?>
-                               <?php
-                 //     if ($editar=="si") {
-                    
-                      ?>
+                              <?php?>
 
             <?php
                   //    }
@@ -209,8 +196,8 @@ $id_categoria=$row['id_categoria'];
             <input type="hidden" class="form-control" id="id" name="id_categoria" value="<?php echo $row['id_categoria'];?>" required>
           </div>
         </div>
-               <div class="form-group">
-          <label class="control-label col-lg-3" for="price">descripcion</label><br>
+              <div class="form-group">
+          <label class="control-label col-lg-3" for="price">Descripción</label><br>
           <div class="col-lg-9">
             <input type="text" class="form-control" id="price" name="descripcion" value="<?php echo $row['descripcion'];?>"   required>
           </div>
@@ -270,8 +257,6 @@ function Buscar() {
           </div><!-- /.row -->
 
 
-
-
                 </div><!-- /.box-body -->
 
             </div>
@@ -283,7 +268,7 @@ function Buscar() {
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-                   <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
+              <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
           </div>
           <div class="clearfix"></div>
         </footer>

@@ -3,36 +3,7 @@ date_default_timezone_set('America/Lima');
 ?>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>DOCTORPRJ IPS</title>
-
-    <!-- Bootstrap -->
-    <link href="../layout/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="../layout/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../layout/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="../layout/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="../layout/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="../layout/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="../layout/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="../layout/build/css/custom.min.css" rel="stylesheet">
-                <script type="text/javascript" src="../layout/js/jquery.js"></script>
-        <script type="text/javascript" src="../layout/js/chartJS/Chart.min.js"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="localhost/www/clinicaX/pagina/layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="localhost/www/clinicaX/pagina/layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="localhost/www/clinicaX/pagina/layout/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="css/cita.css" type="text/css">
@@ -46,22 +17,22 @@ date_default_timezone_set('America/Lima');
 
       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
       <style>
-label{
+          label{
 
-color: black;
-}
-li {
-  color: white;
+          color: black;
+          }
+          li {
+            color: white;
 
 
-}
-ul {
-  color: white;
-}
-#buscar{
-  text-align: right;
-}
-</style>
+          }
+          ul {
+            color: white;
+          }
+          #buscar{
+            text-align: right;
+          }
+      </style>
 
 
         <!-- page content -->
@@ -118,8 +89,8 @@ ul {
   </div>
 </div>
 
-                  <div class="box-header">
-                  <h3 class="htitle">Lista de Citas</h3>
+              <div class="box-header">
+                  <h3 class="htitle2">Lista de Citas</h3>
 
               </div><!-- /.box-header -->
               <a class = "btn btn-plantilla2 " href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>

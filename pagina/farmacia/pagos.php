@@ -63,7 +63,7 @@ ul {
  <!--end of modal-->
 
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle">Lista de Ventas</h3>
                 </div><!-- /.box-header -->
                 <a class="btn btn-plantilla3" href="../farmacia/<?php  echo "pago_agregar.php";?>"     role="button"><i class="glyphicon glyphicon-plus"></i> Agregar</a>   

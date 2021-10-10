@@ -15,69 +15,64 @@ function _convert($content) {
     return $content;
 }
 ?>
-   
-   <link rel="stylesheet" type="text/css" href="css/alertify.css">
+
+  <link rel="stylesheet" type="text/css" href="css/alertify.css">
 	<link rel="stylesheet" type="text/css" href="css/themes/default.css">
 
 	<script src="jquery-3.2.1.min.js"></script>
 	<script src="js/alertify.js"></script>
-   
+  
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="css/aseguradora.css" type="text/css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
-   <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
-   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
   
-   
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-   <link href="../layout/build/css/custom.min.css" rel="stylesheet">
-   
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  <link href="../layout/build/css/custom.min.css" rel="stylesheet">
+  
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
-label{
+        <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+        <style>
+              label{
 
-color: black;
-}
-li {
-  color: white;
-}
-ul {
-  color: white;
-}
-#buscar{
-  text-align: right;
-}
-       </style>
+              color: black;
+              }
+              li {
+                color: white;
+              }
+              ul {
+                color: white;
+              }
+              #buscar{
+                text-align: right;
+              }
+      </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
-
-
- <!--end of modal-->
-
 
                   <div class="box-header">
                   <h3 class="htitle">Listado Aseguradoras</h3>
@@ -98,90 +93,85 @@ ul {
       </div>
       <div class="modal-body">
           
-   
-      
-      <?php
-                    
-                  
-   // $branch=$_SESSION['branch'];
-   
-      ?>   
-       <table >
-  <tr>
-    <th style="width:15%;"></th>
-    <th style="width:30%;"></th>
-     <th style="width:15%;"></th>
-    <th style="width:100%;"></th>
-  </tr>
-  <tr>
-    <td><br><label for="" >Codigo:</label></td>
-    <td ><br>
-        <input autocomplete="off" list="list_codigo" id="codigoaseg" type="text" class="form-control">
-                    <datalist id="list_codigo" >
-                
-                    </datalist>
-                    
-    </td>
-    <td><br> <label for="">&nbsp;&nbsp;Identificacion:&nbsp;</label></td>
-    <td><br><input autocomplete="off" type="text" list="list_identifi" id="identificacion" class="form-control">
-                    <datalist id="list_identifi" >
-                
-                    </datalist>
-                    </td>
-  </tr>
-  <tr>
-    <td ><br><label for="">Tipo Administradora:</label></td>
-    <td colspan="2"><br><select type="text" id="tipoAdministradora" class="form-control" >
-      <option value=''>Seleccione</option>
 
-                  <option value='ENTIDAD PRESTADORA SALUD'>ENTIDAD     PRESTADORA SALUD</option>
-                    <option value='FONDO DE CESANTIAS'>FONDO DE CESANTIAS</option>
-                    <option value='FONDO DE PENSIONES'>FONDO DE PENSIONES</option>
-                    <option value='CAJA COMPENSACION FAMILIAR'>CAJA COMPENSACION FAMILIAR</option>
-                    <option value='RIESGOS PROFESIONALES'>RIESGOS PROFESIONALES</option>
-                    <option value='ENTIDADES PARAFISCALES'>ENTIDADES PARAFISCALES</option>
-    </select></td>
-    <td ></td>
-  </tr>
-   <tr>
-    <td ><br><label for="">Nombre:</label></td>
-    <td colspan="3"><br><input id="nombre" type="text" class="form-control"></td>
-  </tr>
-   <tr>
-    <td ><br><label for="">Direccion:</label></td>
-    <td colspan="3"><br><input id="direccion" type="text" class="form-control"></td>
-    
-  </tr>
-  <tr  >
-    <td><br><label for="" >Latitud:</label></td>
-    <td ><br><input id="latitud" type="text" class="form-control" ></td>
-    <td><br> <label for="">&nbsp;&nbsp;Longitud:&nbsp;</label></td>
-    <td><br><input id="longitud" type="text" class="form-control"></td>
-  </tr>
-     <tr>
-    <td ><br><label for="">e-mail:</label></td>
-    <td colspan="3"><br><input id="correoelectronico" type="text" class="form-control"></td>
-  </tr>
-   <tr  >
-    <td><br><label for="" >Telefono:</label></td>
-    <td ><br><input id="telefono" type="text" class="form-control"></td>
-     <td ><br><label for="">Regimen :</label></td>
-   <td ><br><select type="text" id="regimen" class="form-control" >
-      <option value=''>Seleccione</option>
-       <?php
-         $query=mysqli_query($con,"SELECT * FROM regimen ")or die(mysqli_error());
-        $x=0;
-        while($row=mysqli_fetch_array($query)){
-            echo"<option value=".$row['codigo'].">".$row['nombre']."</option>";
-                $x++;
-        }
+      <?php
+      ?>   
+      <table >
+        <tr>
+          <th style="width:15%;"></th>
+          <th style="width:30%;"></th>
+          <th style="width:15%;"></th>
+          <th style="width:100%;"></th>
+        </tr>
+        <tr>
+          <td><br><label for="" >Código:</label></td>
+          <td ><br>
+              <input autocomplete="off" list="list_codigo" id="codigoaseg" type="text" class="form-control">
+                          <datalist id="list_codigo" >
+                      
+                          </datalist>
+                          
+          </td>
+          <td><br> <label for="">&nbsp;&nbsp;Identificación:&nbsp;</label></td>
+          <td><br><input autocomplete="off" type="text" list="list_identifi" id="identificacion" class="form-control">
+                          <datalist id="list_identifi" >
+                      
+                          </datalist>
+                          </td>
+        </tr>
+        <tr>
+        <td ><br><label for="" style="
+    width: 145px;">Tipo Administradora:</label></td>
+        <td colspan="3"><br><select type="text" id="tipoAdministradora" class="form-control" >
+          <option value=''>Seleccione</option>
+
+                      <option value='ENTIDAD PRESTADORA SALUD'>ENTIDAD     PRESTADORA SALUD</option>
+                        <option value='FONDO DE CESANTIAS'>FONDO DE CESANTIAS</option>
+                        <option value='FONDO DE PENSIONES'>FONDO DE PENSIONES</option>
+                        <option value='CAJA COMPENSACION FAMILIAR'>CAJA COMPENSACION FAMILIAR</option>
+                        <option value='RIESGOS PROFESIONALES'>RIESGOS PROFESIONALES</option>
+                        <option value='ENTIDADES PARAFISCALES'>ENTIDADES PARAFISCALES</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td ><br><label for="">Nombre:</label></td>
+        <td colspan="3"><br><input id="nombre" type="text" class="form-control"></td>
+      </tr>
+      <tr>
+        <td ><br><label for="">Dirección:</label></td>
+        <td colspan="3"><br><input id="direccion" type="text" class="form-control"></td>
         
-        ?>
+      </tr>
+      <tr  >
+        <td><br><label for="" >Latitud:</label></td>
+        <td ><br><input id="latitud" type="text" class="form-control" ></td>
+        <td><br> <label for="">&nbsp;&nbsp;Longitud:&nbsp;</label></td>
+        <td><br><input id="longitud" type="text" class="form-control"></td>
+      </tr>
+        <tr>
+        <td ><br><label for="">E-mail:</label></td>
+        <td colspan="3"><br><input id="correoelectronico" type="text" class="form-control"></td>
+      </tr>
+      <tr  >
+        <td><br><label for="" >Teléfono:</label></td>
+        <td ><br><input id="telefono" type="text" class="form-control"></td>
+        <td ><br><label for="">Régimen :</label></td>
+      <td ><br><select type="text" id="regimen" class="form-control" >
+          <option value=''>Seleccione</option>
+          <?php
+            $query=mysqli_query($con,"SELECT * FROM regimen ")or die(mysqli_error());
+            $x=0;
+            while($row=mysqli_fetch_array($query)){
+                echo"<option value=".$row['codigo'].">".$row['nombre']."</option>";
+                    $x++;
+            }
+            
+            ?>
                   
     </select></td>
   </tr>
   
-   <tr  >
+   <tr >
     <td><br><label for="" >Cuenta CxC:</label></td>
        <td ><br>
            
@@ -189,11 +179,10 @@ ul {
                     <datalist id="list_cxc" >
                 
                     </datalist>
-           
      </td>
     <td><br> <label for="">&nbsp;&nbsp;RIPS Por:&nbsp;</label></td>
-       <td><br><select type="text" id="generarripspor" class="form-control">
-           <option value='' selected>Seleccione</option>
+      <td><br><select type="text" id="generarripspor" class="form-control">
+        <option value='' selected>Seleccione</option>
                <option value='Codigo ATC'>Código ATC</option>
                <option value='Codigo CUM'>Código CUM</option>";  
        </select></td>
@@ -210,12 +199,7 @@ ul {
     <td><br> <label for="">&nbsp;&nbsp;Código RIPS :&nbsp;</label></td>
         <td><br><input type="text" id="codigopararips" class="form-control"></td>
   </tr>
-   
-      <!--       <tr>
-   <td ><br><label for="">Auditor:</label></td>
-    <td colspan="2"><br><select id="auditor" type="text" class="form-control" ></select></td>
-    <td ></td>
-  </tr>-->
+
      <tr>
     <td ><br><label for="">Cobertura:</label></td>
     <td colspan="3"><br>
@@ -229,25 +213,20 @@ ul {
       <option value="Cobertura ADRES">Cobertura ADRES</option>
       <option value="Cobertura Salud Pública">Cobertura Salud Pública</option>
       <option value="Cobertura Entidad Territorial, Recursos de Oferta">Cobertura Entidad Territorial, Recursos de Oferta</option>
-                             
        </select></td>
   </tr>
    <tr>
-    <td ></td>
-    <td  colspan="3"><br><input id="rcmp_descaf"  type="checkbox" class="" ><span for=""> &nbsp;&nbsp; Reportar Cuota Moderadora de procedimientos como descuentos AF.</span></td>
+    <td  colspan="4"><br><input id="rcmp_descaf"  type="checkbox" class="" ><label for=""> &nbsp;&nbsp; Reportar Cuota Moderadora de procedimientos como descuentos AF.</label></td>
   </tr>
    <tr>
-    <td ></td>
-    <td  colspan="3"><br><input  type="checkbox" id="rrch_sedefact" class="" ><span for=""> &nbsp;&nbsp; Reportr en RIPS el código de habilitación por sede de la factura.</span></td>
+    <td  colspan="4"><br><input  type="checkbox" id="rrch_sedefact" class="" ><label for=""> &nbsp;&nbsp; Reportr en RIPS el código de habilitación por sede de la factura.</label></td>
   </tr>
 </table>
-      
-   
-          
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" id="guardarCambios" onclick="guardarCambios();" class="btn btn-primary">Guardar Cambios</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" id="guardarCambios" onclick="guardarCambios();" class="btn btn-plantilla">Guardar</button>
       </div>
     </div>
   </div>
@@ -256,11 +235,9 @@ ul {
                         
             
 
-   <script>
-       function guardarCambios(){
-           var datoSave="codigo="+$('#codigoaseg').val()+"&nombre="+$('#nombre').val().trim()+"&direccion="+$('#direccion').val()+"&identificacion="+$('#identificacion').val()+"&latitud="+$('#latitud').val()+"&longitud="+ $('#longitud').val()+"&correoelectronico="+$('#correoelectronico').val()+"&telefono="+$('#telefono').val()+"&regimen="+$('#regimen').val()+"&cobertura="+$('#cobertura').val()+"&generarripspor="+$('#generarripspor').val()+"&tipoAdministradora="+$('#tipoAdministradora').val()+"&codigopararips="+$('#codigopararips').val()+"&cuentascxc="+$("#cuentascxc").val()+"&cuentaorden="+$('#cuentaorden').val()+"&rcmp_descaf="+ $('#rcmp_descaf').prop('checked')+"&rrch_sedefact="+$('#rrch_sedefact').prop('checked');
-           
-            
+      <script>
+        function guardarCambios(){
+            var datoSave="codigo="+$('#codigoaseg').val()+"&nombre="+$('#nombre').val().trim()+"&direccion="+$('#direccion').val()+"&identificacion="+$('#identificacion').val()+"&latitud="+$('#latitud').val()+"&longitud="+ $('#longitud').val()+"&correoelectronico="+$('#correoelectronico').val()+"&telefono="+$('#telefono').val()+"&regimen="+$('#regimen').val()+"&cobertura="+$('#cobertura').val()+"&generarripspor="+$('#generarripspor').val()+"&tipoAdministradora="+$('#tipoAdministradora').val()+"&codigopararips="+$('#codigopararips').val()+"&cuentascxc="+$("#cuentascxc").val()+"&cuentaorden="+$('#cuentaorden').val()+"&rcmp_descaf="+ $('#rcmp_descaf').prop('checked')+"&rrch_sedefact="+$('#rrch_sedefact').prop('checked');
               $.ajax({
                         type: "POST",
                         url: "queryAseguradora.php",
@@ -404,7 +381,7 @@ ul {
                             $('#longitud').val(longitud);
                             $('#correoelectronico').val(correoelectronico);
                             $('#telefono').val(telefono);
-                           $('#regimen').val(regimen);
+                            $('#regimen').val(regimen);
                             $('#cobertura').val(cobertura);
                             $('#generarripspor').val(generarripspor);
                             $('#tipoAdministradora').val(tipoAdministradora);
@@ -413,22 +390,22 @@ ul {
                             $('#cuentaorden').val(cuentaorden);
                             var rcmp = document.getElementById("#rcmp_descaf");
                             if(convertString(rcmp_descaf))
-                               {
+                                {
                                   $("#rcmp_descaf").prop("checked", true);
-                               }
+                                }
                                 else
-                               {
+                                {
                                   $("#rcmp_descaf").prop("checked", false);
-                               }
+                                }
                             
                             var rrch = document.getElementById("#rrch_sedefact");
                             if(convertString(rrch_sedefact))
-                               {
+                                {
                                   $("#rrch_sedefact").prop("checked", true);
-                               }
+                                }
                                 else
-                               {
-                                 $("#rrch_sedefact").prop("checked", false);
+                                {
+                                  $("#rrch_sedefact").prop("checked", false);
                                }
                            
                             }else{
@@ -451,14 +428,10 @@ ul {
                                     $('#cuentascxc').val("");
                                     $('#cuentaorden').val("");
                                 }else{ alertify.alert("Se Guardara Como un Nuevo Seguro."+codigoS);}
-                               
-                             
-                            
                         }
                         }
                         });
             
-           
         });
                               
           const convertString = (word) =>{
@@ -468,7 +441,7 @@ ul {
                             case "no": case "false": case "0": case null: return false;
                             default: return Boolean(word);
                         }
-                       }
+                        }
                     }
               
             const inHandlerCodigo = function(e) {
@@ -483,8 +456,6 @@ ul {
                              //$('.result').html(res);
                             console.log(respuesta);
                              list_codigo.innerHTML = respuesta;
-                            
-                            
                         }
                         });
                     }
@@ -498,7 +469,7 @@ ul {
         });
               
             
-             const inHandlerIdentificacion = function(e) {
+            const inHandlerIdentificacion = function(e) {
             var sresult;
               descripcion = e.target.value;
               var dataString = 'identificacion='+descripcion;
@@ -509,7 +480,7 @@ ul {
                         success: function(respuesta) {
                              //$('.result').html(res);
                             console.log(respuesta);
-                             list_identifi.innerHTML = respuesta;
+                            list_identifi.innerHTML = respuesta;
                         }
                     });
                  }
@@ -522,8 +493,6 @@ ul {
             cuentaorden.addEventListener('propertychange', inHandlerOrden); 
           </script>
  <!--end of modal-->
-
-
 
 
 
@@ -590,7 +559,7 @@ ul {
                 }else{
                 if(!strcmp($estado,"inactivo")){
                   echo "eliminar_aseguradora.php?codigo=".$codigo."&comando=activar";
-                 }
+                }
             }
         }
        //<i class='bx bx-block'></i>  <i class='bx bx-check' ></i> glyphicon glyphicon-remove
@@ -612,8 +581,8 @@ ul {
                 }else{
                 if(!strcmp($estado,"inactivo")){
                   echo "bx bx-check";
-                 }
-               }
+                }
+              }
         }
       ?>" ></i></a>
 
@@ -636,8 +605,6 @@ ul {
           </div><!-- /.row -->
 
 
-
-
                 </div><!-- /.box-body -->
 
             </div>
@@ -649,7 +616,7 @@ ul {
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-                         <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
+              <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
           </div>
           <div class="clearfix"></div>
         </footer>

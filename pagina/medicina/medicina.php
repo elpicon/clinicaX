@@ -40,8 +40,8 @@ ul {
 
 
 
-                  <div class="box-header">
-                  <h3 class="htitle">Lista de Medicinas</h3>
+                  <div class="box-body">
+                  <h3 class="htitle">Lista de Medicina</h3>
 
                 </div><!-- /.box-header -->
                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>

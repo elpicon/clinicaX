@@ -1,10 +1,10 @@
+
+<?php include '../layout/header.php';
+?>
 <?php include '../layout/dbcon.php';?>
 
 <?php 
  @session_start();
-
-
-
 
 
 //$idusuario=$_SESSION["idusuario"];
@@ -21,19 +21,18 @@ $simbolo_moneda="";
 
 ?>
 
+<link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/preinscripcion.css" type="text/css">
+
   <?php
 
 
     $id_sesion=$_SESSION['id']; 
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="../actividades_financieras/css/styles.css">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
       <script>
 $(document).ready(function() {
     $('#key').on('keyup', function() {
@@ -50,16 +49,15 @@ $(document).ready(function() {
                 $('.suggest-element').on('click', function(){
                         //Obtenemos la id unica de la sugerencia pulsada
                         var id = $(this).attr('id');
-                     
-                           var idlcliente      = $(this).attr('id').substring(7,10).match(/\d+/); 
+                var idlcliente      = $(this).attr('id').substring(7,10).match(/\d+/); 
                         //Editamos el valor del input con data de la sugerencia pulsada
                         $('#key').val($('#'+id).attr('data'));
                         //Hacemos desaparecer el resto de sugerencias
                         $('#suggestions').fadeOut(1000);
                         alert('Has seleccionado a '+' '+$('#'+id).attr('data'));
- document.f1.cliente.value = idlcliente;
-                 
- document.f1.clientenombre.value = $('#'+id).attr('data');
+                        document.f1.cliente.value = idlcliente;
+                
+                        document.f1.clientenombre.value = $('#'+id).attr('data');
                         return false;
                 });
             }
@@ -71,29 +69,7 @@ $(document).ready(function() {
 
 </script>        
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Preescripcion </title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/font-awesome.css">
-   
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/AdminLTE.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="../actividades_financieras/public/css/blue.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style type="text/css">
       #myInput {
   background-image: url('../actividades_financieras/css/buscador.png'); /* Add a search icon to input */
@@ -129,130 +105,130 @@ $(document).ready(function() {
 }
 
     </style>
-  </head>
-  <body class="hold-transition login-page">
-           <?php    
-if(!isset($_SESSION["carrito_pres"])) $_SESSION["carrito_pres"] = [];
-$granTotal = 0;
-$impuTotal = 0;
-?>
-  <div class="col-xs-12">
-    <h4>Preescripcion medica</h4>
-    <?php
-      if(isset($_GET["status"])){
-        if($_GET["status"] === "1"){
-          ?>
-            <div class="alert alert-success">
-              <strong>¡Correcto!</strong> Venta realizada correctamente
-            </div>
+
+  <body class="nav-md">
+                            <?php    
+                  if(!isset($_SESSION["carrito_pres"])) $_SESSION["carrito_pres"] = [];
+                  $granTotal = 0;
+                  $impuTotal = 0;
+                  ?>
+
+<div class="container body">
+      <div class="main_container">
+        <?php include '../layout/main_sidebar.php';?>
+
+        <!-- top navigation -->
+      <?php include '../layout/top_nav.php';?>   
+
+      <div class="right_col" role="main">
+
+      <div class="box-body">
+          <h3 class="htitle">Preescripción medica</h3>
+      </div>
           <?php
-        }else if($_GET["status"] === "2"){
-          ?>
-          <div class="alert alert-info">
-              <strong>Venta cancelada</strong>
-            </div>
-          <?php
-        }else if($_GET["status"] === "3"){
-          ?>
-          <div class="alert alert-info">
-              <strong>Ok</strong> Producto quitado de la lista
-            </div>
-          <?php
-        }else if($_GET["status"] === "4"){
-          ?>
-          <div class="alert alert-warning">
-              <strong>Error:</strong> El producto que buscas no existe
-            </div>
-          <?php
-        }else if($_GET["status"] === "5"){
-          ?>
-          <div class="alert alert-danger">
-              <strong>Error: </strong>El producto está agotado
-            </div>
-          <?php
-        }else{
-          ?>
-          <div class="alert alert-danger">
-              <strong>Error:</strong> Algo salió mal mientras se realizaba la venta
-            </div>
-          <?php
-        }
-      }
-    ?>
-    <br>
-
-
-  <br>
-  <section class="content">
-          <div class="row">
-            <!-- left column -->
-            <div class="col-md-4">
-              <!-- general form elements -->
-              <div class="box box-primary">
-                <div class="box-header with-border">
-           
-                </div><!-- /.box-header -->
-                <!-- form start -->
-                 <form role="form" id="frmAcceder" name="frmAcceder">
-                  <div class="box-body">
-                  <div class="row">
-                    <div class="col-xs-12">
-                   <br><br>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-
- 
-          <th>Medicina</th>
-          <th>Dosis</th>
-          <th>Frecuencia</th>
-             <th>Dias</th>
- 
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach($_SESSION["carrito_pres"] as $indice => $preescripcion){ 
-
-
-
-          ?>
-        <tr>
-
-          <td><?php echo $preescripcion->medicina ?></td>
-          <td><?php echo $preescripcion->dosis ?></td>
-          <td><?php echo $preescripcion->frecuencia ?></td>
-              <td><?php echo $preescripcion->dias ?></td>
- 
-          <td><a class="btn btn-danger" href="../preescripcion/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
-     
-          </td>
-        </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-
-
-
-
-
-
-
-
-                    </div>
-                  </div> 
-                  </div><!-- /.box-body -->
-
-                  <div class="box-footer">
-
-                    <a type="button" href="../layout/<?php  echo "inicio.php";?>" class="btn btn-danger">Regresar</a>
+            if(isset($_GET["status"])){
+              if($_GET["status"] === "1"){
+                ?>
+                  <div class="alert alert-success">
+                    <strong>¡Correcto!</strong> Venta realizada correctamente
                   </div>
-                </form>
-              </div><!-- /.box -->
+                <?php
+              }else if($_GET["status"] === "2"){
+                ?>
+                <div class="alert alert-info">
+                    <strong>Venta cancelada</strong>
+                  </div>
+                <?php
+              }else if($_GET["status"] === "3"){
+                ?>
+                <div class="alert alert-info">
+                    <strong>Ok</strong> Producto quitado de la lista
+                  </div>
+                <?php
+              }else if($_GET["status"] === "4"){
+                ?>
+                <div class="alert alert-warning">
+                    <strong>Error:</strong> El producto que buscas no existe
+                  </div>
+                <?php
+              }else if($_GET["status"] === "5"){
+                ?>
+                <div class="alert alert-danger">
+                    <strong>Error: </strong>El producto está agotado
+                  </div>
+                <?php
+              }else{
+                ?>
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Algo salió mal mientras se realizaba la venta
+                  </div>
+                <?php
+              }
+            }
+          ?>
+          <br>
 
-              
 
-              
+        <br>
+        <section class="content">
+                <div class="row">
+                  <!-- left column -->
+                  <div class="col-md-4">
+                    <!-- general form elements -->
+                    <div class="box box-primary">
+                      <div class="box-header with-border">
+                
+                      </div><!-- /.box-header -->
+                      <!-- form start -->
+                      <form role="form" id="frmAcceder" name="frmAcceder">
+                        <div class="box-body">
+                        <div class="row">
+                          <div class="col-xs-12">
+                        <br><br>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+
+      
+                <th>Medicina</th>
+                <th>Dosis</th>
+                <th>Frecuencia</th>
+                  <th>Dias</th>
+      
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach($_SESSION["carrito_pres"] as $indice => $preescripcion){ 
+
+
+
+                ?>
+              <tr>
+
+                <td><?php echo $preescripcion->medicina ?></td>
+                <td><?php echo $preescripcion->dosis ?></td>
+                <td><?php echo $preescripcion->frecuencia ?></td>
+                    <td><?php echo $preescripcion->dias ?></td>
+      
+                <td><a class="btn btn-danger" href="../preescripcion/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
+          
+                </td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+
+
+
+
+
+                          </div>
+                        </div> 
+                        </div><!-- /.box-body -->
+
+                      </form>
+                    </div><!-- /.box -->
 
               
             </div><!--/.col (left) -->
@@ -318,34 +294,12 @@ $impuTotal = 0;
                           </select>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
+                    <div class="col-md-4 btn-print">
                 
                     </div>
                     </div>
-
-
-
-
-
-
-
-        
-
-
-             
-
-
-
-
-
-
-
-        
-
-
-
-
-                               <div class="row">
+            
+                    <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Historia</label>
@@ -394,11 +348,7 @@ $impuTotal = 0;
                   <form method="post" action="agregar_carrito.php" enctype="multipart/form-data" class="form-horizontal">
          
 
-  
-   
-                  
-
-
+ 
 
    <div class="col-md-12 btn-print">
                       <div class="form-group">
@@ -463,79 +413,11 @@ $impuTotal = 0;
   </div>
 </div>
 
-                  <div class="row">
-                        
-
-                   <div class="box-body">
-                
-         
-
- 
-
-             <div class="col-lg-4 col-xs-6">
-                        <!-- small box -->
-               
-    
-
- <?php
-
- ?>
-
-
-          
-      
-
-
-
-
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-             
-
-                  
-                          </div>
-                        
-                   
-                        </div>
-                      </div><!-- ./col -->
-
-
-
-
-
-
-
-
-       
-
-                   
 
                                         <?php
                       
-                     
+                    
                       ?>
-
-   
-
-
-          
-
-
-
-
 
 
 
@@ -555,6 +437,10 @@ $impuTotal = 0;
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
+                
+    </div>
+  </div>
+  <?php include '../layout/datatable_script.php';?>
 <script>
 function myFunction() {
   // Declare variables
@@ -607,7 +493,7 @@ function sumar (valor) {
     
 
   </body>
-</html>
+
 <?php
 
 

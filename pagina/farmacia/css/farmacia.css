@@ -21,9 +21,9 @@
     margin-top: 70px;
 }
 
-
-.htitle{
+.htitle2{
     color: #2d3235 ;
+    margin-top: 0px;
 }
 
 .encabezado{
@@ -52,5 +52,26 @@
 }
 
 .colFecha{
+    background-color: white;
+    margin-left: 10px;
+    width: 500px;
+}
+
+.box1{
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.inputFecha{
+    width: 50px;
+}
+
+.labelFecha{
+    width: 100px;
+}
+
+.boxCuadros{
     background-color: white;
 }

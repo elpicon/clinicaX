@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/recepcionista.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <div class="container body">
@@ -17,112 +18,49 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
-label{
+        <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+        <style>
+            label{
 
-color: black;
-}
-li {
-  color: white;
-}
-ul {
-  color: white;
-}
-#buscar{
-  text-align: right;
-}
-       </style>
+            color: black;
+            }
+            li {
+              color: white;
+            }
+            ul {
+              color: white;
+            }
+            #buscar{
+              text-align: right;
+            }
+        </style>
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- 
-
-                 <div class="panel-heading">
 
 
-        </div>
- 
- <!--end of modal-->
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> </h3>
+                  <div class="box-body">
+                  <h3 class="htitle">Recepcionistas</h3>
 
                 </div><!-- /.box-header -->
-                 <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-                <a class="btn btn-warning btn-print" href="recepcionista_agregar.php"    style="height:25%; width:15%; font-size: 12px " role="button">REGISTRAR</a>
-
-
-                
-
-
-
-
-
-
-
+                <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i>Imprimir</a>
+                <a class="btn btn-plantilla" href="recepcionista_agregar.php"   role="button"><i class="glyphicon glyphicon-plus"></i> Registrar</a>
 
 
                 <div class="box-body">
-                
-         
 
- 
-                        
-            
-
-          
-      
-
-
-
-
-
-
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
-
-
-
-                  <div class="box-header">
-                  <h3 class="box-title"> LISTA RECEPCIONISTA</h3>
-                </div><!-- /.box-header -->
-              
-
-
-                <div class="box-body">
                 
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class=" btn-success">
+                        <tr class="encabezado">
 
                     <th>#</th>
                         <th>Foto</th>
-                        <th>Nombre y apellidos</th>
-                        <th>Telefono</th>
+                        <th>Nombre completo</th>
+                        <th>Teléfono</th>
                         <th>Usuario</th>
-    
-                             <th>Correo</th>
-     
-
- <th class="btn-print"> Accion </th>
+                    <th>Correo</th>
+                    <th> Acciones </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -149,10 +87,10 @@ ul {
                    
                     
                       ?>
-                      <a class="btn btn-danger btn-print" href="<?php  echo "editar_recepcionista.php?cid=$cid";?>"  role="button">Editar</a>
+                      <a class="btn btn-plantilla" href="<?php  echo "editar_recepcionista.php?cid=$cid";?>"  role="button"><i class="	glyphicon glyphicon-pencil"></i></a>
 
 
-  <a class="small-box-footer btn-print"  href="<?php  echo "eliminar_recepcionista.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar usuario??');"><i class="glyphicon glyphicon-remove" ></i></a>
+  <a class="btn-danger btn"  href="<?php  echo "eliminar_recepcionista.php?cid=$cid";?>" onClick="return confirm('¿Está seguro de que quieres eliminar usuario??');"><i class="glyphicon glyphicon-trash" ></i></a>
     
 
              <?php
@@ -170,7 +108,6 @@ ul {
                   </table>
                 </div><!-- /.box-body -->
 
-            </div><!-- /.col -->
 
 
           </div><!-- /.row -->
@@ -206,17 +143,17 @@ ul {
                 $('#example2').dataTable( {
                  "language": {
                    "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
 
 
                   },
-           "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-
-
-  "searching": true,
+                  "info": false,
+                  "lengthChange": false,
+                
+                  "searching": true,
                 }
 
               );

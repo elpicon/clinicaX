@@ -62,7 +62,7 @@ ul {
                                 <th>Teléfono</th>
                                 <th>Usuario</th>
                                 <th>Correo</th>
-                              <th class="acciones"> Acciones </th>
+                                <th style="width: 280px;"> Acciones </th>
                         </tr>
                     </thead>
                     <tbody style="background: white;">

@@ -6,12 +6,14 @@
 .btn-plantilla2{
     background: #fc8d44;
     color: white;
+    
     margin-left: 10px;
 }
 
 .btn-plantilla3{
     background: #2db8eb;
     color: white;
+    
     margin-left: 10px;
 }
 
@@ -19,12 +21,6 @@
 .htitle{
     color: #2d3235 ;
     margin-top: 70px;
-}
-
-.htitle2{
-    color: #2d3235 ;
-    margin-top: 70px;
-    margin-left: 10px;
 }
 
 .encabezado{
@@ -52,21 +48,15 @@
     margin-left: 10px;
 }
 
-.base{
-    background-color: white;
-    margin-left: 20px;
-    margin-right: 40px;
+.btn-regresar2{
+    font-size: 14px;
+    color: #002142;
 }
 
-.rowDatos{
+.box-form{
     background-color: white;
-    margin-left: 10px;
-    padding-top: 20px;
-    margin-right: 20px;
-}
-
-.rowDatos2{
-    background-color: white;
-    margin-left: 10px;
-    margin-right: 20px;
+    margin-bottom: 10px;
+    width: 600px;
+    padding: 20px;
+    margin-left: 170px;
 }

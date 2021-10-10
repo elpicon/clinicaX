@@ -40,7 +40,7 @@ ul {
 
 
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle">Agregar Médicina</h3>
 
                 </div><!-- /.box-header -->

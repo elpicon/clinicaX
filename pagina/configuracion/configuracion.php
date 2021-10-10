@@ -69,6 +69,7 @@ ul {
           
 
     
+ 
         <form class="form-horizontal" method="post" action="empresa_actualizar.php" enctype='multipart/form-data'>
 
         <div class="form-group">

@@ -36,7 +36,7 @@ ul {
         <!-- page content -->
         <div class="right_col" role="main">
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle">Preinscripción</h3>
 
                 </div><!-- /.box-header -->

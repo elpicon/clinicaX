@@ -100,9 +100,7 @@ ul {
                       Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" />
 
 </form>
-                  <div class="box-header btn btn-primary" >
-                  <h3 class="box-title"> LISTA CATEGORIA GASTOS</h3>
-                </div><!-- /.box-header -->
+
                 <div class="box-body ">
                 
                   <table id="example22" class="table table-bordered table-striped">

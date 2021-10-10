@@ -54,7 +54,7 @@
                //       }
                       ?>
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle">Pagos</h3>
                 </div><!-- /.box-header -->
 

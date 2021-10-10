@@ -1,327 +1,226 @@
-<?php 
-
-include '../layout/dbcon.php';
-include '../layout/session.php';
-
-?>
-
 <?php include '../layout/header.php';?>
 
-<?php 
- @session_start();
-date_default_timezone_set('America/Lima');
-?>
-
-     <!-- Font Awesome -->
-     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="css/cita.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
     
 <body class="nav-md">
       
   <div class="container body">
 
-  <div class="main_container">
+    <div class="main_container">
     
-  <?php include '../layout/main_sidebar.php';?>
+      <?php include '../layout/main_sidebar.php';?>
 
-        <!-- top navigation -->
-            <?php include '../layout/top_nav.php';?>  
+            <!-- top navigation -->
+      <?php include '../layout/top_nav.php';?>  
+
+      <div class="right_col" role="main">
+        <div class="box-body">
+          <h3 class="htitle">Agregar Cita</h3>
+        </div><!-- /.box-header -->
+
         <div class="modal fade" id="Employee">  
-            <div class="modal-dialog">  
-                <div class="modal-content" id="aviso1">  
-                    <form id="needs-validation" novalidate>  
-                        <div class="modal-header">  
-                            <h5 class="modal-title text-uppercase text-center">Terminemos de Agendar</h5>  
-                        </div>  
-                        <div class="modal-body">  
-  
-                            <div class="form-row">  
-                                
-                             <div class="row">
-                           <?php
-                         //  appnoautocomplete=""
-                            /*  if(!strcmp($tipo,'paciente')){
-                                  echo "<div  class='col-sm-4 col-md-4 col-xs-4'> 
-                            <label for='paciente'>Paciente</label>  
-                                   <input readonly list='listapaciente' id='in_paciente' autocomplete='off' value='".$nombre." ".$apellido."' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' ></input>
-                                  <datalist id='listapaciente' disable >
-                                  </datalist>
-                                  <div class='invalid-feedback'>  
-                                        Porfavor Ingrese Paciente.  
-                                    </div> 
-                            </div>
-                           ";
-                              }else{
-                              if(!strcmp($tipo,'administrador')||!strcmp($tipo,'medico')){
-                                      echo "<div  class='col-sm-4 col-md-4 col-xs-4'> 
-                            <label for='paciente'>Paciente</label>  
-                                   <input list='listapaciente' id='in_paciente' value='' autocomplete='off' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' required >
-                                  <datalist id='listapaciente' enable >
-                                  </datalist>
-                                  <div class='invalid-feedback'>  
-                                         Porfavor Ingrese Paciente.  
-                                    </div> 
-                            </div>
-                           ";
-                              }
-                              }*/
-                           ?>
-                           
-                          
-                                <div class="col-sm-12 col-md-8 col-xs-12">  
-                                   
-                 <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
-                                <textarea oninput="cambioDesc()" class="form-control" id="descripcion_cita" rows="3"></textarea>
-                                
-                                 </div>  
-                                </div>
-                                <!--<div class="col-sm-4 col-md-4 col-xs-12">  
-                                    <label for="country">State</label>  
-                                    <input id="country" type="text" placeholder="Country" class="form-control" aria-describedby="inputGroupPrepend" required />  
-                                    <div class="invalid-feedback">  
-                                        Please enter country.  
-                                    </div>  
-                                </div>  -->
-                            </div>  
-                        </div>  
-                        <div class="modal-footer" id="btn_add">  
-                          <button type='button' class='btn btn-danger rounded-0' data-dismiss='modal'>Cancel</button>
-
-                        </div>  
-                    </form>  
+          <div class="modal-dialog">  
+            <div class="modal-content" id="aviso1">  
+              <form id="needs-validation" novalidate>  
+                <div class="modal-header">  
+                  <h5 class="modal-title text-uppercase text-center">Terminemos de Agendar</h5>  
                 </div>  
+                <div class="modal-body">  
+                  <div class="form-row">  
+                    <div class="row">
+                      <div class="col-sm-12 col-md-8 col-xs-12">  
+                        <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+                        <textarea oninput="cambioDesc()" class="form-control" id="descripcion_cita" rows="3"></textarea>
+                      </div>  
+                    </div>
+                  </div>  
+                </div>  
+                <div class="modal-footer" id="btn_add">  
+                  <button type='button' class='btn btn-danger rounded-0' data-dismiss='modal'>Cancel</button>
+                </div>  
+              </form>  
             </div>  
+          </div>  
         </div>  
         
         
-  <div class="right_col" role="main">
-  <div class="box-header with-border">
-                  <h3 class="htitle">Registrar Cita</h3>
-                </div><!-- /.box-header -->
-
-    <div class="row">
-    <div class="col-lg-4 col-sm-8">
-        <div class="row">
-    
-        <div class="col-lg-12 col-sm-12">
-          <div class="list-group-item list-group-item-action d-flex">
-
-            <div class="p-2 flex-grow-1">
-            <input id="datepicker"  value="<?php  echo date("Y-m-d");     ?>" />
-            </div>
-          </div>
-          </div>
       
-        <div class="col-lg-6 col-sm-6">
-                            <label for='paciente'>Paciente</label>  
-                                   <input list='listapaciente' id='in_paciente' autocomplete='off' value='' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' >
-                                  <datalist id='listapaciente' disable >
-                                  </datalist>
-                            <div class='invalid-feedback'>  
-                                        Porfavor Ingrese Paciente.  
-                            </div> 
-                  </div> 
-                  <div class="col-sm-6 col-md-6 col-xs-6">
-                            <br>
-                             <label for="" id="lbl_nombrepaciente" class=""></label>
-                          </div>
-                  
-                   
-              
-                        
-             
-        <div class="col-lg-12 col-sm-12">
-            <br>
-            <label>Grupo Servicio : </label>
-            
+
+        <div class="row rowDatos" >
+          <div class="col-lg-12 col-sm-12">
             <div class="row">
-            <div class="col-lg-12 form-group">
-     
-                <select id="grupo_serv" class="form-control" style="width:80%">
-                     <option value="">Seleccionar</option> 
-                   <?php
-                    $queryS=mysqli_query($con,"select * from servicios_grupos where habilitacion_citas='1'")or die(mysqli_error());
-                        $i=0;
-                        while($rowS=mysqli_fetch_array($queryS)){
-                           echo "<option style='display: none;' value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
-                           $i++;
-                        }
-                    ?>
-                </select>
-            </div>
-              
-                
-
-
-
-<!-- Modal -->
-<div class="modal " id="myModal" tabindex="-1" role="dialog" >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-       
-        <h4 class="modal-title" id="myModalLabel">Servicios</h4> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-          <div class="col-lg-12 form-group">
-                   <br>
-                     <label>Seleccione una opcion Porfavor </label>
-            <br> <br>
-                  <div class="form-check " id="res">
+              <div class="col-lg-12 col-sm-12">
+                <div class="list-group-item list-group-item-action d-flex">
+                  <div class="p-2 flex-grow-1">
+                    <input id="datepicker"  value="<?php  echo date("Y-m-d");     ?>" />
                   </div>
                 </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="DesplegaMedicos();">Guardar Cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
-                
-                
+              </div>
+              <div class="col-lg-6 col-sm-6">
+              <br>
+                <label for='paciente'>Paciente</label>  
+                <input list='listapaciente' id='in_paciente' autocomplete='off' value='' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' >
+                <datalist id='listapaciente' disable ></datalist>
+              </div>     
+              <div class="col-lg-12 col-sm-12">
+                <div class="row">
+                  <div class="col-lg-6 form-group">
+                  <br>
+                    <label>Grupo Servicio : </label>
+                    <select id="grupo_serv" class="form-control" style="width:80%">
+                      <option value="">Seleccionar</option> 
+                        <?php
+                          $queryS=mysqli_query($con,"select * from servicios_grupos where habilitacion_citas='1'")or die(mysqli_error());
+                          $i=0;
+                          while($rowS=mysqli_fetch_array($queryS)){
+                            echo "<option style='display: none;' value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
+                            $i++;
+                          }
+                      ?>
+                    </select>
+                  </div>
               
+              <div class="modal " id="myModal" tabindex="-1" role="dialog" >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel">Servicios</h4> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="col-lg-12 form-group">
+                        <br>
+                        <label>Seleccione una opcion Porfavor </label>
+                        <br> <br>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-primary" onclick="DesplegaMedicos();">Guardar Cambios</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 col-sm-12">
+              <br>
+                <label>Con el Profesional :</label>
+                <div class="form-group">
+                  <select class="form-control select2 " name="id_medico" id="sel_medico"  required>
+                  </select>
+                </div>
+              </div>
             </div>
-                <br>
+              <script>
+                  const ciclos = document.getElementById('ciclos');
             
-            <div class="row">
+            var bsModal = $.fn.modal.noConflict();
+            const result2 = document.getElementById('res');
+            const div_ciclos = document.getElementById('div_ciclos');
+            const sel_medico = document.getElementById('sel_medico'); 
+            const nombre_servicio = document.getElementById('nombre_servicio');
                 
-              
-            
-            <div class="col-lg-12 form-group " id="div_ciclos">
-             
-             
-            </div>    
-                
-            </div>
-            
-            
-            <label class="box-header with-border" id="nombre_servicio"></label>
-             <br>
-              <label>Con el Profesional :</label>
-           <div class="form-group">
-            <select class="form-control select2 " name="id_medico" id="sel_medico"  required>
-              
-              </select>
-            </div>
-        <script>
-            const ciclos = document.getElementById('ciclos');
-            
-        var bsModal = $.fn.modal.noConflict();
-        const result2 = document.getElementById('res');
-        const div_ciclos = document.getElementById('div_ciclos');
-        const sel_medico = document.getElementById('sel_medico'); 
-        const nombre_servicio = document.getElementById('nombre_servicio');
-                   
-          function DesplegaMedicos(){
-              var fechasel = $("#datepicker").val();
-              var      datoS= 
-               
-               datoS="numeroservicio="+$('input:radio[name=chequeo]:checked').val()+"&fechasel="+fechasel+"&id_medico="+med_cod+"&tipo_usuario=";
-               console.log(datoS);
-            
+        function DesplegaMedicos(){
+            var fechasel = $("#datepicker").val();
+            var      datoS= datoS="numeroservicio="+$('input:radio[name=chequeo]:checked').val()+"&fechasel="+fechasel+"&id_medico="+med_cod+"&tipo_usuario=";
+            console.log(datoS);
+          
             let texto = $('input:radio[name=chequeo]:checked').parent().text();
- 
-               nombre_servicio.innerHTML = texto.trim()+"";
-              
-              $.ajax({
-                        type: "POST",
-                        url: "getMedicoServicio.php?"+datoS,
-                        data: "",
-                        success: function(res2) {
-                            //	console.log(res);
-                             
-                             sel_medico.innerHTML = res2;
-                           //obtenerServiciosHMedico(codigoM);
-                        
-                           
-                              
-                        }
-                         });
-          }             
-                   
-         	    $('#grupo_serv').change(function(){
-        		
-        			console.log($('#grupo_serv').val());
-        		
-                    if($('#grupo_serv').val()=='9'){
-                   div_ciclos.innerHTML   = " <label>Ciclos : </label> <select id='ciclos' class='form-control'"+ "style='width:80%' onchange='if (this.selectedIndex) doSomething(this.value);'>"+
-                     "<option value=''>Seleccionar</option>"+
-                     "<option value='PM001'>PRIMERA INFANCIA</option>"+ 
-                     "<option value='PM002'>INFANCIA</option>"+ 
-                     "<option value='PM003'>ADOLESCENCIA</option>"+ 
-                     "<option value='PM004'>JOVEN</option>"+ 
-                     "<option value='PM005'>ADULTO</option>"+ 
-                     "<option value='PM006'>VEJEZ</option> "+
-                     "<option value='PM007'>PAI</option> "+
-                     "<option value='PM008'>ATENCION PRECONCEPCIONAL</option> "+
-                     "<option value='PM009'>CONTROL PRENATAL</option> "+
-                     "<option value='PM010'>ATENCION DEL PARTO</option>"+ 
-                     "<option value='PM011'>ATENCION POSPARTO</option>"+ 
-                     "<option value='PM012'>RECIEN NACIDO</option> "+
-                     "<option value='PM013'>DEMANDA INDUCIDA</option>"+ 
-                     "<option value='PM014'>SALUD PUBLICA</option> "+
-                   
-                "</select>";
-                        
-                    }else{
-                        div_ciclos.innerHTML   = "";
-                        var dataString = 'grupoServicio='+$('#grupo_serv').val();
-        			 $.ajax({
-                        type: "POST",
-                        url: "getserviciosh.php",
-                        data: dataString,
-                        success: function(res) {
-                            //	console.log(res);                           
-                             result2.innerHTML = res;
-                           //obtenerServiciosHMedico(codigoM);                            
-                            $('#myModal').modal('toggle')
-                              
-                        }
-                         });
-                    }
-        		});  
-            function doSomething(dato){
-                console.log("consultara serv pyp "+dato); 
-        
-        			var dataString = 'grupoServicio='+$('#ciclos').val();
-                     console.log("consultara serv pyp");  
-                        
-        			 $.ajax({
-                        type: "POST",
-                        url: "getServiciosPYP.php",
-                        data: dataString,
-                        success: function(res) {
-                            	console.log(res);
-                             
-                             result2.innerHTML = res;
-                           //obtenerServiciosHMedico(codigoM);
-                             
-                            $('#myModal').modal('toggle')
-                              
-                        }
-                         });
-            }
-            </script>
-                <br>
-                
+
+            nombre_servicio.innerHTML = texto.trim()+"";
             
-        </div>
+            $.ajax({
+                      type: "POST",
+                      url: "getMedicoServicio.php?"+datoS,
+                      data: "",
+                      success: function(res2) {
+                          sel_medico.innerHTML = res2;
+                         //obtenerServiciosHMedico(codigoM);
+
+                      });
+        }             
+              $('#grupo_serv').change(function(){
+          
+            console.log($('#grupo_serv').val());
+          
+                  if($('#grupo_serv').val()=='9'){
+                div_ciclos.innerHTML   = " <label>Ciclos : </label> <select id='ciclos' class='form-control'"+ "style='width:80%' onchange='if (this.selectedIndex) doSomething(this.value);'>"+
+                  "<option value=''>Seleccionar</option>"+
+                  "<option value='PM001'>PRIMERA INFANCIA</option>"+ 
+                  "<option value='PM002'>INFANCIA</option>"+ 
+                  "<option value='PM003'>ADOLESCENCIA</option>"+ 
+                  "<option value='PM004'>JOVEN</option>"+ 
+                  "<option value='PM005'>ADULTO</option>"+ 
+                  "<option value='PM006'>VEJEZ</option> "+
+                  "<option value='PM007'>PAI</option> "+
+                  "<option value='PM008'>ATENCION PRECONCEPCIONAL</option> "+
+                  "<option value='PM009'>CONTROL PRENATAL</option> "+
+                  "<option value='PM010'>ATENCION DEL PARTO</option>"+ 
+                  "<option value='PM011'>ATENCION POSPARTO</option>"+ 
+                  "<option value='PM012'>RECIEN NACIDO</option> "+
+                  "<option value='PM013'>DEMANDA INDUCIDA</option>"+ 
+                  "<option value='PM014'>SALUD PUBLICA</option> "+
+              "</select>";
+                      
+                  }else{
+                      div_ciclos.innerHTML   = "";
+                      var dataString = 'grupoServicio='+$('#grupo_serv').val();
+            $.ajax({
+                      type: "POST",
+                      url: "getserviciosh.php",
+                      data: dataString,
+                      success: function(res) {
+                          //	console.log(res);                           
+                          result2.innerHTML = res;
+                         //obtenerServiciosHMedico(codigoM);                            
+                          $('#myModal').modal('toggle')
+                            
+                      }
+                      });
+                  }
+          });  
+          function doSomething(dato){
+              console.log("consultara serv pyp "+dato); 
+      
+            var dataString = 'grupoServicio='+$('#ciclos').val();
+                   console.log("consultara serv pyp");  
+                      
+             $.ajax({
+                      type: "POST",
+                      url: "getServiciosPYP.php",
+                      data: dataString,
+                      success: function(res) {
+                            console.log(res);
+                          
+                          result2.innerHTML = res;
+                         //obtenerServiciosHMedico(codigoM);
+                          
+                          $('#myModal').modal('toggle')
+                            
+                      }
+                      });
+          }
         
-    
-    </div>
-  </div>
-  
-      <div class="col-lg-8 col-sm-10">
-    
- 
+                  
+                </script>
+                <br>
+          </div>  <!-- col -->
+        </div>  <!-- rowDatos -->
+      </div>
+      
+</div>
           <br>
-          <div class="datagrid"><table>
+          <div class="row rowDatos2" >
+            <div class="col-lg-12 col-sm-10">
+              <br>
+                <div class="datagrid">
+                  <table>
                     <thead>
                         <tr>
                             <th style="width:25%;">Nombre de Asignado</th>
@@ -333,7 +232,7 @@ date_default_timezone_set('America/Lima');
                     </thead>
                     
                     <tbody id="tabla_horarios">
-                       <!-- <tr>
+                      <!-- <tr>
                             <td>a</td>
                             <td>b</td>
                             <td>c</td>
@@ -346,22 +245,45 @@ date_default_timezone_set('America/Lima');
                             </td>
                         </tr>-->
                         
-                            </tbody>
-                            </table></div>
-       
-    </div>
-          </div>  
-            
+                      </tbody>
+                  </table>
+                </div>
+            </div> <!-- col -->
+          </div>  <!-- row -->
+        </div>   
+
+
           </div>
   </div>
 
 </div>
-
 <?php include '../layout/datatable_script.php';?>
+        
+        <script>
+        $(document).ready( function() {
+                $('#example2').dataTable( {
+                 "language": {
+                   "paginate": {
+                      "previous": "anterior",
+                      "next": "posterior"
+                    },
+                    "search": "Buscar:",
 
 
-    <!-- Custom Theme Scripts -->
-    <script src="../layout/build/js/custom.min.js"></script>
+                  },
+
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
+                  "searching": true,
+                }
+
+              );
+              } );
+    </script>
+
+
+
   <script>
   var fecha_sel;
   var cod_medico_sel;
@@ -422,9 +344,6 @@ $horario = $_POST['horario'];
     " <a class='btn-print btn btn-primary rounded-0' href='../cita/cita_add.php?id_medico="+cod_medico_sel+"&paciente="+cod_paciente_sel+"&observaciones="+$("#descripcion_cita").val()+"&fecha="+ $("#datepicker").val()+"&horario="+horarioseleccionado+"'  role='button'></li>Registrar</a>";
     
 
-     
-     
-     
      btn_add.innerHTML = datoCita;
   console.log("Datocita "+datoCita);
    /*  $.ajax({
@@ -606,111 +525,8 @@ $('#sel_medico').change(function(){
   }  
 </script>
 
-<style>
 
-.bgall {
-    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-	background-color:#ededed;
-		padding:90px 10px;
-}
-.myButton1 {
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	border-radius:4px;
-	border:1px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:1px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
-}
-.myButton1:hover {
-	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-	background-color:#72b352;
-}
-.myButton1:active {
-	position:relative;
-	top:1px;
-}
-
-.myButton2 {
-	box-shadow: 0px 10px 14px -7px #707327;
-	background:linear-gradient(to bottom, #b39a59 5%, #ebe236 100%);
-	background-color:#b39a59;
-	border-radius:4px;
-	border:1px solid #7b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:9px;
-	font-weight:bold;
-	padding:1px 2px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #d6d645;
-}
-.myButton2:hover {
-	background:linear-gradient(to bottom, #ebe236 5%, #b39a59 100%);
-	background-color:#ebe236;
-}
-.myButton2:active {
-	position:relative;
-	top:1px;
-}
-
-.myButton3 {
-	box-shadow: 0px 10px 14px -7px #735527;
-	background:linear-gradient(to bottom, #d94f04 5%, #f596a6 100%);
-	background-color:#d94f04;
-	border-radius:4px;
-	border:1px solid #e8a079;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:1px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #f2beb1;
-}
-.myButton3:hover {
-	background:linear-gradient(to bottom, #f596a6 5%, #d94f04 100%);
-	background-color:#f596a6;
-}
-.myButton3:active {
-	position:relative;
-	top:1px;
-}
-
-        
-
-
-
-
-
-#datepicker {
-  width: 10rem;
-  text-align: center;
-  padding-right: 1rem;
-}
-.list-group-item a{
-  color: #333;
-}
-
-.datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00496B; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagrid table tbody .alt td { background: #E1EEF4; color: #00496B; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { border-top: 1px solid #006699;background: #E1EEF4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #006699; color: #FFFFFF; background: none; background-color:#00557F;}
-
-   </style>
   </body>
 
-</html>
 
 
-<?php 
-
-?>

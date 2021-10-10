@@ -22,7 +22,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-        <div class="box-header">
+        <div class="box-body">
                   <h3 class="htitle">Reporte Pagos</h3>
                 </div><!-- /.box-header -->
 
@@ -30,22 +30,23 @@
            <div class="col-md-12 colFecha">
              <form method="post" action="../farmacia/reportes_pagos_por_fecha.php" enctype="multipart/form-data"      class="form-horizontal">
                     
-                    <div class="col-md-12 btn-print">
+                    <div class="col-md-6 btn-print">
                       <div class="form-group">
-                        <label for="date" class="col-sm-3 control-label">Fecha inicio</label>
-                        <div class="input-group col-sm-8">
-                          <input type="date" class="form-control pull-right" id="date" name="fecha_inicio"  required >
+                        <label for="date" class="col-sm-3 control-label labelFecha">Fecha inicio</label>
+                        <div class="input-group col-sm-8 inputFecha" >
+                          <input type="date" class="form-control pull-right " id="date" name="fecha_inicio"  required >
                         </div><!-- /.input group -->
                       </div><!-- /.form group -->
                     </div>
                     
-                  <div class="col-md-12 btn-print">
+                  <div class="col-md-6 btn-print">
                       <div class="form-group">
-                        <label for="date" class="col-sm-3 control-label">Fecha final</label>
-                        <div class="input-group col-sm-8">
-                          <input type="date" class="form-control pull-right" id="date" name="fecha_final"  required >
-                        </div><!-- /.input group -->
-                      </div><!-- /.form group -->
+                        <label for="date" class="col-sm-3 control-label labelFecha">Fecha final</label>
+                        
+                          <div class="input-group col-sm-8 inputFecha">
+                            <input type="date" class="form-control pull-right " id="date" name="fecha_final"  required >
+                          </div><!-- /.input group -->
+                      
                     </div>
                     <button class="btn btn-plantilla" id="daterange-btn"  name="buscar_fechas">Buscar</button>
 
@@ -55,57 +56,51 @@
 
  <!--end of modal-->
 
-                        <div class="box-body">
-                  <!-- Date range -->  <section class="content-header">
-            
-          </section>
+            <div class="col-md-12">
+              
 
-        <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
-                  <div class="box-header">
-                  <h3 class="box-title"> GANANCIAS</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
+                        <div class="box-header">
+                        <h2 class="htitle2">Ganacias</h2>
+                      </div><!-- /.box-header -->
+                      <div class="box-body boxCuadros">
 
-<?php
-$simbolo_moneda="";
+              <?php
+              $simbolo_moneda="";
 
 
-       $query=mysqli_query($con,"select * from empresa  ")or die(mysqli_error());
-    $i=1;
-    while($row=mysqli_fetch_array($query)){
- //   $porcentaje_impuesto=$row['impuesto'];
-     $simbolo_moneda=$row['simbolo_moneda'];
-}
-     $fecha = date('Y-m-d');
-?>
+                    $query=mysqli_query($con,"select * from empresa  ")or die(mysqli_error());
+                  $i=1;
+                  while($row=mysqli_fetch_array($query)){
+              //   $porcentaje_impuesto=$row['impuesto'];
+                  $simbolo_moneda=$row['simbolo_moneda'];
+              }
+                  $fecha = date('Y-m-d');
+              ?>
 
-      
-<?php
-$lucro=0;
-$num=0;
-$precio_venta=0;
-$precio_compra=0;
-    $query=mysqli_query($con,"select * from pedidos ")or die(mysqli_error());
+                    
+              <?php
+              $lucro=0;
+              $num=0;
+              $precio_venta=0;
+              $precio_compra=0;
+                  $query=mysqli_query($con,"select * from pedidos ")or die(mysqli_error());
 
     
-    while($row=mysqli_fetch_array($query)){
+            while($row=mysqli_fetch_array($query)){
 
-$id_pedido=$row['id_pedido'];
+          $id_pedido=$row['id_pedido'];
 
-    $query1=mysqli_query($con,"select * from detalles_pedido_medicina d inner join producto p on d.id_producto = p.id_pro 
- where   id_pedido='$id_pedido' ")or die(mysqli_error());
-    $i=0;
-    while($row1=mysqli_fetch_array($query1)){
+              $query1=mysqli_query($con,"select * from detalles_pedido_medicina d inner join producto p on d.id_producto = p.id_pro 
+          where   id_pedido='$id_pedido' ")or die(mysqli_error());
+              $i=0;
+              while($row1=mysqli_fetch_array($query1)){
 
-            $num=$num+$row1['precio_venta']*$row1['cantidad'];
-            $lucro=$lucro+$row1['precio_venta']-$row1['precio_compra'];
-            $precio_compra=$precio_compra+$row1['precio_compra'];
-            $precio_venta=$precio_venta+$row1['precio_venta'];
-  }
-?>
-
-
-
+                      $num=$num+$row1['precio_venta']*$row1['cantidad'];
+                      $lucro=$lucro+$row1['precio_venta']-$row1['precio_compra'];
+                      $precio_compra=$precio_compra+$row1['precio_compra'];
+                      $precio_venta=$precio_venta+$row1['precio_venta'];
+            }
+          ?>
 <?php
 }
 ?>
@@ -129,9 +124,6 @@ echo 'PRECIO COMPRA=  '.$simbolo_moneda.'  '.$precio_compra;
         </div>
 
 <br>
-
-<br>
-<br><br><br>
 
 
         <div class="col-lg-3 col-xs-6">
@@ -173,27 +165,23 @@ echo 'VENTAS=  '.$simbolo_moneda.'  '.$num;
 
 <br>
 
-<br>
-<br><br><br>
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-      
-      
 
+                          <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-green">
+                              <div class="inner">
 
-              <h4><?php
-echo 'GANANCIAS=  '.$simbolo_moneda.'  '.$lucro;
-?></h4>
+                                <h4><?php
+                                echo 'GANANCIAS=  '.$simbolo_moneda.'  '.$lucro;
+                                ?></h4>
 
-            </div>
-       
+                            </div>
+                        </div>
+                        <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
           </div>
         </div>
 
 
-      </div>
     </div>
 
   <?php include '../layout/datatable_script.php';?>

@@ -168,20 +168,18 @@ $impuTotal = 0;
       
 
       <div class="right_col" role="main">
-      <div class="box-header">
+      <div class="box-body">
                   <h3 class="htitle">Agregar Pago Farmacia</h3>
                 </div><!-- /.box-header -->
           <div class="row">
 
             <!-- right column -->
-            <div class="col-md-8">
+            <div class="col-md-12">
               <!-- Horizontal Form -->
-              <div class="box box-info">
+              
                 
-                  <div class="box-body">
-                  <div class="box">
-                
-                                    <div class="box-body no-padding">
+                  <div class="box-body box1">
+                  
                             <div class="row">
                             <div id="content" class="col-lg-12">
                     <form class="form-inline" method="post" action="#">
@@ -192,7 +190,7 @@ $impuTotal = 0;
                         </div>
                       <br>   <br> 
 
-   
+  
                           <form  class="form-inline" name="f1" action="../farmacia/terminarVenta.php" method="POST">
                           <input name="total" type="hidden" value="<?php echo $granTotal;?>">
 
@@ -209,7 +207,6 @@ $impuTotal = 0;
                     <br>
 
                       <br>
-
 
                         <div class="row">
                                         <div class="col-md-3 btn-print">
@@ -276,11 +273,9 @@ $impuTotal = 0;
                                       <div class="small-box bg-white">
                                         <div class="inner">
 
-
-
   <li><a href="#updateordinance<?php echo $row['id_pro'];?>"  data-target="#updateordinance<?php echo $row['id_pro'];?>" data-toggle="modal" style="color:black;"  style="height:25%; width:75%; font-size: 12px " role="button"><?php echo $row['nombre_pro'];?><br><?php echo $simbolo_moneda.' '.$row['precio_venta'];?><br><IMG src="../producto/subir_producto/<?php  echo $row['imagen'];?>" width="100px" height="100px"></a></li>
-           
-             </tr>
+          
+            </tr>
         <div id="updateordinance<?php echo $row['id_pro'];?>" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
     <div class="modal-content" style="height:auto">
@@ -292,47 +287,39 @@ $impuTotal = 0;
               <div class="modal-body">
         <form class="form-horizontal" method="post" action="../farmacia/agregar_carrito.php" >
 
-                 <div class="row">
+                <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
-                 
-                 
+
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-7 btn-print">
+                      <div class="col-md-7 btn-print">
                       <div class="form-group">
                         
- 
-               <input type="hidden" class="form-control" id="id_producto" name="id_producto" value="<?php echo $row['id_pro'];?>" required>
+              <input type="hidden" class="form-control" id="id_producto" name="id_producto" value="<?php echo $row['id_pro'];?>" required>
 
-
- 
                       </div>
                     </div>
 
                     </div>
 
-
-
-    
 
                 <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
-                     
-                 
+
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-7 btn-print">
+                      <div class="col-md-7 btn-print">
                       <div class="form-group">
                         <label style="color: black;" >Cantidad</label>
-  <input  class="form-control" id="cantidad" name="cantidad" type="number"  min="0" max="<?php echo $row['stock_actual']; ?>" id="cantidad" placeholder="cantidad" style="width: : 100%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required>
+                          <input  class="form-control" id="cantidad" name="cantidad" type="number"  min="0" max="<?php echo $row['stock_actual']; ?>" id="cantidad" placeholder="cantidad" style="width: : 100%;" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  required>
  
                       </div>
                     </div>
                     </div>
 
-      <div class="row">
+              <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
       
@@ -380,64 +367,63 @@ $impuTotal = 0;
                                         <?php
                                 ?>
 
-                            </div><!--row-->
-
                             <?php
 
           ?>
                           </div><!-- /.box-body -->
-                        </div><!-- /.box -->
+                        
 
                             
-                        </div><!-- /.box -->
+                        
                         <!-- general form elements disabled -->
-                                   <!-- left column -->
-            <div class="col-md-4">
+                                  <!-- left column -->
+            <div class="col-md-12">
+              
               <!-- general form elements -->
-              <div class="box box-primary">
+              
             
                 <!-- form start -->
-                 <form role="form" id="frmAcceder" name="frmAcceder">
-                  <div class="box-body">
-                  <div class="row">
+                  <form role="form" id="frmAcceder" name="frmAcceder">
+                    <div class="box-body box1">
+                    <div class="row">
                     <div class="col-xs-12">
-                   <br><br>
-        <table class="table table-bordered">
-        <thead>
-        <tr>
-          <th>Descripción</th>
-          <th>Precio de venta</th>
-          <th>Cantidad</th>
-          <th>Total</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach($_SESSION["carrito_farmacia"] as $indice => $producto){ 
-            $granTotal += $producto->total;
+                    <br>
+                    <table class="table table-bordered">
+                    <thead>
+                    <tr class="encabezado">
+                      <th>Descripción</th>
+                      <th>Precio de venta</th>
+                      <th>Cantidad</th>
+                      <th>Total</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php foreach($_SESSION["carrito_farmacia"] as $indice => $producto){ 
+                      $granTotal += $producto->total;
 
 
-          ?>
-        <tr>
+                    ?>
+                  <tr>
 
-          <td><?php echo $producto->nombre ?></td>
-          <td><?php echo $producto->precio_venta ?></td>
-          <td><?php echo $producto->cantidad ?></td>
-          <td><?php echo $producto->total ?></td>
-          <td><a class="btn btn-danger" href="../farmacia/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
-          </td>
-        </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-    <h2 class="htitle"> Total: <?php echo $granTotal; ?></h2>
+                  <td><?php echo $producto->nombre ?></td>
+                  <td><?php echo $producto->precio_venta ?></td>
+                  <td><?php echo $producto->cantidad ?></td>
+                  <td><?php echo $producto->total ?></td>
+                  <td><a class="btn btn-danger" href="../farmacia/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
+                  </td>
+                </tr>
+                <?php } ?>
+              </tbody>
+            </table>
+                    <h2 class="htitle"> Total: <?php echo $granTotal; ?></h2>
 
                     </div>
                   </div> 
                   </div><!-- /.box-body -->
 
                 </form>
-              </div><!-- /.box -->
+              
 
               
             </div><!--/.col (left) -->

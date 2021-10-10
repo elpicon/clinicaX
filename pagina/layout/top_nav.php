@@ -1,7 +1,4 @@
 
-
-
-
               <?php
 
 ?>
@@ -13,7 +10,7 @@
               </div>
 
               <ul class="nav navbar-nav navbar-right">
-                         <li class="">
+              <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="collapse" aria-expanded="false">
                     <img  src="../usuario/subir_us/<?php echo $imagen; ?>" alt=""><?php echo $nombre; ?>
 
@@ -26,16 +23,6 @@
                   </ul>
                 </li>   
 
-
-
-
-
-
-   
-
-
-
-     
               </ul>
             </nav>
           </div>

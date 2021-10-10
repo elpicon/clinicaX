@@ -230,12 +230,11 @@ td {
                       ?>
 
 
-<div class="box-header">
+          <div class="box-header">
                   <h3 class="htitle" >Horario Médico</h3>
                   </div><!-- /.box-header -->
     
           <a class="btn-regresar" aria-hidden="true"  href="../medico/medico.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
-
 
   <br>
   <br>

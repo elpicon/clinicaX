@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="css/gastos.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
   <body class="nav-md">
     <div class="container body">
@@ -18,8 +18,8 @@
         <?php include '../layout/main_sidebar.php';?>
 
         <!-- top navigation -->
-       <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
-       <style>
+        <?php include '../layout/top_nav.php';?>      <!-- /top navigation -->
+        <style>
 label{
 
 color: black;
@@ -40,7 +40,7 @@ ul {
 
 
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle">Lista de Gastos</h3>
 
                 </div><!-- /.box-header -->
@@ -167,4 +167,4 @@ ul {
 
     <!-- /gauge.js -->
   </body>
-</html>
+
