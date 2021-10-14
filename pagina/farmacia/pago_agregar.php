@@ -72,6 +72,10 @@ $(document).ready(function() {
 
 
     <style type="text/css">
+
+    label{
+      color: black;
+    }
       #myInput {
   background-image: url('../actividades_financieras/css/buscador.png'); /* Add a search icon to input */
   background-position: 10px 12px; /* Position the search icon */
@@ -180,44 +184,42 @@ $impuTotal = 0;
                 
                   <div class="box-body box1">
                   
-                            <div class="row">
-                            <div id="content" class="col-lg-12">
-                    <form class="form-inline" method="post" action="#">
-
-                    </form>
-                    <div id="suggestions"></div>
-                            </div>
-                        </div>
-                      <br>   <br> 
+                      <div class="row">
+                        <div class="col-md-6">
 
   
                           <form  class="form-inline" name="f1" action="../farmacia/terminarVenta.php" method="POST">
                           <input name="total" type="hidden" value="<?php echo $granTotal;?>">
-
-                    <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
-                      <input name="tipo_venta" type="hidden" value="Contado">
-
-                          <h2 class="htitle2">Seleccione cliente</h2>
-                        <div class="input-group input-group-sm">
-                            <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
-                            </span>
+                          <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
+                            <input name="tipo_venta" type="hidden" value="Contado">
+                          <label>Seleccione cliente</label>
+                          <br>
+                          <div class="input-group input-group-sm">
+                              <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
+                              <span class="input-group-btn">
+                                  <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                              </span>
                         </div>
+                        <br>
+
+                        <br>
+
+                        <input name="cliente" id="cliente" type="hidden"  required>
                     <br>
+                        
 
-                      <br>
 
-                        <div class="row">
-                                        <div class="col-md-3 btn-print">
-                                          <div class="form-group">
-                                            <label for="date" >Medico</label>
-                                    
-                                          </div><!-- /.form group -->
-                                        </div>
-                                          <div class="col-md-4 btn-print">
-                                          <div class="form-group">
-                                <select class="form-control select2" name="id_medico" required>
+                      </form>
+
+                      
+                                    </div>
+
+                                    <div class="col-md-6">
+                                 <label for="date" >Médico</label>
+                                      <br>
+                                <div class="col-md-4 btn-print">
+                                  <div class="form-group">
+                                      <select class="form-control select2" name="id_medico" required>
                                                 
                                                 <?php
 
@@ -227,19 +229,15 @@ $impuTotal = 0;
                                                 <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
                                                 <?php }?>
                                               </select>
-                                          </div>
-                                        </div>
-                                              <div class="col-md-4 btn-print">
-                                    
-                                        </div>
-                                        </div>
+                                    </div>
+                                </div>
+                                              
+                        </div>
 
-                        <input name="cliente" id="cliente" type="hidden"  required>
-                    <br>
-                        <button type="submit" class="btn btn-success">Terminar venta</button>
+                                   
+                                    </div>
+                                    <button type="submit" class="btn btn-plantilla">Terminar venta</button>
 
-
-                      </form>
 
                   <?php
 

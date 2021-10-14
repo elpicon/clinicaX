@@ -11,15 +11,6 @@ include('../../dist/includes/dbcon.php');
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="css/horario.css" type="text/css">
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
-
-<link href="modalise.css" rel="stylesheet">
-    <script src="modalise.js" type="text/javascript"> </script>
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
         <style type="text/css">
       .demo { position: relative; }
@@ -29,12 +20,7 @@ include('../../dist/includes/dbcon.php');
       </style>
     
   <body class="nav-md">
-    <?php 
 
-   // if ($alumnos=="si") {
-      # code...
-    
-?>
     <div class="container body">
       <div class="main_container">
         <?php include '../layout/main_sidebar.php';?>
@@ -220,17 +206,8 @@ td {
         <!-- page content -->
         <div class="right_col" role="main">
 
-                    <?php
-                    $id_usuario=$_SESSION['id'];
-                            $fecha = date('Y-m-d');
-                
 
-                //  if ($guardar=="si") {
-                    
-                      ?>
-
-
-          <div class="box-header">
+          <div class="box-body">
                   <h3 class="htitle" >Horario Médico</h3>
                   </div><!-- /.box-header -->
     
@@ -340,29 +317,8 @@ td {
  <!--end of modal-->
 
 
-
-
-     <?php
-                 //     }
-                      ?>
-
-
-
-
 <br>
-<form class = "btn btn-white btn-print">
-                      Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" />
-                      
-  
-
-</form>
-
-  
-                  <div class="box-header btn btn-primary" >
-                  <h3 class="box-title"> LISTA HORARIO</h3>
-                </div><!-- /.box-header -->
-
-                
+<div class="box-body">
                       <table id="example22" class="table table-bordered table-striped">
                         <thead>
                           <tr class="encabezado">
@@ -393,7 +349,7 @@ td {
 $id_horario_medico=$row1['id'];
 
 ?>
-                      <tr >
+                      <tr style="background:white;">
             <td><?php echo $row1['fecha_inicio'];?></td>
              <td><?php echo $row1['fecha_fin'];?></td>
               <td><?php echo $row1['dia_laborable'];?></td>
@@ -403,7 +359,7 @@ $id_horario_medico=$row1['id'];
       
 
                         <td style="text-align: center;">
-                                   <?php
+                                <?php
                     //  if ($eliminar=="si") {
                     
                       ?>
@@ -416,12 +372,6 @@ $id_horario_medico=$row1['id'];
                     
                       ?>
 
-            <?php
-                  //    }
-        
-  
-
-                      ?>
 
             </td>
                       </tr>
@@ -434,13 +384,10 @@ $id_horario_medico=$row1['id'];
 
                   </table>
 
-
+                 </div>
+                 
      <script type="text/javascript">// < ![CDATA[
-         
-         
-         
-         
-         
+
 function Eliminar (i) {
     document.getElementsByTagName("table")[0].setAttribute("id","tableid");
     document.getElementById("tableid").deleteRow(i);
@@ -469,15 +416,11 @@ function Buscar() {
         }
 // ]]></script>
 
-
-
+<?php include '../layout/datatable_script.php';?>
             </div><!-- /.col -->
 
 
           </div><!-- /.row -->
-
-
-
 
                 </div><!-- /.box-body -->
 
@@ -486,31 +429,21 @@ function Buscar() {
       </div>
         </div>
         <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-                  <a href="#">.. Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
         <!-- /footer content -->
       </div>
     </div>
 
-  <?php include '../layout/datatable_script.php';?>
 
-        <script>
+
+  <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
-                      "previous": "anterior",
-                      "next": "posterior"
+                  "language": {
+                  "paginate": {
+                      "previous": "Anterior",
+                      "next": "Siguiente"
                     },
                     "search": "Buscar:",
-
-
                   },
 
                   "info": false,
@@ -523,25 +456,8 @@ function Buscar() {
 
               );
               } );
-              
-              
-            $(function () {
-            $('#datetimepicker1').datepicker({
-            });
-            });
-        
-        
- }
-              
-            
-        </script>
-<style>
-  .datepicker{z-index:1151 !important;}
-</style>
-    <?php 
-          # code...
-   // }
-?>
-    <!-- /gauge.js -->
+    </script>
+
+
   </body>
 </html>

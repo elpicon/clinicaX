@@ -21,6 +21,12 @@
     margin-top: 70px;
 }
 
+.htitle2{
+    color: #2d3235 ;
+    margin-top: 70px;
+    margin-left: 10px;
+}
+
 .encabezado{
     background: #002142;
     color: white;
@@ -54,4 +60,14 @@
 
 .container{
     width: 100% !important;
+}
+
+.colDatos{
+    background-color: white;
+    margin-left: 10px;
+}
+
+.rowDatos{
+    margin-left: 10px;
+    margin-right: 10px;
 }

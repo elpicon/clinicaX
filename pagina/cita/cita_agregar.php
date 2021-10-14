@@ -24,6 +24,7 @@
         <div class="box-body">
           <h3 class="htitle">Agregar Cita</h3>
         </div><!-- /.box-header -->
+        <a class="btn-regresar" aria-hidden="true"  href="../cita/cita.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
 
         <div class="modal fade" id="Employee">  
           <div class="modal-dialog">  
@@ -56,15 +57,17 @@
         <div class="row rowDatos" >
           <div class="col-lg-12 col-sm-12">
             <div class="row">
-              <div class="col-lg-12 col-sm-12">
-                <div class="list-group-item list-group-item-action d-flex">
-                  <div class="p-2 flex-grow-1">
-                    <input id="datepicker"  value="<?php  echo date("Y-m-d");     ?>" />
+              <div class="col-lg-3 col-sm-12">
+              <label for='paciente'>Fecha</label>  
+                <div class="list-group-item list-group-item-action d-flex" style="
+    padding: 0;">
+                  <div class="p-2 flex-grow-1 ">
+                    <input id="datepicker" class="form-control" value="<?php  echo date("Y-m-d");     ?>" />
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 col-sm-6">
-              <br>
+              <div class="col-lg-9 col-sm-6">
+              
                 <label for='paciente'>Paciente</label>  
                 <input list='listapaciente' id='in_paciente' autocomplete='off' value='' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' >
                 <datalist id='listapaciente' disable ></datalist>
@@ -219,15 +222,15 @@
           <div class="row rowDatos2" >
             <div class="col-lg-12 col-sm-10">
               <br>
-                <div class="datagrid">
-                  <table>
+                
+                  <table class="table table-bordered table-striped dataTable no-footer">
                     <thead>
-                        <tr>
+                        <tr class="encabezado">
                             <th style="width:25%;">Nombre de Asignado</th>
                             <th style="width:23%;">Hora de Cita</th>
-                            <th style="width:25%;">Medico Asignado</th>
+                            <th style="width:25%;">Médico Asignado</th>
                             <th>Estado</th>
-                            <th style="width:6%;">Accion</th>
+                            <th style="width:6%;">Acciones</th>
                         </tr>
                     </thead>
                     
@@ -247,7 +250,7 @@
                         
                       </tbody>
                   </table>
-                </div>
+                
             </div> <!-- col -->
           </div>  <!-- row -->
         </div>   

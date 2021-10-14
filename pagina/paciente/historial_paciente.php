@@ -60,7 +60,7 @@ include '../layout/header.php';
 
     <!-- page content -->
     <div class="right_col" role="main">
-    <div class="box-header">
+    <div class="box-body">
       <h3 class="htitle" > Historial Paciente </h3>
     </div><!-- /.box-header -->
       <?php
@@ -124,7 +124,7 @@ include '../layout/header.php';
 <div class="col-lg-6 ">
 
   <div class="text-right">
-      <a type="button" class="btn btn-plantilla2 float-right"  onclick="limpiarT();limpiarTCups();" data-toggle="modal" data-target="#exampleModal">
+      <a type="button" class="btn btn-cama float-right"  onclick="limpiarT();limpiarTCups();" data-toggle="modal" data-target="#exampleModal">
   Plan de Manejo
 </a>
 
@@ -190,10 +190,6 @@ include '../layout/header.php';
                     </datalist>
               
               </div>
-              
-            
-              
-               
               <div class='col-lg-2 col-sm-2 form-group' >
                <label>Unidades </label> 
                 <input required class="form-control" list="unidades" type="number" min="1" max="100" id="unidades" value="1" class="form-control" autocomplete='off'>
@@ -253,44 +249,43 @@ include '../layout/header.php';
 
 <div class="row">
 
-<div class='col-lg-12  text-white menux colMenu' style="
-    width: 1060px;">
+<div class='col-lg-12  text-white menux colMenu' >
       <ul class="nav nav-tabs navBorde " id="myTab" role="tablist">
-     
-   <li class="nav-item  " id="xx" >
-      <a class="nav-link active bg-success " id="home-tab" data-toggle="tab" href="#datosconsulta" role="tab" aria-controls="home" aria-selected="true"><span class="text-dark ">Datos Consulta</span></a>
-   </li>
+    
+  <li class="nav-item  " id="xx" >
+      <a class="nav-link active btn-ver" id="home-tab" data-toggle="tab" href="#datosconsulta" role="tab" aria-controls="home" aria-selected="true"><span class="text-dark" >Datos Consulta</span></a>
+  </li>
   <li class="nav-item ">
-    <a class="nav-link bg-success apartado1" id="antecedentes-tab" data-toggle="tab" href="#antecedentes" role="tab" aria-controls="antecedentes" aria-selected="false"><span class="text-dark">Antecedentes Personales</span></a>
+    <a class="nav-link btn-ver apartado1" id="antecedentes-tab" data-toggle="tab" href="#antecedentes" role="tab" aria-controls="antecedentes" aria-selected="false"><span class="text-dark" >Antecedentes Personales</span></a>
   </li>
   <!--URGENCIAS-->
     <li class="nav-item  ">
-    <a class="nav-link bg-success apartado1" id="datospaciente-tab" data-toggle="tab" href="#datospaciente" role="tab" aria-controls="datospaciente" aria-selected="false"><span class="text-dark">Datos Paciente</span></a>
+    <a class="nav-link  btn-ver apartado1" id="datospaciente-tab" data-toggle="tab" href="#datospaciente" role="tab" aria-controls="datospaciente" aria-selected="false"><span class="text-dark" >Datos Paciente</span></a>
   </li>
   <li class="nav-item  ">
-    <a class="nav-link bg-success apartado1" id="atenciontriage-tab" data-toggle="tab" href="#atenciontriage" role="tab" aria-controls="atenciontriage" aria-selected="false"><span class="text-dark">Atencion Trieage</span></a>
+    <a class="nav-link  btn-ver apartado1" id="atenciontriage-tab" data-toggle="tab" href="#atenciontriage" role="tab" aria-controls="atenciontriage" aria-selected="false"><span class="text-dark" >Atencion Trieage</span></a>
   </li>
   <li class="nav-item  ">
-    <a class="nav-link bg-success apartado1" id="orden_salida-tab" data-toggle="tab" href="#orden_salida" role="tab" aria-controls="orden_salida" aria-selected="false"><span class="text-dark">Orden de Salida</span></a>
+    <a class="nav-link  btn-ver apartado1" id="orden_salida-tab" data-toggle="tab" href="#orden_salida" role="tab" aria-controls="orden_salida" aria-selected="false"><span class="text-dark" ">Orden de Salida</span></a>
   </li>
   <li class="nav-item  ">
-    <a class="nav-link bg-success apartado1" id="vigilancia_nutricional-tab" data-toggle="tab" href="#vigilancia_nutricional" role="tab" aria-controls="vigilancia_nutricional" aria-selected="false"><span class="text-dark">Vigilancia Nutricional</span></a>
+    <a class="nav-link  btn-ver apartado1" id="vigilancia_nutricional-tab" data-toggle="tab" href="#vigilancia_nutricional" role="tab" aria-controls="vigilancia_nutricional" aria-selected="false"><span class="text-dark">Vigilancia Nutricional</span></a>
   </li>
   <!--x-->
   <li class="nav-item  ">
-    <a class="nav-link bg-success apartado1" id="antecedentesf-tab" data-toggle="tab" href="#antecedentesf" role="tab" aria-controls="antecedentesf" aria-selected="false"><span class="text-dark">Antecedentes Familiares</span></a>
+    <a class="nav-link  btn-ver apartado1" id="antecedentesf-tab" data-toggle="tab" href="#antecedentesf" role="tab" aria-controls="antecedentesf" aria-selected="false"><span class="text-dark" >Antecedentes Familiares</span></a>
   </li>
   <li class="nav-item ">
-    <a class="nav-link bg-success apartado1" id="examenfisico-tab" data-toggle="tab" href="#examenfisico" role="tab" aria-controls="messages" aria-selected="false"><span class="text-dark ">Examen Fisico</span></a>
+    <a class="nav-link  btn-ver apartado1" id="examenfisico-tab" data-toggle="tab" href="#examenfisico" role="tab" aria-controls="messages" aria-selected="false"><span class="text-dark ">Examen Físico</span></a>
   </li>
   <li class="nav-item  ">
-    <a class="nav-link bg-success apartado1" id="rsistema-tab" data-toggle="tab" href="#rsistema" role="tab" aria-controls="rsistema" aria-selected="false"><span class="text-dark ">Revision Sistema</span></a>
+    <a class="nav-link  btn-ver apartado1" id="rsistema-tab" data-toggle="tab" href="#rsistema" role="tab" aria-controls="rsistema" aria-selected="false"><span class="text-dark " >Revisió n Sistema</span></a>
   </li>
    <li class="nav-item  ">
-    <a class="nav-link bg-success apartado1"  id="diagnostico-tab" data-toggle="tab" href="#diagnostico" role="tab" aria-controls="diagnostico" aria-selected="false"><span class="text-dark ">Diagnostico</span></a>
+    <a class="nav-link  btn-ver apartado1"  id="diagnostico-tab" data-toggle="tab" href="#diagnostico" role="tab" aria-controls="diagnostico" aria-selected="false"><span class="text-dark ">Diagnóstico</span></a>
   </li>
   <li class="nav-item ">
-    <a class="nav-link bg-success apartado1" id="resumenservicio-tab" data-toggle="tab" href="#resumenservicio" role="tab" aria-controls="resumenservicio" aria-selected="false"><span class="text-dark ">Resumen Servicio</span></a>
+    <a class="nav-link  btn-ver apartado1" id="resumenservicio-tab" data-toggle="tab" href="#resumenservicio" role="tab" aria-controls="resumenservicio" aria-selected="false"><span class="text-dark " >Resumen Servicio</span></a>
   </li>
   
 </ul>
@@ -298,9 +293,9 @@ include '../layout/header.php';
 </div>
 
 <div class="row">
-<div class='col-md-6 col-lg-6 colDatos'> 
-<ul class="nav nav-tabs  justify-content-left">
-        <h2 class="htitle2">Datos Personales</h2>
+<div class='col-md-4 col-lg-4 colDatos'> 
+<ul class="nav nav-tabs  navBorde justify-content-left">
+        <h3 class="htitle2">Datos Personales</h3>
     <?php
 
     $query = mysqli_query( $con, "SELECT * FROM `u_pacientes` WHERE `numerodedocumento`='$cid';" )or die( mysqli_error() );
@@ -327,15 +322,10 @@ include '../layout/header.php';
          /* $medico = $row[ 'medico' ];
           $apellido = $row[ 'primerapellido' ];
           $paciente = $row[ 'paciente' ];
-         
-         
-          
-          
+
          
           $direccion = $row[ 'direccion' ];
-         
-         
-        
+
           $toma_medicamentos = $row[ 'toma_medicamentos' ];
           $antecedentes = $row[ 'antecedentes' ];
           $antecedentes_familiares = $row[ 'antecedentes_familiares' ];
@@ -371,8 +361,8 @@ $diff = $date1->diff($date2);
     
       echo "
   <div class='row horizontal-scroll-contenedor'> 
-   <div class='col-lg-6 col-sm-6'> 
-      <table class='table   ' style='width:20%';>
+   
+      <table class='table   ' style='width:20%; margin-left: 20px;';>
         <thead>
             <tr>
               <th style='width:15%';></th>
@@ -383,34 +373,33 @@ $diff = $date1->diff($date2);
         <tbody>
           <tr class='btn-info' >
             <th scope='row'>Nombre</th>
-            <td style='background:#aaa9aa;color:#fff;' >$nombre</td>
+            <td style='background:white;color:black;' >$nombre</td>
           </tr>
           <tr class='btn-info' >
             <th scope='row'>Apellido</th>
-            <td style='background:#aaa9aa;'color:#fff;'>$apellido</td>
+            <td style='background:white;color:black;'>$apellido</td>
           </tr>
           <tr class='btn-info' >
             <th scope='row'>Documento</th>
-            <td  style='background:#aaa9aa;color:#fff;'>$documento</td>
+            <td  style='background:white;color:black;'>$documento</td>
           </tr >
             <tr class='btn-info' >
           <th scope='row'><small>F/Nacimiento</small></th>
-            <td  style='background:#aaa9aa;color:#fff;' ><font size=1>$fecha_nacimiento<font></td>
+            <td  style='background:white;color:black;' ><font size=1>$fecha_nacimiento<font></td>
             </tr>
             <tr class='btn-info' >
             <th scope='row'>Teléfono</th>
-            <td  style='background:#aaa9aa;color:#fff;'>$telefono</td>
+            <td  style='background:white;color:black;'>$telefono</td>
             </tr>
             <tr class='btn-info' >
             <th scope='row'>Edad</th>
-            <td  style='background:#aaa9aa;color:#fff;'>$diff->y</td>
+            <td  style='background:white;color:black;'>$diff->y</td>
           </tr>
         </tbody>
       </table>
-  </div>
   
-  <div class='col-lg-6 col-sm-6 horizontal-scroll-contenedor'> 
-  <table class='table' style='width:20%';>
+  
+  <table class='table' style='width:20%; margin-left: 20px;';>
  
       <thead overflow-x: auto;>
         <tr>
@@ -422,31 +411,31 @@ $diff = $date1->diff($date2);
       <tbody>
           <tr class='btn-info' >
           <th scope='row'>Tipo/Sangre</th>
-          <td  style='background:#aaa9aa;color:#fff;'>$tipo_sangre</td>
+          <td  style='background:white;color:black;'>$tipo_sangre</td>
         </tr>
         <tr class='btn-info' >
           <th scope='row'>Genero</th>
-          <td  style='background:#aaa9aa;color:#fff;' >$genero</td>
+          <td  style='background:white;color:black;' >$genero</td>
         </tr>
         <tr class='btn-info' >
           <th scope='row'>Celular</th>
-          <td  style='background:#aaa9aa;color:#fff;'>$celular</td>
+          <td  style='background:white;color:black;'>$celular</td>
         </tr>
         <tr class='btn-info ' >
           <th scope='row'>Ocupacion</th>
-          <td  style='background:#aaa9aa;color:#fff;'>$ocupacion</td>
+          <td  style='background:white;color:black;'>$ocupacion</td>
         </tr>
         <tr class='btn-info' >
           <th scope='row'>EPS</th>
-          <td  style='background:#aaa9aa;color:#fff;'>$epsnombre</td>
+          <td  style='background:white;color:black;'>$epsnombre</td>
         </tr>
         <tr class='btn-info' >
           <th scope='row'>Ciudad</th>
-          <td  style='background:#aaa9aa;color:#fff;'>$ciudad</td>
+          <td  style='background:white;color:black;'>$ciudad</td>
         </tr>
       </tbody>
     </table>
-      </div>
+  
 
   </div>
     
@@ -540,16 +529,15 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
       
 </ul>
 </div>
-    </div>
-<div class="row">
-<div class='col-md-9 col-lg-9 offset-md-1'>
+
+<div class='col-md-8 col-lg-8 offset-md-1'>
   <div class="tab-content">
     <div class="tab-pane active" id="datosconsulta" role="tabpanel" aria-labelledby="home-tab">
    <div class="row ">
     <div class="col-lg-7 form-group " >
         <br>
         <br>
-        <label class=" text-left subt">Finalidad de la Consulta</label>
+        <label class=" text-left ">Finalidad de la Consulta</label>
     <select id="finalidadconsulta" class="form-select form-control" aria-label="Default select example">
         <?php
         $nombre_finalidad;
@@ -577,7 +565,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
   <div class="row form-group">
          <br>
     <div class="col-lg-6">
-    <label  class=" text-left subt">Causa Externa Consulta</label>
+    <label  class=" text-left ">Causa Externa Consulta</label>
     <select id="causaexternaconsulta" class="form-select form-control" aria-label="Default select example">
         <?php
       
@@ -606,7 +594,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
         <div class="row ">
          <br>
    <div class="col-lg-6 form-group">
-   <label  class=" text-left subt">Estado de Conciencia *</label>
+   <label  class=" text-left ">Estado de Conciencia *</label>
     <textarea class="form-control text-alert form-control" rows="5" id="estadoconciencia"></textarea>
     </div>
     </div>
@@ -614,7 +602,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
      <div class="row ">
          <br>
           <div class="col-lg-6">
-    <label  class=" text-left subt">Motivos de la Consulta *</label>
+    <label  class=" text-left ">Motivos de la Consulta *</label>
     <textarea class="form-control" rows="5" id="motivoconsulta"></textarea>
     </div>
     </div>
@@ -622,7 +610,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
      <div class="row ">
          <br>
           <div class="col-lg-6">
-    <label  class=" text-left subt">Enfermedad Actual</label>
+    <label  class=" text-left ">Enfermedad Actual</label>
     <textarea class="form-control" rows="5" id="enfermedadactual"></textarea>
     </div>
     </div>
@@ -630,7 +618,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
      <div class="row ">
          <br>
           <div class="col-lg-6">
-     <label  class=" text-left subt">Praclinicos</label>
+     <label  class=" text-left ">Praclinicos</label>
     <textarea class="form-control" rows="5" id="paraclinicos"></textarea>
     </div>
     </div>
@@ -2126,21 +2114,21 @@ in_cie103.addEventListener('propertychange', inputHandler3);
     
     
     
-  </div>
+
 </div>
 
 </div>
 </div>   
-<footer>
-  <div class="pull-right"> <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a> </div>
-  <div class="clearfix"></div>
-</footer>
+
 <!-- /footer content -->
 </div>
 </div>
 </div>
 
-
+<footer>
+  <div class="pull-right"> <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a> </div>
+  <div class="clearfix"></div>
+</footer>
 
 
 <?php include '../layout/datatable_script.php';?>
@@ -2472,7 +2460,6 @@ input_cups.addEventListener('propertychange', inHandlerCups);
 
     
     </script>   
- //X   
 <script>   
 //MEDICAMENTOS   
 var MedProc=0;
@@ -2709,6 +2696,8 @@ label{
 
 color: black;
 }
+
+
 li {
   color: white;
 }
@@ -2722,50 +2711,72 @@ ul {
 
 <style>
     #home-tab{
-   border:3px solid #888899;
+   border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
          
 }
     #antecedentes-tab{
-   border:3px solid #888899;
+   border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
     #datospaciente-tab{
-   border:3px solid #888899;
+   border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
    #atenciontriage-tab{
-   border:3px solid #888899;
+   border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
     #orden_salida-tab{
-   border:3px solid #888899;
-   border-radius:22px;
+   border:2px solid #f36613;
+   border-radius:22px; 
+   margin-top: 10px;
+   margin-right: 10px;
     }
     #vigilancia_nutricional-tab{
-   border:3px solid #888899;
+   border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
     #antecedentesf-tab{
-   border:3px solid #888899;
+   border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
     #examenfisico-tab{
-   border:3px solid #888899;
+   border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     } 
     
     #rsistema-tab{
-   border:3px solid #888899;
+      border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
      #diagnostico-tab{
-   border:3px solid #888899;
+      border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
      #resumenservicio-tab{
-   border:3px solid #888899;
+      border:2px solid #f36613;
    border-radius:22px;
+   margin-top: 10px;
+   margin-right: 10px;
     }
     </style>       
        

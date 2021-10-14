@@ -58,7 +58,7 @@
                   <h3 class="htitle">Pagos</h3>
                 </div><!-- /.box-header -->
 
-                <div class="box-body" style="width:900px; margin-left: 95px;" >
+                <div class="box-body" style="width:900px; margin-left: 40px;" >
                   <table id="example2" class="table table-bordered table-striped tablaPagos">
                     <thead>
                         <tr class="encabezado">

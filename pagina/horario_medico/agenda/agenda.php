@@ -18,12 +18,7 @@
       <script src="js/fullcalendar.min.js"></script>
       <script src="js/es.js"></script>
       <!-- CSS only -->
-      <!-- JavaScript Bundle with Popper -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-      <script src="js/bootstrap-clockpicker.js"></script>
-      <link rel="stylesheet" href="css/bootstrap-clockpicker.css">
       <style>
 
     .fc-nonbusiness {
@@ -51,13 +46,13 @@
 
         
             <input id="codigo_medico_inicial" value="<?php echo $_REQUEST['cid'];?>" hidden>
-            <div class="row " >
-         
+
         
-            <div   style="width:60%" class="col-lg-6 text-center   ">
-            <label  class="text-center"> PROGRAMACION DE AGENDA </label>
-            </div>
-     
+        
+            <div class="box-body">
+            <h3  class="htitle2"> Programación de agenda </h3>
+
+    
             </div>
   
   <style>
@@ -66,10 +61,35 @@
           padding: 15px;
         }
   </style>  
-    
+ 
+
+
+  <!--  
+    <div class="col-lg-6 form-group">
+            <label>Servicio : </label>
+                <select id="results" class="form-control">
+                  <option value="1">INTERNACION</option> 
+                  <option value="2">QUIRURGICOS</option> 
+                  <option value="3">CONSULTA EXTERNA</option> 
+                  <option value="5">URGENCIAS</option> 
+                  <option value="6">TRANSPORTE ASISTENCIAL</option> 
+                  <option value="7">APOYO DIAGNOSTICO Y TERAPEUTICO</option> 
+                  <option value="8">OTROS SERVICIOS</option> 
+                  <option value="9">P&P</option> 
+                  <option value="10">PROCESOS</option> 
+                  <option value="11">ATENCION INMEDIATA</option> 
+                </select>
+        </div>  
+-->
+
+<div class="row rowDatos">
+
+
+
+    <div class="col-md-12 colDatos">
+    <div class="row">  
  <table >
   <thead>
-       
     <tr>
       <th style="width:15%"><label > </label> </th>
       <th style="width:10%"> </th>
@@ -87,7 +107,6 @@
      <tr>  <input type="hidden"  id="id_empresa" value="<?php echo $id_sede;  ?>" /><input type="hidden"  id="tipo" value="<?php echo $tipo;  ?>" />
       <td ><label >Sede : </label> </td>
       <td><input type="number" onkeypress="validarSede(event)" id="sede" min="1" max="99" step="1" value="1" class="form-control" style="width:80px" /></td>
-      <td><label id="label_sede">Digita Numero de Sede y Presiona enter </label></td>
       
       <td ><label style="width:95px">Profesional : </label></td>
       <td>
@@ -104,7 +123,7 @@
                       if(!strcmp($tipo,'medico'))  {
                                      
                                     
-                                     if(!strcmp($rowc['id'],$id)) {
+                                    if(!strcmp($rowc['id'],$id)) {
                                      echo "<option value=".$rowc['id'];
                                      echo "selected>"; 
                                      echo "<small>"; 
@@ -127,27 +146,8 @@
    
 
 </table>
-  <!--  
-    <div class="col-lg-6 form-group">
-            <label>Servicio : </label>
-                <select id="results" class="form-control">
-                  <option value="1">INTERNACION</option> 
-                  <option value="2">QUIRURGICOS</option> 
-                  <option value="3">CONSULTA EXTERNA</option> 
-                  <option value="5">URGENCIAS</option> 
-                  <option value="6">TRANSPORTE ASISTENCIAL</option> 
-                  <option value="7">APOYO DIAGNOSTICO Y TERAPEUTICO</option> 
-                  <option value="8">OTROS SERVICIOS</option> 
-                  <option value="9">P&P</option> 
-                  <option value="10">PROCESOS</option> 
-                  <option value="11">ATENCION INMEDIATA</option> 
-                </select>
-        </div>  
--->
- 
-<div class="row">
-    <div class="col">
-    <table>
+
+<table>
   <thead>
     <tr>
       <th> </th>
@@ -169,10 +169,7 @@
     </tr>
 </tbody>
 </table>
- 
-    </div>
-  
-    <div class="col">
+<div class="col-md-12">
       <table>
   <thead>
     <tr>
@@ -194,33 +191,27 @@
       <td ><label >Pacientes Atendidos a la Vez: </label> </td>
       <td> <input type="number" id="atencionParalela" min="1" max="10" step="1" class="form-control" style="width:80px"></td>
     </tr>
-    <tr>
+</table>
+ 
+    </div>
+
+</div>
+
+ 
+    </div>
+
+  <div class="row ">
+    <div class="col-lg-5">
+      <table class="default" >
+      <tr>
       <td style="background:#82B4b4"><input style="transform: scale(1.5);" type="checkbox" id="trabajadomingos"   style="width:80px"><label class="text-right">&nbsp;&nbsp;TRABAJA DOMINGOS: </label> </td>
       <td></td>
     </tr>
 
-</table>
- 
-    </div>
-  </div>
-
- 
- 
- 
-
-
- 
- 
- <br><br>
- <br>
- 
-  <div class="row">
-    <div class="col-lg-5">
-      <table class="default" >
-
   <tr>
 
     <th></th>
+    
 
     <th style="width:120px;">Hora Inicio</th>
 
@@ -758,7 +749,7 @@
   </div>
   
   
-    </div>
+    
             </div>
             </div>
 
@@ -911,6 +902,31 @@ var NuevoEvento;
  }
     
 </script>
+
+<script>
+        $(document).ready( function() {
+                $('#example2').dataTable( {
+                 "language": {
+                   "paginate": {
+                      "previous": "Anterior",
+                      "next": "Siguiente"
+                    },
+                    "search": "Buscar:",
+
+
+                  },
+
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
+
+
+  "searching": true,
+                }
+
+              );
+              } );
+    </script>
 
  </body>
 </html>

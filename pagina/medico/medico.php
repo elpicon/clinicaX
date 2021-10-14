@@ -37,9 +37,9 @@ ul {
         <!-- page content -->
         <div class="right_col" role="main">
   
- 
+
  <!--end of modal-->
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle" > Listado de Médicos</h3>
                   </div><!-- /.box-header -->
 

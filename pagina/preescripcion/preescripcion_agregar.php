@@ -173,87 +173,17 @@ $(document).ready(function() {
         <section class="content">
                 <div class="row">
                   <!-- left column -->
-                  <div class="col-md-4">
-                    <!-- general form elements -->
-                    <div class="box box-primary">
-                      <div class="box-header with-border">
-                
-                      </div><!-- /.box-header -->
-                      <!-- form start -->
-                      <form role="form" id="frmAcceder" name="frmAcceder">
-                        <div class="box-body">
-                        <div class="row">
-                          <div class="col-xs-12">
-                        <br><br>
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-
-      
-                <th>Medicina</th>
-                <th>Dosis</th>
-                <th>Frecuencia</th>
-                  <th>Dias</th>
-      
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php foreach($_SESSION["carrito_pres"] as $indice => $preescripcion){ 
-
-
-
-                ?>
-              <tr>
-
-                <td><?php echo $preescripcion->medicina ?></td>
-                <td><?php echo $preescripcion->dosis ?></td>
-                <td><?php echo $preescripcion->frecuencia ?></td>
-                    <td><?php echo $preescripcion->dias ?></td>
-      
-                <td><a class="btn btn-danger" href="../preescripcion/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
-          
-                </td>
-              </tr>
-              <?php } ?>
-            </tbody>
-          </table>
-
-
-
-
-
-                          </div>
-                        </div> 
-                        </div><!-- /.box-body -->
-
-                      </form>
-                    </div><!-- /.box -->
-
-              
-            </div><!--/.col (left) -->
+                  
             <!-- right column -->
-            <div class="col-md-8">
+            <div class="col-md-12">
               <!-- Horizontal Form -->
-              <div class="box box-info">
-                <div class="box-header with-border">
-                  <h3 class="box-title">POS</h3>
-                </div><!-- /.box-header -->
                 <!-- form start -->
-                
-                  <div class="box-body">
+
                   <div class="box">
                 
-                <div class="box-body no-padding">
-        <div class="row">
-        <div id="content" class="col-lg-12">
-<form class="form-inline" method="post" action="#">
 
-</form>
-<div id="suggestions"></div>
-        </div>
-    </div>
-   <br>   <br> 
+
+              <br>   <br> 
 
    
       <form  class="form-inline" name="f1" action="../preescripcion/terminarVenta.php" method="POST">
@@ -321,7 +251,7 @@ $(document).ready(function() {
 
      <input name="cliente" id="cliente" type="hidden"  required>
 <br>
-      <button type="submit" class="btn btn-success">Terminar venta</button>
+      <button type="submit" class="btn btn-plantilla">Terminar venta</button>
 
 
     </form>
@@ -427,13 +357,63 @@ $(document).ready(function() {
                   <?php
 
  ?>
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
+              <!-- /.box -->
 
-                  
-              </div><!-- /.box -->
+
               <!-- general form elements disabled -->
                           </div><!--/.col (right) -->
+                          <div class="col-md-12">
+                    <!-- general form elements -->
+  
+                      <!-- form start -->
+                      <form role="form" id="frmAcceder" name="frmAcceder">
+                        <div class="box-body">
+                        <div class="row">
+                          <div class="col-xs-12">
+                        
+                          <table class="table table-bordered">
+                            <thead>
+                              <tr class="encabezado">
+
+                      
+                                <th>Medicina</th>
+                                <th>Dosis</th>
+                                <th>Frecuencia</th>
+                                  <th>Dias</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach($_SESSION["carrito_pres"] as $indice => $preescripcion){ 
+
+
+
+                              ?>
+                            <tr>
+
+                              <td><?php echo $preescripcion->medicina ?></td>
+                              <td><?php echo $preescripcion->dosis ?></td>
+                              <td><?php echo $preescripcion->frecuencia ?></td>
+                                  <td><?php echo $preescripcion->dias ?></td>
+                    
+                              <td><a class="btn btn-danger" href="../preescripcion/<?php  echo "quitarDelCarrito.php?indice=$indice";?>"><i class="fa fa-trash"></i></a>
+                        
+                              </td>
+                            </tr>
+                            <?php } ?>
+                          </tbody>
+                        </table>
+
+
+                          </div>
+                        </div> 
+                        </div><!-- /.box-body -->
+
+                      </form>
+      <!-- /.box -->
+
+              
+            </div><!--/.col (left) -->
           </div>   <!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->

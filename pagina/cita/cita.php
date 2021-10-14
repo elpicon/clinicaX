@@ -89,7 +89,10 @@ date_default_timezone_set('America/Lima');
   </div>
 </div>
 
-              <div class="box-header">
+              <div class="box-body" style="
+    padding: 10px;"
+    
+>
                   <h3 class="htitle2">Lista de Citas</h3>
 
               </div><!-- /.box-header -->

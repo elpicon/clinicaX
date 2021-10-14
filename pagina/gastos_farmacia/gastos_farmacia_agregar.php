@@ -47,7 +47,7 @@
                 <div class="box-body">
                 
 
-        <form class="form-horizontal" method="post" action="gastos_farmacia_add.php" enctype='multipart/form-data'>
+        <form class="form-horizontal base" method="post" action="gastos_farmacia_add.php" enctype='multipart/form-data'>
 
                   <div class="row">
                     <div class="col-md-3 btn-print">
@@ -56,33 +56,26 @@
                 
                       </div><!-- /.form group -->
                     </div>
-                      <div class="col-md-4 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="cantidad" name="cantidad" required >
                       </div>
                     </div>
-                          <div class="col-md-4 btn-print">
-                
-                    </div>
-                    </div>
-    
+          </div>
 
-      <div class="row">
+              <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Nota</label>
                 
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="nota" name="nota" required >
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
                     </div>
                     </div>
 
@@ -93,7 +86,7 @@
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
              <select class="form-control select2" name="id_categoria" id="id_categoria" required>
                   <option value="0">SELECCIONE CATEGORIA</option>           
@@ -107,20 +100,15 @@
                           </select>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                          
                     </div>
 
-
+                  <div class="row" style="
+    text-align: center;">
+    <br>
     <button type="submit" class="btn btn-plantilla">Guardar</button>
-              
+                </div>  
 
-
-              <div class="modal-footer">
-
-
-              </div>
         </form>
 
                 </div><!-- /.box-body -->

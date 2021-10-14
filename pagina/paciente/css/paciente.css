@@ -25,6 +25,7 @@
 .htitle2{
     color: #2d3235 ;
     margin-top: 30px;
+    margin-left: 10px ;
 }
 
 
@@ -105,18 +106,17 @@ select{
     margin-left: 20px;
 }
 
-.colMenu{
-    background-color: white;
-    padding: 20px;
-    margin-left: 20px;
-    width: 1060px;
-}
-
 .navBorde{
     border: none !important;
-    width: 1100px;
+    
 }
 
-.colDatos{
-    margin-left: 10px;
+
+
+.spanMenu{
+    color: black;
+}
+
+.colMenu{
+    padding-left: 90px !important;
 }

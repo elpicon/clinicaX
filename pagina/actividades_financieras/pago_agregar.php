@@ -144,63 +144,67 @@ ul {
       </style>
 
         <div class="right_col" role="main">
-        <div class="box-header">
+        <div class="box-body">
                 <h3 class="htitle">Agregar Pago</h3>
                 </div><!-- /.box-header -->
           <div class="row">
             <!-- left column -->
             
             <!-- right column -->
-            <div class="col-md-8">
+            <div class="col-md-12">
               <!-- Horizontal Form -->
                 
-                <div class="box-body">
-                  <div class="box">
-                    <div class="box-body no-padding">
+                <div class="box-body" >
+                  <div class="box box1" >
+                    
 
   
                 <form  class="form-inline" name="f1" action="../actividades_financieras/terminarVenta.php" method="POST">
                             <input name="total" type="hidden" value="<?php echo $granTotal;?>">
                       <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
                       <input name="tipo_venta" type="hidden" value="Contado">
-                    <h2 class="htitle2">Seleccione cliente</h2>
-                    <div class="input-group input-group-sm">
-                        <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
-                        <span class="input-group-btn">
-                            <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
-                        </span>
-                    </div>
-<br>
-<br>
-
-                  <div class="row">
-                    <div class="col-md-3 btn-print">
-                      <div class="form-group">
-                        <label for="date" >Medico</label>
-
-                      </div><!-- /.form group -->
-                    </div>
-                    <div class="col-md-4 btn-print">
-                      <div class="form-group">
-                            <select class="form-control select2" name="id_medico" required>
-                                            
-                                            <?php
-
-                              $queryc=mysqli_query($con,"select * from usuario where tipo='medico'  ")or die(mysqli_error());
-                                while($rowc=mysqli_fetch_array($queryc)){
-                                ?>
-                                            <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
-                                            <?php }?>
-                          </select>
+                    <div class="row">
+                      <div class="col-md-6 btn-print">
+                        <label>Seleccione cliente</label>
+                        <br>
+                        <div class="input-group input-group-sm" style=" width: 80%;">
+                            <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required >
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
                       </div>
+                      <div class="col-md-6 btn-print">
+                        
+                          <label for="date" >Medico</label>   
+                          <br>
+                          <div class="form-group" style="
+    width: 80%;">
+                              <select class="form-control select2" name="id_medico" required style="
+    width: 90%;">
+                                              
+                                              <?php
+
+                                $queryc=mysqli_query($con,"select * from usuario where tipo='medico'  ")or die(mysqli_error());
+                                  while($rowc=mysqli_fetch_array($queryc)){
+                                  ?>
+                                              <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
+                                              <?php }?>
+                            </select>
+                        </div>
                     </div>
 
                   </div>
 
-
+                  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
                           <input name="cliente" id="cliente" type="hidden"  required>
                       <br>
-                            <button type="submit" class="btn btn-success">Terminar venta</button>
+                      <br>
+
+                      <div class="row" style="text-align: center;">
+                      <button type="submit" class="btn btn-plantilla">Terminar venta</button>
+                                  </div>
+                            
 
 
                 </form>
@@ -210,11 +214,9 @@ ul {
   # code...
 
 ?>
-          <div class="row">
-              <div class="box-body">
-                                    
+         
 
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
+                 
 
                       <ul id="myUL">
                         <?php
@@ -298,11 +300,6 @@ ul {
 </ul>
 
                   
-                          </div>
-
-                        </div>
-                      </div><!-- ./col -->
-
 
                                         <?php
                       
@@ -311,36 +308,27 @@ ul {
 
 
                   </div><!--row-->
-
-                  <?php
-
- ?>
                 </div><!-- /.box-body -->
 
-
-              
                   
               </div><!-- /.col -->
 
-              <div class="col-md-4">
+              <div class="col-md-12">
               <!-- general form elements -->
-              <div class="box box-primary">
+              <div class="box box2" >
 
                 <!-- form start -->
                     <form role="form" id="frmAcceder" name="frmAcceder">
-                      <div class="box-body">
+                      <div class="box-body ">
                         <div class="row">
                           <div class="col-xs-12">
                             <table class="table table-bordered">
                               <thead>
-                                <tr>
-
-                        
+                                <tr class="encabezado">
                                   <th>Descripción</th>
                                   <th>Precio de venta</th>
                                   <th>Cantidad</th>
                                   <th>Total</th>
-                                  <th></th>
                                 </tr>
                               </thead>
                               <tbody>

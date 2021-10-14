@@ -39,92 +39,65 @@
         <div class="right_col" role="main">
 
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle"> Registrar Procedimiento de Pago </h3>
 
                 </div><!-- /.box-header -->
                 <a class="btn btn-regresar2" href="procedimiento_pago.php"   role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
                 
 
-                <div class="box-body">
+                <div class="box-body boxGeneral">
                 
 
         <form class="form-horizontal" method="post" action="procedimiento_pago_add.php" enctype='multipart/form-data'>
-
 
                   <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Nombre</label>
-                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                    <div class="col-md-9 btn-print">
                       <div class="form-group">
-
-                          <input type="text" class="form-control pull-right" id="nombre" name="nombre" required >
+                        <input type="text" class="form-control pull-right" id="nombre" name="nombre" required >
                       </div>
                     </div>
-                    <div class="col-md-4 btn-print">
-                
-                    </div>
-                    </div>
-       
-                          <div class="row">
+                  </div>
+    
+                  <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
-                        <label for="date" >Descripcion</label>
-                 
+                        <label for="date" >Descripción</label>
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                    <div class="col-md-9 btn-print">
                       <div class="form-group">
                         <textarea class="form-control" id="descripcion" name="descripcion" ></textarea>
-
-                    
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
                     </div>
 
 
-     
-
-           <div class="row">
+          <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Precio venta</label>
-                 
+                
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                      <div class="col-md-9 btn-print">
                       <div class="form-group">
 
                           <input type="text" class="form-control pull-right" id="precio_venta" name="precio_venta" required >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
+                        
                     </div>
-                    </div>
-
-
-
-                 
-    <button type="submit" class="btn btn-plantilla">Guardar</button>
-
-
-              <div class="modal-footer">
-
-
-              </div>
+                    <br>
+          <div class="row" style="text-align: center;">
+            <button type="submit" class="btn btn-plantilla">Guardar</button>
+          </div>
         </form>
-
- 
-
-
 
                 </div><!-- /.box-body -->
 
@@ -133,9 +106,6 @@
 
 
           </div><!-- /.row -->
-
-
-
 
                 </div><!-- /.box-body -->
 
@@ -159,35 +129,25 @@
 
   <?php include '../layout/datatable_script.php';?>
 
-
-
         <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
+                "language": {
+                "paginate": {
                       "previous": "anterior",
                       "next": "posterior"
                     },
                     "search": "Buscar:",
-
-
                   },
-
                   "info": false,
                   "lengthChange": false,
                   "searching": false,
-
-
-  "searching": true,
+                  "searching": true,
                 }
 
               );
               } );
-    </script>
-
-
-
+          </script>
 
 
 

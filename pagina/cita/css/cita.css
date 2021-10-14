@@ -24,7 +24,6 @@
 .htitle2{
     color: #2d3235 ;
     margin-top: 70px;
-    margin-left: 10px;
 }
 
 .encabezado{
@@ -60,13 +59,19 @@
 
 .rowDatos{
     background-color: white;
-    margin-left: 10px;
-    padding-top: 20px;
-    margin-right: 20px;
+    margin-left: 20%;
+    padding: 20px;
+    width: 60%;
+    
 }
 
 .rowDatos2{
     background-color: white;
     margin-left: 10px;
     margin-right: 20px;
+    
+}
+
+label{
+    color: black;
 }

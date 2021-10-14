@@ -53,7 +53,7 @@
 
 .colFecha{
     background-color: white;
-    margin-left: 10px;
+    margin-left: 30%;
     width: 500px;
 }
 
@@ -65,11 +65,15 @@
 }
 
 .inputFecha{
-    width: 50px;
+    width: 100%;
 }
+
+
 
 .labelFecha{
     width: 100px;
+    color: black;
+    padding-bottom: 10px;
 }
 
 .boxCuadros{

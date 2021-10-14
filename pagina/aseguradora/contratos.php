@@ -30,17 +30,7 @@ function _convert($content) {
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
     <link rel="stylesheet" href="css/aseguradora.css" type="text/css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
-   <script src="https://unpkg.com/boxicons@2.0.9/dist/boxicons.js"></script>
-   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-  
-   
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -83,7 +73,7 @@ ul {
  <!--end of modal-->
             <input hidden id="tipoU" value="<?php echo $tipo; ?>" >
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle">Contratos</h3>
 
                 </div><!-- /.box-header -->
@@ -94,10 +84,6 @@ ul {
                 <!-- Button trigger modal -->
 
 <!-- Modal -->
-
-
-
-
 
 
 
@@ -1062,13 +1048,7 @@ if($('#ct_medicamentos').prop('checked')){
             
              codigocontrato.addEventListener('input', inHandlerCodigo);
             codigocontrato.addEventListener('propertychange', inHandlerCodigo); 
-                 
-            
-           
-       
-              
-            
-       
+
             entidad.addEventListener('input', inHandlerEntidad);
             entidad.addEventListener('propertychange', inHandlerEntidad);  
             cuentascxc.addEventListener('input', inHandlerCXC);
@@ -1081,12 +1061,11 @@ if($('#ct_medicamentos').prop('checked')){
               
 
 
-                <div class="box-body" style="width:900px; margin-left: 80px;">
+                <div class="box-body" >
                   <table id="example2" class="table table-bordered table-striped">
                     <thead>
-                        <tr class="encabezado">
-
-                     <th>#</th>
+                        <tr class="encabezado">   
+                        <th>#</th>
                         <th >Código</th>
                         <th>Entidad</th>
                         <th>Fecha Inicio</th>
@@ -1103,7 +1082,7 @@ if($('#ct_medicamentos').prop('checked')){
  
     $i++;
 ?>
-                     
+                    
                       
  <tr style="background: white;">
 

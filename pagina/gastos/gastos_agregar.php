@@ -41,8 +41,8 @@ ul {
 
 
 
-                  <div class="box-header">
-                  <h3 class="htitle">Regisstrar Gastos</h3>
+                  <div class="box-body">
+                  <h3 class="htitle">Registrar Gastos</h3>
 
                 </div><!-- /.box-header -->
                 <a class="btn btn-regresar" href="gastos.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>

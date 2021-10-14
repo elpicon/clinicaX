@@ -45,7 +45,7 @@ ul {
 
                 </div><!-- /.box-header -->
                 <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
-                <a class="btn btn-plantilla" href="gastos_farmacia_agregar.php"    role="button"><i class="glyphicon glyphicon-plus"></i> Registrae</a>
+                <a class="btn btn-plantilla" href="gastos_farmacia_agregar.php"    role="button"><i class="glyphicon glyphicon-plus"></i> Registrar</a>
 
 
                 <div class="box-body">

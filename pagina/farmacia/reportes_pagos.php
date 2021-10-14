@@ -33,6 +33,7 @@
                     <div class="col-md-6 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label labelFecha">Fecha inicio</label>
+                        
                         <div class="input-group col-sm-8 inputFecha" >
                           <input type="date" class="form-control pull-right " id="date" name="fecha_inicio"  required >
                         </div><!-- /.input group -->
@@ -48,10 +49,15 @@
                           </div><!-- /.input group -->
                       
                     </div>
-                    <button class="btn btn-plantilla" id="daterange-btn"  name="buscar_fechas">Buscar</button>
+                    
 
           </form>
+        
            </div>
+<div class="row" style="
+    text-align: center;">
+          <button class="btn btn-plantilla" id="daterange-btn"  name="buscar_fechas">Buscar</button>
+</div>
        </div>
 
  <!--end of modal-->
@@ -110,34 +116,22 @@
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
-      
-      
-
-
               <h4><?php
-echo 'PRECIO COMPRA=  '.$simbolo_moneda.'  '.$precio_compra;
-?></h4>
-
+              echo 'PRECIO COMPRA=  '.$simbolo_moneda.'  '.$precio_compra;
+              ?></h4>
             </div>
-       
           </div>
         </div>
 
-<br>
 
 
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-      
-      
-
-
               <h4><?php
 echo 'PRECIO VENTA=  '.$simbolo_moneda.'  '.$precio_venta;
 ?></h4>
-
             </div>
        
           </div>
@@ -150,21 +144,12 @@ echo 'PRECIO VENTA=  '.$simbolo_moneda.'  '.$precio_venta;
           <!-- small box -->
           <div class="small-box bg-orange">
             <div class="inner">
-      
-      
-
-
               <h4><?php
-echo 'VENTAS=  '.$simbolo_moneda.'  '.$num;
-?></h4>
-
+              echo 'VENTAS=  '.$simbolo_moneda.'  '.$num;
+              ?></h4>
             </div>
-       
           </div>
         </div>
-
-<br>
-
 
                           <div class="col-lg-3 col-xs-6">
                             <!-- small box -->
