@@ -120,3 +120,12 @@ select{
 .colMenu{
     padding-left: 90px !important;
 }
+
+.tabPanel2{
+    background-color: white;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-right: 20px;
+}

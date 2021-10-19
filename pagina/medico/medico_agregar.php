@@ -40,7 +40,7 @@ ul {
 
 
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle">Registrar Médico</h3>
 
                 </div><!-- /.box-header -->
@@ -220,18 +220,12 @@ ul {
         
         <!-- /page content -->
 
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-                        <a href="https://ventadecodigofuente.com/">DOCTORPRJ IPS</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
         <!-- /footer content -->
       </div>
     </div>
 
   <?php include '../layout/datatable_script.php';?>
+  <?php include '../layout/footer.php';?>
 
 
 

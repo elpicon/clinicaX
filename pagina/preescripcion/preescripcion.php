@@ -131,12 +131,7 @@ $id_preescripcion=$row['id_preescripcion'];
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-                      <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php include '../layout/footer.php';?>
         <!-- /footer content -->
       </div>
     </div>

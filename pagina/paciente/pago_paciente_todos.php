@@ -58,7 +58,7 @@
                   <h3 class="htitle">Pagos</h3>
                 </div><!-- /.box-header -->
 
-                <div class="box-body" style="width:900px; margin-left: 40px;" >
+                <div class="box-body" style="width:900px; margin-left: 10%;" >
                   <table id="example2" class="table table-bordered table-striped tablaPagos">
                     <thead>
                         <tr class="encabezado">
@@ -131,15 +131,13 @@ $id_pedido=$row['id_pedido'];
         <!-- /page content -->
 
         <!-- footer content -->
-          <footer>
-          <div class="pull-right">
-                    <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+
         <!-- /footer content -->
       </div>
     </div>
+
+    
+  <?php include '../layout/footer.php';?>
 
   <?php include '../layout/datatable_script.php';?>
         <script>

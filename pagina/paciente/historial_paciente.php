@@ -263,7 +263,7 @@ include '../layout/header.php';
     <a class="nav-link  btn-ver apartado1" id="datospaciente-tab" data-toggle="tab" href="#datospaciente" role="tab" aria-controls="datospaciente" aria-selected="false"><span class="text-dark" >Datos Paciente</span></a>
   </li>
   <li class="nav-item  ">
-    <a class="nav-link  btn-ver apartado1" id="atenciontriage-tab" data-toggle="tab" href="#atenciontriage" role="tab" aria-controls="atenciontriage" aria-selected="false"><span class="text-dark" >Atencion Trieage</span></a>
+    <a class="nav-link  btn-ver apartado1" id="atenciontriage-tab" data-toggle="tab" href="#atenciontriage" role="tab" aria-controls="atenciontriage" aria-selected="false"><span class="text-dark" >Atención Trieage</span></a>
   </li>
   <li class="nav-item  ">
     <a class="nav-link  btn-ver apartado1" id="orden_salida-tab" data-toggle="tab" href="#orden_salida" role="tab" aria-controls="orden_salida" aria-selected="false"><span class="text-dark" ">Orden de Salida</span></a>
@@ -293,7 +293,7 @@ include '../layout/header.php';
 </div>
 
 <div class="row">
-<div class='col-md-4 col-lg-4 colDatos'> 
+<div class='col-md-3 col-lg-3 colDatos'> 
 <ul class="nav nav-tabs  navBorde justify-content-left">
         <h3 class="htitle2">Datos Personales</h3>
     <?php
@@ -362,11 +362,11 @@ $diff = $date1->diff($date2);
       echo "
   <div class='row horizontal-scroll-contenedor'> 
    
-      <table class='table   ' style='width:20%; margin-left: 20px;';>
+      <table class='table   ' style='width:85%; margin-left: 20px;';>
         <thead>
             <tr>
               <th style='width:15%';></th>
-              <th style='width:15%';></th>
+              <th style='width:80%';></th>
             </tr>
           </thead>
   
@@ -399,12 +399,12 @@ $diff = $date1->diff($date2);
       </table>
   
   
-  <table class='table' style='width:20%; margin-left: 20px;';>
+  <table class='table' style='width:85%; margin-left: 20px;';>
  
       <thead overflow-x: auto;>
         <tr>
-          <th style='width:20%';></th>
-          <th style='width:20%';></th>
+          <th style='width:15%';></th>
+          <th style='width:80%';></th>
         </tr>
       </thead>
         
@@ -530,13 +530,13 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
 </ul>
 </div>
 
-<div class='col-md-8 col-lg-8 offset-md-1'>
-  <div class="tab-content">
+<div class='col-md-9 col-lg-9 offset-md-1' style="
+    padding-bottom: 2%;">
+  <div class="tab-content tabPanel2">
     <div class="tab-pane active" id="datosconsulta" role="tabpanel" aria-labelledby="home-tab">
    <div class="row ">
-    <div class="col-lg-7 form-group " >
-        <br>
-        <br>
+    <div class="col-lg-12 form-group " >
+
         <label class=" text-left ">Finalidad de la Consulta</label>
     <select id="finalidadconsulta" class="form-select form-control" aria-label="Default select example">
         <?php
@@ -564,7 +564,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
         
   <div class="row form-group">
          <br>
-    <div class="col-lg-6">
+    <div class="col-lg-12">
     <label  class=" text-left ">Causa Externa Consulta</label>
     <select id="causaexternaconsulta" class="form-select form-control" aria-label="Default select example">
         <?php
@@ -586,14 +586,14 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
         ?>
     </select>
        </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
     
     </div>
        </div>
         
         <div class="row ">
          <br>
-   <div class="col-lg-6 form-group">
+   <div class="col-lg-12 form-group">
    <label  class=" text-left ">Estado de Conciencia *</label>
     <textarea class="form-control text-alert form-control" rows="5" id="estadoconciencia"></textarea>
     </div>
@@ -601,7 +601,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
     
      <div class="row ">
          <br>
-          <div class="col-lg-6">
+          <div class="col-lg-12">
     <label  class=" text-left ">Motivos de la Consulta *</label>
     <textarea class="form-control" rows="5" id="motivoconsulta"></textarea>
     </div>
@@ -609,7 +609,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
     
      <div class="row ">
          <br>
-          <div class="col-lg-6">
+          <div class="col-lg-12">
     <label  class=" text-left ">Enfermedad Actual</label>
     <textarea class="form-control" rows="5" id="enfermedadactual"></textarea>
     </div>
@@ -617,7 +617,7 @@ WHERE expediente = '$eyc[0]' AND consecutivocum = '$eyc[1]' " )or die( mysqli_er
     
      <div class="row ">
          <br>
-          <div class="col-lg-6">
+          <div class="col-lg-12">
      <label  class=" text-left ">Praclinicos</label>
     <textarea class="form-control" rows="5" id="paraclinicos"></textarea>
     </div>
@@ -2125,18 +2125,12 @@ in_cie103.addEventListener('propertychange', inputHandler3);
 </div>
 </div>
 
-<footer>
-  <div class="pull-right"> <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a> </div>
-  <div class="clearfix"></div>
-</footer>
 
-
+<?php include '../layout/footer.php';?>
 <?php include '../layout/datatable_script.php';?>
 
 <style>
-    .subt{
-        background: #BEE5D7;
-    }    
+  
 </style>
 <style>
     
@@ -2697,6 +2691,9 @@ label{
 color: black;
 }
 
+span{
+  color: black;
+}
 
 li {
   color: white;

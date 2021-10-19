@@ -1,6 +1,7 @@
 .btn-plantilla{
     background: #2db8eb;
     color: white;
+    margin-bottom: 5%;
 }
 
 .btn-plantilla2{
@@ -64,10 +65,30 @@
 
 .colDatos{
     background-color: white;
-    margin-left: 10px;
+    margin-left: 20%;
+    width: 60%;
+    padding: 20px;
 }
 
 .rowDatos{
     margin-left: 10px;
     margin-right: 10px;
+}
+
+label{
+    color: black;
+}
+
+.doming{
+    background: #fc8d44;
+    width: 50%;
+    padding: 10px;
+}
+
+td{
+    color: black;
+}
+
+th{
+    color: black;
 }

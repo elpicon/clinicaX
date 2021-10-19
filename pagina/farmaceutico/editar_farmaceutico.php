@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/farmaceutico.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -42,15 +43,7 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
 
-            </div>
-
-        </div><!--end of modal-dialog-->
-
- </div>
   <?php
      if(isset($_REQUEST['cid']))
             {
@@ -64,41 +57,17 @@ ul {
 
 ?>
 
-                           <?php
-                         
-             //         if ($guardar=="si") {
-                    
-                      ?>
-
-                  <?php
-               //       }
-                      ?>
-
-                  <!-- Date range -->
-               
-
-      
- <!--end of modal-->
-
-
-
-
-
-
-
-
 
 
 
                   <div class="box-header">
-                  <h3 class="box-title"> MODIFICAR FARMACEUTICO</h3>
+                  <h3 class="htitle"> Editar Farmacéutico</h3>
                 </div><!-- /.box-header -->
               
-              <a class="btn btn-warning btn-print" href="farmaceutico.php"    style="height:25%; width:15%; font-size: 12px " role="button">Regresar</a>
+              <a class="btn btn-regresar" href="farmaceutico.php"  role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
 
                 <div class="box-body">
                 
-
 <?php
    // $branch=$_SESSION['branch'];
     $query=mysqli_query($con,"select * from usuario where id= '$cid' ")or die(mysqli_error());
@@ -110,7 +79,7 @@ ul {
         
 ?>
       
-        <form class="form-horizontal" method="post" action="farmaceutico_actualizar.php" enctype='multipart/form-data'>
+        <form class="form-horizontal formFarma" method="post" action="farmaceutico_actualizar.php" enctype='multipart/form-data'>
             <input type="hidden" class="form-control" id="id_usuario" name="id_usuario" value="<?php echo $row['id'];?>" required>
     
 
@@ -124,13 +93,10 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
                  <IMG src="subir_us/<?php echo $row['imagen'];?>" style="height:50PX" />
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
                     </div>
                     </div>
 
@@ -141,14 +107,12 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
                   <input type="file" class="form-control" id="imagen" name="imagen"  >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                        
                     </div>
 
      <div class="row">
@@ -158,15 +122,13 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
             <input type="text" class="form-control" id="name" name="nombre" value="<?php echo $row['nombre'];?>" required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                          
                     </div>
 
 
@@ -177,14 +139,11 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
         <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $row['apellido'];?>"   required>
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
                     </div>
                     </div>
 
@@ -197,14 +156,11 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
             <input type="text" class="form-control" id="usuario"  name="usuario"  value="<?php echo $row['usuario'];?>"   required>
                       </div>
-                    </div>
-                           <div class="col-md-4 btn-print">
-                
                     </div>
                     </div>
 
@@ -218,15 +174,13 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
             <input type="text" class="form-control" id="telefono"  name="telefono"  value="<?php echo $row['telefono'];?>" >
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                          
                     </div>
 
 
@@ -240,40 +194,20 @@ ul {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
 
             <input type="text" class="form-control" id="correo"  name="correo" value="<?php echo $row['correo'];?>" required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
+                          
                     </div>
-                    </div>
-
-
-
-        
-          
- 
-
-
-
-
-
-
-
-
-  
-
-
      
-                
+      <div class="row" style="text-align: center;">
           
-    <button type="submit" class="btn btn-primary">GUARDAR</button>          
-  
-                   
-            <br><br><br><hr>
+    <button type="submit" class="btn btn-plantilla">Guardar</button> 
+    </div>
+
               <div class="modal-footer">
 
 

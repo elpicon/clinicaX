@@ -180,14 +180,11 @@ $impuTotal = 0;
             <!-- right column -->
             <div class="col-md-12">
               <!-- Horizontal Form -->
-              
-                
+            
                   <div class="box-body box1">
                   
                       <div class="row">
                         <div class="col-md-6">
-
-  
                           <form  class="form-inline" name="f1" action="../farmacia/terminarVenta.php" method="POST">
                           <input name="total" type="hidden" value="<?php echo $granTotal;?>">
                           <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
@@ -209,9 +206,7 @@ $impuTotal = 0;
                         
 
 
-                      </form>
-
-                      
+                      </form>     
                                     </div>
 
                                     <div class="col-md-6">
@@ -233,26 +228,14 @@ $impuTotal = 0;
                                 </div>
                                               
                         </div>
-
-                                   
                                     </div>
-                                    <button type="submit" class="btn btn-plantilla">Terminar venta</button>
+                                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
 
-
-                  <?php
-
-                    # code...
-
-                                ?>
+                                    
+                                    <button type="submit" class="btn btn-plantilla" >Terminar venta</button>
+                                    
                                                   <div class="row">
-                                                        
 
-                                                  <div class="box-body">
-                              
-                                      
-                                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
-
-                                <ul id="myUL">
                                   <?php
 
                                     $query=mysqli_query($con,"select * 
@@ -382,7 +365,7 @@ $impuTotal = 0;
             
                 <!-- form start -->
                   <form role="form" id="frmAcceder" name="frmAcceder">
-                    <div class="box-body box1">
+                    <div class="box-body box2">
                     <div class="row">
                     <div class="col-xs-12">
                     <br>
@@ -437,6 +420,7 @@ $impuTotal = 0;
       </div><!-- /.content-wrapper -->
       
       <?php include '../layout/datatable_script.php';?>
+      <?php include '../layout/footer.php';?>
 <script>
 function myFunction() {
   // Declare variables

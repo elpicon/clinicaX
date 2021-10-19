@@ -1125,14 +1125,7 @@ onclick="mostrarDatosSel(<?php echo "'".$row['codigo']."'"; ?>);"  role="button"
       </div>
         </div>
         <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-                         <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php include '../layout/footer.php';?>
         <!-- /footer content -->
       </div>
     </div>

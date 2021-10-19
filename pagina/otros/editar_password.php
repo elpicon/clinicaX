@@ -67,7 +67,7 @@ $cid=$_SESSION['id'];
  <!--end of modal-->
 
 
-                  <div class="box-header">
+                  <div class="box-body">
                   <h3 class="htitle"> Cambiar Contraseña</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
@@ -82,43 +82,41 @@ $cid=$_SESSION['id'];
      $tipo=$row['tipo'];
 ?>
       
-        <form class="form-horizontal" method="post" action="actualizar_password.php" enctype='multipart/form-data'>
+        <form class="form-horizontal formContra" method="post" action="actualizar_password.php" enctype='multipart/form-data'>
             <input type="hidden" class="form-control" id="id_usuario" name="id_usuario" value="<?php echo $row['id'];?>" required>
    <div class="row">
-                    <div class="col-md-3 btn-print">
+                    <div class="col-md-4 btn-print">
                       <div class="form-group">
                         <label for="date" >Contraseña</label>
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-8 btn-print">
                       <div class="form-group">
                           <input type="password" class="form-control pull-right" id="date" name="password" placeholder="*********" required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                          
                     </div>
 
  <div class="row">
-                    <div class="col-md-3 btn-print">
+                    <div class="col-md-4 btn-print">
                       <div class="form-group">
                         <label for="date" >Repita contraseña</label>
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-8 btn-print">
                       <div class="form-group">
 <input type="password" class="form-control pull-right" id="password2" name="password2" placeholder="********* " required>
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+                        
                     </div>     
-          
-    <button type="submit" class="btn btn-plantilla">Guardar</button>          
+          <div class="row" style="text-align: center;">
+          <br>
+    <button type="submit" class="btn btn-plantilla">Guardar</button>  
+    </div>        
 
         </form>
             
@@ -145,7 +143,7 @@ $cid=$_SESSION['id'];
         <!-- /page content -->
 
         <!-- footer content -->
-
+        <?php include '../layout/footer.php';?>
         <!-- /footer content -->
       </div>
     </div>
@@ -182,12 +180,7 @@ $cid=$_SESSION['id'];
  // }    
 ?>
 
-<footer>
-          <div class="pull-right">
-                <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+
 
     <!-- /gauge.js -->
   </body>

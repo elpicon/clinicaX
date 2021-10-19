@@ -896,12 +896,7 @@ password.addEventListener('propertychange', inHandlerPasswor2);
         <!-- /page content -->
 
         <!-- footer content -->
-       <footer>
-          <div class="pull-right">
-                          <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+
         <!-- /footer content -->
 
 
@@ -928,6 +923,8 @@ password.addEventListener('propertychange', inHandlerPasswor2);
               );
               } );
     </script>
+
+<?php include '../layout/footer.php';?>
 
 <style>
 
@@ -1066,6 +1063,7 @@ password.addEventListener('propertychange', inHandlerPasswor2);
 
 }
 </style>
+
 
 
     <!-- /gauge.js -->

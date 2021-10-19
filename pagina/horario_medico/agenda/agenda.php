@@ -87,42 +87,22 @@
 
 
     <div class="col-md-12 colDatos">
-    <div class="row">  
- <table >
-  <thead>
-    <tr>
-      <th style="width:15%"><label > </label> </th>
-      <th style="width:10%"> </th>
-      <th style="width:25%"></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-
-
- 
-  <input hidden id="id_medico_in" value="<?php echo $_REQUEST['cid'];  ?>">
-    
-     <tr>  <input type="hidden"  id="id_empresa" value="<?php echo $id_sede;  ?>" /><input type="hidden"  id="tipo" value="<?php echo $tipo;  ?>" />
-      <td ><label >Sede : </label> </td>
-      <td><input type="number" onkeypress="validarSede(event)" id="sede" min="1" max="99" step="1" value="1" class="form-control" style="width:80px" /></td>
-      
-      <td ><label style="width:95px">Profesional : </label></td>
-      <td>
-     <div class="form-group">
-            <select class="form-control select2 " name="id_medico" id="id_medico" required>
-                
-                <option value="">Selecciona</option> 
-               <?php
-
+      <div class="row">  
+      <div class="col-md-6">
+        <input hidden id="id_medico_in" value="<?php echo $_REQUEST['cid'];  ?>">
+          <input type="hidden"  id="id_empresa" value="<?php echo $id_sede;  ?>" /><input type="hidden"  id="tipo" value="<?php echo $tipo;  ?>" />
+          <label >Sede : </label>
+          <input type="number" onkeypress="validarSede(event)" id="sede" min="1" max="99" step="1" value="1" class="form-control" style="width:80px" />
+      </div>
+      <div class="col-md-6">
+      <label style="width:95px">Profesional : </label>
+        <div class="form-group">
+          <select class="form-control select2 " name="id_medico" id="id_medico" required>
+            <option value="">Selecciona</option> 
+              <?php
               $queryc=mysqli_query($con,"select * from usuario  where id_grupo_empresa='$id_grupo_empresa' AND id_sede like '%1%' AND tipo='medico'")or die(mysqli_error());
                 while($rowc=mysqli_fetch_array($queryc)){
-                    
-              
                       if(!strcmp($tipo,'medico'))  {
-                                     
-                                    
                                     if(!strcmp($rowc['id'],$id)) {
                                      echo "<option value=".$rowc['id'];
                                      echo "selected>"; 
@@ -131,82 +111,56 @@
                                      }
                                     
                       }else{
-                            
-                                    echo "<option value=".$rowc['id'].">";
-                                     echo "<small>"; 
-                                     echo strtoupper($rowc['nombre']).'  '.strtoupper($rowc['apellido'])."</small></option>";
-                      }
- }?>
-              </select>
-            </div>
-        </td>     
-      
-      <td></td>
-    </tr>
-   
+                            echo "<option value=".$rowc['id'].">";
+                            echo "<small>"; 
+                            echo strtoupper($rowc['nombre']).'  '.strtoupper($rowc['apellido'])."</small></option>";              }}?>
+          </select>
+        </div>
+                      </div>
 
-</table>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th> </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-     <tr>  
-      <td ><label style="width:100px" >Fecha Inicio : </label> </td>
-      <td> <input type="date" id="fechaInicio" class="form-control" style=""></td>
-    </tr>
-    <tr>
-      <td ><label >Fecha Fin : </label> </td>
-      <td> <input type="date" id="fechaFin" class="form-control" style=""></td>
-    </tr>
-    <tr>
-      <td ></td>
-      <td> </td>
-    </tr>
-</tbody>
-</table>
-<div class="col-md-12">
-      <table>
-  <thead>
-    <tr>
-      <th style="width:290px;"><label> </label></th>
-      <th style="width:40px;"> </th>
-      
-    </tr>
-  </thead>
-  <tbody>
-     <tr>  
-      <td ><label >Tiempo de Atencion: </label> </td>
-      <td> <input type="number" id="tiAtencion" min="5" max="20" step="5" class="form-control" style="width:80px"></td>
-    </tr>
-    <tr>
-      <td ><label >Tiempo entre Consultas: </label> </td>
-      <td> <input type="number" id="tiEntreConsultas" min="1" max="10" step="1" class="form-control" style="width:80px"></td>
-    </tr>
-    <tr>
-      <td ><label >Pacientes Atendidos a la Vez: </label> </td>
-      <td> <input type="number" id="atencionParalela" min="1" max="10" step="1" class="form-control" style="width:80px"></td>
-    </tr>
-</table>
+    <div class="row">  
+      <div class="col-md-6">
+          
+        <label style="width:100px" >Fecha Inicio : </label> 
+        <input type="date" id="fechaInicio" class="form-control" style="">
+                      </div>
+      <div class="col-md-6">
+        <label >Fecha Fin : </label> 
+        <input type="date" id="fechaFin" class="form-control" style="">
+                      </div>
+                      </div>
+
+        <div class="row">  
+          <div class="col-md-12">
+              <br>
+      <label >Tiempo de Atencion: </label> 
+      <input type="number" id="tiAtencion" min="5" max="20" step="5" class="form-control" style="width:80px">
+    
+      <label >Tiempo entre Consultas: </label>
+      <input type="number" id="tiEntreConsultas" min="1" max="10" step="1" class="form-control" style="width:80px">
+    
+      <label >Pacientes Atendidos a la Vez: </label>
+      <input type="number" id="atencionParalela" min="1" max="10" step="1" class="form-control" style="width:80px">
+
+                      </div>
  
     </div>
 
-</div>
+
 
  
     </div>
 
   <div class="row ">
     <div class="col-lg-5">
+      <br>
+    <div class="doming">
+      <input style="transform: scale(1.5);" type="checkbox" id="trabajadomingos"   style="width:80px"><label class="text-right">&nbsp;&nbsp; ¿Trabaja domingos? </label>
+    </div>
       <table class="default" >
-      <tr>
-      <td style="background:#82B4b4"><input style="transform: scale(1.5);" type="checkbox" id="trabajadomingos"   style="width:80px"><label class="text-right">&nbsp;&nbsp;TRABAJA DOMINGOS: </label> </td>
-      <td></td>
-    </tr>
+      
 
   <tr>
 
@@ -249,12 +203,11 @@
                     </select><br>
                 </div></td>
 
-    <td><div class="input-group " data-autoclose="trie">
+            <td><div class="input-group " data-autoclose="trie">
                     <select type="text" id="h2t2" value="" class="form-control">
                         
                     </select><br>
                 </div></td>
-
   </tr>
 
   <tr>
@@ -283,18 +236,13 @@
    
   
     <div class="col-lg-7">
+      <br>
       <div class="col-lg-12 form-group">
              <div id="calendario"></div>
         </div>
     </div>
   </div>
 
-    
- 
-        
-        
-        
-       
         <script>
             var splDiasDeshabilitados;
             var bufferGlobalCal;
@@ -743,7 +691,7 @@
   </div>
 </div>
 <div class="col-lg-12">
-      <button type="button" class="btn btn-info" onclick="guardarTodo();">Crear Nueva Agenda</button>
+      <button type="button" class="btn btn-plantilla" onclick="guardarTodo();">Crear Nueva Agenda</button>
     </div>
 </div>
   </div>
@@ -752,6 +700,8 @@
     
             </div>
             </div>
+
+            <?php include '../../layout/footer.php';?>
 
 <script>
 var NuevoEvento;

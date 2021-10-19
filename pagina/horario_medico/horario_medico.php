@@ -430,6 +430,8 @@ function Buscar() {
         </div>
         <!-- /page content -->
         <!-- /footer content -->
+        
+  <?php include '../layout/footer.php';?>
       </div>
     </div>
 

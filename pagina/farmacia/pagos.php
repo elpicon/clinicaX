@@ -79,8 +79,8 @@ ul {
     <th>Fecha</th>
       <th>Total</th>
 
- <th class="btn-print"> Acciones </th>
-                           
+  <th class="btn-print"> Acciones </th>
+                          
 
 
 
@@ -176,14 +176,7 @@ $id_pedido=$row['id_pedido'];
       </div>
         </div>
         <!-- /page content -->
-
-        <!-- footer content -->
-         <footer>
-          <div class="pull-right">
-                                <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php include '../layout/footer.php';?>
         <!-- /footer content -->
       </div>
     </div>

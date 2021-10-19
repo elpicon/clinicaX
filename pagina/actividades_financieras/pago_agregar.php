@@ -146,8 +146,11 @@ ul {
         <div class="right_col" role="main">
         <div class="box-body">
                 <h3 class="htitle">Agregar Pago</h3>
+
                 </div><!-- /.box-header -->
           <div class="row">
+
+          <a class="btn btn-regresar" href="gastos.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
             <!-- left column -->
             
             <!-- right column -->
@@ -205,8 +208,6 @@ ul {
                       <button type="submit" class="btn btn-plantilla">Terminar venta</button>
                                   </div>
                             
-
-
                 </form>
 
 <?php
@@ -214,11 +215,7 @@ ul {
   # code...
 
 ?>
-         
 
-                 
-
-                      <ul id="myUL">
                         <?php
 
                           $query=mysqli_query($con,"select * 
@@ -368,6 +365,7 @@ ul {
           </div>   <!-- /.row -->
     </div><!-- /.content -->
       </div><!-- /.content-wrapper -->
+      <?php include '../layout/footer.php';?>
 
       <?php include '../layout/datatable_script.php';?>
 <script>

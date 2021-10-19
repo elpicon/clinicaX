@@ -251,15 +251,19 @@
                       </tbody>
                   </table>
                 
-            </div> <!-- col -->
-          </div>  <!-- row -->
+            </div> 
+          </div> 
+          
         </div>   
 
+        
 
           </div>
   </div>
 
 </div>
+
+<?php include '../layout/footer.php';?>
 <?php include '../layout/datatable_script.php';?>
         
         <script>

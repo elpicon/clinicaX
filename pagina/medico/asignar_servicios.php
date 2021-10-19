@@ -119,7 +119,7 @@ ul {
         <!-- /page content -->
 
         <!-- footer content -->
-      
+        <?php include '../layout/footer.php';?>
         <!-- /footer content -->
       </div>
     </div>

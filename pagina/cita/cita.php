@@ -188,14 +188,7 @@ date_default_timezone_set('America/Lima');
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-                                <a href="https://beatifullshop.co/app/clinica">DOCTORPRJ IPS
-</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        <?php include '../layout/footer.php';?>
       </div>
     </div>
 

@@ -166,10 +166,7 @@ $(document).ready(function() {
               }
             }
           ?>
-          <br>
 
-
-        <br>
         <section class="content">
                 <div class="row">
                   <!-- left column -->
@@ -179,19 +176,16 @@ $(document).ready(function() {
               <!-- Horizontal Form -->
                 <!-- form start -->
 
-                  <div class="box">
+                  
                 
 
-
-              <br>   <br> 
-
    
-      <form  class="form-inline" name="f1" action="../preescripcion/terminarVenta.php" method="POST">
+      <form  class="form-inline form1" name="f1" action="../preescripcion/terminarVenta.php" method="POST">
 
 
  <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
 
-      <h3>Seleccione cliente</h3>
+      <label>Seleccione cliente</label>
     <div class="input-group input-group-sm">
         <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
         <span class="input-group-btn">
@@ -200,17 +194,14 @@ $(document).ready(function() {
     </div>
 <br>
 
-   
-
-
      <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
-                        <label for="date" >Medico</label>
+                        <label for="date" >Médico</label>
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
              <select class="form-control select2" name="id_medico" required>
                             
@@ -224,9 +215,6 @@ $(document).ready(function() {
                           </select>
                       </div>
                     </div>
-                    <div class="col-md-4 btn-print">
-                
-                    </div>
                     </div>
             
                     <div class="row">
@@ -236,16 +224,14 @@ $(document).ready(function() {
                  
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-4 btn-print">
+                       <div class="col-md-9 btn-print">
                       <div class="form-group">
                   <textarea class="form-control" id="historia" name="historia" placeholder="historia" required></textarea>
                           <br>
                   
                       </div>
                     </div>
-                           <div class="col-md-4 btn-print">
-                
-                    </div>
+
                     </div>
 
 
@@ -253,7 +239,9 @@ $(document).ready(function() {
 <br>
       <button type="submit" class="btn btn-plantilla">Terminar venta</button>
 
-
+      <button type="button" class="btn btn-vaca" data-toggle="modal" data-target="#miModal">
+  Agregar receta médica
+</button>
     </form>
 
 <?php
@@ -262,10 +250,8 @@ $(document).ready(function() {
 
 ?>
 <br>
-<br>
- <button type="button" class="btn btn-primary btn-lg btn-print" data-toggle="modal" data-target="#miModal">
-  AGREGAR RECETAS MEDICAS
-</button>
+
+ 
      <?php
                  //     }
                       ?>
@@ -277,10 +263,7 @@ $(document).ready(function() {
                   <!-- Date range -->
                   <form method="post" action="agregar_carrito.php" enctype="multipart/form-data" class="form-horizontal">
          
-
- 
-
-   <div class="col-md-12 btn-print">
+                <div class="col-md-12 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Medcina</label>
                         <div class="input-group col-sm-8">
@@ -289,7 +272,7 @@ $(document).ready(function() {
                       </div><!-- /.form group -->
                     </div>
 
-   <div class="col-md-12 btn-print">
+        <div class="col-md-12 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Docificacion</label>
                         <div class="input-group col-sm-8">
@@ -297,7 +280,7 @@ $(document).ready(function() {
                         </div><!-- /.input group -->
                       </div><!-- /.form group -->
                     </div>
-   <div class="col-md-12 btn-print">
+          <div class="col-md-12 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Frecuencia</label>
                         <div class="input-group col-sm-8">
@@ -306,7 +289,7 @@ $(document).ready(function() {
                       </div><!-- /.form group -->
                     </div>
 
-   <div class="col-md-12 btn-print">
+          <div class="col-md-12 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Dias</label>
                         <div class="input-group col-sm-8">
@@ -314,7 +297,7 @@ $(document).ready(function() {
                         </div><!-- /.input group -->
                       </div><!-- /.form group -->
                     </div>
-      <div class="col-md-12 btn-print">
+            <div class="col-md-12 btn-print">
                       <div class="form-group">
                         <label for="date" class="col-sm-3 control-label">Instruccion</label>
                         <div class="input-group col-sm-8">
@@ -337,20 +320,18 @@ $(document).ready(function() {
           </form>
 
           </div>
-      </div>
+      
    
     </div>
   </div>
 </div>
 
+<!-- /.fin dialog -->
 
                                         <?php
                       
                     
                       ?>
-
-
-
 
                   </div><!--row-->
 
@@ -420,6 +401,7 @@ $(document).ready(function() {
                 
     </div>
   </div>
+  <?php include '../layout/footer.php';?>
   <?php include '../layout/datatable_script.php';?>
 <script>
 function myFunction() {
@@ -464,12 +446,7 @@ function sumar (valor) {
     document.getElementById('spTotal').innerHTML = total;
 }
 </script>
-    <!-- jQuery 2.1.4 -->
-    <script src="../actividades_financieras/public/js/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.5 -->
-    <script src="../actividades_financieras/public/js/bootstrap.min.js"></script>
-    <!-- iCheck -->
-    <script src="../actividades_financieras/public/js/icheck.min.js"></script>
+
     
 
   </body>

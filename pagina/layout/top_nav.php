@@ -1,8 +1,4 @@
-
-              <?php
-
-?>
- <div class="top_nav text-right">
+<div class="top_nav text-right">
           <div class="nav_menu" style="background: white;">
             <nav>
               <div class="nav toggle ">
@@ -26,4 +22,4 @@
               </ul>
             </nav>
           </div>
- </div>
+</div>

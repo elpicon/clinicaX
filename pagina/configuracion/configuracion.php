@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../layout/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="../layout/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../layout/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="css/configuracion.css" type="text/css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../layout/dist/css/skins/_all-skins.min.css">
@@ -40,19 +41,11 @@ ul {
 
         <!-- page content -->
         <div class="right_col" role="main">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class = "x-panel">
-
-            </div>
-
-        </div><!--end of modal-dialog-->
- </div>
- <!--end of modal-->
 
 
-                  <div class="box-header">
-                  <h3 class="box-title"> Datos del empresa</h3>
+
+                  <div class="box-body">
+                  <h3 class="htitle"> Datos de la Empresa</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                 
@@ -70,50 +63,54 @@ ul {
 
     
  
-        <form class="form-horizontal" method="post" action="empresa_actualizar.php" enctype='multipart/form-data'>
+        <form class="form-horizontal formEmpresa" method="post" action="empresa_actualizar.php" enctype='multipart/form-data'>
 
         <div class="form-group">
-          <label class="control-label col-lg-3" for="name">Empresa</label>
+          <div class="col-lg-3">
+          <label for="name">Empresa</label>
+          </div>
           <div class="col-lg-9">
             <input type="hidden" class="form-control" id="id" name="id_empresa" value="<?php echo $row['id_empresa'];?>" required>
             <input type="text" class="form-control" id="name" name="empresa" value="<?php echo $row['empresa'];?>" required>
           </div>
         </div>
-               <div class="form-group">
-          <label class="control-label col-lg-3" for="price">Nit/Ruc</label><br>
+
+        <div class="form-group">
+          <div class="col-lg-3">
+          <label  for="price">Nit/Ruc</label>
+          </div>
           <div class="col-lg-9">
             <input type="text" class="form-control" id="price" name="ruc" value="<?php echo $row['ruc'];?>" required>
           </div>
         </div>
-        <br>
-        <br>
+
 
 
         <div class="form-group">
-                <label class="control-label col-lg-3" for="price">Direccion</label><br>
+        <div class="col-lg-3">
+                <label for="price">Direccion</label>
+    </div>
           <div class="col-lg-9">
             <input type="text" class="form-control" id="name" name="direccion" value="<?php echo $row['direccion'];?>" required>
           </div>
         </div>
-        <br>
-        <br>
+
               <div class="form-group">
-                <label class="control-label col-lg-3" for="price">Correo</label><br>
+                <label class=" col-lg-3" for="price">Correo</label>
           <div class="col-lg-9">
             <input type="text" class="form-control" id="name" name="correo" value="<?php echo $row['correo'];?>" required>
           </div>
         </div>
-        <br>
-        <br>
+
         <div class="form-group">
-          <label class="control-label col-lg-3" for="file">Telefono</label>
+          <label class=" col-lg-3" for="file">Telefono</label>
           <div class="col-lg-9">
             <input type="text" class="form-control" id="nametele" name="telefono" value="<?php echo $row['telefono'];?>" required>
 
           </div>
         </div>
                 <div class="form-group">
-          <label class="control-label col-lg-3" for="name">Descripcion </label>
+          <label class=" col-lg-3" for="name">Descripcion </label>
           <div class="col-lg-9">
 
               <textarea class="form-control" id="name" name="descripcion" required><?php echo $row['descripcion'];?></textarea>
@@ -121,7 +118,7 @@ ul {
         </div>
 
                 <div class="form-group">
-          <label class="control-label col-lg-3" for="name">Simbolo moneda </label>
+          <label class=" col-lg-3" for="name">Simbolo moneda </label>
           <div class="col-lg-9">
 
               <textarea class="form-control" id="name" name="simbolo_moneda" required><?php echo $row['simbolo_moneda'];?></textarea>
@@ -132,7 +129,7 @@ ul {
       
 
               <div class="form-group">
-          <label class="control-label col-lg-3" for="name">Nombre de moneda </label>
+          <label class=" col-lg-3" for="name">Nombre de moneda </label>
           <div class="col-lg-9">
 
               <textarea class="form-control" id="tipo_moneda" name="tipo_moneda" required><?php echo $row['tipo_moneda'];?></textarea>
@@ -141,7 +138,7 @@ ul {
 
   
                 <div class="form-group">
-          <label class="control-label col-lg-3" for="name">Imagen antigua</label>
+          <label class=" col-lg-3" for="name">Imagen antigua</label>
           <div class="col-lg-9">
    
                 <IMG src="images/<?php echo $row['imagen'];?>" style="height:200PX" />
@@ -150,7 +147,7 @@ ul {
 
 
                  <div class="form-group">
-          <label class="control-label col-lg-3" for="name">Imagen nueva</label>
+          <label class="col-lg-3" for="name">Imagen nueva</label>
           <div class="col-lg-9">
    
                   <input type="file" class="form-control" id="imagen" name="imagen"  >
@@ -160,19 +157,16 @@ ul {
         </div>
               
 
-                      <div class="form-group">
-          <label class="control-label col-lg-3" for="name">Actualizar</label>
-          <div class="col-lg-9">
-   
-                <button type="submit" class="btn btn-primary">Guardar cambios</button>
-              
-          </div>
 
 
-        </div>
-
+        <div class="row" style="text-align: center; ">
+  <br>
+   <button type="submit" class="btn btn-plantilla">Guardar</button>
+ 
+</div>
           
         </form>
+
 
 
 <?php 

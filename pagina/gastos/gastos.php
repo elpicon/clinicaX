@@ -123,15 +123,7 @@ ul {
       </div>
         </div>
         <!-- /page content -->
-
-        <!-- footer content -->
-       <footer>
-          <div class="pull-right">
-                            <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        <?php include '../layout/footer.php';?> 
       </div>
     </div>
 

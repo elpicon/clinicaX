@@ -55,7 +55,14 @@
 .box-form{
     background-color: white;
     margin-bottom: 10px;
-    width: 600px;
+    width: 60%;
     padding: 20px;
-    margin-left: 170px;
+    margin-left: 20%;
+}
+
+.base{
+    background-color: white;
+    margin-left: 20%;
+    width: 65%;
+    padding: 20px;
 }

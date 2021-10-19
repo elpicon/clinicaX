@@ -55,7 +55,7 @@ ul {
 ?>
         <!-- page content -->
         <div class="right_col" role="main">
-        <div class="box-header">
+        <div class="box-body">
                   <h3 class="htitle" >Vacaciones</h3>
                   </div><!-- /.box-header -->
            <?php
@@ -68,8 +68,11 @@ ul {
                       ?>
 
 
- <button type="button" class="btn btn-primary btn-lg btn-print" data-toggle="modal" data-target="#miModal">
-  AGREGAR
+
+ <a class = "btn btn-plantilla2" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Imprimir</a>
+
+ <button type="button" class="btn btn-plantilla data-toggle="modal" data-target="#miModal">
+  Agregar
 </button>
      <?php
                  //     }
@@ -96,15 +99,11 @@ ul {
                       </div><!-- /.form group -->
                     </div>
 
-
-
-   
-
                     <div class="col-md-12">
-                       <div class="col-md-12">
+                        <div class="col-md-12">
                         <button class="btn btn-lg btn-primary btn-print" id="daterange-btn"  name="">Agregar</button>
                           <button type="button" class="btn btn-danger" data-dismiss="modal">CERRAR</button>
-                         </div>
+                          </div>
 
                     </div>
 
@@ -127,17 +126,6 @@ ul {
 
 
 
-
-
-
-
-
-
-
-<br>
-
- <a class = "btn btn-success btn-print" href = "" onclick = "window.print()"><i class ="glyphicon glyphicon-print"></i> Impresión</a>
-
 <br>
 <form class = "btn btn-white btn-print">
                       Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" />
@@ -145,26 +133,18 @@ ul {
 </form>
 
 
-                  <div class="box-header btn btn-primary" >
-                  <h3 class="box-title"> LISTA VACACIONES</h3>
-                </div><!-- /.box-header -->
                 <div class="box-body ">
                 
                   <table id="example22" class="table table-bordered table-striped">
                     <thead>
-                      <tr class=" btn-success">
-
-
-                        
-                          
+                      <tr class="encabezado">
 
                           <th> Fecha</th>
-       
-                       <th class="btn-print"> Accion </th>
+                        <th class="btn-print"> Acciones </th>
 
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
 <?php
 
    // $branch=$_SESSION['branch'];
@@ -298,12 +278,8 @@ function Buscar() {
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-        <a href="https://ventadecodigofuente.com/">hospital tusulutionweb Sys</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+
+        <?php include '../layout/footer.php';?>
         <!-- /footer content -->
       </div>
     </div>

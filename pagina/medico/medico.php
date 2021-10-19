@@ -121,12 +121,12 @@ ul {
 
         <?php include '../layout/datatable_script.php';?>
         <!-- /page content -->
-
+        <?php include '../layout/footer.php';?>
         <!-- footer content -->
         <!-- /footer content -->
       </div>
     </div>
-         <style>
+  <style>
 
 .myButtonx {
 	box-shadow: 0px 10px 14px -7px #276873;
@@ -242,8 +242,8 @@ ul {
         <script>
         $(document).ready( function() {
                 $('#example2').dataTable( {
-                 "language": {
-                   "paginate": {
+                  "language": {
+                    "paginate": {
                       "previous": "Anterior",
                       "next": "Siguiente"
                     },
