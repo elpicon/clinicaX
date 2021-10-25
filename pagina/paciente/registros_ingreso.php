@@ -1089,12 +1089,8 @@ input_medic.addEventListener('propertychange', inHandlerCum);
         <!-- /page content -->
 
         <!-- footer content -->
-      <footer>
-          <div class="pull-right">
-                          <a href="https://beatifullshop.co/app/clinica/pagina/layout/inicio.php">DOCTORPRJ IPS</a>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
+        <?php include '../layout/footer.php';?>
+
         <!-- /footer content -->
     
   <?php include '../layout/datatable_script.php';?>

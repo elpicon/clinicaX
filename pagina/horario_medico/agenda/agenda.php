@@ -30,6 +30,7 @@
       background-color:#ededed;
         padding:90px 10px;
     }
+    
     </style>
 
 
@@ -88,13 +89,13 @@
 
     <div class="col-md-12 colDatos">
       <div class="row">  
-      <div class="col-md-6">
+      <div class="col-md-2">
         <input hidden id="id_medico_in" value="<?php echo $_REQUEST['cid'];  ?>">
           <input type="hidden"  id="id_empresa" value="<?php echo $id_sede;  ?>" /><input type="hidden"  id="tipo" value="<?php echo $tipo;  ?>" />
           <label >Sede : </label>
           <input type="number" onkeypress="validarSede(event)" id="sede" min="1" max="99" step="1" value="1" class="form-control" style="width:80px" />
       </div>
-      <div class="col-md-6">
+      <div class="col-md-10">
       <label style="width:95px">Profesional : </label>
         <div class="form-group">
           <select class="form-control select2 " name="id_medico" id="id_medico" required>
@@ -133,16 +134,20 @@
                       </div>
 
         <div class="row">  
-          <div class="col-md-12">
+          <div class="col-md-4">
               <br>
-      <label >Tiempo de Atencion: </label> 
-      <input type="number" id="tiAtencion" min="5" max="20" step="5" class="form-control" style="width:80px">
-    
-      <label >Tiempo entre Consultas: </label>
-      <input type="number" id="tiEntreConsultas" min="1" max="10" step="1" class="form-control" style="width:80px">
-    
-      <label >Pacientes Atendidos a la Vez: </label>
-      <input type="number" id="atencionParalela" min="1" max="10" step="1" class="form-control" style="width:80px">
+                <label >Tiempo de atención: </label> 
+                <input type="number" id="tiAtencion" min="5" max="20" step="5" class="form-control" style="width:80px">
+          </div>
+          <div class="col-md-4">
+            <br>
+            <label >Tiempo entre consultas: </label>
+            <input type="number" id="tiEntreConsultas" min="1" max="10" step="1" class="form-control" style="width:80px">
+                      </div>
+                      <div class="col-md-4">
+                    <br>
+            <label >Pacientes atendidos a la vez: </label>
+            <input type="number" id="atencionParalela" min="1" max="10" step="1" class="form-control" style="width:80px">
 
                       </div>
  
@@ -156,10 +161,12 @@
   <div class="row ">
     <div class="col-lg-5">
       <br>
+      <br>
+      <br>
     <div class="doming">
-      <input style="transform: scale(1.5);" type="checkbox" id="trabajadomingos"   style="width:80px"><label class="text-right">&nbsp;&nbsp; ¿Trabaja domingos? </label>
+      <input style="transform: scale(1.5);" type="checkbox" id="trabajadomingos"   style="width:80px"><label class="text-right" style="color: white;">&nbsp;&nbsp; ¿Trabaja domingos? </label>
     </div>
-      <table class="default" >
+      <table class="default tablaDoming" >
       
 
   <tr>
@@ -167,15 +174,15 @@
     <th></th>
     
 
-    <th style="width:120px;">Hora Inicio</th>
+    <th style="width:170px; padding-top: 20px;  padding-left: 20px;" >Hora Inicio</th>
 
-    <th style="width:120px;">Hora Fin</th>
+    <th style="width:170px; padding-top: 20px;   padding-left: 20px;">Hora Fin</th>
 
   </tr>
 
   <tr style="padding: 10px 50px 20px;">
 
-    <td>Primer Turno</td>
+    <td>1er Turno</td>
 
     <td><div class="input-group " data-autoclose="trie">
                     <select type="text" id="h1t1" value="" class="form-control">
@@ -195,7 +202,7 @@
 
   <tr>
 
-    <td>Segundo Turno</td>
+    <td>2do Turno</td>
 
     <td><div class="input-group " data-autoclose="trie">
                    <select type="text" id="h1t2" value="" class="form-control">
@@ -212,7 +219,7 @@
 
   <tr>
 
-    <td>Tercer Turno</td>
+    <td>3er Turno</td>
 
     <td><div class="input-group clockpicker" data-autoclose="trie">
                     <select type="text" id="h1t3" value="" class="form-control">
@@ -227,8 +234,7 @@
                 </div>
                 </td>
  <br>
-    <br>
-    <br>
+ 
   </tr>
 
 </table>
@@ -236,6 +242,7 @@
    
   
     <div class="col-lg-7">
+      <br>
       <br>
       <div class="col-lg-12 form-group">
              <div id="calendario"></div>
@@ -586,11 +593,9 @@
         
         
         
-         <div class="row">
-          <div class="col-lg-6">
-      
-           
- 
+         <div class="row" style="text-align: center;">
+         <br>
+          <div class="col-lg-12">
 <div class="modal fade" id="modalEventos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -691,7 +696,7 @@
   </div>
 </div>
 <div class="col-lg-12">
-      <button type="button" class="btn btn-plantilla" onclick="guardarTodo();">Crear Nueva Agenda</button>
+      <button type="button" class="btn btn-plantilla" onclick="guardarTodo();">Crear nueva agenda</button>
     </div>
 </div>
   </div>

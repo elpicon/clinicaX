@@ -60,6 +60,8 @@ ul {
         <div class="box-body">
                   <h3 class="htitle ">Editar Paciente</h3>
                 </div><!-- /.box-header -->
+
+                <a class="btn btn-regresar2" aria-hidden="true" href="paciente.php" role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
           <div class="base">
 
                 <?php
@@ -83,7 +85,7 @@ ul {
 
                   
               
-                <a class="btn btn-regresar" aria-hidden="true" href="paciente.php" role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
+                
                 
                 <div class="box-body">
                 

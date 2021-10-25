@@ -57,21 +57,14 @@ ul {
 
 ?>
 
-                           <?php
-             //         if ($guardar=="si") {
-                    
-                      ?>
 
-                  <?php
-               //       }
-                      ?>  
 
 
                   <div class="box-body">
                   <h3 class="htitle">Editar Médico</h3>
                 </div><!-- /.box-header -->
               
-              <a class="btn btn-regresar2" href="medico.php"  role="button"><i class="glyphicon glyphicon-arrow-left"></i>Regresar</a>
+              <a class="btn btn-regresar2" href="medico.php"  role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
 
                 <div class="box-body">
                 
@@ -94,11 +87,10 @@ ul {
 
 
 
-     <div class="row">
+        <div class="row">
                     <div class="col-md-3 btn-print ">
                       <div class="form-group">
                         <label for="date" >IMAGEN ANTIGUA</label>
-                 
                       </div><!-- /.form group -->
                     </div>
                        <div class="col-md-9 btn-print">
@@ -126,8 +118,7 @@ ul {
                 <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
-                        <label for="date" >Nombres</label>
-                 
+                        <label for="date" >Nombre</label>
                       </div><!-- /.form group -->
                     </div>
                        <div class="col-md-9 btn-print">
@@ -143,7 +134,6 @@ ul {
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Apellido</label>
-                 
                       </div><!-- /.form group -->
                     </div>
                        <div class="col-md-9 btn-print">
@@ -154,14 +144,11 @@ ul {
                     </div>
                     </div>
 
-
-
           
-               <div class="row">
+                <div class="row">
                     <div class="col-md-3 btn-print">
                       <div class="form-group">
                         <label for="date" >Usuario</label>
-                 
                       </div><!-- /.form group -->
                     </div>
                        <div class="col-md-9 btn-print">
@@ -181,7 +168,7 @@ ul {
                           
                           <div class="col-md-9 btn-print">
                       <div class="form-group">
-                           <select name="rh" required>
+                           <select name="rh" required class="form-control">
                              <option value="">Seleccione</option>
                              <?php 
                     if(!strcmp($row['tipo_sangre'],"O+")){
@@ -241,13 +228,13 @@ ul {
                 
                            <div class="col-md-3 btn-print">
                 <div class="form-group">
-                        <label for="genero" >Genero</label>
+                        <label for="genero" >Género</label>
                                </div>
      </div>
                           <div class="col-md-9 btn-print">
                       <div class="form-group">
                           
-                           <select  name="genero" required>
+                           <select  name="genero" required class="form-control">
                                 <option value="">Seleccione</option>
                              <?php 
                     if(!strcmp($row['genero'],"MASCULINO")){

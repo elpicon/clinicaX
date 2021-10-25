@@ -1,7 +1,7 @@
 .btn-plantilla{
     background: #2db8eb;
     color: white;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .btn-plantilla2{
@@ -81,8 +81,10 @@ label{
 
 .doming{
     background: #fc8d44;
-    width: 50%;
+    width: 40%;
     padding: 10px;
+    color: black;
+    margin: 0 auto;
 }
 
 td{
@@ -92,3 +94,8 @@ td{
 th{
     color: black;
 }
+
+.tablaDoming{
+    background-color: white;
+}
+
