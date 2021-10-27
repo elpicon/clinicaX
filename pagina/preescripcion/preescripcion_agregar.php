@@ -70,41 +70,6 @@ $(document).ready(function() {
 </script>        
 
 
-    <style type="text/css">
-      #myInput {
-  background-image: url('../actividades_financieras/css/buscador.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 100%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
-}
-
-#myUL {
-  /* Remove default list styling */
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd; /* Add a border to all links */
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6; /* Grey background color */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 18px; /* Increase the font-size */
-  color: black; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
-}
-
-    </style>
 
   <body class="nav-md">
                             <?php    
@@ -123,7 +88,7 @@ $(document).ready(function() {
       <div class="right_col" role="main">
 
       <div class="box-body">
-          <h3 class="htitle">Preescripción medica</h3>
+          <h3 class="htitle">Registrar Preescripción</h3>
       </div>
           <?php
             if(isset($_GET["status"])){
@@ -176,60 +141,56 @@ $(document).ready(function() {
               <!-- Horizontal Form -->
                 <!-- form start -->
 
-                  
-                
-
-   
       <form  class="form-inline form1" name="f1" action="../preescripcion/terminarVenta.php" method="POST">
-
-
- <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
-
-      <label>Seleccione cliente</label>
-    <div class="input-group input-group-sm">
-        <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
-        <span class="input-group-btn">
-            <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
-        </span>
-    </div>
-<br>
-
-     <div class="row">
-                    <div class="col-md-3 btn-print">
-                      <div class="form-group">
-                        <label for="date" >Médico</label>
-                 
-                      </div><!-- /.form group -->
-                    </div>
-                       <div class="col-md-9 btn-print">
-                      <div class="form-group">
-             <select class="form-control select2" name="id_medico" required>
+      <div class="row">
+      <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
+      <div class="col-md-6 btn-print">
+          <span>Seleccione cliente</span>
+          <br>
+          <br>
+              <div class="input-group input-group-sm" style="
+    width: 100%;">
+                  <input class="search_query form-control" type="text" name="key" id="key" placeholder="Buscar..." required>
+                  <span class="input-group-btn">
+                      <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
+                  </span>
+              </div>
+          <br>
+          </div>
+     
+          <div class="col-md-6 btn-print">
+                        <span for="date" >Médico</span>
+                        <br>
+                      <br>
+                      <div class="">
+                        <select class="form-control select2" name="id_medico" required style="width: 100%;">
                             
                             <?php
 
-              $queryc=mysqli_query($con,"select * from usuario where tipo='medico'  ")or die(mysqli_error());
-                while($rowc=mysqli_fetch_array($queryc)){
-                ?>
-                            <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
-                            <?php }?>
+                              $queryc=mysqli_query($con,"select * from usuario where tipo='medico'  ")or die(mysqli_error());
+                                while($rowc=mysqli_fetch_array($queryc)){
+                                ?>
+                                            <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
+                                            <?php }?>
                           </select>
                       </div>
                     </div>
                     </div>
             
                     <div class="row">
-                    <div class="col-md-3 btn-print">
+                    <div class="col-md-12 btn-print">
                       <div class="form-group">
-                        <label for="date" >Historia</label>
-                 
+                        <span for="date" >Historia</span>
                       </div><!-- /.form group -->
                     </div>
-                       <div class="col-md-9 btn-print">
-                      <div class="form-group">
-                  <textarea class="form-control" id="historia" name="historia" placeholder="historia" required></textarea>
-                          <br>
+                    
+                      <div class="col-md-12 btn-print">
+                      <br>
+                              
+                          <textarea style="width: 100%;" class="form-control" id="historia" name="historia" placeholder="historia" required></textarea>
+                                  <br>
                   
-                      </div>
+                      
                     </div>
 
                     </div>
@@ -237,11 +198,11 @@ $(document).ready(function() {
 
      <input name="cliente" id="cliente" type="hidden"  required>
 <br>
-      <button type="submit" class="btn btn-plantilla">Terminar venta</button>
+          <div class="row"  style="text-align:center">
+              <button type="submit" class="btn btn-plantilla">Terminar venta</button>
 
-      <button type="button" class="btn btn-vaca" data-toggle="modal" data-target="#miModal">
-  Agregar receta médica
-</button>
+              <button type="button" class="btn btn-vaca" data-toggle="modal" data-target="#miModal">
+                  Agregar receta médica </button>
     </form>
 
 <?php
@@ -345,9 +306,9 @@ $(document).ready(function() {
                           </div><!--/.col (right) -->
                           <div class="col-md-12">
                     <!-- general form elements -->
-  
+  <br>
                       <!-- form start -->
-                      <form role="form" id="frmAcceder" name="frmAcceder">
+                      <form role="form" id="frmAcceder" name="frmAcceder" class="formTabla">
                         <div class="box-body">
                         <div class="row">
                           <div class="col-xs-12">
@@ -401,8 +362,15 @@ $(document).ready(function() {
                 
     </div>
   </div>
+
   <?php include '../layout/footer.php';?>
   <?php include '../layout/datatable_script.php';?>
+
+  <style>
+span{
+ color: black; 
+}
+</style>
 <script>
 function myFunction() {
   // Declare variables

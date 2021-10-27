@@ -185,7 +185,7 @@ $impuTotal = 0;
                   
                       <div class="row">
                         <div class="col-md-6">
-                          <form  class="form-inline" name="f1" action="../farmacia/terminarVenta.php" method="POST">
+                          
                           <input name="total" type="hidden" value="<?php echo $granTotal;?>">
                           <input name="id_sesion" type="hidden" value="<?php echo $id_sesion;?>">
                             <input name="tipo_venta" type="hidden" value="Contado">
@@ -197,22 +197,15 @@ $impuTotal = 0;
                                   <button type="submit" class="btn btn-info btn-flat"><i class="fa fa-search"></i></button>
                               </span>
                         </div>
-                        <br>
-
-                        <br>
 
                         <input name="cliente" id="cliente" type="hidden"  required>
-                    <br>
-                        
 
-
-                      </form>     
                                     </div>
 
                                     <div class="col-md-6">
                                  <label for="date" >Médico</label>
                                       <br>
-                                <div class="col-md-4 btn-print">
+                                
                                   <div class="form-group">
                                       <select class="form-control select2" name="id_medico" required>
                                                 
@@ -224,14 +217,15 @@ $impuTotal = 0;
                                                 <option value="<?php echo $rowc['id'];?>"><?php echo $rowc['nombre'];?></option>
                                                 <?php }?>
                                               </select>
-                                    </div>
+                                    
                                 </div>
                                               
                         </div>
                                     </div>
                                     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar producto..">
 
-                                    
+                                    <div class="row" style="text-align: center;">
+
                                     <button type="submit" class="btn btn-plantilla" >Terminar venta</button>
                                     
                                                   <div class="row">

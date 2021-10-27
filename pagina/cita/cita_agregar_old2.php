@@ -52,9 +52,6 @@ include '../layout/session.php';
             </div>  
           </div>  
         </div>  
-        
-        
-      
 
         <div class="row rowDatos" >
           <div class="col-lg-12 col-sm-12">
@@ -62,7 +59,7 @@ include '../layout/session.php';
               <div class="col-lg-3 col-sm-12">
               <label for='paciente'>Fecha</label>  
                 <div class="list-group-item list-group-item-action d-flex" style="
-    padding: 0;">
+                    padding: 0;">
                   <div class="p-2 flex-grow-1 ">
                     <input id="datepicker" class="form-control" value="<?php  echo date("Y-m-d");     ?>" />
                   </div>
@@ -230,7 +227,7 @@ include '../layout/session.php';
                         <tr class="encabezado">
                             <th style="width:25%;">Nombre de Asignado</th>
                             <th style="width:23%;">Hora de Cita</th>
-                            <th style="width:25%;">Médico Asignado</th>
+                            <th style="width:25%;">Médico asignado</th>
                             <th>Estado</th>
                             <th style="width:6%;">Acciones</th>
                         </tr>

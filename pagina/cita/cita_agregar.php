@@ -43,22 +43,18 @@ date_default_timezone_set('America/Lima');
         <!-- top navigation -->
             <?php include '../layout/top_nav.php';?>  
             
-            
-            
-            
-            
+
             
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title text-uppercase text-center">Terminemos de Agendar</h5>  
-      </div>
+          </div>
       <div class="modal-body">
-          <div class="form-row">  
-                                
-                             <div class="row">
-                           <?php
+        <div class="form-row">  
+          <div class="row">
+                  <?php
                          //  appnoautocomplete=""
                             /*  if(!strcmp($tipo,'paciente')){
                                   echo "<div  class='col-sm-4 col-md-4 col-xs-4'> 
@@ -86,15 +82,13 @@ date_default_timezone_set('America/Lima');
                               }
                               }*/
                            ?>
-                           
-                          
+
                                 <div class="col-sm-12 col-md-8 col-xs-12">  
-                                   
-                 <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+
+            <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
                                 <textarea oninput="cambioDesc()" class="form-control" id="descripcion_cita" rows="3"></textarea>
-                                
-                                 </div>  
-                                </div>
+          </div>  
+        </div>
                                 <!--<div class="col-sm-4 col-md-4 col-xs-12">  
                                     <label for="country">State</label>  
                                     <input id="country" type="text" placeholder="Country" class="form-control" aria-describedby="inputGroupPrepend" required />  
@@ -102,11 +96,10 @@ date_default_timezone_set('America/Lima');
                                         Please enter country.  
                                     </div>  
                                 </div>  -->
-                            </div> 
-      </div>
-     <div class="modal-footer" id="btn_add">  
+      </div> 
+    </div>
+    <div class="modal-footer" id="btn_add">  
                           <button type='button' class='btn btn-danger rounded-0' data-dismiss='modal'>Cancel</button>
-
     </div>  
     </div>
   </div>
@@ -121,7 +114,6 @@ date_default_timezone_set('America/Lima');
                         </div>  
                         <div class="modal-body">  
   
-                             
                         </div>  
                         <div class="modal-footer" id="btn_add">  
                           <button type='button' class='btn btn-danger rounded-0' data-dismiss='modal'>Cancel</button>
@@ -134,60 +126,54 @@ date_default_timezone_set('America/Lima');
         
         
   <div class="right_col" role="main">
+  <div class="box-body">
+          <h3 class="htitle">Agregar Cita</h3>
+        </div><!-- /.box-header -->
+        <a class="btn-regresar" aria-hidden="true"  href="../cita/cita.php"    role="button"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
   <div class="box-header with-border">
                 
-                 
-                 
-<table>
-  <tr>
-    <th colspan="2" style="width:50%">    <h3 class="htitle">Registrar Cita</h3>  </th>
-    <th style="width:25%"></th>
-    <th style="width:25%"></th>
-  </tr>
-  <tr>
-      <td><label>Fecha</label> </td>
-    <td><input id="datepicker" type="date" value="<?php  echo date("Y-m-d");     ?>" /></td>
-    <td><label for='paciente'>Paciente</label></td>
-    <td><input list='listapaciente' id='in_paciente' autocomplete='off' value='' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' >
-                        <datalist id='listapaciente' disable >
-                        </datalist></td>
-  </tr>
-  <tr>
-    <td><br><label>Grupo Servicio : </label></td>
-    <td><br><select id="grupo_serv" class="form-control" style="width:80%">
-                     <option value="">Seleccionar</option> 
-                   <?php
-                    $queryS=mysqli_query($con,"select * from servicios_grupos where habilitacion_citas='1'")or die(mysqli_error());
-                        $i=0;
-                        while($rowS=mysqli_fetch_array($queryS)){
-                           echo "<option style='display: none;' value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
-                           $i++;
-                        }
-                    ?>
+<div class=" rowDatos" >
+  <table>
+    <tr>
+        <td ><label>Fecha</label> </td>
+        <td><input class="form-control" id="datepicker" type="date" value="<?php  echo date("Y-m-d");     ?>" /></td>
+        <td style="width: 15%;"><label for='paciente'>Paciente</label></td>
+        <td><input list='listapaciente' id='in_paciente' autocomplete='off' value='' placeholder='Paciente' class='form-control' aria-describedby='inputGroupPrepend' >
+                          <datalist id='listapaciente' disable >
+                          </datalist></td>
+    </tr>
+    <tr>
+      <td style="width: 15%;"><br><label>Grupo Servicio </label></td>
+      <td><br><select id="grupo_serv" class="form-control" style="width:80%">
+            <option value="">Seleccionar</option> 
+                    <?php
+                      $queryS=mysqli_query($con,"select * from servicios_grupos where habilitacion_citas='1'")or die(mysqli_error());
+                          $i=0;
+                          while($rowS=mysqli_fetch_array($queryS)){
+                            echo "<option style='display: none;' value='".$rowS['codigo']."'>".$rowS['nombre']."</option> ";
+                            $i++;
+                          }
+                      ?>
                 </select></td>
       <td><br><label>Nombre</label> </td>
-    <td><br><label for="" id="lbl_nombrepaciente" class="">-------------</label></td>
-  </tr>
-  <tr>
-   <td><br><label>Ciclos</label> </td>
-   <td><br><div class=" " id="div_ciclos">---------------</div>   </td>
-   <td><br><label>Servicio</label></td>
-   <td><br><label class="" id="nombre_servicio">------------</label></td>
-  </tr>
-  <tr>
-   <td><br><label>Medico</label> </td>
-   <td><br><select class="form-control select2 "  style="width:80%" name="id_medico" id="sel_medico"  required>
-              
-              </select>   
-   </td>
-   <td></td>
-   <td></td>
-  </tr>
-</table>
-                 
-
-
-
+      <td><br><label for="" id="lbl_nombrepaciente" class="">-------------</label></td>
+    </tr>
+    
+    <tr>
+      <td><br><label>Ciclos</label> </td>
+      <td><br><div class=" " id="div_ciclos">---------------</div>   </td>
+      <td><br><label>Servicio</label></td>
+      <td><br><label class="" id="nombre_servicio">------------</label></td>
+    </tr>
+    
+    <tr>
+      <td><br><label>Médico</label> </td>
+      <td><br><select class="form-control select2 "  style="width:80%" name="id_medico" id="sel_medico"  required>
+                </select>   
+      </td>
+    </tr>
+  </table>
+</div>
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -212,8 +198,7 @@ date_default_timezone_set('America/Lima');
   </div>
 </div>
 
-             
-        <script>
+<script>
           $('#sel_medico').change(function(){
               console.log("sel_medico ");
       med_cod = $("#sel_medico").val();
@@ -226,7 +211,7 @@ date_default_timezone_set('America/Lima');
         getCita()
           
 });  
-            
+<script>          
             
             const ciclos = document.getElementById('ciclos');
             
@@ -328,31 +313,23 @@ date_default_timezone_set('America/Lima');
                         }
                          });
             }
-            </script>
-                <br>
-                
-            
-  
-        
-  
-      <div class="col-lg-8 col-sm-10">
-    
- 
-          <br>
-          <div class="datagrid">
-                   <table>
-                    <thead>
-                        <tr>
-                            <th style="width:25%;">Nombre de Asignado</th>
-                            <th style="width:23%;">Hora de Cita</th>
-                            <th style="width:25%;">Medico Asignado</th>
-                            <th>Estado</th>
-                            <th style="width:6%;">Accion</th>
+</script>
+  <br>
+          <div class="datagrid row rowDatos2" >
+            <div class="col-lg-12">
+            <table class="table.dataTable table-bordered" style="margin-bottom: 6px; margin-top: 6px">
+              <thead>
+                      <tr class="encabezado">
+                            <th style="width:30%; padding: 8px">Nombre de asignado</th>
+                            <th style="width:23%; padding: 8px">Hora de Cita</th>
+                            <th style="width:30%; padding: 8px">Médico asignado</th>
+                            <th style="width:15%; padding: 8px">Estado</th>
+                            <th style="width:20%; padding: 8px">Acciones</th>
                         </tr>
                     </thead>
                     
                     <tbody id="tabla_horarios">
-                       <!-- <tr>
+                      <!-- <tr>
                             <td>a</td>
                             <td>b</td>
                             <td>c</td>
@@ -367,16 +344,15 @@ date_default_timezone_set('America/Lima');
                         
                             </tbody>
                             </table>
+                            </div>
                         </div>
-       
-       
-       <script>
- var med_cod="";
- var dataString;
- const tabla_horarios = document.getElementById('tabla_horarios'); 
- $('#datepicker').datepicker({
-  format: 'yyyy-mm-dd'
-});
+<script>
+  var med_cod="";
+  var dataString;
+  const tabla_horarios = document.getElementById('tabla_horarios'); 
+  $('#datepicker').datepicker({
+    format: 'yyyy-mm-dd'
+  });
 
 
 
@@ -410,6 +386,7 @@ date_default_timezone_set('America/Lima');
         });
   }  
 </script>
+    
     </div>
      
             
@@ -421,9 +398,29 @@ date_default_timezone_set('America/Lima');
 
 <?php include '../layout/datatable_script.php';?>
 
+<script>
+        $(document).ready( function() {
+                $('#example2').dataTable( {
+                 "language": {
+                   "paginate": {
+                      "previous": "anterior",
+                      "next": "posterior"
+                    },
+                    "search": "Buscar:",
 
-    <!-- Custom Theme Scripts -->
-    <script src="../layout/build/js/custom.min.js"></script>
+
+                  },
+
+                  "info": false,
+                  "lengthChange": false,
+                  "searching": false,
+                  "searching": true,
+                }
+
+              );
+              } );
+    </script>
+
   <script>
   var fecha_sel;
   var cod_medico_sel;
@@ -614,111 +611,12 @@ const inputHandler = function(e) {
         });
 }
 
-in_paciente.addEventListener('input', inputHandler);
-in_paciente.addEventListener('propertychange', inputHandler); 
 
 </script>  
   
 
 
-<style>
 
-.bgall {
-    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
-	background-color:#ededed;
-		padding:90px 10px;
-}
-.myButton1 {
-	box-shadow: 0px 10px 14px -7px #3e7327;
-	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
-	background-color:#77b55a;
-	border-radius:4px;
-	border:1px solid #4b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:12px;
-	font-weight:bold;
-	padding:1px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #5b8a3c;
-}
-.myButton1:hover {
-	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
-	background-color:#72b352;
-}
-.myButton1:active {
-	position:relative;
-	top:1px;
-}
-
-.myButton2 {
-	box-shadow: 0px 10px 14px -7px #707327;
-	background:linear-gradient(to bottom, #b39a59 5%, #ebe236 100%);
-	background-color:#b39a59;
-	border-radius:4px;
-	border:1px solid #7b8f29;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:9px;
-	font-weight:bold;
-	padding:1px 2px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #d6d645;
-}
-.myButton2:hover {
-	background:linear-gradient(to bottom, #ebe236 5%, #b39a59 100%);
-	background-color:#ebe236;
-}
-.myButton2:active {
-	position:relative;
-	top:1px;
-}
-
-.myButton3 {
-	box-shadow: 0px 10px 14px -7px #735527;
-	background:linear-gradient(to bottom, #d94f04 5%, #f596a6 100%);
-	background-color:#d94f04;
-	border-radius:4px;
-	border:1px solid #e8a079;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:1px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #f2beb1;
-}
-.myButton3:hover {
-	background:linear-gradient(to bottom, #f596a6 5%, #d94f04 100%);
-	background-color:#f596a6;
-}
-.myButton3:active {
-	position:relative;
-	top:1px;
-}
-
-        
-
-
-
-
-
-#datepicker {
-  width: 15rem;
-  text-align: center;
-  padding-right: 1rem;
-}
-.list-group-item a{
-  color: #333;
-}
-
-.datagrid table { border-collapse: collapse; text-align: left; width: 100%; } .datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; border: 1px solid #006699; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }.datagrid table td, .datagrid table th { padding: 3px 10px; }.datagrid table thead th {background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; color:#FFFFFF; font-size: 15px; font-weight: bold; border-left: 1px solid #0070A8; } .datagrid table thead th:first-child { border: none; }.datagrid table tbody td { color: #00496B; border-left: 1px solid #E1EEF4;font-size: 12px;font-weight: normal; }.datagrid table tbody .alt td { background: #E1EEF4; color: #00496B; }.datagrid table tbody td:first-child { border-left: none; }.datagrid table tbody tr:last-child td { border-bottom: none; }.datagrid table tfoot td div { border-top: 1px solid #006699;background: #E1EEF4;} .datagrid table tfoot td { padding: 0; font-size: 12px } .datagrid table tfoot td div{ padding: 2px; }.datagrid table tfoot td ul { margin: 0; padding:0; list-style: none; text-align: right; }.datagrid table tfoot  li { display: inline; }.datagrid table tfoot li a { text-decoration: none; display: inline-block;  padding: 2px 8px; margin: 1px;color: #FFFFFF;border: 1px solid #006699;-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');background-color:#006699; }.datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover { text-decoration: none;border-color: #006699; color: #FFFFFF; background: none; background-color:#00557F;}
 
    </style>
   </body>

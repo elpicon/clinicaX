@@ -1,0 +1,157 @@
+.btn-plantilla{
+    background: #2db8eb;
+    color: white;
+}
+
+.btn-plantilla2{
+    background: #fc8d44;
+    color: white;
+    margin-left: 10px;
+    
+}
+
+.btn-plantilla3{
+    background: #2db8eb;
+    color: white;
+    margin-left: 10px;
+}
+
+
+.htitle{
+    color: #2d3235 ;
+    margin-top: 70px;
+}
+
+.htitle2{
+    color: #2d3235 ;
+    margin-top: 30px;
+    margin-left: 10px ;
+}
+
+
+.encabezado{
+    background: #002142;
+    color: white;
+}
+
+.btn-ver{
+    background: #fc8d44;
+    color: white;
+}
+
+.btn-cama{
+    background: #3c8dbc;
+    color: white;
+}
+
+.btn-delete{
+    background-color: #dd4b39;
+    color: white;
+}
+
+.titleModal{
+    color: #2d3235;
+}
+
+.btn-modal-save{
+    background-color: #002142;
+    color: white;
+}
+
+select{
+    height: 35px;
+    border: 1px solid #ccc;
+
+}
+
+.base{
+    background-color: white;
+    padding: 50px;
+    margin: 30px;
+    margin-top: 0;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.marco-grupo1 {     
+    background-color: #bcd8e2;
+        padding-top: 15px; 
+        padding-bottom: 15px;
+    
+    }
+
+.btn-regresar{
+    font-size: 14px;
+    color: #002142;
+    margin-left: 10px;
+}
+
+.btn-regresar2{
+    font-size: 14px;
+    color: #002142;
+}
+
+.boxValor{
+    background: #fc8d44;
+    color: white;
+}
+
+.panelAgregar{
+    box-shadow: 0;
+    border: 1px solid #002142;
+}
+
+.labelForms{
+    margin-left: 20px;
+}
+
+.navBorde{
+    border: none !important;
+    
+}
+
+
+
+.spanMenu{
+    color: black;
+}
+
+.colMenu{
+    padding-left: 90px !important;
+}
+
+.tabPanel2{
+    background-color: white;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.labelPrioridad{
+    color: white;
+}
+
+.box1{
+    background-color: white;
+    margin-left: 25%;
+    margin-bottom: 20px;
+    width: 50%;
+    padding: 15px;
+}
+
+.box2{
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+span{
+    color: black;
+}
+
+h3{
+    color: black;
+}
